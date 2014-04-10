@@ -1,1 +1,1 @@
-Search.setIndex({envversion:42,terms:{index:0,search:0,innov:0,modul:0,page:0,kiosk:0,sale:0,system:0,offic:0,manag:0,cream:0},objtypes:{},objnames:{},filenames:["index"],titles:["gelato"],objects:{},titleterms:{gelato:0,content:0,indic:0,tabl:0}})
+Search.setIndex({envversion:42,terms:{index:0,search:0,innov:0,modul:0,kiosk:0,sale:0,system:0,offic:0,cream:0,manag:0,page:0},objtypes:{},objnames:{},filenames:["index"],titles:["gelato"],objects:{},titleterms:{gelato:0,content:0,indic:0,tabl:0}})
