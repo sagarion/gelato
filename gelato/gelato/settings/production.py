@@ -58,18 +58,17 @@ DATABASES = {}
 
 ########## CACHE CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#caches
-CACHES = {}
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
+    }
+}
 ########## END CACHE CONFIGURATION
 
 
 ########## SECRET CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#secret-key
-SECRET_KEY = get_env_setting('SECRET_KEY')
+#SECRET_KEY = get_env_setting('SECRET_KEY')
+SECRET_KEY = 'changemerightnow'
 ########## END SECRET CONFIGURATION
 
-
-########## SITE CONFIGURATION
-# Hosts/domain names that are valid for this site
-# See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
-ALLOWED_HOSTS = []
-########## END SITE CONFIGURATION
