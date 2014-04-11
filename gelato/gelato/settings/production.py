@@ -57,7 +57,7 @@ SERVER_EMAIL = EMAIL_HOST_USER
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'gelato.db',
+        'NAME': '/home/gelato/repository/gelato/gelato.db',
     }
 }
 ########## END DATABASE CONFIGURATION
