@@ -1,5 +1,5 @@
 # -*- coding: UTF-8 -*-
-# urls.py
+# admin.py
 #
 # Copyright (C) 2014 HES-SO//HEG Arc
 #
@@ -23,14 +23,10 @@
 # Stdlib imports
 
 # Core Django imports
-from django.conf.urls import patterns, url
+#from django.contrib import admin
 
 # Third-party app imports
 
 # Gelato imports
-from .views import ProductListView, ProductTransactionsDetail
+#from .models import XXX
 
-urlpatterns = patterns('',
-    url(r'^product/(?P<pk>\d+)/$', ProductTransactionsDetail.as_view(), name='product_detail'),
-    url(r'$', ProductListView.as_view(), name='products'),
-)

@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block title %}Products{% endblock %}
+{% block stylesheets %}
+    {{ block.super }}
+{% endblock stylesheets %}
+{% block content %}
+    {{ block.super }}
+    <h2>{{ object }}</h2>
+    <dl>
+        <dt>Price</dt><dd>{{ object.price|floatformat:"2" }}</dd>
+        <dt>Total sales</dt><dd>{{ quantity_sold }}</dd>
+        <dt>Calories</dt><dd>{{ object.calorie }} kcal</dd>
+        <dt>Weight</dt><dd>{{ object.weight }} g</dd>
+        <dt>Picture</dt><dd><img src="{{ object.picture.url }}" /></dd>
+    </dl>
+    <table>
+        <tr>
+            <th>Date</th>
+            <th>Type</th>
+            <th>User</th>
+            <th>Quantity</th>
+            <th>Price</th>
+        </tr>
+    {% for object in transaction_list %}
+        <tr>
+            <td>{{ object.created }}</td>
+            <td>{{ object.get_product_transaction_type_display }}</td>
+            <td>{{ object.user }}</td>
+            <td>{{ object.quantity }}</td>
+            <td>{{ object.transaction_price|floatformat:"2" }}</td>
+        </tr>
+    {% endfor %}
+    </table>
+{% endblock %}

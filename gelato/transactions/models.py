@@ -23,9 +23,10 @@
 # Stdlib imports
 
 # Core Django imports
+from django.conf import settings
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
-from django.contrib.auth.models import User
+
 
 # Third-party app imports
 
@@ -51,7 +52,18 @@ class ProductTransaction(models.Model):
     transaction_price = models.DecimalField(verbose_name=_("total price"), max_digits=6, decimal_places=2, default=0, help_text=_("Total amount in CHF"))
     product_transaction_type = models.CharField(verbose_name=_("type of transaction"), max_length=1, choices=PRODUCT_TRANSACTION_CHOICES, default=SALE)
     created = models.DateTimeField(verbose_name=_("created"), auto_now=True, help_text=_("Date of the transaction"))
-    user = models.ForeignKey(User, verbose_name=_('user'), related_name=_('product transactions'), help_text=_("User who performs the transaction"))
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_('user'), related_name=_('product transactions'), help_text=_("User who performs the transaction"))
+
+    def abs_quantity(self):
+        return abs(self.quantity)
+
+    class Meta:
+        verbose_name = _('product transaction')
+        verbose_name_plural = _('product transactions')
+        ordering = ['-created']
+
+    def __unicode__(self):
+        return "%s (%sx)" % (self.product, abs(self.quantity))
 
 
 class FinancialTransaction(models.Model):
@@ -75,5 +87,13 @@ class FinancialTransaction(models.Model):
     amount = models.DecimalField(verbose_name=_("amount"), max_digits=6, decimal_places=2, default=0, help_text=_("Amount in CHF"))
     financial_transaction_type = models.CharField(verbose_name=_("type of transaction"), max_length=2, choices=FINANCIAL_TRANSACTION_CHOICES, default=PRODUCT)
     created = models.DateTimeField(verbose_name=_("created"), auto_now=True, help_text=_("Date of the transaction"))
-    user = models.ForeignKey(User, verbose_name=_('user'), related_name=_('financial transactions'), help_text=_("User who is credited or debited"))
-    banker = models.ForeignKey(User, verbose_name=_('banker'), related_name=_('banker transactions'), blank=True, null=True, help_text=_("Banker who performs the transaction"))
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_('user'), related_name=_('financial transactions'), help_text=_("User who is credited or debited"))
+    banker = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_('banker'), related_name=_('banker transactions'), blank=True, null=True, help_text=_("Banker who performs the transaction"))
+
+    class Meta:
+        verbose_name = _('financial transaction')
+        verbose_name_plural = _('financial transactions')
+        ordering = ['-created']
+
+    def __unicode__(self):
+        return "%s [%s] %s (%s)" % (self.created.strftime("%Y-%m-%d %H:%M:%S"), self.financial_transaction_type, self.user, self.amount)

@@ -1,0 +1,19 @@
+{% load staticfiles %}
+<html>
+<head>
+    <title>
+        {% block title %}Gelato! HEG-Arc Ice Cream Kiosk{% endblock title %}
+    </title>
+    {% block stylesheets %}
+        <link rel="stylesheet" type="text/css"
+              href="{% static "css/project.css" %}">
+    {% endblock stylesheets %}
+</head>
+<body>
+<div class="content">
+    {% block content %}
+        <h1>Gelato</h1>
+    {% endblock content %}
+</div>
+</body>
+</html>

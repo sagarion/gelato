@@ -1,5 +1,5 @@
 # -*- coding: UTF-8 -*-
-# urls.py
+# models.py
 #
 # Copyright (C) 2014 HES-SO//HEG Arc
 #
@@ -23,14 +23,14 @@
 # Stdlib imports
 
 # Core Django imports
-from django.conf.urls import patterns, url
+from django.contrib.auth.models import AbstractUser
+from django.db import models
+from django.utils.translation import ugettext_lazy as _
 
 # Third-party app imports
 
 # Gelato imports
-from .views import ProductListView, ProductTransactionsDetail
 
-urlpatterns = patterns('',
-    url(r'^product/(?P<pk>\d+)/$', ProductTransactionsDetail.as_view(), name='product_detail'),
-    url(r'$', ProductListView.as_view(), name='products'),
-)
+
+class User(AbstractUser):
+    card_uid = models.CharField(_("card uid"), max_length=100, null=True, blank=True)

@@ -1,5 +1,5 @@
 # -*- coding: UTF-8 -*-
-# urls.py
+# __init__.py
 #
 # Copyright (C) 2014 HES-SO//HEG Arc
 #
@@ -20,17 +20,6 @@
 # You should have received a copy of the GNU General Public License
 # along with Gelato. If not, see <http://www.gnu.org/licenses/>.
 
-# Stdlib imports
-
-# Core Django imports
-from django.conf.urls import patterns, url
-
-# Third-party app imports
-
-# Gelato imports
-from .views import ProductListView, ProductTransactionsDetail
-
-urlpatterns = patterns('',
-    url(r'^product/(?P<pk>\d+)/$', ProductTransactionsDetail.as_view(), name='product_detail'),
-    url(r'$', ProductListView.as_view(), name='products'),
-)
+"""
+The wallets app manages the users accounts and some stats on their consumption of ice creams
+"""

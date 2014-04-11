@@ -33,28 +33,32 @@ from django.utils.translation import ugettext as _
 from django.core.exceptions import ObjectDoesNotExist
 from django.views.generic import ListView, DetailView
 from django.db.models import Sum
+from django.contrib.auth.models import User
 
 # Third-party app imports
 
 # Gelato imports
-from .models import Product, ProductCategory
-from transactions.models import ProductTransaction
+from transactions.models import ProductTransaction, FinancialTransaction
 
 
-class ProductListView(ListView):
-    model = Product
-    # TODO: Filter products with stock > 0
+class UserListView(ListView):
+    model = User
+    # TODO: Request admin login
 
 
-class ProductTransactionsDetail(DetailView):
-    model = Product
+class UserDetail(DetailView):
+    model = User
+    # TODO: Request admin login
 
     def get_context_data(self, **kwargs):
-        context = super(ProductTransactionsDetail, self).get_context_data(**kwargs)
-        context['transaction_list'] = ProductTransaction.objects.all().filter(product=self.object)
-        qty_sold = ProductTransaction.objects.all().filter(product=self.object).filter(product_transaction_type=ProductTransaction.SALE).aggregate(Sum('quantity'))['quantity__sum']
-        if not qty_sold:
-            context['quantity_sold'] = 0
-        else:
-            context['quantity_sold'] = qty_sold * -1
+        context = super(UserDetail, self).get_context_data(**kwargs)
+        context['product_transaction_list'] = ProductTransaction.objects.all().filter(user=self.object)
+        context['financial_transaction_list'] = FinancialTransaction.objects.all().filter(user=self.object)
         return context
+
+
+class UserHomeDetail(DetailView):
+    model = User
+    # TODO: Request login
+
+

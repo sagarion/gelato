@@ -21,6 +21,8 @@
 # along with Gelato. If not, see <http://www.gnu.org/licenses/>.
 
 from django.conf.urls import patterns, include, url
+from django.conf import settings
+from django.conf.urls.static import static
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
@@ -28,7 +30,8 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     # Examples:
-    # url(r'^$', 'gelato.views.home', name='home'),
+    url(r'^p/', include('products.urls')),
+    url(r'^w/', include('wallets.urls')),
     # url(r'^gelato/', include('gelato.foo.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:
@@ -37,3 +40,9 @@ urlpatterns = patterns('',
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
 )
+
+urlpatterns += patterns('',
+    url(r'^shib/', include('shibboleth.urls', namespace='shibboleth')),
+)
+
+urlpatterns = urlpatterns + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

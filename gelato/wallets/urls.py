@@ -28,9 +28,9 @@ from django.conf.urls import patterns, url
 # Third-party app imports
 
 # Gelato imports
-from .views import ProductListView, ProductTransactionsDetail
+from .views import UserListView, UserDetail, UserHomeDetail
 
 urlpatterns = patterns('',
-    url(r'^product/(?P<pk>\d+)/$', ProductTransactionsDetail.as_view(), name='product_detail'),
-    url(r'$', ProductListView.as_view(), name='products'),
+    url(r'^user/(?P<pk>\d+)/$', UserDetail.as_view(), name='user_detail'),
+    url(r'$', UserListView.as_view(), name='users'),
 )

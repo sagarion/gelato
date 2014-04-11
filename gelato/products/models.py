@@ -23,13 +23,16 @@
 # Stdlib imports
 
 # Core Django imports
+from django.conf import settings
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from django.contrib.auth.models import User
+from django.db.models import Sum
 
 # Third-party app imports
 
 # Gelato imports
+#from transactions.models import ProductTransaction
 
 
 class ProductCategory(models.Model):
@@ -37,11 +40,19 @@ class ProductCategory(models.Model):
     A category of products that is used to group the products in order to reduce the amount of products to display at the same time.
     """
     name = models.CharField(verbose_name=_("name"), max_length=20, help_text=_("Name of the category"))
-    description = models.TextField(verbose_name=_("name"), help_text=_("Description of the category"))
+    description = models.TextField(verbose_name=_("description"), help_text=_("Description of the category"))
     picture = models.ImageField(verbose_name=_("picture"), upload_to="categories", help_text=_("Picture of the category"))
     created = models.DateTimeField(verbose_name=_("created"), auto_now_add=True, help_text=_("Creation date of the category in the database"))
     edited = models.DateTimeField(verbose_name=_("edited"), auto_now=True, help_text=_("Last edition of the category in the database"))
-    editor = models.ForeignKey(User, verbose_name=_('editor'), related_name=_('categories'), help_text=_("Last editor of the category in the database"))
+    editor = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_('editor'), related_name=_('categories'), help_text=_("Last editor of the category in the database"))
+
+    class Meta:
+        verbose_name = _('product category')
+        verbose_name_plural = _('product categories')
+        ordering = ['name']
+
+    def __unicode__(self):
+        return self.name
 
 
 class Product(models.Model):
@@ -58,4 +69,17 @@ class Product(models.Model):
     category = models.ForeignKey('ProductCategory', verbose_name=_('category'), related_name=_('products'), help_text=_("Category the product belongs to"))
     created = models.DateTimeField(verbose_name=_("created"), auto_now_add=True, help_text=_("Creation date of the product in the database"))
     edited = models.DateTimeField(verbose_name=_("edited"), auto_now=True, help_text=_("Last edition of the product in the database"))
-    editor = models.ForeignKey(User, verbose_name=_('editor'), related_name=_('products'), help_text=_("Last editor of the product in the database"))
+    editor = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_('editor'), related_name=_('products'), help_text=_("Last editor of the product in the database"))
+
+    def stock(self):
+        # TODO: Debug stock computation
+        #stock = ProductTransaction.objects.get(product=self.id).aggregate(Sum('quantity'))
+        return 1 #stock
+
+    class Meta:
+        verbose_name = _('product')
+        verbose_name_plural = _('products')
+        ordering = ['name']
+
+    def __unicode__(self):
+        return self.name

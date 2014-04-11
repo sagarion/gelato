@@ -101,6 +101,24 @@ USE_L10N = True
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#use-tz
 USE_TZ = True
+
+# See: https://docs.djangoproject.com/en/1.6/ref/settings/#std:setting-AUTH_USER_MODEL
+AUTH_USER_MODEL = "wallets.User"
+
+AUTHENTICATION_BACKENDS = (
+  'django.contrib.auth.backends.RemoteUserBackend',
+  'django.contrib.auth.backends.ModelBackend',
+)
+
+SHIBBOLETH_ATTRIBUTE_MAP = {
+   "Shibboleth-user": (True, "username"),
+   "Shibboleth-givenName": (True, "first_name"),
+   "Shibboleth-sn": (True, "last_name"),
+   "Shibboleth-mail": (True, "email"),
+}
+
+
+
 ########## END GENERAL CONFIGURATION
 
 
@@ -166,6 +184,8 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.tz',
     'django.contrib.messages.context_processors.messages',
     'django.core.context_processors.request',
+    'shibboleth.context_processors.login_link',
+    'shibboleth.context_processors.logout_link',
 )
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#template-loaders
@@ -189,6 +209,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'shibboleth.middleware.ShibbolethRemoteUserMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
@@ -226,6 +247,7 @@ MODELTRANSLATION_TRANSLATION_FILES = (
 THIRD_PARTY_APPS = (
     # Database migration helpers:
     'south',
+    'shibboleth',
     #'wkhtmltopdf',
     #'modeltranslation',
 )
@@ -234,6 +256,7 @@ THIRD_PARTY_APPS = (
 LOCAL_APPS = (
     'products',
     'transactions',
+    'wallets',
 )
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
