@@ -103,7 +103,7 @@ def activation_form(request):
     p.drawImage('%s/wallets/activation-form.jpg' % settings.MEDIA_ROOT, 0, 0, width=210*mm, height=297*mm)
 
     barcode = code39.Extended39('%s' % user.username.split('@')[0], barWidth=0.5*mm, barHeight=20*mm)
-    barcode.drawOn(p, 100*mm, 100*mm)
+    barcode.drawOn(p, 60*mm, 80*mm)
 
     p.showPage()
 
