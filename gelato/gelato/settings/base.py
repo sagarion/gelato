@@ -111,7 +111,7 @@ AUTHENTICATION_BACKENDS = (
 )
 
 SHIBBOLETH_ATTRIBUTE_MAP = {
-   "homeOrganizationType": (True, "username"),
+   "uniqueID": (True, "username"),
    "givenName": (True, "first_name"),
    "surname": (True, "last_name"),
    "mail": (True, "email"),

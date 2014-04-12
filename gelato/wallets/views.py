@@ -30,8 +30,9 @@ from django.http import HttpResponseRedirect, HttpResponse
 from django.core.urlresolvers import reverse
 from django.contrib import messages
 from django.utils.translation import ugettext as _
+from django.utils.decorators import method_decorator
 from django.core.exceptions import ObjectDoesNotExist
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, TemplateView
 from django.db.models import Sum
 #from django.contrib.auth.models import User
 from django.conf import settings
@@ -41,6 +42,7 @@ from django.conf import settings
 # Gelato imports
 from transactions.models import ProductTransaction, FinancialTransaction
 from .models import User
+
 
 class UserListView(ListView):
     model = User
@@ -58,6 +60,36 @@ class UserDetail(DetailView):
         return context
 
 
-class UserHomeDetail(DetailView):
-    model = User
-    # TODO: Request login
+@login_required()
+def dashboard(request):
+    user = request.user
+    if not user.is_active:
+        HttpResponseRedirect('create_account')
+
+    financial_transactions = FinancialTransaction.objects.all().filter(user=user)
+    product_transactions = ProductTransaction.objects.all().filter(user=user)
+    return render_to_response('wallets/dashboard.html', {"financial_transactions": financial_transactions,
+                                                         "product_transactions": product_transactions,
+                                                         "user": user, }, context_instance=RequestContext(request))
+
+
+@login_required()
+def create_account(request):
+    user = request.user
+    if user.is_active:
+        HttpResponseRedirect('dashboard')
+
+    return render_to_response('wallets/create_account.html', {"user": user, }, context_instance=RequestContext(request))
+
+
+class UserHomeDetail(TemplateView):
+    template_name = "wallets/home.html"
+
+    @method_decorator(login_required)
+    def dispatch(self, request, *args, **kwargs):
+        return super(UserHomeDetail, self).dispatch(request, *args, **kwargs)
+
+    def get_context_data(self, **kwargs):
+        context = super(UserHomeDetail, self).get_context_data(**kwargs)
+        context['latest_articles'] = Article.objects.all()[:5]
+        return context

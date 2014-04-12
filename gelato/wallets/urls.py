@@ -28,9 +28,11 @@ from django.conf.urls import patterns, url
 # Third-party app imports
 
 # Gelato imports
-from .views import UserListView, UserDetail, UserHomeDetail
+from .views import UserListView, UserDetail, UserHomeDetail, dashboard, create_account
 
 urlpatterns = patterns('',
     url(r'^user/(?P<pk>\d+)/$', UserDetail.as_view(), name='user_detail'),
+    url(r'^dashboard/$', dashboard, name='dashboard'),
+    url(r'^create_account/$', create_account, name='create_account'),
     url(r'$', UserListView.as_view(), name='users'),
 )
