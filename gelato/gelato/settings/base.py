@@ -111,10 +111,10 @@ AUTHENTICATION_BACKENDS = (
 )
 
 SHIBBOLETH_ATTRIBUTE_MAP = {
-   "Shibboleth-user": (True, "username"),
-   "Shibboleth-givenName": (True, "first_name"),
-   "Shibboleth-sn": (True, "last_name"),
-   "Shibboleth-mail": (True, "email"),
+   "mail": (True, "username"),
+   "givenName": (True, "first_name"),
+   "surname": (True, "last_name"),
+   "mail": (True, "email"),
 }
 
 
