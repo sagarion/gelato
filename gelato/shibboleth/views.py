@@ -14,6 +14,7 @@ from urllib import quote
 #Logout settings.
 from shibboleth.app_settings import LOGOUT_URL, LOGOUT_REDIRECT_URL, LOGOUT_SESSION_KEY
 
+
 class ShibbolethView(TemplateView):
     """
     This is here to offer a Shib protected page that we can
@@ -42,6 +43,7 @@ class ShibbolethView(TemplateView):
         context['user'] = self.request.user
         return context
 
+
 class ShibbolethLoginView(TemplateView):
     """
     Pass the user to the Shibboleth logout page.
@@ -55,7 +57,8 @@ class ShibbolethLoginView(TemplateView):
         self.request.session.pop(LOGOUT_SESSION_KEY, None)
         login = settings.LOGIN_URL + '?target=%s' % quote(self.request.GET.get(self.redirect_field_name))
         return redirect(login)
-    
+
+
 class ShibbolethLogoutView(TemplateView):
     """
     Pass the user to the Shibboleth logout page.

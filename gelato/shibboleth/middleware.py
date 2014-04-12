@@ -4,6 +4,7 @@ from django.core.exceptions import ImproperlyConfigured
 
 from shibboleth.app_settings import SHIB_ATTRIBUTE_MAP, LOGOUT_SESSION_KEY
 
+
 class ShibbolethRemoteUserMiddleware(RemoteUserMiddleware):
     """
     Authentication Middleware for use with Shibboleth.  Uses the recommended pattern 
@@ -22,11 +23,11 @@ class ShibbolethRemoteUserMiddleware(RemoteUserMiddleware):
         #To support logout.  If this variable is True, do not 
         #authenticate user and return now.
         if request.session.get(LOGOUT_SESSION_KEY) == True:
-            return 
+            return
         else:
             #Delete the shib reauth session key if present.
-	        request.session.pop(LOGOUT_SESSION_KEY, None)
-	   
+            request.session.pop(LOGOUT_SESSION_KEY, None)
+
         #Locate the remote user header.  
         try:
             username = request.META[self.header]
@@ -74,7 +75,7 @@ class ShibbolethRemoteUserMiddleware(RemoteUserMiddleware):
         from the Shib provided attributes.  By default it does noting.
         """
         return
-    
+
     def parse_attributes(self, request):
         """
         Parse the incoming Shibboleth attributes. 
@@ -92,6 +93,7 @@ class ShibbolethRemoteUserMiddleware(RemoteUserMiddleware):
                 if required:
                     error = True
         return shib_attrs, error
+
 
 class ShibbolethValidationError(Exception):
     pass
