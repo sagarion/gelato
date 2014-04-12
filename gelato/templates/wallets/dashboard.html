@@ -1,18 +1,18 @@
 {% extends "base.html" %}
 {% load staticfiles %}
-{% block title %}User {{ object.username }}{% endblock %}
+{% block title %}User {{ user.username }}{% endblock %}
 {% block stylesheets %}
     {{ block.super }}
 {% endblock stylesheets %}
 {% block content %}
     {{ block.super }}
-    <h2>User {{ object.username }}</h2>
+    <h2>User {{ user.username }}</h2>
     <dl>
-        <dt>Name</dt><dd>{{ object.first_name }} {{ object.last_name }}</dd>
-        <dt>Email</dt><dd>{{ object.email }}</dd>
-        <dt>Card UID</dt><dd>{{ object.card }}</dd>
-        <dt>Balance</dt><dd>{{ object.balance|floatformat:"2" }}</dd>
-        <dt>Last login</dt><dd>{{ object.last_login }}</dd>
+        <dt>Name</dt><dd>{{ user.first_name }} {{ user.last_name }}</dd>
+        <dt>Email</dt><dd>{{ user.email }}</dd>
+        <dt>Card UID</dt><dd>{{ user.card }}</dd>
+        <dt>Balance</dt><dd>{{ user.balance|floatformat:"2" }}</dd>
+        <dt>Last login</dt><dd>{{ user.last_login }}</dd>
     </dl>
     <h3>Financial transactions</h3>
     <table>
@@ -23,7 +23,7 @@
             <th>Banker</th>
             <th>Amount</th>
         </tr>
-    {% for object in financial_transaction_list %}
+    {% for object in financial_transactions %}
         <tr>
             <td>{{ object.created }}</td>
             <td>{{ object.get_financial_transaction_type_display }}</td>
@@ -42,7 +42,7 @@
             <th>Quantity</th>
             <th>Price</th>
         </tr>
-    {% for object in product_transaction_list %}
+    {% for object in product_transactions %}
         <tr>
             <td>{{ object.created }}</td>
             <td>{{ object.get_product_transaction_type_display }}</td>

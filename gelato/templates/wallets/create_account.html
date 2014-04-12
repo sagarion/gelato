@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block title %}User {{ object.username }}{% endblock %}
+{% block stylesheets %}
+    {{ block.super }}
+{% endblock stylesheets %}
+{% block content %}
+    {{ block.super }}
+    <h2>User {{ object.username }}</h2>
+    <dl>
+        <dt>Name</dt><dd>{{ object.first_name }} {{ object.last_name }}</dd>
+        <dt>Email</dt><dd>{{ object.email }}</dd>
+        <dt>Card UID</dt><dd>{{ object.card }}</dd>
+        <dt>Balance</dt><dd>{{ object.balance|floatformat:"2" }}</dd>
+        <dt>Last login</dt><dd>{{ object.last_login }}</dd>
+    </dl>
+    <p>You should now create your account...</p>
+{% endblock %}
