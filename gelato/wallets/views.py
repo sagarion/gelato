@@ -38,6 +38,14 @@ from django.db.models import Sum
 from django.conf import settings
 
 # Third-party app imports
+from reportlab.pdfgen import canvas
+from reportlab.graphics.shapes import Drawing, Rect
+from reportlab.graphics.barcode.qr import QrCodeWidget
+from reportlab.graphics import renderPDF
+from reportlab.lib.pagesizes import A4
+from reportlab.lib.units import mm
+from reportlab.lib import colors
+from reportlab.graphics.barcode import code39
 
 # Gelato imports
 from transactions.models import ProductTransaction, FinancialTransaction
@@ -88,7 +96,20 @@ def activation_form(request):
     if user.is_active:
         return HttpResponseRedirect(reverse('dashboard'))
 
-    return render_to_response('wallets/create_account.html', {"user": user, }, context_instance=RequestContext(request))
+    response = HttpResponse(mimetype='application/pdf')
+    response['Content-Disposition'] = 'attachment; filename="gelato-activation-form.pdf"; size=A4'
+
+    p = canvas.Canvas(response)
+    p.drawImage('%swallets/activation-form.jpg' % settings.MEDIA_ROOT, 0, 0, width=210*mm, height=297*mm)
+
+    barcode = code39.Extended39('%s' % user.username.split('@')[0], barWidth=0.5*mm, barHeight=20*mm)
+    barcode.drawOn(p, 100*mm, 100*mm)
+
+    p.showPage()
+
+    p.save()
+
+    return response
 
 
 class UserHomeDetail(TemplateView):
