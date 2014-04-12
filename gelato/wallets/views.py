@@ -100,7 +100,7 @@ def activation_form(request):
     response['Content-Disposition'] = 'attachment; filename="gelato-activation-form.pdf"; size=A4'
 
     p = canvas.Canvas(response)
-    p.drawImage('%swallets/activation-form.jpg' % settings.MEDIA_ROOT, 0, 0, width=210*mm, height=297*mm)
+    p.drawImage('%s/wallets/activation-form.jpg' % settings.MEDIA_ROOT, 0, 0, width=210*mm, height=297*mm)
 
     barcode = code39.Extended39('%s' % user.username.split('@')[0], barWidth=0.5*mm, barHeight=20*mm)
     barcode.drawOn(p, 100*mm, 100*mm)
