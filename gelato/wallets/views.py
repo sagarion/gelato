@@ -82,6 +82,15 @@ def create_account(request):
     return render_to_response('wallets/create_account.html', {"user": user, }, context_instance=RequestContext(request))
 
 
+@login_required()
+def activation_form(request):
+    user = request.user
+    if user.is_active:
+        return HttpResponseRedirect(reverse('dashboard'))
+
+    return render_to_response('wallets/create_account.html', {"user": user, }, context_instance=RequestContext(request))
+
+
 class UserHomeDetail(TemplateView):
     template_name = "wallets/home.html"
 
