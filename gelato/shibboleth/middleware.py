@@ -30,7 +30,8 @@ class ShibbolethRemoteUserMiddleware(RemoteUserMiddleware):
 
         #Locate the remote user header.  
         try:
-            username = request.META[self.header]
+            #username = request.META[self.header]
+            username = request.environ['mail']
         except KeyError:
             # If specified header doesn't exist then return (leaving
             # request.user set to AnonymousUser by the
