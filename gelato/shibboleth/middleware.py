@@ -32,6 +32,7 @@ class ShibbolethRemoteUserMiddleware(RemoteUserMiddleware):
         try:
             #username = request.META[self.header]
             username = request.environ['mail']
+            # TODO: change to request.environ['uniqueID'] when AAI mutation is validated
         except KeyError:
             # If specified header doesn't exist then return (leaving
             # request.user set to AnonymousUser by the
@@ -65,6 +66,7 @@ class ShibbolethRemoteUserMiddleware(RemoteUserMiddleware):
             user.last_name = shib_meta.get('last_name', '')
             #import ipdb; ipdb.set_trace()
             user.email = shib_meta.get('email', '')
+            user.is_active = 0
             user.save()
             # call make profile.
             self.make_profile(user, shib_meta)
