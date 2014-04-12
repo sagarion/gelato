@@ -63,7 +63,7 @@ class UserDetail(DetailView):
 @login_required()
 def dashboard(request):
     user = request.user
-    if not user.is_active:
+    if user.is_active == 0:
         HttpResponseRedirect('create_account')
 
     financial_transactions = FinancialTransaction.objects.all().filter(user=user)
@@ -76,7 +76,7 @@ def dashboard(request):
 @login_required()
 def create_account(request):
     user = request.user
-    if user.is_active:
+    if user.is_active == 1:
         HttpResponseRedirect('dashboard')
 
     return render_to_response('wallets/create_account.html', {"user": user, }, context_instance=RequestContext(request))
