@@ -33,13 +33,14 @@ from django.utils.translation import ugettext as _
 from django.core.exceptions import ObjectDoesNotExist
 from django.views.generic import ListView, DetailView
 from django.db.models import Sum
-from django.contrib.auth.models import User
+#from django.contrib.auth.models import User
+from django.conf import settings
 
 # Third-party app imports
 
 # Gelato imports
 from transactions.models import ProductTransaction, FinancialTransaction
-
+from .models import User
 
 class UserListView(ListView):
     model = User
@@ -60,5 +61,3 @@ class UserDetail(DetailView):
 class UserHomeDetail(DetailView):
     model = User
     # TODO: Request login
-
-
