@@ -56,8 +56,12 @@ SERVER_EMAIL = EMAIL_HOST_USER
 ########## DATABASE CONFIGURATION
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': '/home/gelato/repository/gelato/gelato.db',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'gelato',
+        'USER': 'gelato',
+        'PASSWORD': get_env_variable("GELATO_DATABASE_PASSWORD"),
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
 ########## END DATABASE CONFIGURATION
@@ -75,7 +79,7 @@ CACHES = {
 
 ########## SECRET CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#secret-key
-#SECRET_KEY = get_env_setting('SECRET_KEY')
-SECRET_KEY = 'changemerightnow'
+SECRET_KEY = get_env_setting('GELATO_SECRET_KEY')
+
 ########## END SECRET CONFIGURATION
 
