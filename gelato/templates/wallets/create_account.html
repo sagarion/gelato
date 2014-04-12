@@ -1,18 +1,25 @@
 {% extends "base.html" %}
 {% load staticfiles %}
-{% block title %}User {{ object.username }}{% endblock %}
+{% block title %}Create account{% endblock %}
 {% block stylesheets %}
     {{ block.super }}
 {% endblock stylesheets %}
 {% block content %}
     {{ block.super }}
-    <h2>User {{ object.username }}</h2>
+    <h2>{{ user.first_name }} {{ user.last_name }}</h2>
+    <p>You are registered with the following information:</p>
     <dl>
         <dt>Name</dt><dd>{{ object.first_name }} {{ object.last_name }}</dd>
         <dt>Email</dt><dd>{{ object.email }}</dd>
-        <dt>Card UID</dt><dd>{{ object.card }}</dd>
-        <dt>Balance</dt><dd>{{ object.balance|floatformat:"2" }}</dd>
-        <dt>Last login</dt><dd>{{ object.last_login }}</dd>
     </dl>
-    <p>You should now create your account...</p>
+    <p>In order to use Gelato, you need to activate your badge and add funds to your account.</p>
+    <h3>Activate your badge</h3>
+    <p>To activate your badge, you need to print the activation form, go to the kiosk, put your badge on the reader and,
+    when asked, scan the barcode that is printed on the activation form.</p>
+    <a href="#">Print the activation form</a>
+    <h3>Add funds to your account</h3>
+    <p>In order to add funds to your account, once your badge is activated, go to the office 150 and make a cash deposit
+     on your account. Any remaining amount will be fully returned at the end of the season.</p>
+    <p>You can also add funds with your credit card (VISA, Mastercard), using our PayPal gateway.</p>
+    <a href="#">Add funds with PayPal</a>
 {% endblock %}
