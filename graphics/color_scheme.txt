@@ -1,0 +1,4 @@
+Brown: 562513
+Pink: FF799D
+Blue: 89C6DF
+Background: FFF8ED
