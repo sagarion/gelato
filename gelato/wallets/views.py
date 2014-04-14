@@ -120,7 +120,7 @@ def activation_form(request):
     return response
 
 
-@require_POST()
+@require_POST
 def activate_account(request, barcode, card_uid):
     # TODO: Force POST and login from Kiosk
     user = User.objects.get(username=barcode)
