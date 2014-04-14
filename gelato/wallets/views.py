@@ -33,6 +33,7 @@ from django.utils.translation import ugettext as _
 from django.utils.decorators import method_decorator
 from django.core.exceptions import ObjectDoesNotExist
 from django.views.generic import ListView, DetailView, TemplateView
+from django.views.decorators.http import require_POST
 from django.db.models import Sum
 #from django.contrib.auth.models import User
 from django.conf import settings
@@ -102,14 +103,35 @@ def activation_form(request):
     p = canvas.Canvas(response)
     p.drawImage('%s/wallets/activation-form.jpg' % settings.MEDIA_ROOT, 0, 0, width=210*mm, height=297*mm)
 
+    # TODO: Center barcode
     barcode = code39.Extended39('%s' % user.username.split('@')[0], barWidth=0.5*mm, barHeight=20*mm)
     barcode.drawOn(p, 60*mm, 80*mm)
 
-    p.showPage()
+    p.setFont('Helvetica', 12)
+    p.drawString(12.6*mm, 244*mm, "Bienvenue %s %s!" % (user.first_name, user.last_name))
 
+    p.setFont('Helvetica', 9)
+    p.drawString(152*mm, 111*mm, "%s %s" % (user.first_name, user.last_name))
+    p.drawString(152*mm, 108*mm, "UID: %s" % user.username.split('@')[0])
+
+    p.showPage()
     p.save()
 
     return response
+
+
+@require_POST()
+def activate_account(request, barcode, card_uid):
+    # TODO: Force POST and login from Kiosk
+    user = User.objects.get(username=barcode)
+
+    if user:
+        user.card_uid = card_uid
+        user.is_active = 1
+        user.save()
+        return "All done!"
+    else:
+        return "Sorry, user not found"
 
 
 class UserHomeDetail(TemplateView):
