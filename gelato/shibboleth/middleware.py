@@ -31,7 +31,7 @@ class ShibbolethRemoteUserMiddleware(RemoteUserMiddleware):
         #Locate the remote user header.  
         try:
             #username = request.META[self.header]
-            username = request.environ['mail']
+            username = request.environ['uniqueID'].split('@')[0]
             # TODO: change to request.environ['uniqueID'] when AAI mutation is validated
         except KeyError:
             # If specified header doesn't exist then return (leaving
