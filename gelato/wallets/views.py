@@ -21,6 +21,7 @@
 # along with Gelato. If not, see <http://www.gnu.org/licenses/>.
 
 # Stdlib imports
+import json
 
 # Core Django imports
 from django.shortcuts import render_to_response, get_object_or_404
@@ -37,6 +38,7 @@ from django.views.decorators.http import require_POST
 from django.db.models import Sum
 #from django.contrib.auth.models import User
 from django.conf import settings
+
 
 # Third-party app imports
 from reportlab.pdfgen import canvas
@@ -101,7 +103,8 @@ def activation_form(request):
     response['Content-Disposition'] = 'attachment; filename="gelato-activation-form.pdf"; size=A4'
 
     p = canvas.Canvas(response)
-    p.drawImage('%s/wallets/activation-form.jpg' % settings.MEDIA_ROOT, 0, 0, width=210*mm, height=297*mm)
+
+    p.drawImage('%s/img/wallets/activation-form.jpg' % settings.STATIC_ROOT, 0, 0, width=210*mm, height=297*mm)
 
     # TODO: Center barcode
     barcode = code39.Extended39('%s' % user.username.split('@')[0], barWidth=0.5*mm, barHeight=20*mm)
@@ -122,16 +125,29 @@ def activation_form(request):
 
 @require_POST
 def activate_account(request, barcode, card_uid):
-    # TODO: Force POST and login from Kiosk
+    # TODO: Force login from Kiosk
+    # TODO: Receive data in JSON
     user = User.objects.get(username=barcode)
 
+    result = {}
     if user:
         user.card_uid = card_uid
         user.is_active = 1
         user.save()
-        return "All done!"
+
+        user = {}
+        user['username'] = user.username
+        user['first_name'] = user.first_name
+        user['last_name'] = user.last_name
+        user['card_uid'] = user.card_uid
+        result['user'] = user
+        result['message'] = "Votre carte a été activée. Vous pouvez utiliser gelato dès à présent!"
+        result['success'] = True
     else:
-        return "Sorry, user not found"
+        result['message'] = "Nous n'avons pas pu enregistrer votre carte. Veuillez vous adresser au bureau 150."
+        result['success'] = False
+        # TODO: Log the error...
+    return HttpResponse(json.dumps(result),  content_type="application/json")
 
 
 class UserHomeDetail(TemplateView):
