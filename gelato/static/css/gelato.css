@@ -1,5 +1,6 @@
 body {
   background-color: #FFF8ED;
+  color: #562513;
 }
 .btn-success {
     background-color: #FF799D;
@@ -10,5 +11,27 @@ body {
 .btn-success:hover, .btn-success:focus, .btn-success:active {
     background-color: #FF799D;
     border-color: #FF799D;
+    color: #562513;
+}
+
+.btn-primary {
+    background-color: #89C6DF;
+    border-color: #89C6DF;
     color: #FFFFFF;
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active {
+    background-color: #89C6DF;
+    border-color: #89C6DF;
+    color: #562513;
+}
+
+ul.nav > li > a.active, .nav-justified > .active > a:hover, .nav-justified > .active > a:focus {
+    background-color: #89C6DF;
+    background-image: none;
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.15) inset;
+}
+
+.nav-justified > li > a {
+    background-color: #89C6DF;
 }

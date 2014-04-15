@@ -59,6 +59,7 @@ class Product(models.Model):
     """
     A product (an ice cream or another product) sold through the kiosk.
     """
+    # TODO: Add product position in the freezer
     name = models.CharField(verbose_name=_("name"), max_length=100, help_text=_("Name of the product"))
     k_name = models.CharField(verbose_name=_("kiosk name"), max_length=20, help_text=_("Product's name displayed on the kiosk client"))
     price = models.DecimalField(verbose_name=_("price"), max_digits=5, decimal_places=2, help_text=_("Sale price in CHF"))

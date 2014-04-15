@@ -3,29 +3,56 @@
 
 {% block content %}
       <!-- Jumbotron -->
-      <div class="jumbotron">
-        <h1>Marketing stuff!</h1>
-        <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet.</p>
-        <p><a class="btn btn-lg btn-success" href="#" role="button">Get started today</a></p>
+      <div class="row">
+        <div class="col-lg-4">
+            <p><img src="{% static "img/barmaid-ice-cream.png" %}"></p>
+        </div>
+        <div class="col-lg-8">
+            <h1>ICE CREAM KIOSK</h1>
+            <p class="lead">Gelato vous offre accès à une pause rafraichissante à travers son kiosk à glaces innovant.
+            Avec gelato, vous disposez d'un accès pratique 24/7 à notre sélection de glaces durant toute la saison.</p>
+            <p><a class="btn btn-lg btn-success" href="{% url "discover" %}" role="button">Découvrez gelato maintenant!</a></p>
+        </div>
       </div>
 
       <!-- Example row of columns -->
       <div class="row">
-        <div class="col-lg-4">
-          <h2>Safari bug warning!</h2>
-          <p class="text-danger">As of v7.0.1, Safari exhibits a bug in which resizing your browser horizontally causes rendering errors in the justified nav that are cleared upon refreshing.</p>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn btn-primary" href="#" role="button">View details &raquo;</a></p>
+        <div class="col-lg-8">
+          <h2>Sélection</h2>
+          <p>Nous vous proposons en tout temps une sélection de 9 sortes de glaces, sélectionnées par nos soins.
+              Consultez la page des produits pour avoir un aperçu de la sélection actuellement disponible dans le kiosk.
+             Vous pouvez également nous faire part de vos suggestions afin d'adapter notre offre à vos goûts...</p>
+          <p><a class="btn btn-primary" href="{% url "products" %}" role="button">Liste des produits &raquo;</a></p>
+          <h2>Marques</h2>
+          <p>Nous essayons de vous proposer les produits du plus grand nombre de fournisseurs. Etant donné la quantité
+             limitée de produits que nous pouvons proposer simultanément, toutes les marques ne sont pas dans le kiosk
+             en tout temps.</p>
+          <p>logo 1 | logo 2 | logo 3 | logo 4 | logo 5 | logo 6 | logo 7 | logo 8</p>
         </div>
         <div class="col-lg-4">
-          <h2>Heading</h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn btn-primary" href="#" role="button">View details &raquo;</a></p>
-       </div>
-        <div class="col-lg-4">
-          <h2>Heading</h2>
-          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa.</p>
-          <p><a class="btn btn-primary" href="#" role="button">View details &raquo;</a></p>
+          <h2>Bestsellers</h2>
+          <table class="table table-condensed">
+              <tr>
+                  <th>Produit</th>
+                  <th>Qté</th>
+              </tr>
+              <tr>
+                  <td>Cornet Lusso Vanille</td>
+                  <td>32</td>
+              </tr>
+              <tr>
+                  <td>Magnum Almond</td>
+                  <td>28</td>
+              </tr>
+              <tr>
+                  <td>Bio Strawberry</td>
+                  <td>25</td>
+              </tr>
+              <tr>
+                  <td>Cornet Smarties</td>
+                  <td>12</td>
+              </tr>
+          </table>
         </div>
       </div>
       {% endblock content %}

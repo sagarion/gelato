@@ -117,7 +117,8 @@ SHIBBOLETH_ATTRIBUTE_MAP = {
    "mail": (True, "email"),
 }
 
-
+#https://docs.djangoproject.com/en/dev/ref/settings/#login-url
+LOGIN_URL = "/gelato/w/"
 ########## END GENERAL CONFIGURATION
 
 
@@ -211,7 +212,12 @@ MIDDLEWARE_CLASSES = (
     'shibboleth.middleware.ShibbolethRemoteUserMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'gelato.middleware.CurrentPageMiddleware',
 )
+
+# CurrentPageMiddleware configuration
+CURRENT_PAGE_CLASS = 'active'
+
 ########## END MIDDLEWARE CONFIGURATION
 
 
