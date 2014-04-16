@@ -35,3 +35,7 @@ ul.nav > li > a.active, .nav-justified > .active > a:hover, .nav-justified > .ac
 .nav-justified > li > a {
     background-color: #89C6DF;
 }
+
+.logo-brands {
+    margin-right: 15px;
+}

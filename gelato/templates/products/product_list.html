@@ -9,6 +9,7 @@
     <h2>Products list</h2>
     <table class="table table-hover">
         <tr>
+            <th>Brand</th>
             <th></th>
             <th>Product</th>
             <th>Stock</th>
@@ -16,6 +17,7 @@
         </tr>
     {% for object in object_list %}
         <tr>
+            <td></td>
             <td><img src="{{ object.picture.url }}" /></td>
             <td><a href="{% url 'product_detail' object.id %}">{{ object.name }}</a></td>
             <td>{{ object.stock }}</td>
