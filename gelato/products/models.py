@@ -35,6 +35,47 @@ from django.db.models import Sum
 #from transactions.models import ProductTransaction
 
 
+class ProductSupplier(models.Model):
+    name = models.CharField(verbose_name=_("name"), max_length=50, help_text=_("Name of the supplier"))
+    contact = models.CharField(verbose_name=_("contact"), max_length=50, blank=True, default="", help_text=_("Supplier's contact person"))
+    address_street = models.CharField(verbose_name=_("street address"), max_length=50, blank=True, default="", help_text=_("Supplier's street address"))
+    address_zip = models.CharField(verbose_name=_("zip"), max_length=4, blank=True, default="", help_text=_("Supplier's zip"))
+    address_city = models.CharField(verbose_name=_("city"), max_length=50, blank=True, default="", help_text=_("Supplier's city"))
+    contact_phone = models.CharField(verbose_name=_("contact phone"), max_length=10, blank=True, default="", help_text=_("Phone number of the contact"))
+    contact_email = models.EmailField(verbose_name=_("contact email"), max_length=80, blank=True, default="", help_text=_("Email address of the contact"))
+    order_email = models.EmailField(verbose_name=_("order email"), max_length=80, blank=True, default="", help_text=_("Email address used to send orders (can be the same as contact email)"))
+    created = models.DateTimeField(verbose_name=_("created"), auto_now_add=True, help_text=_("Creation date of the category in the database"))
+    edited = models.DateTimeField(verbose_name=_("edited"), auto_now=True, help_text=_("Last edition of the category in the database"))
+    editor = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_('editor'), related_name=_('categories'), help_text=_("Last editor of the category in the database"))
+
+    class Meta:
+        verbose_name = _('supplier')
+        verbose_name_plural = _('suppliers')
+        ordering = ['name']
+
+    def __unicode__(self):
+        if self.contact != "":
+            return "%s (%s)" % (self.name, self.contact)
+        else:
+            return self.name
+
+
+class ProductBrand(models.Model):
+    name = models.CharField(verbose_name=_("name"), max_length=20, help_text=_("Name of the brand"))
+    logo = models.ImageField(verbose_name=_("logo"), upload_to="brands", help_text=_("Logo of the brand"))
+    created = models.DateTimeField(verbose_name=_("created"), auto_now_add=True, help_text=_("Creation date of the category in the database"))
+    edited = models.DateTimeField(verbose_name=_("edited"), auto_now=True, help_text=_("Last edition of the category in the database"))
+    editor = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_('editor'), related_name=_('categories'), help_text=_("Last editor of the category in the database"))
+
+    class Meta:
+        verbose_name = _('product brand')
+        verbose_name_plural = _('product brands')
+        ordering = ['name']
+
+    def __unicode__(self):
+        return self.name
+
+
 class ProductCategory(models.Model):
     """
     A category of products that is used to group the products in order to reduce the amount of products to display at the same time.
@@ -60,6 +101,9 @@ class Product(models.Model):
     A product (an ice cream or another product) sold through the kiosk.
     """
     # TODO: Add product position in the freezer
+    product_code = models.CharField(verbose_name=_("product code"), max_length=30, blank=True, default="", help_text=_("Code used to order this product from it's supplier"))
+    ean = models.CharField(verbose_name=_("EAN"), max_length=18, blank=True, default="", help_text=_("EAN code (barcode) of the product"))
+    tu = models.IntegerField(verbose_name=_("trade units"), max_length=3, default=1, help_text=_("Quantity of units per trade unit"))
     name = models.CharField(verbose_name=_("name"), max_length=100, help_text=_("Name of the product"))
     k_name = models.CharField(verbose_name=_("kiosk name"), max_length=20, help_text=_("Product's name displayed on the kiosk client"))
     price = models.DecimalField(verbose_name=_("price"), max_digits=5, decimal_places=2, help_text=_("Sale price in CHF"))
@@ -68,6 +112,8 @@ class Product(models.Model):
     weight = models.IntegerField(verbose_name=_("weight"), max_length=4, default=0, help_text=_("Weight of the product in grams"))
     calorie = models.IntegerField(verbose_name=_("calorie"), max_length=4, default=0, help_text=_("Number of calories in a portion of the product"))
     category = models.ForeignKey('ProductCategory', verbose_name=_('category'), related_name=_('products'), help_text=_("Category the product belongs to"))
+    brand = models.ForeignKey('ProductBrand', verbose_name=_('brand'), related_name=_('products'), help_text=_("Brand of the product"))
+    supplier = models.ForeignKey('ProductSupplier', verbose_name=_('supplier'), related_name=_('products'), help_text=_("Supplier of the product"))
     created = models.DateTimeField(verbose_name=_("created"), auto_now_add=True, help_text=_("Creation date of the product in the database"))
     edited = models.DateTimeField(verbose_name=_("edited"), auto_now=True, help_text=_("Last edition of the product in the database"))
     editor = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_('editor'), related_name=_('products'), help_text=_("Last editor of the product in the database"))
