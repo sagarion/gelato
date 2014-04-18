@@ -33,11 +33,12 @@ from django.utils.translation import ugettext as _
 from django.core.exceptions import ObjectDoesNotExist
 from django.views.generic import ListView, DetailView
 from django.db.models import Sum
+from django.db import connection
 
 # Third-party app imports
 
 # Gelato imports
-from .models import Product, ProductCategory
+from .models import Product, ProductCategory, ProductBrand
 from transactions.models import ProductTransaction
 
 
@@ -58,3 +59,31 @@ class ProductTransactionsDetail(DetailView):
         else:
             context['quantity_sold'] = qty_sold * -1
         return context
+
+
+def dictfetchall(cursor):
+    "Returns all rows from a cursor as a dict"
+    desc = cursor.description
+    return [
+        dict(zip([col[0] for col in desc], row))
+        for row in cursor.fetchall()
+    ]
+
+
+def bestsellers():
+    cursor = connection.cursor()
+    cursor.execute("SELECT p.k_name as name, p.k_picture as img_url, SUM(t.quantity) as quantity \
+                    FROM transactions_producttransaction t, products_product p \
+                    WHERE t.product_id = p.id \
+                    GROUP BY p.id \
+                    ORDER BY quantity DESC \
+                    LIMIT 5")
+    rows = dictfetchall(cursor)
+
+    return rows
+
+
+def home(request):
+    brands = ProductBrand.objects.all()
+    sales = bestsellers()
+    return render_to_response('home.html', {"brands": brands, "sales": sales}, context_instance=RequestContext(request))

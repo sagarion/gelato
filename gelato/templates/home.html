@@ -27,35 +27,25 @@
           <p>Nous essayons de vous proposer les produits du plus grand nombre de fournisseurs. Etant donné la quantité
              limitée de produits que nous pouvons proposer simultanément, toutes les marques ne sont pas dans le kiosk
              en tout temps.</p>
-          <p><img class="logo-brands" src="{% static "img/logo-lusso.png" %}">
-              <img class="logo-brands" src="{% static "img/logo-ben-jerry.png" %}">
-              <img class="logo-brands" src="{% static "img/logo-frisco.png" %}">
-              <img class="logo-brands" src="{% static "img/logo-movenpick.png" %}">
-              <img class="logo-brands" src="{% static "img/logo-haagen-dazs.png" %}"></p>
+          <p>{% for brand in brands %}
+              <img class="logo-brands" src="{{ brand.logo.url }}" />
+             {% endfor %}</p>
         </div>
         <div class="col-lg-4">
           <h2>Bestsellers</h2>
           <table class="table table-condensed">
               <tr>
+                  <th></th>
                   <th>Produit</th>
                   <th>Qté</th>
               </tr>
-              <tr>
-                  <td>Cornet Lusso Vanille</td>
-                  <td>32</td>
-              </tr>
-              <tr>
-                  <td>Magnum Almond</td>
-                  <td>28</td>
-              </tr>
-              <tr>
-                  <td>Bio Strawberry</td>
-                  <td>25</td>
-              </tr>
-              <tr>
-                  <td>Cornet Smarties</td>
-                  <td>12</td>
-              </tr>
+              {% for sale in sales %}
+                  <tr>
+                    <td><img src="/gelato/media/{{ sale.img_url }}" height="50px"></td>
+                    <td>{{ sale.name }}</td>
+                    <td class="text-right">{{ sale.quantity }}</td>
+                  </tr>
+              {% endfor %}
           </table>
         </div>
       </div>
