@@ -58,6 +58,8 @@ class WSGIEnvironment(WSGIHandler):
 
         os.environ['GELATO_DATABASE_PASSWORD'] = environ['GELATO_DATABASE_PASSWORD']
         os.environ['GELATO_SECRET_KEY'] = environ['GELATO_SECRET_KEY']
+        os.environ['GELATO_EMAIL_HOST_PASSWORD'] = environ['GELATO_EMAIL_HOST_PASSWORD']
+        os.environ['GELATO_EMAIL_HOST_USER'] = environ['GELATO_EMAIL_HOST_USER']
         return super(WSGIEnvironment, self).__call__(environ, start_response)
 
 application = WSGIEnvironment()

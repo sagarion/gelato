@@ -28,7 +28,15 @@ from django.contrib import admin
 # Third-party app imports
 
 # Gelato imports
-from .models import Product, ProductCategory
+from .models import Product, ProductCategory, ProductBrand, ProductSupplier
+
+
+class ProductSupplierAdmin(admin.ModelAdmin):
+    pass
+
+
+class ProductBrandAdmin(admin.ModelAdmin):
+    pass
 
 
 class ProductCategoryAdmin(admin.ModelAdmin):
@@ -41,3 +49,5 @@ class ProductAdmin(admin.ModelAdmin):
 
 admin.site.register(Product, ProductAdmin)
 admin.site.register(ProductCategory, ProductCategoryAdmin)
+admin.site.register(ProductSupplier, ProductSupplierAdmin)
+admin.site.register(ProductBrand, ProductBrandAdmin)

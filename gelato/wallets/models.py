@@ -34,3 +34,11 @@ from django.utils.translation import ugettext_lazy as _
 
 class User(AbstractUser):
     card_uid = models.CharField(_("card uid"), max_length=100, null=True, blank=True)
+
+    class Meta:
+        verbose_name = _('user')
+        verbose_name_plural = _('users')
+        ordering = ['last_name', 'first_name']
+
+    def __unicode__(self):
+        return "%s %s" % (self.first_name, self.last_name)

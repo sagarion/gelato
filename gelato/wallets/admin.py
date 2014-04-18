@@ -23,10 +23,16 @@
 # Stdlib imports
 
 # Core Django imports
-#from django.contrib import admin
+from django.contrib import admin
 
 # Third-party app imports
 
 # Gelato imports
-#from .models import XXX
+from .models import User
 
+
+class UserAdmin(admin.ModelAdmin):
+    list_display = ('last_name', 'first_name', 'card_uid', 'is_active')
+
+
+admin.site.register(User, UserAdmin)
