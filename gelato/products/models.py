@@ -46,7 +46,7 @@ class ProductSupplier(models.Model):
     order_email = models.EmailField(verbose_name=_("order email"), max_length=80, blank=True, default="", help_text=_("Email address used to send orders (can be the same as contact email)"))
     created = models.DateTimeField(verbose_name=_("created"), auto_now_add=True, help_text=_("Creation date of the category in the database"))
     edited = models.DateTimeField(verbose_name=_("edited"), auto_now=True, help_text=_("Last edition of the category in the database"))
-    editor = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_('editor'), related_name=_('categories'), help_text=_("Last editor of the category in the database"))
+    editor = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_('editor'), related_name=_('suppliers'), help_text=_("Last editor of the category in the database"))
 
     class Meta:
         verbose_name = _('supplier')
@@ -65,7 +65,7 @@ class ProductBrand(models.Model):
     logo = models.ImageField(verbose_name=_("logo"), upload_to="brands", help_text=_("Logo of the brand"))
     created = models.DateTimeField(verbose_name=_("created"), auto_now_add=True, help_text=_("Creation date of the category in the database"))
     edited = models.DateTimeField(verbose_name=_("edited"), auto_now=True, help_text=_("Last edition of the category in the database"))
-    editor = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_('editor'), related_name=_('categories'), help_text=_("Last editor of the category in the database"))
+    editor = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_('editor'), related_name=_('brands'), help_text=_("Last editor of the category in the database"))
 
     class Meta:
         verbose_name = _('product brand')

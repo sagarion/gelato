@@ -24,23 +24,18 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 
 ########## DATABASE CONFIGURATION
-# See: https://docs.djangoproject.com/en/dev/ref/settings/#databases
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': 'gelato',
-#         'USER': 'gelato',
-#         'PASSWORD': get_env_variable("GELATO_DATABASE_PASSWORD"),
-#         'HOST': 'localhost',
-#         'PORT': '',
-#     }
-# }
+#See: https://docs.djangoproject.com/en/dev/ref/settings/#databases
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'gelato.db',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'gelato',
+        'USER': 'gelato',
+        'PASSWORD': 'toto123',
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
+
 ########## END DATABASE CONFIGURATION
 
 

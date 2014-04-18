@@ -56,7 +56,7 @@ SERVER_EMAIL = EMAIL_HOST_USER
 ########## DATABASE CONFIGURATION
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'gelato',
         'USER': 'gelato',
         'PASSWORD': get_env_variable("GELATO_DATABASE_PASSWORD"),
