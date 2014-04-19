@@ -44,7 +44,8 @@ class ProductCategoryAdmin(admin.ModelAdmin):
 
 
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ('k_name', 'price')
+    list_display = ('name', 'brand', 'category', 'weight', 'calorie', 'tu', 'price', 'supplier')
+    list_filter = ('brand', 'category', 'supplier')
 
 
 admin.site.register(Product, ProductAdmin)

@@ -19,7 +19,7 @@
         <tr>
             <th><img src="{{ object.category.picture.url }}" /></th>
             <td><img src="{{ object.brand.logo.url }}" /></td>
-            <td><img src="{{ object.picture.url }}" /></td>
+            <td><img src="{{ object.k_picture.url }}" /></td>
             <td><a href="{% url 'product_detail' object.id %}">{{ object.name }}</a></td>
             <td class="text-right">{{ object.stock }}</td>
             <td class="text-right">{{ object.price|floatformat:"2" }}</td>
