@@ -52,6 +52,37 @@ class ProductListView(ListView):
         context['categories'] = ProductCategory.objects.all()
         return context
 
+
+class ProductListViewByCategory(ListView):
+    model = Product
+    # TODO: Filter products with stock > 0
+
+    def get_context_data(self, **kwargs):
+        context = super(ProductListViewByCategory, self).get_context_data(**kwargs)
+        context['brands'] = ProductBrand.objects.all()
+        context['categories'] = ProductCategory.objects.all()
+        return context
+
+    def get_queryset(self):
+        self.category = get_object_or_404(ProductCategory, id=self.args[0])
+        return Product.objects.filter(category=self.category)
+
+
+class ProductListViewByBrand(ListView):
+    model = Product
+    # TODO: Filter products with stock > 0
+
+    def get_context_data(self, **kwargs):
+        context = super(ProductListViewByBrand, self).get_context_data(**kwargs)
+        context['brands'] = ProductBrand.objects.all()
+        context['categories'] = ProductCategory.objects.all()
+        return context
+
+    def get_queryset(self):
+        self.brand = get_object_or_404(ProductBrand, id=self.args[0])
+        return Product.objects.filter(category=self.brand)
+
+
 class ProductTransactionsDetail(DetailView):
     model = Product
 

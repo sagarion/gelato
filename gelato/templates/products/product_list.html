@@ -35,14 +35,14 @@
             <h4>Brand</h4>
             <ul class="logo-list">
                 {% for brand in brands %}
-                    <li><a href=""><img src="{{ brand.logo.url }}" /></a></li>
+                    <li><a href="{% url 'products_by_brand' brand.id %}"><img src="{{ brand.logo.url }}" /></a></li>
                 {% endfor %}
             </ul>
 
-            <h4>Type</h4>
+            <h4>Category</h4>
             <ul class="logo-list">
                 {% for category in categories %}
-                    <li><a href=""><img src="{{ category.picture.url }}" /></a></li>
+                    <li><a href="{% url 'products_by_category' category.id %}"><img src="{{ category.picture.url }}" /></a></li>
                 {% endfor %}
             </ul>
         </div>
