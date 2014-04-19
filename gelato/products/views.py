@@ -80,7 +80,7 @@ class ProductListViewByBrand(ListView):
 
     def get_queryset(self):
         self.brand = get_object_or_404(ProductBrand, id=self.args[0])
-        return Product.objects.filter(category=self.brand)
+        return Product.objects.filter(brand=self.brand)
 
 
 class ProductTransactionsDetail(DetailView):
