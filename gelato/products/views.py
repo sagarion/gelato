@@ -46,6 +46,11 @@ class ProductListView(ListView):
     model = Product
     # TODO: Filter products with stock > 0
 
+    def get_context_data(self, **kwargs):
+        context = super(ProductListView, self).get_context_data(**kwargs)
+        context['brands'] = ProductBrand.objects.all()
+        context['categories'] = ProductCategory.objects.all()
+        return context
 
 class ProductTransactionsDetail(DetailView):
     model = Product

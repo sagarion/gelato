@@ -39,3 +39,10 @@ ul.nav > li > a.active, .nav-justified > .active > a:hover, .nav-justified > .ac
 .logo-brands {
     margin-right: 15px;
 }
+
+ul.logo-list {
+    list-style-type: none;
+    text-align: center;
+    padding:0;
+    margin:0;
+}
