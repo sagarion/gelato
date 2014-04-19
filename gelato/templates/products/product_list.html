@@ -21,7 +21,7 @@
                 <tr>
                     <th><a href="{% url 'products_by_category' object.category.id %}"><img src="{{ object.category.picture.url }}" alt="{{ object.category.name }}" title="{{ object.category.name }}" /></a></th>
                     <td><a href="{% url 'products_by_brand' object.brand.id %}"><img src="{{ object.brand.logo.url }}" alt="{{ object.brand.name }}" title="{{ object.brand.name }}" /></a></td>
-                    <td><img src="{{ object.k_picture.url }}" /></td>
+                    <td><a href="{% url 'product_detail' object.id %}"><img src="{{ object.k_picture.url }}" /></a></td>
                     <td><a href="{% url 'product_detail' object.id %}">{{ object.name }}</a></td>
                     <td class="text-right">{{ object.stock }}</td>
                     <td class="text-right">{{ object.price|floatformat:"2" }}</td>
