@@ -302,7 +302,7 @@ LOGGING = {
             'class': 'django.utils.log.AdminEmailHandler'
         },
         'file_debug': {
-            'level': 'INFO',
+            'level': 'DEBUG',
             'filters': ['require_debug_true'],
             'class': 'logging.FileHandler',
             'filename': '/var/log/django/debug.log',
@@ -311,12 +311,12 @@ LOGGING = {
     'loggers': {
         'django': {
             'handlers': ['file_debug'],
-            'level': 'INFO',
+            'level': 'DEBUG',
             'propagate': True,
         },
         'django.request': {
             'handlers': ['mail_admins', 'file_debug'],
-            'level': 'INFO',
+            'level': 'DEBUG',
             'propagate': True,
         },
     }
