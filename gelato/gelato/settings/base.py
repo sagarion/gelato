@@ -253,6 +253,7 @@ THIRD_PARTY_APPS = (
     # Database migration helpers:
     'south',
     'shibboleth',
+    'paypal.standard.ipn',
     #'wkhtmltopdf',
     #'modeltranslation',
 )
@@ -268,6 +269,13 @@ LOCAL_APPS = (
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 ########## END APP CONFIGURATION
 
+########## PAYPAL CONFIGURATION
+PAYPAL_RECEIVER_EMAIL = "cedric-facilitator@gaspoz-fleiner.com"
+PAYPAL_TEST = True
+PAYPAL_IMAGE = "https://www.paypalobjects.com/fr_FR/CH/i/btn/btn_paynowCC_LG.gif"
+PAYPAL_SANDBOX_IMAGE = "https://www.paypalobjects.com/fr_FR/CH/i/btn/btn_paynowCC_LG.gif"
+
+########## END PAYPAL CONFIGURATION
 
 ########## LOGGING CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#logging

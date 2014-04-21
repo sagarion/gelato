@@ -23,18 +23,22 @@
 # Stdlib imports
 
 # Core Django imports
-from django.conf.urls import patterns, url
+from django.conf.urls import patterns, url, include
 
 # Third-party app imports
 
 # Gelato imports
-from .views import UserListView, UserDetail, UserHomeDetail, dashboard, create_account, activation_form, activate_account
+from .views import UserListView, UserDetail, UserHomeDetail, dashboard, create_account, activation_form, activate_account, wallet_add_money_paypal
 
 urlpatterns = patterns('',
     url(r'^user/(?P<pk>\d+)/$', UserDetail.as_view(), name='user_detail'),
     url(r'^dashboard/$', dashboard, name='dashboard'),
+    url(r'^dashboard/$', dashboard, name='paypal-return'),
+    url(r'^dashboard/$', dashboard, name='paypal-cancel'),
     url(r'^create_account/$', create_account, name='create_account'),
     url(r'^activation_form/$', activation_form, name='activation_form'),
     url(r'^activate_account/$', activate_account, name='activate_account'),
+    url(r'^add_money/$', wallet_add_money_paypal, name='add_money'),
+    url(r'^ipn/paypal/', include('paypal.standard.ipn.urls')),
     url(r'$', UserListView.as_view(), name='users'),
 )

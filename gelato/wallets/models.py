@@ -26,10 +26,13 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
+from django.contrib import messages
 
 # Third-party app imports
+from paypal.standard.ipn.signals import payment_was_successful
 
 # Gelato imports
+from transactions.models import FinancialTransaction
 
 
 class User(AbstractUser):
@@ -42,3 +45,20 @@ class User(AbstractUser):
 
     def __unicode__(self):
         return "%s %s" % (self.first_name, self.last_name)
+
+
+def wallet_add_money_paypal(sender, **kwargs):
+    ipn_obj = sender
+    # You need to check 'payment_status' of the IPN
+
+    if ipn_obj.payment_status == "Completed":
+        # Undertake some action depending upon `ipn_obj`.
+        user = User.objects.get(username=ipn_obj.custom)
+        if user:
+            transaction = FinancialTransaction()
+            transaction.user = user
+            transaction.amount = ipn_obj.auth_amount
+            transaction.financial_transaction_type = FinancialTransaction.PAYPAL_CREDIT
+            transaction.save()
+
+payment_was_successful.connect(wallet_add_money_paypal)

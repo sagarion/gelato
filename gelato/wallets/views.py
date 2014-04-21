@@ -49,6 +49,7 @@ from reportlab.lib.pagesizes import A4
 from reportlab.lib.units import mm
 from reportlab.lib import colors
 from reportlab.graphics.barcode import code39
+from paypal.standard.forms import PayPalPaymentsForm
 
 # Gelato imports
 from transactions.models import ProductTransaction, FinancialTransaction
@@ -148,6 +149,30 @@ def activate_account(request, barcode, card_uid):
         result['success'] = False
         # TODO: Log the error...
     return HttpResponse(json.dumps(result),  content_type="application/json")
+
+
+@login_required()
+def wallet_add_money_paypal(request):
+    user = request.user
+    # What you want the button to do.
+    paypal_dict = {
+        "business": settings.PAYPAL_RECEIVER_EMAIL,
+        "amount": "20.00",
+        "item_name": "Gelato Kiosk",
+        "currency_code": "CHF",
+        "lc": "CH",
+        "no_shipping": "1",
+        "custom": user.username,
+        #"invoice": "unique-invoice-id",
+        "notify_url": "https://marmix.ig.he-arc.ch" + reverse('paypal-ipn'),
+        "return_url": "https://marmix.ig.he-arc.ch" + reverse('paypal-return'),
+        "cancel_return": "https://marmix.ig.he-arc.ch" + reverse('paypal-cancel'),
+    }
+
+    # Create the instance.
+    form = PayPalPaymentsForm(initial=paypal_dict)
+    context = {"form": form, "user": user}
+    return render_to_response("wallets/paypal_submit.html", context)
 
 
 class UserHomeDetail(TemplateView):
