@@ -4,6 +4,7 @@ from django.db import models
 
 from paypal.standard.helpers import duplicate_txn_id, check_secret
 from paypal.standard.conf import RECEIVER_EMAIL, POSTBACK_ENDPOINT, SANDBOX_POSTBACK_ENDPOINT
+from paypal.standard.ipn.signals import *
 
 ST_PP_ACTIVE = 'Active'
 ST_PP_CANCELLED = 'Cancelled'
@@ -303,8 +304,9 @@ class PayPalStandardBase(Model):
         """Shout for the world to hear whether a txn was successful."""
 
         # Don't do anything if we're not notifying!
-        if self.from_view != 'notify':
-            return
+        # TODO: Debug this (find usage of notify)
+        #if self.from_view != 'notify':
+        #    return
 
         # Transaction signals:
         if self.is_transaction():
