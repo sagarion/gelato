@@ -86,6 +86,7 @@ class FinancialTransaction(models.Model):
     product_transaction = models.ForeignKey('ProductTransaction', verbose_name=_('product transaction'), related_name=_('financial transaction'), blank=True, null=True, help_text=_("Product transaction"))
     amount = models.DecimalField(verbose_name=_("amount"), max_digits=6, decimal_places=2, default=0, help_text=_("Amount in CHF"))
     financial_transaction_type = models.CharField(verbose_name=_("type of transaction"), max_length=2, choices=FINANCIAL_TRANSACTION_CHOICES, default=PRODUCT)
+    ipn_transaction = models.CharField(verbose_name=_("IPN transaction ID"), max_length=20, default="", help_text=_("PayPal's IPN transaction ID"))
     created = models.DateTimeField(verbose_name=_("created"), auto_now=True, help_text=_("Date of the transaction"))
     user = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_('user'), related_name=_('financial transactions'), help_text=_("User who is credited or debited"))
     banker = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_('banker'), related_name=_('banker transactions'), blank=True, null=True, help_text=_("Banker who performs the transaction"))
