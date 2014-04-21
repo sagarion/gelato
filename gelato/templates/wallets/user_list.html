@@ -6,23 +6,31 @@
 {% endblock stylesheets %}
 {% block content %}
     {{ block.super }}
-    <h2>Users list</h2>
-    <table>
-        <tr>
-            <th></th>
-            <th>Username</th>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Balance</th>
-        </tr>
-    {% for object in object_list %}
-        <tr>
-            <td>{{ object.id }}</td>
-            <td><a href="{% url 'user_detail' object.id %}">{{ object.username }}</a></td>
-            <td>{{ object.first_name }} {{ object.last_name }}</td>
-            <td>{{ object.email }}</td>
-            <td>{{ object.balance|floatformat:"2" }}</td>
-        </tr>
-    {% endfor %}
-    </table>
+    <div class="row">
+        <div class="col-lg-12">
+            <h2>Users list</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <table class="table table-hover">
+                <tr>
+                    <th></th>
+                    <th>Username</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Balance</th>
+                </tr>
+            {% for object in object_list %}
+                <tr>
+                    <td>{{ object.id }}</td>
+                    <td><a href="{% url 'user_detail' object.id %}">{{ object.username }}</a></td>
+                    <td>{{ object.first_name }} {{ object.last_name }}</td>
+                    <td>{{ object.email }}</td>
+                    <td>{{ object.balance|floatformat:"2" }}</td>
+                </tr>
+            {% endfor %}
+            </table>
+        </div>
+    </div>
 {% endblock %}
