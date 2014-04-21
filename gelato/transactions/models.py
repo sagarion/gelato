@@ -73,12 +73,14 @@ class FinancialTransaction(models.Model):
     PRODUCT = 'P'
     CASH_CREDIT = 'CC'
     PAYPAL_CREDIT = 'CP'
-    CASH_OUT = 'CP'
+    PAYPAL_FEES = 'CF'
+    CASH_OUT = 'CO'
     CORRECTION = 'C'
     FINANCIAL_TRANSACTION_CHOICES = (
         (PRODUCT, _('Product transaction')),
         (CASH_CREDIT, _('Cash credit')),
-        (PAYPAL_CREDIT, _('Paypal credit')),
+        (PAYPAL_CREDIT, _('PayPal credit')),
+        (PAYPAL_FEES, _('PayPal fees')),
         (CASH_OUT, _('Cash out')),
         (CORRECTION, _('Correction')),
     )

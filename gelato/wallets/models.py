@@ -21,6 +21,7 @@
 # along with Gelato. If not, see <http://www.gnu.org/licenses/>.
 
 # Stdlib imports
+import logging
 
 # Core Django imports
 from django.contrib.auth.models import AbstractUser
@@ -33,6 +34,9 @@ from paypal.standard.ipn.signals import payment_was_successful
 
 # Gelato imports
 from transactions.models import FinancialTransaction
+
+
+logger = logging.getLogger(__name__)
 
 
 class User(AbstractUser):
@@ -49,6 +53,7 @@ class User(AbstractUser):
 
 def wallet_add_money_paypal(sender, **kwargs):
     ipn_obj = sender
+    logging.info('IPN request: %s' % sender)
     # You need to check 'payment_status' of the IPN
 
     if ipn_obj.payment_status == "Completed":
@@ -57,8 +62,15 @@ def wallet_add_money_paypal(sender, **kwargs):
         if user:
             transaction = FinancialTransaction()
             transaction.user = user
-            transaction.amount = ipn_obj.auth_amount
+            transaction.amount = ipn_obj.mc_gross
             transaction.financial_transaction_type = FinancialTransaction.PAYPAL_CREDIT
+            transaction.ipn_transaction = ipn_obj.txn_id
+            transaction.save()
+            transaction = FinancialTransaction()
+            transaction.user = user
+            transaction.amount = ipn_obj.mc_fee * -1
+            transaction.financial_transaction_type = FinancialTransaction.PAYPAL_FEES
+            transaction.ipn_transaction = ipn_obj.txn_id
             transaction.save()
 
 payment_was_successful.connect(wallet_add_money_paypal)
