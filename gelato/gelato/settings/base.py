@@ -284,6 +284,8 @@ PAYPAL_SANDBOX_IMAGE = "https://www.paypalobjects.com/fr_FR/CH/i/btn/btn_paynowC
 # the site admins on every HTTP 500 error when DEBUG=False.
 # See http://docs.djangoproject.com/en/dev/topics/logging for
 # more details on how to customize your logging configuration.
+# http://www.miximum.fr/an-effective-logging-strategy-with-django.html
+
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
@@ -293,6 +295,11 @@ LOGGING = {
         },
         'require_debug_true': {
             '()': 'django.utils.log.RequireDebugTrue'
+        },
+    },
+    'formatters': {
+        'verbose': {
+            'format': '%(levelname)s %(asctime)s %(module)s %(process)d %(thread)d %(message)s'
         },
     },
     'handlers': {
@@ -306,16 +313,12 @@ LOGGING = {
             'filters': ['require_debug_true'],
             'class': 'logging.FileHandler',
             'filename': '/var/log/django/debug.log',
+            'formatter': 'verbose',
         },
     },
     'loggers': {
-        'django': {
-            'handlers': ['file_debug'],
-            'level': 'DEBUG',
-            'propagate': True,
-        },
-        'django.request': {
-            'handlers': ['mail_admins', 'file_debug'],
+        '': {
+            'handlers': ['file_debug', 'mail_admins'],
             'level': 'DEBUG',
             'propagate': True,
         },

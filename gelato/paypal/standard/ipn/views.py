@@ -5,6 +5,10 @@ from django.views.decorators.http import require_POST
 from django.views.decorators.csrf import csrf_exempt
 from paypal.standard.ipn.forms import PayPalIPNForm
 from paypal.standard.ipn.models import PayPalIPN
+import logging
+
+
+logger = logging.getLogger(__name__)
 
 
 @require_POST
@@ -39,6 +43,8 @@ def ipn(request, item_check_callable=None):
         except LookupError:
             data = None
             flag = "Invalid form - invalid charset"
+    logger.debug('PayPalIPN flag: %s' % flag)
+    logger.debug('PayPalIPN data: %s' % data)
 
     if data is not None:
         date_fields = ('time_created', 'payment_date', 'next_payment_date',
@@ -59,6 +65,7 @@ def ipn(request, item_check_callable=None):
 
     if ipn_obj is None:
         ipn_obj = PayPalIPN()
+        logger.debug('Created a now PayPalIPN object')
 
     #Set query params and sender's IP address
     ipn_obj.initialize(request)
@@ -74,4 +81,5 @@ def ipn(request, item_check_callable=None):
             ipn_obj.verify(item_check_callable)
 
     ipn_obj.save()
+    logger.debug('PayPalIPN object saved')
     return HttpResponse("OKAY")
