@@ -42,6 +42,7 @@ urlpatterns = patterns('',
 
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^ipn/paypal/', include('paypal.standard.ipn.urls')),
     url(r'^home/', home, name='home'),
     url(r'^about/', TemplateView.as_view(template_name="about.html"), name="about"),
     url(r'^discover/', TemplateView.as_view(template_name="discover.html"), name="discover"),

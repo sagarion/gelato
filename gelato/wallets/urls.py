@@ -39,6 +39,5 @@ urlpatterns = patterns('',
     url(r'^activation_form/$', activation_form, name='activation_form'),
     url(r'^activate_account/$', activate_account, name='activate_account'),
     url(r'^add_money/$', wallet_add_money_paypal, name='add_money'),
-    url(r'^ipn/paypal/', include('paypal.standard.ipn.urls')),
     url(r'$', UserListView.as_view(), name='users'),
 )
