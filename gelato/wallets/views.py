@@ -22,11 +22,13 @@
 
 # Stdlib imports
 import json
+import logging
 
 # Core Django imports
 from django.shortcuts import render_to_response, get_object_or_404
 from django.template.context import RequestContext
 from django.contrib.auth.decorators import login_required
+from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponseRedirect, HttpResponse
 from django.core.urlresolvers import reverse
 from django.contrib import messages
@@ -38,6 +40,7 @@ from django.views.decorators.http import require_POST
 from django.db.models import Sum
 #from django.contrib.auth.models import User
 from django.conf import settings
+from django.db import DataError
 
 
 # Third-party app imports
@@ -54,6 +57,9 @@ from paypal.standard.forms import PayPalPaymentsForm
 # Gelato imports
 from transactions.models import ProductTransaction, FinancialTransaction
 from .models import User
+
+
+logger = logging.getLogger(__name__)
 
 
 class UserListView(ListView):
@@ -124,30 +130,42 @@ def activation_form(request):
     return response
 
 
+@csrf_exempt
 @require_POST
-def activate_account(request, barcode, card_uid):
+def activate_account(request):
     # TODO: Force login from Kiosk
-    # TODO: Receive data in JSON
-    user = User.objects.get(username=barcode)
+    user = None
+    barcode = request.POST.get("barcode", "")
+    card_uid = request.POST.get("card_uid", "")
+    if barcode and card_uid:
+        try:
+            user = User.objects.get(username=barcode)
+        except User.DoesNotExist:
+            logger.error("User [%s] does not exist! Invalid barcode." % barcode)
 
     result = {}
     if user:
-        user.card_uid = card_uid
-        user.is_active = 1
-        user.save()
-
-        user = {}
-        user['username'] = user.username
-        user['first_name'] = user.first_name
-        user['last_name'] = user.last_name
-        user['card_uid'] = user.card_uid
-        result['user'] = user
-        result['message'] = "Votre carte a été activée. Vous pouvez utiliser gelato dès à présent!"
-        result['success'] = True
+        try:
+            user.card_uid = card_uid
+            user.is_active = 1
+            user.save()
+            account = {}
+            account['username'] = user.username
+            account['first_name'] = user.first_name
+            account['last_name'] = user.last_name
+            account['card_uid'] = user.card_uid
+            result['account'] = account
+            result['message'] = "Votre carte a été activée. Vous pouvez utiliser gelato dès à présent!"
+            result['success'] = True
+            logger.info("Card UID [%s] activated for user [%s]" % (user.card_uid, user.username))
+        except DataError:
+            result['message'] = "Nous n'avons pas pu enregistrer votre carte. Veuillez vous adresser au bureau 150."
+            result['success'] = False
+            logger.error("DataError {'barcode': %s, 'card_uid': %s}" % (barcode, card_uid))
     else:
         result['message'] = "Nous n'avons pas pu enregistrer votre carte. Veuillez vous adresser au bureau 150."
         result['success'] = False
-        # TODO: Log the error...
+        logger.error("Invalid data received {'barcode': %s, 'card_uid': %s}" % (barcode, card_uid))
     return HttpResponse(json.dumps(result),  content_type="application/json")
 
 
@@ -176,6 +194,12 @@ def wallet_add_money_paypal(request):
     form = PayPalPaymentsForm(initial=paypal_dict)
     context = {"form": form, "user": user}
     return render_to_response("wallets/paypal_submit.html", context)
+
+
+@login_required()
+# TODO: Require admin
+def wallet_add_money_cash(request):
+    pass
 
 
 class UserHomeDetail(TemplateView):

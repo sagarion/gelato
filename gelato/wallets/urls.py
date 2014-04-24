@@ -28,7 +28,7 @@ from django.conf.urls import patterns, url, include
 # Third-party app imports
 
 # Gelato imports
-from .views import UserListView, UserDetail, UserHomeDetail, dashboard, create_account, activation_form, activate_account, wallet_add_money_paypal
+from .views import UserListView, UserDetail, UserHomeDetail, dashboard, create_account, activation_form, activate_account, wallet_add_money_paypal, wallet_add_money_cash
 
 urlpatterns = patterns('',
     url(r'^user/(?P<pk>\d+)/$', UserDetail.as_view(), name='user_detail'),
@@ -39,5 +39,6 @@ urlpatterns = patterns('',
     url(r'^activation_form/$', activation_form, name='activation_form'),
     url(r'^activate_account/$', activate_account, name='activate_account'),
     url(r'^add_money/$', wallet_add_money_paypal, name='add_money'),
+    url(r'^refill/$', wallet_add_money_cash, name='add_cash'),
     url(r'$', UserListView.as_view(), name='users'),
 )

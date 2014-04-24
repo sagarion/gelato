@@ -16,13 +16,18 @@
             <dl class="dl-horizontal">
                 <dt>Name</dt><dd>{{ user.first_name }} {{ user.last_name }}</dd>
                 <dt>Email</dt><dd>{{ user.email }}</dd>
-                <dt>Card UID</dt><dd>{{ user.card }}</dd>
+                <dt>Card UID</dt><dd>{{ user.card_uid }}</dd>
                 <dt>Balance</dt><dd>{{ user.balance|floatformat:"2" }}</dd>
-                <dt>Last login</dt><dd>{{ user.last_login }} [user is_active: {{ user.is_active }}]</dd>
+                <dt>Last login</dt><dd>{{ user.last_login }}</dd>
             </dl>
         </div>
         <div class="col-lg-4">
-            <p><a class="btn btn-lg btn-success" href="{% url "add_money" %}" role="button">Créditer le compte</a></p>
+            <p class="pull-right">
+                <a class="btn btn-lg btn-success" href="{% url "add_money" %}" role="button">Créditer le compte</a>
+            </p>
+            <p class="lead">
+                <img src="{% static 'img/kcal-picto.png' %}" alt="kcal" name="kcal" /><strong>{{ user.kcal }}</strong>
+            </p>
         </div>
     </div>
 
@@ -35,16 +40,14 @@
                     <th>Date</th>
                     <th>Type</th>
                     <th>Product</th>
-                    <th>Banker</th>
-                    <th>Amount</th>
+                    <th class="text-right">Amount</th>
                 </tr>
             {% for object in financial_transactions %}
                 <tr>
                     <td>{{ object.created }}</td>
                     <td>{{ object.get_financial_transaction_type_display }}</td>
                     <td>{{ object.product_transaction|default_if_none:"" }}</td>
-                    <td>{{ object.banker.get_full_name }}</td>
-                    <td>{{ object.amount|floatformat:"2" }}</td>
+                    <td class="text-right">{{ object.amount|floatformat:"2" }}</td>
                 </tr>
             {% endfor %}
             </table>
@@ -54,16 +57,16 @@
                     <th>Date</th>
                     <th>Type</th>
                     <th>Product</th>
-                    <th>Quantity</th>
-                    <th>Price</th>
+                    <th class="text-center">Quantity</th>
+                    <th class="text-right">Price</th>
                 </tr>
             {% for object in product_transactions %}
                 <tr>
                     <td>{{ object.created }}</td>
                     <td>{{ object.get_product_transaction_type_display }}</td>
                     <td>{{ object.product }}</td>
-                    <td>{{ object.abs_quantity }}</td>
-                    <td>{{ object.transaction_price|floatformat:"2" }}</td>
+                    <td class="text-center">{{ object.abs_quantity }}</td>
+                    <td class="text-right">{{ object.transaction_price|floatformat:"2" }}</td>
                 </tr>
             {% endfor %}
             </table>

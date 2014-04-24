@@ -51,6 +51,7 @@ class ProductTransaction(models.Model):
     quantity = models.IntegerField(verbose_name=_("quantity"), max_length=4, default=0, help_text=_("Quantity sold or replenished"))
     transaction_price = models.DecimalField(verbose_name=_("total price"), max_digits=6, decimal_places=2, default=0, help_text=_("Total amount in CHF"))
     product_transaction_type = models.CharField(verbose_name=_("type of transaction"), max_length=1, choices=PRODUCT_TRANSACTION_CHOICES, default=SALE)
+    kcal = models.IntegerField(verbose_name=_("kcal"), max_length=8, default=0, help_text=_("Automatically updated when the transaction is saved"))
     created = models.DateTimeField(verbose_name=_("created"), auto_now=True, help_text=_("Date of the transaction"))
     user = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_('user'), related_name=_('product transactions'), help_text=_("User who performs the transaction"))
 
@@ -61,6 +62,10 @@ class ProductTransaction(models.Model):
         verbose_name = _('product transaction')
         verbose_name_plural = _('product transactions')
         ordering = ['-created']
+
+    def save(self, *args, **kwargs):
+        self.kcal = self.product.calorie * self.quantity
+        super(ProductTransaction, self).save(*args, **kwargs)
 
     def __unicode__(self):
         return "%s (%sx)" % (self.product, abs(self.quantity))

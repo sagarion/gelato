@@ -28,12 +28,13 @@ from django.contrib.auth.models import AbstractUser
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from django.contrib import messages
+from django.db.models import Sum
 
 # Third-party app imports
 from paypal.standard.ipn.signals import payment_was_successful
 
 # Gelato imports
-from transactions.models import FinancialTransaction
+from transactions.models import FinancialTransaction, ProductTransaction
 
 
 logger = logging.getLogger(__name__)
@@ -41,6 +42,14 @@ logger = logging.getLogger(__name__)
 
 class User(AbstractUser):
     card_uid = models.CharField(_("card uid"), max_length=100, null=True, blank=True)
+
+    def balance(self):
+        balance = FinancialTransaction.objects.all().filter(user=self.id).aggregate(Sum('amount'))
+        return balance['amount__sum']
+
+    def kcal(self):
+        kcal = ProductTransaction.objects.all().filter(user=self.id).aggregate(Sum('kcal'))
+        return kcal['kcal__sum']
 
     class Meta:
         verbose_name = _('user')
