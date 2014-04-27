@@ -21,6 +21,7 @@
 # along with Gelato. If not, see <http://www.gnu.org/licenses/>.
 
 # Stdlib imports
+import logging
 
 # Core Django imports
 from django.db import models
@@ -30,5 +31,8 @@ from django.db import models
 # Gelato imports
 
 
-class XXX(models.Model):
-    code = models.IntegerField(max_length=2)
+logger = logging.getLogger(__name__)
+
+
+#class XXX(models.Model):
+#    code = models.IntegerField(max_length=2)

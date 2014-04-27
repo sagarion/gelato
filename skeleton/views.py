@@ -21,6 +21,7 @@
 # along with Gelato. If not, see <http://www.gnu.org/licenses/>.
 
 # Stdlib imports
+import logging
 
 # Core Django imports
 from django.shortcuts import render_to_response, get_object_or_404
@@ -35,3 +36,6 @@ from django.core.exceptions import ObjectDoesNotExist
 # Third-party app imports
 
 # Gelato imports
+
+
+logger = logging.getLogger(__name__)

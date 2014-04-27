@@ -28,11 +28,11 @@ from django.contrib import admin
 # Third-party app imports
 
 # Gelato imports
-from .models import XXX
+#from .models import XXX
 
 
-class XXXAdmin(admin.ModelAdmin):
-    list_display = ('code', 'label', 'percentage', 'stock')
+# class XXXAdmin(admin.ModelAdmin):
+#     list_display = ('code', 'label', 'percentage', 'stock')
 
 
-admin.site.register(XXX, XXXAdmin)
+# admin.site.register(XXX, XXXAdmin)
