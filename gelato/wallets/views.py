@@ -84,8 +84,8 @@ def dashboard(request):
     if not user.is_active:
         return HttpResponseRedirect(reverse('create_account'))
 
-    financial_transactions = FinancialTransaction.objects.all().filter(user=user)
-    product_transactions = ProductTransaction.objects.all().filter(user=user)
+    financial_transactions = FinancialTransaction.objects.all().filter(user=user).select_related('product')
+    product_transactions = ProductTransaction.objects.all().filter(user=user).select_related('product')
     return render_to_response('wallets/dashboard.html', {"financial_transactions": financial_transactions,
                                                          "product_transactions": product_transactions,
                                                          "user": user, }, context_instance=RequestContext(request))

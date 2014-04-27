@@ -43,7 +43,8 @@ from transactions.models import ProductTransaction
 
 
 class ProductListView(ListView):
-    model = Product
+    queryset = Product.objects.select_related()
+
     # TODO: Filter products with stock > 0
 
     def get_context_data(self, **kwargs):

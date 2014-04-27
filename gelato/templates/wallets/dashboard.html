@@ -16,8 +16,8 @@
             <dl class="dl-horizontal">
                 <dt>Name</dt><dd>{{ user.first_name }} {{ user.last_name }}</dd>
                 <dt>Email</dt><dd>{{ user.email }}</dd>
-                <dt>Card UID</dt><dd>{{ user.card_uid }}</dd>
-                <dt>Balance</dt><dd>{{ user.balance|floatformat:"2" }}</dd>
+                <dt>Card UID</dt><dd>{{ user.card_uid|default:"PAS DE CARTE" }}</dd>
+                <dt>Balance</dt><dd>{{ user.balance|default:0|floatformat:"2" }}</dd>
                 <dt>Last login</dt><dd>{{ user.last_login }}</dd>
             </dl>
         </div>
