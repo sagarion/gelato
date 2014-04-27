@@ -44,7 +44,7 @@ class Kiosk(models.Model):
     location = models.CharField(verbose_name=_("location"), max_length=100, help_text=_("Location of the kiosk"))
     created = models.DateTimeField(verbose_name=_("created"), auto_now_add=True, help_text=_("Creation date of the kiosk in the database"))
     edited = models.DateTimeField(verbose_name=_("edited"), auto_now=True, help_text=_("Last edition of the kiosk in the database"))
-    editor = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_('editor'), related_name=_('categories'), help_text=_("Last editor of the kiosk in the database"))
+    editor = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_('editor'), related_name=_('kiosks'), help_text=_("Last editor of the kiosk in the database"))
 
     class Meta:
         verbose_name = _('kiosk')
