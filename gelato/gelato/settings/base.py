@@ -263,6 +263,7 @@ LOCAL_APPS = (
     'products',
     'transactions',
     'wallets',
+    'kiosks',
 )
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
