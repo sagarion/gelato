@@ -28,11 +28,15 @@ from django.contrib import admin
 # Third-party app imports
 
 # Gelato imports
-#from .models import XXX
+from .models import Kiosk, KioskStorage
 
 
-# class XXXAdmin(admin.ModelAdmin):
-#     list_display = ('code', 'label', 'percentage', 'stock')
+class KioskAdmin(admin.ModelAdmin):
+    list_display = ('id', 'name', 'location')
 
 
-# admin.site.register(XXX, XXXAdmin)
+class KioskStorageAdmin(admin.ModelAdmin):
+    list_display = ('__unicode__', 'kiosk')
+
+admin.site.register(Kiosk, KioskAdmin)
+admin.site.register(KioskStorage, KioskStorageAdmin)

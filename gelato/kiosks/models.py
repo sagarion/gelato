@@ -53,3 +53,23 @@ class Kiosk(models.Model):
 
     def __unicode__(self):
         return self.name
+
+
+class KioskStorage(models.Model):
+    """
+    A storage location in a kiosk
+    """
+    tier = models.IntegerField(verbose_name=_("tier"), max_length=1, default=0, help_text=_("Tier of a kiosk"))
+    tub = models.CharField(verbose_name=_("tub"), max_length=1, blank=True, default="", help_text=_("A kiosk tub on a tier"))
+    kiosk = models.ForeignKey('Kiosk', verbose_name=_('kiosk'), related_name=_('storages'), help_text=_("Kiosk the storage belongs to"))
+    created = models.DateTimeField(verbose_name=_("created"), auto_now_add=True, help_text=_("Creation date of the kiosk storage in the database"))
+    edited = models.DateTimeField(verbose_name=_("edited"), auto_now=True, help_text=_("Last edition of the kiosk storage in the database"))
+    editor = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_('editor'), related_name=_('kiosk storages'), help_text=_("Last editor of the kiosk storage in the database"))
+
+    class Meta:
+        verbose_name = _('kiosk storage')
+        verbose_name_plural = _('kiosk storage')
+        ordering = ['tier', 'tub']
+
+    def __unicode__(self):
+        return "%s%s" % (self.tier, self.tub)
