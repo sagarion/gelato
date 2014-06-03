@@ -17,11 +17,14 @@
             <dl class="dl-horizontal">
                 <dt>Name</dt><dd>{{ user.first_name }} {{ user.last_name }}</dd>
                 <dt>Email</dt><dd>{{ user.email }}</dd>
+                <dt>PIN</dt><dd>{{ pin }}</dd>
             </dl>
             <p>In order to use Gelato, you need to activate your badge and add funds to your account.</p>
             <h3>Activate your badge</h3>
             <p>To activate your badge, you need to print the activation form, go to the kiosk, put your badge on the reader and,
-            when asked, scan the barcode that is printed on the activation form.</p>
+            when asked, enter the PIN that is printed on the activation form.</p>
+            <p>If you are not able to print the activation form, use the following PIN to activate your account:
+               <strong>{{ pin }}</strong>.</p>
             <a class="btn btn-lg btn-success" href="{% url 'activation_form' %}" role="button">Print the activation form</a>
             <h3>Add credits to your account</h3>
             <p>In order to add credits to your account, go to the office 150 and make a cash deposit

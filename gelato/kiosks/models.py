@@ -46,6 +46,23 @@ class Kiosk(models.Model):
     edited = models.DateTimeField(verbose_name=_("edited"), auto_now=True, help_text=_("Last edition of the kiosk in the database"))
     editor = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_('editor'), related_name=_('kiosks'), help_text=_("Last editor of the kiosk in the database"))
 
+    def storage_map(self):
+        storages = KioskStorage.objects.all().filter(kiosk=self.id)
+        tier = None
+        tubs = None
+        storage_map = {'tiers': 0}
+        for storage in storages:
+            if storage.tier != tier:
+                tier = storage.tier
+                storage_map['tiers'] += 1
+                tubs = []
+                tubs.append(storage.tub)
+                storage_map[tier] = tubs
+            else:
+                tubs.append(storage.tub)
+                storage_map[tier] = tubs
+        return storage_map
+
     class Meta:
         verbose_name = _('kiosk')
         verbose_name_plural = _('kiosks')

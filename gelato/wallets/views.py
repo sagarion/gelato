@@ -51,12 +51,12 @@ from reportlab.graphics import renderPDF
 from reportlab.lib.pagesizes import A4
 from reportlab.lib.units import mm
 from reportlab.lib import colors
-from reportlab.graphics.barcode import code39
+#from reportlab.graphics.barcode import code39
 from paypal.standard.forms import PayPalPaymentsForm
 
 # Gelato imports
 from transactions.models import ProductTransaction, FinancialTransaction
-from .models import User
+from .models import User, UserPin, clean_user_pins, get_user_pin
 
 
 logger = logging.getLogger(__name__)
@@ -97,7 +97,9 @@ def create_account(request):
     if user.is_active:
         return HttpResponseRedirect(reverse('dashboard'))
 
-    return render_to_response('wallets/create_account.html', {"user": user, }, context_instance=RequestContext(request))
+    pin = get_user_pin(user)
+
+    return render_to_response('wallets/create_account.html', {"user": user, "pin": pin}, context_instance=RequestContext(request))
 
 
 @login_required()
@@ -105,6 +107,8 @@ def activation_form(request):
     user = request.user
     if user.is_active:
         return HttpResponseRedirect(reverse('dashboard'))
+
+    pin = get_user_pin(user)
 
     response = HttpResponse(mimetype='application/pdf')
     response['Content-Disposition'] = 'attachment; filename="gelato-activation-form.pdf"; size=A4'
@@ -114,8 +118,10 @@ def activation_form(request):
     p.drawImage('%s/img/wallets/activation-form.jpg' % settings.STATIC_ROOT, 0, 0, width=210*mm, height=297*mm)
 
     # TODO: Center barcode
-    barcode = code39.Extended39('%s' % user.username.split('@')[0], barWidth=0.5*mm, barHeight=20*mm)
-    barcode.drawOn(p, 60*mm, 80*mm)
+    p.setFont('Helvetica', 48)
+    p.drawString(90*mm, 80*mm, "%s" % pin)
+    #barcode = code39.Extended39('%s' % user.username.split('@')[0], barWidth=0.5*mm, barHeight=20*mm)
+    #barcode.drawOn(p, 60*mm, 80*mm)
 
     p.setFont('Helvetica', 12)
     p.drawString(12.6*mm, 244*mm, "Bienvenue %s %s!" % (user.first_name, user.last_name))
@@ -135,13 +141,13 @@ def activation_form(request):
 def activate_account(request):
     # TODO: Force login from Kiosk
     user = None
-    barcode = request.POST.get("barcode", "")
+    pin = request.POST.get("pin", "")
     card_uid = request.POST.get("card_uid", "")
-    if barcode and card_uid:
+    if pin and card_uid:
         try:
-            user = User.objects.get(username=barcode)
-        except User.DoesNotExist:
-            logger.error("User [%s] does not exist! Invalid barcode." % barcode)
+            user = UserPin.objects.get(pin=pin).user
+        except UserPin.DoesNotExist:
+            logger.error("UserPin does not exist! Invalid PIN: %s." % pin)
 
     result = {}
     if user:
@@ -161,11 +167,11 @@ def activate_account(request):
         except DataError:
             result['message'] = "Nous n'avons pas pu enregistrer votre carte. Veuillez vous adresser au bureau 150."
             result['success'] = False
-            logger.error("DataError {'barcode': %s, 'card_uid': %s}" % (barcode, card_uid))
+            logger.error("DataError {'pin': %s, 'card_uid': %s}" % (pin, card_uid))
     else:
         result['message'] = "Nous n'avons pas pu enregistrer votre carte. Veuillez vous adresser au bureau 150."
         result['success'] = False
-        logger.error("Invalid data received {'barcode': %s, 'card_uid': %s}" % (barcode, card_uid))
+        logger.error("Invalid data received {'pin': %s, 'card_uid': %s}" % (pin, card_uid))
     return HttpResponse(json.dumps(result),  content_type="application/json")
 
 
@@ -200,6 +206,12 @@ def wallet_add_money_paypal(request):
 # TODO: Require admin
 def wallet_add_money_cash(request):
     pass
+
+
+def cron_clean_user_pins(request):
+    cleaned_pins = clean_user_pins()
+    response = HttpResponse("%s PINS were successfully deleted!" % cleaned_pins, content_type="text/plain")
+    return response
 
 
 class UserHomeDetail(TemplateView):

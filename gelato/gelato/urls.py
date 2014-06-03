@@ -30,6 +30,7 @@ from django.contrib import admin
 admin.autodiscover()
 
 from products.views import home
+from wallets.views import cron_clean_user_pins
 
 urlpatterns = patterns('',
     # Examples:
@@ -47,6 +48,7 @@ urlpatterns = patterns('',
     url(r'^about/', TemplateView.as_view(template_name="about.html"), name="about"),
     url(r'^discover/', TemplateView.as_view(template_name="discover.html"), name="discover"),
     url(r'^staff/', TemplateView.as_view(template_name="discover.html"), name="admin"),
+    url(r'^cron/clean_user_pins/', cron_clean_user_pins),
     url(r'^$', RedirectView.as_view(pattern_name='home')),
 )
 
