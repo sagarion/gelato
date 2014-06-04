@@ -90,3 +90,14 @@ class KioskStorage(models.Model):
 
     def __unicode__(self):
         return "%s%s" % (self.tier, self.tub)
+
+
+def kiosk_showcase(kiosk=1):
+    """
+
+    :param kiosk:
+    :return showcase:
+    """
+    kiosk = Kiosk.objects.get(pk=kiosk)
+    showcase = {}
+    return showcase
