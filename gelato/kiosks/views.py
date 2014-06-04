@@ -57,7 +57,7 @@ def kiosk_associate_rfid(request):
         user = activate_account_rfid(rfid, pin)
         if user:
             if user.card_uid:
-                request.session['kiosk_user'] = user
+                request.session['kiosk_user'] = user.id
                 return HttpResponseRedirect(reverse('kiosk_showcase'))
         else:
             message = """Le PIN que vous avez entré n'est pas ou n'est plus valide. Nous vous invitons à imprimer un
