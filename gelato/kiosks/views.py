@@ -58,7 +58,7 @@ def kiosk_associate_rfid(request):
         if user:
             if user.card_uid:
                 request.session['kiosk_user'] = user
-                response = HttpResponse("Hello %s" % user, content_type="text/plain")
+                return HttpResponseRedirect(reverse('kiosk_showcase'))
         else:
             message = """Le PIN que vous avez entré n'est pas ou n'est plus valide. Nous vous invitons à imprimer un
                       nouveau formulaire d'activation depuis le site Gelato et de recommencer la procédure. En cas
