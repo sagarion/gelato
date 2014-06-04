@@ -25,12 +25,13 @@ import logging
 
 # Core Django imports
 from django.conf import settings
-from django.db import models
+from django.db import models, connection
 from django.utils.translation import ugettext_lazy as _
 
 # Third-party app imports
 
 # Gelato imports
+from products.models import Product
 
 
 logger = logging.getLogger(__name__)
@@ -42,26 +43,10 @@ class Kiosk(models.Model):
     """
     name = models.CharField(verbose_name=_("name"), max_length=20, help_text=_("Name of the kiosk"))
     location = models.CharField(verbose_name=_("location"), max_length=100, help_text=_("Location of the kiosk"))
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_('user'), related_name=_('kiosk users'), help_text=_("User account of the kiosk"))
     created = models.DateTimeField(verbose_name=_("created"), auto_now_add=True, help_text=_("Creation date of the kiosk in the database"))
     edited = models.DateTimeField(verbose_name=_("edited"), auto_now=True, help_text=_("Last edition of the kiosk in the database"))
     editor = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_('editor'), related_name=_('kiosks'), help_text=_("Last editor of the kiosk in the database"))
-
-    def storage_map(self):
-        storages = KioskStorage.objects.all().filter(kiosk=self.id)
-        tier = None
-        tubs = None
-        storage_map = {'tiers': 0}
-        for storage in storages:
-            if storage.tier != tier:
-                tier = storage.tier
-                storage_map['tiers'] += 1
-                tubs = []
-                tubs.append(storage.tub)
-                storage_map[tier] = tubs
-            else:
-                tubs.append(storage.tub)
-                storage_map[tier] = tubs
-        return storage_map
 
     class Meta:
         verbose_name = _('kiosk')
@@ -92,12 +77,50 @@ class KioskStorage(models.Model):
         return "%s%s" % (self.tier, self.tub)
 
 
-def kiosk_showcase(kiosk=1):
+def kiosk_get_available_products(kiosk):
     """
+    The list of all currently available products in a given kiosk
+    :param kiosk:
+    :return products a queryset of products:
+    """
+    cursor = connection.cursor()
+    SQL = """SELECT product_id FROM
+    (SELECT p.product_id, SUM(p.quantity) as stock
+    FROM transactions_producttransaction p
+        INNER JOIN kiosks_kioskstorage s
+            ON (p.storage_id = s.id)
+    WHERE s.kiosk_id = %s
+    GROUP BY p.product_id) AS a
+    WHERE stock > 0"""
+    cursor.execute(SQL, [kiosk])
+    products_list = cursor.fetchall()
+    products_id = []
+    for id in products_list:
+        products_id.append(id[0])
+    products = Product.objects.filter(pk__in=products_id)
+    return products
 
+
+def kiosk_get_showcase(kiosk=1):
+    """
+    The list and disposition of products in a given kiosk
     :param kiosk:
     :return showcase:
+    Blog.objects.filter(pk__in=[1,4,7])
     """
     kiosk = Kiosk.objects.get(pk=kiosk)
-    showcase = {}
+    storages = KioskStorage.objects.all().filter(kiosk=kiosk.id).select_related('products')
+    tier = None
+    tubs = None
+    showcase = {'tiers': []}
+    for storage in storages:
+        if storage.tier != tier:
+            tier = storage.tier
+            showcase['tiers'].append(tier)
+            tubs = []
+            tubs.append(storage.tub)
+            showcase[tier] = tubs
+        else:
+            tubs.append(storage.tub)
+            showcase[tier] = tubs
     return showcase
