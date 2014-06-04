@@ -32,6 +32,7 @@ from django.utils.translation import ugettext_lazy as _
 
 # Gelato imports
 from products.models import Product
+from kiosks.models import KioskStorage
 
 
 class ProductTransaction(models.Model):
@@ -49,6 +50,7 @@ class ProductTransaction(models.Model):
 
     product = models.ForeignKey(Product, verbose_name=_("product"), related_name=_("transactions"), help_text=_("Product sold or replenished"))
     quantity = models.IntegerField(verbose_name=_("quantity"), max_length=4, default=0, help_text=_("Quantity sold or replenished"))
+    storage = models.ForeignKey(KioskStorage, verbose_name=_('kiosk storage'), related_name=_('products'), help_text=_("Storage location of a product in a kiosk"))
     transaction_price = models.DecimalField(verbose_name=_("total price"), max_digits=6, decimal_places=2, default=0, help_text=_("Total amount in CHF"))
     product_transaction_type = models.CharField(verbose_name=_("type of transaction"), max_length=1, choices=PRODUCT_TRANSACTION_CHOICES, default=SALE)
     kcal = models.IntegerField(verbose_name=_("kcal"), max_length=8, default=0, help_text=_("Automatically updated when the transaction is saved"))
