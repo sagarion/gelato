@@ -36,6 +36,7 @@ urlpatterns = patterns('',
     # Examples:
     url(r'^p/', include('products.urls')),
     url(r'^w/', include('wallets.urls')),
+    url(r'^kiosk/', include('kiosks.urls')),
     # url(r'^gelato/', include('gelato.foo.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:

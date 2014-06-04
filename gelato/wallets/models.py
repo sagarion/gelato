@@ -29,7 +29,7 @@ import pytz
 # Core Django imports
 from django.conf import settings
 from django.contrib.auth.models import AbstractUser
-from django.db import models, IntegrityError
+from django.db import models, IntegrityError, DataError
 from django.utils.translation import ugettext_lazy as _
 from django.contrib import messages
 from django.db.models import Sum
@@ -117,6 +117,28 @@ def clean_user_pins():
 
     logging.debug("Cleaning user pins... %s pins deleted!" % pins_deleted)
     return pins_deleted
+
+
+def activate_account_rfid(card_uid, pin):
+    user = None
+    try:
+        user_pin = UserPin.objects.get(pin=pin)
+        user = user_pin.user
+    except UserPin.DoesNotExist:
+        logger.error("UserPin does not exist! Invalid PIN: %s." % pin)
+
+    if user:
+        try:
+            user.card_uid = card_uid
+            user.is_active = 1
+            user.save()
+            user_pin.delete()
+            logger.info("Card UID [%s] activated for user [%s]" % (user.card_uid, user.username))
+        except DataError:
+            logger.error("DataError {'pin': %s, 'card_uid': %s}" % (pin, card_uid))
+    else:
+        logger.error("Invalid data received {'pin': %s, 'card_uid': %s}" % (pin, card_uid))
+    return user
 
 
 def wallet_add_money_paypal(sender, **kwargs):

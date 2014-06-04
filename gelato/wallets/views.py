@@ -36,7 +36,7 @@ from django.utils.translation import ugettext as _
 from django.utils.decorators import method_decorator
 from django.core.exceptions import ObjectDoesNotExist
 from django.views.generic import ListView, DetailView, TemplateView
-from django.views.decorators.http import require_POST
+from django.views.decorators.http import require_POST, require_GET
 from django.db.models import Sum
 #from django.contrib.auth.models import User
 from django.conf import settings
@@ -56,7 +56,7 @@ from paypal.standard.forms import PayPalPaymentsForm
 
 # Gelato imports
 from transactions.models import ProductTransaction, FinancialTransaction
-from .models import User, UserPin, clean_user_pins, get_user_pin
+from .models import User, UserPin, clean_user_pins, get_user_pin, activate_account_rfid
 
 
 logger = logging.getLogger(__name__)
@@ -94,8 +94,8 @@ def dashboard(request):
 @login_required()
 def create_account(request):
     user = request.user
-    if user.is_active:
-        return HttpResponseRedirect(reverse('dashboard'))
+    #if user.is_active:
+    #    return HttpResponseRedirect(reverse('dashboard'))
 
     pin = get_user_pin(user)
 
@@ -136,6 +136,20 @@ def activation_form(request):
     return response
 
 
+@require_GET
+def rfid_scan(request, rfid):
+    request.session['rfid'] = rfid
+    try:
+        user = User.objects.get(card_uid=rfid)
+        request.session['kiosk_user'] = user.id
+        return HttpResponseRedirect(reverse('kiosk_showcase'))
+    except User.DoesNotExist:
+        #We need to link the account
+        logging.info("The card %s is not known." % rfid)
+        return HttpResponseRedirect(reverse('kiosk_unknown_rfid'))
+    return response
+
+
 @csrf_exempt
 @require_POST
 def activate_account(request):
@@ -144,8 +158,10 @@ def activate_account(request):
     pin = request.POST.get("pin", "")
     card_uid = request.POST.get("card_uid", "")
     if pin and card_uid:
+        user = activate_account_rfid(card_uid, pin)
         try:
-            user = UserPin.objects.get(pin=pin).user
+            user_pin = UserPin.objects.get(pin=pin)
+            user = user_pin.user
         except UserPin.DoesNotExist:
             logger.error("UserPin does not exist! Invalid PIN: %s." % pin)
 
@@ -155,6 +171,7 @@ def activate_account(request):
             user.card_uid = card_uid
             user.is_active = 1
             user.save()
+            user_pin.delete()
             account = {}
             account['username'] = user.username
             account['first_name'] = user.first_name

@@ -28,11 +28,16 @@ from django.contrib import admin
 # Third-party app imports
 
 # Gelato imports
-from .models import User
+from .models import User, UserPin
 
 
 class UserAdmin(admin.ModelAdmin):
     list_display = ('last_name', 'first_name', 'card_uid', 'is_active')
 
 
+class UserPinAdmin(admin.ModelAdmin):
+    list_display = ('user', 'pin', 'pin_creation')
+
+
 admin.site.register(User, UserAdmin)
+admin.site.register(UserPin, UserPinAdmin)
