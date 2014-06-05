@@ -32,7 +32,7 @@ from django.utils.translation import ugettext_lazy as _
 
 # Gelato imports
 from products.models import Product
-from kiosks.models import KioskStorage
+from kiosks.models import KioskStorage, kiosk_get_product_storage
 
 
 class ProductTransaction(models.Model):
@@ -54,6 +54,8 @@ class ProductTransaction(models.Model):
     transaction_price = models.DecimalField(verbose_name=_("total price"), max_digits=6, decimal_places=2, default=0, help_text=_("Total amount in CHF"))
     product_transaction_type = models.CharField(verbose_name=_("type of transaction"), max_length=1, choices=PRODUCT_TRANSACTION_CHOICES, default=SALE)
     kcal = models.IntegerField(verbose_name=_("kcal"), max_length=8, default=0, help_text=_("Automatically updated when the transaction is saved"))
+    lock_open = models.BooleanField(verbose_name=_("lock opened"), default=False, help_text=_("Lock was opened"))
+    door_open = models.BooleanField(verbose_name=_("door opened"), default=False, help_text=_("Door was opened"))
     created = models.DateTimeField(verbose_name=_("created"), auto_now=True, help_text=_("Date of the transaction"))
     user = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_('user'), related_name=_('product transactions'), help_text=_("User who performs the transaction"))
 
@@ -107,3 +109,28 @@ class FinancialTransaction(models.Model):
 
     def __unicode__(self):
         return "%s [%s] %s (%s)" % (self.created.strftime("%Y-%m-%d %H:%M:%S"), self.financial_transaction_type, self.user, self.amount)
+
+
+def product_sale_transaction(kiosk, product, user):
+    try:
+        storage = kiosk_get_product_storage(kiosk, product)
+
+        product_transaction = ProductTransaction()
+        product_transaction.product = product
+        product_transaction.quantity = -1
+        product_transaction.transaction_price = product.price*-1
+        product_transaction.product_transaction_type = ProductTransaction.SALE
+        product_transaction.user = user
+        product_transaction.storage = storage
+        product_transaction.save()
+
+        financial_transaction = FinancialTransaction()
+        financial_transaction.product_transaction = product_transaction
+        financial_transaction.amount = product_transaction.transaction_price
+        financial_transaction.ipn_transaction = "None"
+        financial_transaction.user = user
+        financial_transaction.banker = kiosk.user
+        financial_transaction.save()
+        return product_transaction
+    except:
+        return False
