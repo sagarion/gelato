@@ -140,7 +140,7 @@ def activation_form(request):
 def rfid_scan(request, kiosk_id, rfid):
     request.session['rfid'] = rfid
     request.session['kiosk_id'] = int(kiosk_id)
-    if rfid == '%':
+    if rfid == 'ESC':
         # The card is gone, we need to log-out
         try:
             del request.session['kiosk_user']
