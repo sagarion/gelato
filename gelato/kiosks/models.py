@@ -101,22 +101,22 @@ def kiosk_get_available_products(kiosk):
     return products
 
 
-def kiosk_get_showcase(kiosk=1):
+def kiosk_get_storage_location(storage):
     """
-    The list and disposition of products in a given kiosk
-    :param kiosk:
-    :return showcase:
-    Blog.objects.filter(pk__in=[1,4,7])
+    The location of a storage in a kiosk
+    :param storage:
+    :return html_map:
     """
-    kiosk = Kiosk.objects.get(pk=kiosk)
-    storages = KioskStorage.objects.all().filter(kiosk=kiosk.id).select_related('products')
+    kiosk = Kiosk.objects.get(pk=storage.kiosk.id)
+    storages = KioskStorage.objects.all().filter(kiosk=kiosk.id)
     tier = None
-    tubs = None
-    showcase = {'tiers': []}
+    tubs = []
+    showcase = {'tiers': [], 'max_td': 0}
     for storage in storages:
         if storage.tier != tier:
             tier = storage.tier
             showcase['tiers'].append(tier)
+            showcase['max_td'] = len(tubs)
             tubs = []
             tubs.append(storage.tub)
             showcase[tier] = tubs
@@ -124,3 +124,26 @@ def kiosk_get_showcase(kiosk=1):
             tubs.append(storage.tub)
             showcase[tier] = tubs
     return showcase
+
+
+def kiosk_get_product_storage(kiosk, product):
+    """
+    The best storage location to pick a product in a given kiosk
+    :param kiosk:
+    :param product:
+    :return storage:
+    """
+    cursor = connection.cursor()
+    SQL = """SELECT storage_id FROM (SELECT p.storage_id, SUM(p.quantity) as stock
+    FROM transactions_producttransaction p
+    INNER JOIN kiosks_kioskstorage s
+    ON (p.storage_id=s.id)
+    WHERE p.product_id = %s AND s.kiosk_id = %s
+    GROUP BY p.product_id, p.storage_id) as A
+    WHERE stock > 0
+    ORDER BY stock
+    """
+    cursor.execute(SQL, [product.id, kiosk.id])
+    storage_id = cursor.fetchone()[0]
+    storage = KioskStorage.objects.get(pk=storage_id)
+    return storage

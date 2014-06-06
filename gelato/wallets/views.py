@@ -137,8 +137,16 @@ def activation_form(request):
 
 
 @require_GET
-def rfid_scan(request, rfid):
+def rfid_scan(request, kiosk_id, rfid):
     request.session['rfid'] = rfid
+    request.session['kiosk_id'] = int(kiosk_id)
+    if rfid == '%':
+        # The card is gone, we need to log-out
+        try:
+            del request.session['kiosk_user']
+        except KeyError:
+            pass
+        return HttpResponseRedirect(reverse('kiosk_home'))
     try:
         user = User.objects.get(card_uid=rfid)
         request.session['kiosk_user'] = user.id
@@ -147,7 +155,6 @@ def rfid_scan(request, rfid):
         #We need to link the account
         logging.info("The card %s is not known." % rfid)
         return HttpResponseRedirect(reverse('kiosk_unknown_rfid'))
-    return response
 
 
 @csrf_exempt

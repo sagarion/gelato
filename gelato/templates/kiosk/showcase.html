@@ -1,5 +1,6 @@
 {% extends "kiosk/base.html" %}
 {% load staticfiles %}
+{% load kiosk_extras %}
 {% block title %}Create account{% endblock %}
 {% block stylesheets %}
     {{ block.super }}
@@ -7,27 +8,28 @@
 {% block content %}
     {{ block.super }}
     <div class="row">
-        <div class="col-lg-12">
-            <h1>Bienvenue {{ user.first_name }}!</h1>
-        </div>
-    </div>
-    <div class="row">
         <div class="col-lg-8">
             <h2>Sélection actuelle</h2>
-            <p>Choisissez votre glace maintenant!</p>
+            <table class="table table-hover">
+                {% for product in products %}
+                    <tr data-url="{% url 'kiosk_select' product.id %}">
+                        <td><img src="{{ product.k_picture.url }}" /></td>
+                        <td class="product-name">{{ product.k_name }}<br/><img src="{{ product.category.picture.url }}" height="50px" />&nbsp;<img src="{{ product.brand.logo.url }}" height="50px" /></td>
+                        <td class="big-text text-right">{{ product.price }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
         </div>
         <div class="col-lg-4">
-            <h2>Votre compte</h2>
-            <p>
-                <dt>Name</dt><dd><strong>{{ user.first_name }} {{ user.last_name }}</strong></dd>
-                <dt><img src="{% static 'img/$-picto.png' %}" alt="kcal" name="kcal" /></dt><dd><strong>{{ user.balance|default:0|floatformat:"2" }}</strong></dd>
-                <dt><img src="{% static 'img/kcal-picto.png' %}" alt="kcal" name="kcal" /></dt><dd><strong>{{ user.kcal }}</strong></dd>
-                </dl>
-            </p>
+            <h2>{{ user }}</h2>
+            <table class="table">
+                <tr><td><img src="{% static 'img/$-picto.png' %}" alt="kcal" name="kcal" /></td><td class="big-text text-right">{{ user.balance|default:0|floatformat:"2" }}</td></tr>
+                <tr><td><img src="{% static 'img/kcal-picto.png' %}" alt="kcal" name="kcal" /></td><td class="big-text text-right">{{ user.kcal }}</td></tr>
+            </table>
             <p></p>
             <p></p>
             <h2>Derniers achats</h2>
-            <table class="table table-hover">
+            <table class="table">
             {% for object in product_transactions %}
                 <tr>
                     <td>{{ object.product }}</td>
@@ -36,5 +38,12 @@
             </table>
         </div>
     </div>
-
+    <script src="{% static "js/jquery-2.1.0.min.js" %}"></script>
+    <script>
+      jQuery(document).ready(function($) {
+        $(".table-hover tr").click(function() {
+            window.document.location = $(this).attr('data-url');
+      });
+});
+    </script>
 {% endblock %}

@@ -21,6 +21,7 @@
 # along with Gelato. If not, see <http://www.gnu.org/licenses/>.
 
 # Stdlib imports
+import logging
 
 # Core Django imports
 from django.conf import settings
@@ -33,6 +34,9 @@ from django.utils.translation import ugettext_lazy as _
 # Gelato imports
 from products.models import Product
 from kiosks.models import KioskStorage, kiosk_get_product_storage
+
+
+logger = logging.getLogger(__name__)
 
 
 class ProductTransaction(models.Model):
@@ -112,25 +116,45 @@ class FinancialTransaction(models.Model):
 
 
 def product_sale_transaction(kiosk, product, user):
+    if user.balance() >= product.price:
+        try:
+            storage = kiosk_get_product_storage(kiosk, product)
+
+            product_transaction = ProductTransaction()
+            product_transaction.product = product
+            product_transaction.quantity = -1
+            product_transaction.transaction_price = product.price*-1
+            product_transaction.product_transaction_type = ProductTransaction.SALE
+            product_transaction.user = user
+            product_transaction.storage = storage
+            product_transaction.save()
+
+            financial_transaction = FinancialTransaction()
+            financial_transaction.product_transaction = product_transaction
+            financial_transaction.amount = product_transaction.transaction_price
+            financial_transaction.ipn_transaction = "None"
+            financial_transaction.user = user
+            financial_transaction.banker = kiosk.user
+            financial_transaction.save()
+            return product_transaction
+        except:
+            return False
+    return False
+
+
+def check_transaction(transaction_id, user):
     try:
-        storage = kiosk_get_product_storage(kiosk, product)
-
-        product_transaction = ProductTransaction()
-        product_transaction.product = product
-        product_transaction.quantity = -1
-        product_transaction.transaction_price = product.price*-1
-        product_transaction.product_transaction_type = ProductTransaction.SALE
-        product_transaction.user = user
-        product_transaction.storage = storage
-        product_transaction.save()
-
-        financial_transaction = FinancialTransaction()
-        financial_transaction.product_transaction = product_transaction
-        financial_transaction.amount = product_transaction.transaction_price
-        financial_transaction.ipn_transaction = "None"
-        financial_transaction.user = user
-        financial_transaction.banker = kiosk.user
-        financial_transaction.save()
-        return product_transaction
-    except:
+        transaction = ProductTransaction.objects.get(pk=transaction_id)
+        if transaction.storage.kiosk.user != user:
+            logging.info('Check transaction %s: INVALID USER' % transaction_id)
+            return False
+        if not transaction.lock_open:
+            transaction.lock_open = True
+            transaction.save()
+            logging.info('Check transaction %s: VALID' % transaction_id)
+            return True
+        logging.warning('Check transaction %s: ALREADY OPEN' % transaction_id)
+        return False
+    except ProductTransaction.DoesNotExist:
+        logging.error('Check transaction %s: NOT EXIST' % transaction_id)
         return False

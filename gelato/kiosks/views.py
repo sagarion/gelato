@@ -22,6 +22,7 @@
 
 # Stdlib imports
 import logging
+import json
 
 # Core Django imports
 from django.shortcuts import render_to_response, get_object_or_404
@@ -37,7 +38,9 @@ from django.core.exceptions import ObjectDoesNotExist
 
 # Gelato imports
 from wallets.models import activate_account_rfid, User
-from transactions.models import ProductTransaction
+from transactions.models import ProductTransaction, product_sale_transaction, check_transaction
+from kiosks.models import Kiosk, kiosk_get_available_products, kiosk_get_storage_location
+from products.models import Product
 
 logger = logging.getLogger(__name__)
 
@@ -78,8 +81,88 @@ def kiosk_showcase(request):
         return render_to_response('kiosk/error.html', {'error': error, }, context_instance=RequestContext(request))
     user = User.objects.get(pk=user_id)
     product_transactions = ProductTransaction.objects.all().filter(user=user).select_related('product')
-    return render_to_response('kiosk/showcase.html', {'user': user, 'product_transactions': product_transactions }, context_instance=RequestContext(request))
+    products = kiosk_get_available_products(1)
+    return render_to_response('kiosk/showcase.html', {'user': user, 'product_transactions': product_transactions,
+                                                      'products': products}, context_instance=RequestContext(request))
+
+
+def kiosk_select(request, product_id):
+    user_id = request.session.get('kiosk_user', False)
+    if not user_id:
+        message = """L'authentification au moyen de votre badge a échoué ou a été révoquée. Veuillez retirer et replacer
+                     votre badge sur le lecteur. En cas d'erreur répétée, veuillez vous adresser au bureau 150."""
+        error = {'title': "Authentification révoquée", 'message': message}
+        return render_to_response('kiosk/error.html', {'error': error, }, context_instance=RequestContext(request))
+    user = User.objects.get(pk=user_id)
+    product = Product.objects.select_related().get(pk=product_id)
+    product_transactions = ProductTransaction.objects.all().filter(user=user).select_related('product')
+    if user.balance() > product.price:
+        sell = True
+    else:
+        sell = False
+    return render_to_response('kiosk/select.html', {'user': user, 'product': product, 'sell': sell,
+                                                    'product_transactions': product_transactions},
+                              context_instance=RequestContext(request))
+
+
+def kiosk_sell(request, product_id):
+    user_id = request.session.get('kiosk_user', False)
+    kiosk_id = request.session.get('kiosk_id', False)
+    logging.debug("Kiosk Sell > USER: %s | KIOSK: %s" % (user_id, kiosk_id))
+    if not user_id or not kiosk_id:
+        message = """L'authentification au moyen de votre badge a échoué ou a été révoquée. Veuillez retirer et replacer
+                     votre badge sur le lecteur. En cas d'erreur répétée, veuillez vous adresser au bureau 150."""
+        error = {'title': "Authentification révoquée", 'message': message}
+        return render_to_response('kiosk/error.html', {'error': error, }, context_instance=RequestContext(request))
+    user = User.objects.get(pk=user_id)
+    kiosk = Kiosk.objects.get(pk=kiosk_id)
+    product = Product.objects.select_related().get(pk=product_id)
+    transaction = product_sale_transaction(kiosk, product, user)
+    if not transaction:
+        message = """La transaction a échoué! Veuillez retirer et replacer votre badge sur le lecteur. En cas d'erreur répétée, veuillez vous adresser au bureau 150."""
+        error = {'title': "Transaction annulée", 'message': message}
+        return render_to_response('kiosk/error.html', {'error': error, }, context_instance=RequestContext(request))
+    product_transactions = ProductTransaction.objects.all().filter(user=user).select_related('product') # TODO: .distinct('product')
+    showcase = kiosk_html_showcase(transaction.storage)
+    return render_to_response('kiosk/sell.html', {'user': user, 'product': product, 'transaction': transaction,
+                                                    'showcase': showcase, 'product_transactions': product_transactions},
+                              context_instance=RequestContext(request))
+
+
+def kiosk_exit(request):
+    try:
+        del request.session['kiosk_user']
+    except KeyError:
+        pass
+    return HttpResponseRedirect(reverse('kiosk_home'))
 
 
 def kiosk_error(request):
     return render_to_response('kiosk/error.html', {}, context_instance=RequestContext(request))
+
+
+@login_required()
+def kiosk_check_transaction(request, transaction_id):
+    # We need the Kiosk user to check if the transaction was initiated from this user
+    user = request.user
+    check = check_transaction(transaction_id, user)
+    result = {'success': False, 'message': "Une erreur est survenue durant l'ouverture de la porte!"}
+    if check:
+        result['success'] = True
+        result['message'] = "Veuillez ouvrir la porte et prendre votre glace"
+    return HttpResponse(json.dumps(result),  content_type="application/json")
+
+
+def kiosk_html_showcase(storage):
+    showcase = kiosk_get_storage_location(storage)
+    html = """<div class="kiosk-table">"""
+    for tier in showcase['tiers']:
+        html += """<div class="kiosk-row">"""
+        for tub in showcase[tier]:
+            if storage.tier == tier and storage.tub == tub:
+                html += """<div class="kiosk-cell kiosk-storage">%s%s</div>""" % (tier, tub)
+            else:
+                html += """<div class="kiosk-cell">%s%s</div>""" % (tier, tub)
+        html += """</div>"""
+    html += """</div>"""
+    return html

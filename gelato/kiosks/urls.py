@@ -28,14 +28,18 @@ from django.conf.urls import patterns, url
 # Third-party app imports
 
 # Gelato imports
-from .views import kiosk_home, kiosk_unknown_rfid, kiosk_associate_rfid, kiosk_error, kiosk_showcase
+from .views import kiosk_home, kiosk_unknown_rfid, kiosk_associate_rfid, kiosk_error, kiosk_showcase, kiosk_select, kiosk_exit, kiosk_sell, kiosk_check_transaction
 
 urlpatterns = patterns('',
     #url(r'^rfid/(?P<rfid>\d+)/$', rfid_scan, name='rfid_scan'),
     #url(r'^summary/(?P<user_id>\d+)/$', views.summary, name='booth-summary'),
+    url(r'select/(?P<product_id>\d+)/$', kiosk_select, name='kiosk_select'),
+    url(r'sell/(?P<product_id>\d+)/$', kiosk_sell, name='kiosk_sell'),
+    url(r'check-transaction/(?P<transaction_id>\d+)/$', kiosk_check_transaction, name='kiosk_check'),
     url(r'error/', kiosk_error, name='kiosk_error'),
     url(r'unknown/', kiosk_unknown_rfid, name='kiosk_unknown_rfid'),
     url(r'associate/', kiosk_associate_rfid, name='kiosk_associate_rfid'),
     url(r'showcase/', kiosk_showcase, name='kiosk_showcase'),
+    url(r'exit/', kiosk_exit, name='kiosk_exit'),
     url(r'$', kiosk_home, name='kiosk_home'),
 )

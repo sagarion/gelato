@@ -32,7 +32,7 @@ from .views import UserListView, UserDetail, UserHomeDetail, dashboard, create_a
 
 urlpatterns = patterns('',
     url(r'^user/(?P<pk>\d+)/$', UserDetail.as_view(), name='user_detail'),
-    url(r'^rfid/(?P<rfid>\d+)/$', rfid_scan, name='rfid_scan'),
+    url(r'^rfid/(?P<kiosk_id>\d+)/(?P<rfid>\d+)/$', rfid_scan, name='rfid_scan'),
     url(r'^dashboard/$', dashboard, name='dashboard'),
     url(r'^dashboard/$', dashboard, name='paypal-return'),
     url(r'^dashboard/$', dashboard, name='paypal-cancel'),

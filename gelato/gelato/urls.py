@@ -50,6 +50,8 @@ urlpatterns = patterns('',
     url(r'^discover/', TemplateView.as_view(template_name="discover.html"), name="discover"),
     url(r'^staff/', TemplateView.as_view(template_name="discover.html"), name="admin"),
     url(r'^cron/clean_user_pins/', cron_clean_user_pins),
+    url(r'^accounts/login/$', 'django.contrib.auth.views.login'),
+    url(r'^accounts/logout/$', 'django.contrib.auth.views.logout'),
     url(r'^$', RedirectView.as_view(pattern_name='home')),
 )
 

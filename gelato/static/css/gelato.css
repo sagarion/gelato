@@ -46,3 +46,35 @@ ul.logo-list {
     padding:0;
     margin:0;
 }
+
+.big-text {
+    font-size: 4em;
+    font-weight: bolder;
+}
+
+.product-name {
+    font-size: 2em;
+    font-weight: bolder;
+}
+
+.kiosk-cell {
+    float: left;
+    border:1px solid #CEDCEA;
+    padding:5px;
+}
+
+.kiosk-row {
+    margin-bottom: 15px;
+    padding: 10px;
+    color: #0A416B;
+    clear:both;
+    width: 100%;
+}
+
+.kiosk-storage {
+    background-color: #89C6DF;
+}
+
+.kiosk-table {
+    width: 100%;
+}
