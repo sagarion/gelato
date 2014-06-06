@@ -23,11 +23,11 @@ SCANCODES = {
     50: u'M', 51: u',', 52: u'.', 53: u'/', 54: u'RSHFT', 56: u'LALT', 100: u'RALT'
 }
 
-barCodeDeviceString = "Metrologic Metrologic Scanner"
+rfidDeviceString = "RFIDeas USB Keyboard"
 
 devices = map(InputDevice, list_devices())
 for device in devices:
-    if device.name == barCodeDeviceString:
+    if device.name == rfidDeviceString:
         dev = InputDevice(device.fn)
 
 
