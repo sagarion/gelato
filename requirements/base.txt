@@ -3,3 +3,5 @@ django-extensions
 Pillow
 psycopg2
 pytz
+python-daemon
+evdev
