@@ -1,0 +1,28 @@
+#!/bin/sh
+
+DAEMON_NAME="gelato-kiosk-webserver"
+DAEMON="/home/gelato/kiosk/kiosk/daemon/gelato-kiosk-webserver.py"
+
+case "$1" in
+  start)
+    echo "Starting Kiosk Webserver"
+    # Start the daemon
+    python $DAEMON
+    ;;
+  stop)
+    echo "Stopping Kiosk Webserver"
+    # Stop the daemon
+    python $DAEMON stop
+    ;;
+  restart)
+    echo "Restarting Kiosk Webserver"
+    python $DAEMON restart
+    ;;
+  *)
+    # Refuse to do other stuff
+    echo "Usage: $DAEMON_NAME {start|stop|restart}"
+    exit 1
+    ;;
+esac
+
+exit 0

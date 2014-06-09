@@ -143,18 +143,27 @@ def product_sale_transaction(kiosk, product, user):
 
 
 def check_transaction(transaction_id, user):
+    success = False
+
     try:
         transaction = ProductTransaction.objects.get(pk=transaction_id)
         if transaction.storage.kiosk.user != user:
-            logging.info('Check transaction %s: INVALID USER' % transaction_id)
-            return False
+            message = 'Check transaction %s: INVALID USER' % transaction_id
+            success = False
+            logging.info(message)
         if not transaction.lock_open:
             transaction.lock_open = True
             transaction.save()
-            logging.info('Check transaction %s: VALID' % transaction_id)
-            return True
-        logging.warning('Check transaction %s: ALREADY OPEN' % transaction_id)
-        return False
+            message = 'Check transaction %s: VALID' % transaction_id
+            success = True
+            logging.info(message)
+        else:
+            message = 'Check transaction %s: ALREADY OPEN' % transaction_id
+            success = False
+            logging.warning(message)
     except ProductTransaction.DoesNotExist:
-        logging.error('Check transaction %s: NOT EXIST' % transaction_id)
-        return False
+        message = 'Check transaction %s: NOT EXIST' % transaction_id
+        success = False
+        logging.error(message)
+
+    return success, message

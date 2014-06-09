@@ -145,11 +145,8 @@ def kiosk_error(request):
 def kiosk_check_transaction(request, transaction_id):
     # We need the Kiosk user to check if the transaction was initiated from this user
     user = request.user
-    check = check_transaction(transaction_id, user)
-    result = {'success': False, 'message': "Une erreur est survenue durant l'ouverture de la porte!"}
-    if check:
-        result['success'] = True
-        result['message'] = "Veuillez ouvrir la porte et prendre votre glace"
+    success, message = check_transaction(transaction_id, user)
+    result = {'success': success, 'message': message}
     return HttpResponse(json.dumps(result),  content_type="application/json")
 
 

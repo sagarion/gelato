@@ -1,5 +1,5 @@
 # -*- coding: UTF-8 -*-
-# models.py
+# gelato-kiosk-reader.py
 #
 # Copyright (C) 2014 HES-SO//HEG Arc
 #
@@ -96,8 +96,8 @@ class App():
 
     def __init__(self):
         self.stdin_path = '/dev/null'
-        self.stdout_path = '/dev/tty'
-        self.stderr_path = '/dev/tty'
+        self.stdout_path = '/dev/null'
+        self.stderr_path = '/dev/null'
         self.pidfile_path = '/var/run/gelato/kiosk-reader.pid'
         self.pidfile_timeout = 5
 
