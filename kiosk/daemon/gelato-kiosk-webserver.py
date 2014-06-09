@@ -25,6 +25,9 @@ import web  # requires web.py
 import requests
 import json
 import logging
+import datetime
+import RPi.GPIO as GPIO
+import memcache
 
 
 urls = (
@@ -36,12 +39,18 @@ URL = "http://marmix.ig.he-arc.ch/gelato/kiosk/check-transaction/"
 USERNAME = 'gelato1'
 PASSWORD = 'gelato7cold'
 
+LOCK = 24  # GPIO BCM
+
 logger = logging.getLogger("Kiosk Webserver")
 logger.setLevel(logging.INFO)
 formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s")
 handler = logging.FileHandler("/var/log/gelato/kiosk-webserver.log")
 handler.setFormatter(formatter)
 logger.addHandler(handler)
+
+GPIO.setmode(GPIO.BCM)
+
+mc = memcache.Client(['127.0.0.1:11211'], debug=0)
 
 
 def check_transaction(transaction):
@@ -61,6 +70,12 @@ def check_transaction(transaction):
         return False
 
 
+def open_lock():
+    GPIO.output(LOCK, GPIO.HIGH)
+    mc.set("lock_opened", datetime.datetime.now())
+    mc.set("kiosk_open", True)
+
+
 class open:
     def GET(self, transaction):
         web.header('Content-Type', 'application/json')
@@ -70,7 +85,7 @@ class open:
         # We check if we have a valid transaction
         confirmation = check_transaction(transaction)
         if confirmation:
-            # We open the kiosk and return a confirmation message
+            open_lock()
             return {'success': True, 'message': u"La porte est ouverte"}
         else:
             return {'success': False, 'message': u"La porte n'a pas pu être ouverte"}
