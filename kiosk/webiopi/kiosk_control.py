@@ -25,9 +25,9 @@ import webiopi
 import datetime
 import memcache
 import sys
-sys.path.append("/home/cgaspoz/PycharmProjects/gelato/kiosk")
+#sys.path.append("/home/cgaspoz/PycharmProjects/gelato/kiosk")
 
-from celerytasks.tasks import log_kiosk
+#from celerytasks.tasks import log_kiosk
 
 # Enable debug output
 webiopi.setDebug()
