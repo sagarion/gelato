@@ -64,6 +64,7 @@ def check_transaction(transaction):
     confirmation = json.loads(r.content)
     if confirmation['success']:
         logger.info("Check succeed: %s" % confirmation['message'])
+        mc.set("kiosk_tier", confirmation['location'])
         return True
     else:
         logger.info("Check failed: %s" % confirmation['message'])
@@ -71,9 +72,14 @@ def check_transaction(transaction):
 
 
 def open_lock():
-    GPIO.output(LOCK, GPIO.HIGH)
-    mc.set("lock_opened", datetime.datetime.now())
-    mc.set("kiosk_open", True)
+    try:
+        mc.set("kiosk_open", True)
+        mc.set("lock_opened", datetime.datetime.now())
+        GPIO.output(LOCK, GPIO.HIGH)
+        logger.info("Lock successfully opened at: %s" % datetime.datetime.now())
+        return True
+    except:
+        return False
 
 
 class open:
@@ -85,10 +91,10 @@ class open:
         # We check if we have a valid transaction
         confirmation = check_transaction(transaction)
         if confirmation:
-            open_lock()
-            return {'success': True, 'message': u"La porte est ouverte"}
-        else:
-            return {'success': False, 'message': u"La porte n'a pas pu être ouverte"}
+            opened = open_lock()
+            if opened:
+                return {'success': True, 'message': u"La porte est ouverte"}
+        return {'success': False, 'message': u"La porte n'a pas pu être ouverte"}
 
 
 if __name__ == "__main__":

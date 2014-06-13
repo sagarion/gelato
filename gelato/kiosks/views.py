@@ -146,7 +146,12 @@ def kiosk_check_transaction(request, transaction_id):
     # We need the Kiosk user to check if the transaction was initiated from this user
     user = request.user
     success, message = check_transaction(transaction_id, user)
-    result = {'success': success, 'message': message}
+    if success:
+        transaction = ProductTransaction.objects.get(pk=transaction_id)
+        location = transaction.storage.tier
+    else:
+        location = None
+    result = {'success': success, 'message': message, 'location': location}
     return HttpResponse(json.dumps(result),  content_type="application/json")
 
 
