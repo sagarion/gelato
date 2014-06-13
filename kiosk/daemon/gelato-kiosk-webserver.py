@@ -75,7 +75,7 @@ def open_lock():
     try:
         mc.set("kiosk_open", True)
         mc.set("lock_opened", datetime.datetime.now())
-        GPIO.output(LOCK, GPIO.HIGH)
+        GPIO.output(LOCK, GPIO.LOW)
         logger.info("Lock successfully opened at: %s" % datetime.datetime.now())
         return True
     except:

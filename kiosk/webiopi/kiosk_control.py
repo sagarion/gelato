@@ -61,7 +61,7 @@ def setup():
     GPIO.setFunction(T3, GPIO.IN)
     GPIO.setFunction(DOOR, GPIO.IN)
     GPIO.setFunction(LOCK, GPIO.OUT)
-    GPIO.digitalWrite(LOCK, GPIO.LOW)
+    GPIO.digitalWrite(LOCK, GPIO.HIGH)
 
 
 # loop function is repeatedly called by WebIOPi
@@ -116,8 +116,8 @@ def loop():
             mc.set("kiosk_open", kiosk_open)
             # Kiosk closed
 
-    if GPIO.digitalRead(LOCK) == GPIO.HIGH and lock_opened < datetime.datetime.now() - datetime.timedelta(seconds=6):
-        GPIO.digitalWrite(LOCK, GPIO.LOW)
+    if GPIO.digitalRead(LOCK) == GPIO.LOW and lock_opened < datetime.datetime.now() - datetime.timedelta(seconds=6):
+        GPIO.digitalWrite(LOCK, GPIO.HIGH)
         lock_open = False
 
     # gives CPU some time before looping again
