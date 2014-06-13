@@ -3,6 +3,8 @@
 DAEMON_NAME="gelato-kiosk-reader"
 DAEMON="/home/gelato/kiosk/kiosk/daemon/gelato-kiosk-reader.py"
 
+mkdir -p /var/run/gelato
+
 case "$1" in
   start)
     echo "Starting Kiosk Reader"
