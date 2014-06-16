@@ -32,10 +32,12 @@ import memcache
 
 urls = (
     '/open/(.+)/', 'open',
+    '/admin/(.+)/', 'admin',
 )
 
 LOGIN = "http://marmix.ig.he-arc.ch/gelato/accounts/login/"
 URL = "http://marmix.ig.he-arc.ch/gelato/kiosk/check-transaction/"
+URL_ADMIN = "http://marmix.ig.he-arc.ch/gelato/kiosk/check-admin/"
 USERNAME = 'gelato1'
 PASSWORD = 'gelato7cold'
 
@@ -73,6 +75,23 @@ def check_transaction(transaction):
         return False
 
 
+def check_admin(user_id):
+    logger.info("Check superadmin: %s" % user_id)
+    client = requests.session()
+    # Retrieve the CSRF token first
+    client.get(LOGIN)  # sets the cookie
+    csrftoken = client.cookies['csrftoken']
+    data = dict(username=USERNAME, password=PASSWORD, csrfmiddlewaretoken=csrftoken, next=URL_ADMIN + user_id + '/')
+    r = client.post(LOGIN, data=data, headers={"Referer": "Gelato Kiosk"})
+    confirmation = json.loads(r.content)
+    if confirmation['success']:
+        logger.info("Check admin succeed: %s" % confirmation['message'])
+        return True
+    else:
+        logger.info("Check admin failed: %s" % confirmation['message'])
+        return False
+
+
 def open_lock():
     try:
         mc.set("kiosk_open", True)
@@ -92,6 +111,20 @@ class open:
         transaction = transaction
         # We check if we have a valid transaction
         confirmation = check_transaction(transaction)
+        if confirmation:
+            opened = open_lock()
+            if opened:
+                return {'success': True, 'message': u"La porte est ouverte"}
+        return {'success': False, 'message': u"La porte n'a pas pu être ouverte"}
+
+
+class admin:
+    def GET(self, user_id):
+        web.header('Content-Type', 'application/json')
+        web.header('Access-Control-Allow-Origin', '*')
+        web.header('Access-Control-Allow-Credentials', 'true')
+        # We check if we have a valid superuser
+        confirmation = check_admin(user_id)
         if confirmation:
             opened = open_lock()
             if opened:

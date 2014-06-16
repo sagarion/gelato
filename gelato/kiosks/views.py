@@ -155,6 +155,35 @@ def kiosk_check_transaction(request, transaction_id):
     return HttpResponse(json.dumps(result),  content_type="application/json")
 
 
+@login_required()
+def kiosk_check_admin(request, user_id):
+    success = False
+    message = 'Unprivileged user'
+    # We need the Kiosk user to check if the transaction was initiated from this user
+    user = User.objects.get(pk=user_id)
+    if user:
+        if user.is_superuser:
+            success = True
+            message = "Privilege successfully checked"
+    result = {'success': success, 'message': message, }
+    return HttpResponse(json.dumps(result),  content_type="application/json")
+
+
+def kiosk_admin(request):
+    user_id = request.session.get('kiosk_user', False)
+    if not user_id:
+        message = """L'authentification au moyen de votre badge a échoué ou a été révoquée. Veuillez retirer et replacer
+                     votre badge sur le lecteur. En cas d'erreur répétée, veuillez vous adresser au bureau 150."""
+        error = {'title': "Authentification révoquée", 'message': message}
+        return render_to_response('kiosk/error.html', {'error': error, }, context_instance=RequestContext(request))
+    user = User.objects.get(pk=user_id)
+    if not user.is_superuser:
+        message = """Vous n'avez pas les droits suffisants pour accéder à cette page. En cas d'erreur répétée, veuillez
+        vous adresser au bureau 150."""
+        error = {'title': "Privilèges insuffisants", 'message': message}
+        return render_to_response('kiosk/error.html', {'error': error, }, context_instance=RequestContext(request))
+    return render_to_response('kiosk/admin.html', {'user': user, }, context_instance=RequestContext(request))
+
 def kiosk_html_showcase(storage):
     showcase = kiosk_get_storage_location(storage)
     html = """<div class="kiosk-table">"""

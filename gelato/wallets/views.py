@@ -150,7 +150,10 @@ def rfid_scan(request, kiosk_id, rfid):
     try:
         user = User.objects.get(card_uid=rfid)
         request.session['kiosk_user'] = user.id
-        return HttpResponseRedirect(reverse('kiosk_showcase'))
+        if user.is_superuser:
+            return HttpResponseRedirect(reverse('kiosk_admin'))
+        else:
+            return HttpResponseRedirect(reverse('kiosk_showcase'))
     except User.DoesNotExist:
         #We need to link the account
         logging.info("The card %s is not known." % rfid)

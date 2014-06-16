@@ -5,6 +5,22 @@
     {{ block.super }}
 {% endblock stylesheets %}
 {% block content %}
+    <script src="{% static "js/jquery-2.1.0.min.js" %}"></script>
+    <script>
+     var openDoorUrl = "http://127.0.0.1:8080/open/{{ transaction.id }}/";
+     $.getJSON(openDoorUrl, function (response) {
+         var jsonData = response;
+     });
+     $.getJSON(openDoorUrl, function( response ) {
+        jsonData = response;
+     });
+        var kioskMessage = response.message;
+        console.log('Kiosk Message : ', kioskMessage);
+
+        var kioskSuccess = response.success;
+        console.log('Kiosk Success : ', kioskSuccess);
+
+    </script>
     {{ block.super }}
     <div class="row">
         <div class="col-lg-8">
@@ -47,20 +63,5 @@
             </table>
         </div>
     </div>
-    <script src="{% static "js/jquery-2.1.0.min.js" %}"></script>
-    <script>
-     var openDoorUrl = "http://127.0.0.1:8080/open/{{ transaction.id }}/";
-     $.getJSON(openDoorUrl, function (response) {
-         var jsonData = response;
-     });
-     $.getJSON(openDoorUrl, function( response ) {
-        jsonData = response;
-     });
-        var kioskMessage = response.message;
-        console.log('Kiosk Message : ', kioskMessage);
 
-        var kioskSuccess = response.success;
-        console.log('Kiosk Success : ', kioskSuccess);
-
-    </script>
 {% endblock %}

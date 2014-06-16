@@ -114,6 +114,9 @@ def loop():
             door_open = False
             kiosk_open = False
             mc.set("kiosk_open", kiosk_open)
+            if GPIO.digitalRead(LOCK) == GPIO.LOW:
+                GPIO.digitalWrite(LOCK, GPIO.HIGH)
+                lock_open = False
             # Kiosk closed
 
     if GPIO.digitalRead(LOCK) == GPIO.LOW and lock_opened < datetime.datetime.now() - datetime.timedelta(seconds=6):
