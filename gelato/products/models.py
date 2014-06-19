@@ -129,4 +129,4 @@ class Product(models.Model):
         ordering = ['name']
 
     def __unicode__(self):
-        return self.name
+        return u'%s' % self.name
