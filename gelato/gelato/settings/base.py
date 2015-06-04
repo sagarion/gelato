@@ -251,7 +251,6 @@ MODELTRANSLATION_TRANSLATION_FILES = (
 
 THIRD_PARTY_APPS = (
     # Database migration helpers:
-    'south',
     'shibboleth',
     'paypal.standard.ipn',
     #'wkhtmltopdf',
@@ -313,7 +312,7 @@ LOGGING = {
             'level': 'DEBUG',
             'filters': ['require_debug_true'],
             'class': 'logging.FileHandler',
-            'filename': '/var/log/django/debug.log',
+            'filename': SITE_ROOT + '/log/debug.log',
             'formatter': 'verbose',
         },
     },

@@ -43,7 +43,7 @@ class Kiosk(models.Model):
     """
     name = models.CharField(verbose_name=_("name"), max_length=20, help_text=_("Name of the kiosk"))
     location = models.CharField(verbose_name=_("location"), max_length=100, help_text=_("Location of the kiosk"))
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_('user'), related_name=_('kiosk users'), help_text=_("User account of the kiosk"))
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_('user'), related_name=_('kiosk_users'), help_text=_("User account of the kiosk"))
     created = models.DateTimeField(verbose_name=_("created"), auto_now_add=True, help_text=_("Creation date of the kiosk in the database"))
     edited = models.DateTimeField(verbose_name=_("edited"), auto_now=True, help_text=_("Last edition of the kiosk in the database"))
     editor = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_('editor'), related_name=_('kiosks'), help_text=_("Last editor of the kiosk in the database"))
@@ -66,7 +66,7 @@ class KioskStorage(models.Model):
     kiosk = models.ForeignKey('Kiosk', verbose_name=_('kiosk'), related_name=_('storages'), help_text=_("Kiosk the storage belongs to"))
     created = models.DateTimeField(verbose_name=_("created"), auto_now_add=True, help_text=_("Creation date of the kiosk storage in the database"))
     edited = models.DateTimeField(verbose_name=_("edited"), auto_now=True, help_text=_("Last edition of the kiosk storage in the database"))
-    editor = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_('editor'), related_name=_('kiosk storages'), help_text=_("Last editor of the kiosk storage in the database"))
+    editor = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_('editor'), related_name=_('kiosk_storages'), help_text=_("Last editor of the kiosk storage in the database"))
 
     class Meta:
         verbose_name = _('kiosk storage')
