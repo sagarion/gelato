@@ -4,4 +4,4 @@ Sphinx
 django-debug-toolbar
 docutils
 pygraphviz
-
+pyyaml
