@@ -1,0 +1,2501 @@
+- fields: {app_label: auth, model: permission, name: permission}
+  model: contenttypes.contenttype
+  pk: 1
+- fields: {app_label: auth, model: group, name: group}
+  model: contenttypes.contenttype
+  pk: 2
+- fields: {app_label: contenttypes, model: contenttype, name: content type}
+  model: contenttypes.contenttype
+  pk: 3
+- fields: {app_label: sessions, model: session, name: session}
+  model: contenttypes.contenttype
+  pk: 4
+- fields: {app_label: sites, model: site, name: site}
+  model: contenttypes.contenttype
+  pk: 5
+- fields: {app_label: admin, model: logentry, name: log entry}
+  model: contenttypes.contenttype
+  pk: 6
+- fields: {app_label: south, model: migrationhistory, name: migration history}
+  model: contenttypes.contenttype
+  pk: 7
+- fields: {app_label: products, model: productsupplier, name: supplier}
+  model: contenttypes.contenttype
+  pk: 8
+- fields: {app_label: products, model: productbrand, name: product brand}
+  model: contenttypes.contenttype
+  pk: 9
+- fields: {app_label: products, model: productcategory, name: product category}
+  model: contenttypes.contenttype
+  pk: 10
+- fields: {app_label: products, model: product, name: product}
+  model: contenttypes.contenttype
+  pk: 11
+- fields: {app_label: wallets, model: user, name: user}
+  model: contenttypes.contenttype
+  pk: 12
+- fields: {app_label: transactions, model: producttransaction, name: product transaction}
+  model: contenttypes.contenttype
+  pk: 13
+- fields: {app_label: transactions, model: financialtransaction, name: financial transaction}
+  model: contenttypes.contenttype
+  pk: 14
+- fields: {app_label: ipn, model: paypalipn, name: PayPal IPN}
+  model: contenttypes.contenttype
+  pk: 15
+- fields: {app_label: kiosks, model: kiosk, name: kiosk}
+  model: contenttypes.contenttype
+  pk: 16
+- fields: {app_label: kiosks, model: kioskstorage, name: kiosk storage}
+  model: contenttypes.contenttype
+  pk: 17
+- fields: {app_label: wallets, model: userpin, name: user pin}
+  model: contenttypes.contenttype
+  pk: 18
+- fields: {expire_date: ! '2014-06-21 06:47:34.214174+00:00', session_data: ZDI2MDM5MzA3YmU1NTM4Nzg3MTI0MGYyYWIwYjU0ODg3YTNmZWViOTp7Imtpb3NrX2lkIjoxLCJyZmlkIjoiMTA5MTg2OTEwNiIsImtpb3NrX3VzZXIiOjJ9}
+  model: sessions.session
+  pk: 0iwmms6nm26sy55gc81qvgku3x8iwjuj
+- fields: {expire_date: ! '2014-06-23 08:21:43.007779+00:00', session_data: OWNiOWFjNTMwNDk0NDljOGQxYzk0YTk5YjYzNTQ4Y2EzZDFkZjM2Yzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=}
+  model: sessions.session
+  pk: 0jwai16w6bboxac6pwnsltc61vg8x0j0
+- fields: {expire_date: ! '2014-08-21 13:18:00.547540+00:00', session_data: OWNiOWFjNTMwNDk0NDljOGQxYzk0YTk5YjYzNTQ4Y2EzZDFkZjM2Yzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=}
+  model: sessions.session
+  pk: 0p1adct7yuo3i1st3hf2ihindlxb3eve
+- fields: {expire_date: ! '2014-09-03 12:51:46.953508+00:00', session_data: OWNiOWFjNTMwNDk0NDljOGQxYzk0YTk5YjYzNTQ4Y2EzZDFkZjM2Yzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=}
+  model: sessions.session
+  pk: 1couijtl4q46uxmbw8y484rp7w5dx8b8
+- fields: {expire_date: ! '2014-08-12 14:19:10.980591+00:00', session_data: OWNiOWFjNTMwNDk0NDljOGQxYzk0YTk5YjYzNTQ4Y2EzZDFkZjM2Yzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=}
+  model: sessions.session
+  pk: 1ip41zj8lnt2zp2799jvyp0kf8rfj19e
+- fields: {expire_date: ! '2014-07-28 13:01:18.778140+00:00', session_data: OWNiOWFjNTMwNDk0NDljOGQxYzk0YTk5YjYzNTQ4Y2EzZDFkZjM2Yzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=}
+  model: sessions.session
+  pk: 1kg9yjib0ugh3jhxnn08ztyckhjdxclw
+- fields: {expire_date: ! '2014-05-05 20:54:13.197912+00:00', session_data: YTdjMDg0MDRmYWYyMzA4ODU2YjgyZDFmODM2YTc5ZmMxZGIyZDVlNDp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuUmVtb3RlVXNlckJhY2tlbmQiLCJfYXV0aF91c2VyX2lkIjoyfQ==}
+  model: sessions.session
+  pk: 1nc8ngpfr0da02ld9rczd91xtgvvn51m
+- fields: {expire_date: ! '2014-06-20 17:21:01.392781+00:00', session_data: OTI5N2QyMzM0ZTBhZGE3MzVkY2VhYjM2MzRiZDg4NmExODc0Y2VjNTp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwia2lvc2tfaWQiOjEsIl9hdXRoX3VzZXJfaWQiOjQsInJmaWQiOiIxMDkxODY5MTA2Iiwia2lvc2tfdXNlciI6Mn0=}
+  model: sessions.session
+  pk: 1si1gkdy5qkm70upve5kycpkhioz1g2h
+- fields: {expire_date: ! '2014-06-27 13:30:15.393088+00:00', session_data: OWNiOWFjNTMwNDk0NDljOGQxYzk0YTk5YjYzNTQ4Y2EzZDFkZjM2Yzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=}
+  model: sessions.session
+  pk: 297bkkj584v3x8vgm8kva5cnm78kwhzf
+- fields: {expire_date: ! '2014-08-12 10:53:18.943625+00:00', session_data: OWNiOWFjNTMwNDk0NDljOGQxYzk0YTk5YjYzNTQ4Y2EzZDFkZjM2Yzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=}
+  model: sessions.session
+  pk: 2cmygzs6zerqa58fe3rryh1qo1ldt6zz
+- fields: {expire_date: ! '2014-07-04 14:27:53.013653+00:00', session_data: OWNiOWFjNTMwNDk0NDljOGQxYzk0YTk5YjYzNTQ4Y2EzZDFkZjM2Yzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=}
+  model: sessions.session
+  pk: 2j4w0e7466n3w6ms38zs51mo0yaouxur
+- fields: {expire_date: ! '2014-07-04 07:17:38.836351+00:00', session_data: OWNiOWFjNTMwNDk0NDljOGQxYzk0YTk5YjYzNTQ4Y2EzZDFkZjM2Yzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=}
+  model: sessions.session
+  pk: 331okuz3y0uxr6zk3t4h0b4zd97eeie7
+- fields: {expire_date: ! '2014-08-06 13:26:11.033969+00:00', session_data: OWNiOWFjNTMwNDk0NDljOGQxYzk0YTk5YjYzNTQ4Y2EzZDFkZjM2Yzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=}
+  model: sessions.session
+  pk: 3et8avck7hsn6bzeknplvae3dahn058o
+- fields: {expire_date: ! '2014-07-03 12:39:58.068882+00:00', session_data: OWNiOWFjNTMwNDk0NDljOGQxYzk0YTk5YjYzNTQ4Y2EzZDFkZjM2Yzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=}
+  model: sessions.session
+  pk: 3wo3kb95nptn5jfv8yphv3rophu4zavo
+- fields: {expire_date: ! '2014-08-19 15:50:54.274175+00:00', session_data: OWNiOWFjNTMwNDk0NDljOGQxYzk0YTk5YjYzNTQ4Y2EzZDFkZjM2Yzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=}
+  model: sessions.session
+  pk: 42228s4n8l4w1usnbkiz3x0dprvh8llo
+- fields: {expire_date: ! '2014-08-04 14:37:22.798703+00:00', session_data: OWNiOWFjNTMwNDk0NDljOGQxYzk0YTk5YjYzNTQ4Y2EzZDFkZjM2Yzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=}
+  model: sessions.session
+  pk: 482txr1k6hhpvn7aygbo5w82jjdsexao
+- fields: {expire_date: ! '2014-08-14 12:42:40.800483+00:00', session_data: OWNiOWFjNTMwNDk0NDljOGQxYzk0YTk5YjYzNTQ4Y2EzZDFkZjM2Yzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=}
+  model: sessions.session
+  pk: 497hc87so8qh92z2ux4lq5khylvualh1
+- fields: {expire_date: ! '2014-09-02 11:31:12.410297+00:00', session_data: OWNiOWFjNTMwNDk0NDljOGQxYzk0YTk5YjYzNTQ4Y2EzZDFkZjM2Yzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=}
+  model: sessions.session
+  pk: 4adih174wnv9kzcub5dxy8v1br70c2h4
+- fields: {expire_date: ! '2014-06-23 08:17:12.677236+00:00', session_data: OWNiOWFjNTMwNDk0NDljOGQxYzk0YTk5YjYzNTQ4Y2EzZDFkZjM2Yzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=}
+  model: sessions.session
+  pk: 4k2vn5bvm3lqzplgtvt5mf3fmaia2z7q
+- fields: {expire_date: ! '2014-10-10 13:13:47.936289+00:00', session_data: YTRiZmQ4MGRlNjllODRjMjdmZGY0ZTc1YWQwZmM4NTAyOWI3NmJmMTp7Imtpb3NrX2lkIjoxLCJyZmlkIjoiMTQ3MDIyMTg3MyIsImtpb3NrX3VzZXIiOjF9}
+  model: sessions.session
+  pk: 4vhk3hyix36c389djn2o5alk9ixrnins
+- fields: {expire_date: ! '2014-11-03 09:46:22.434331+00:00', session_data: YmNiNjA2NzIzZWM1YmNjOWU2MDM0NzUyZmFiYjlhMmU3OWJlNWUwYzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6MX0=}
+  model: sessions.session
+  pk: 5gthmisqtq8sgpxdam87kqiw8qxscam6
+- fields: {expire_date: ! '2014-08-22 12:38:44.549872+00:00', session_data: OWNiOWFjNTMwNDk0NDljOGQxYzk0YTk5YjYzNTQ4Y2EzZDFkZjM2Yzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=}
+  model: sessions.session
+  pk: 5iwln1ggwb21fdd5ctax05boyfzvxzq3
+- fields: {expire_date: ! '2014-12-17 10:55:05.797773+00:00', session_data: YTRiZmQ4MGRlNjllODRjMjdmZGY0ZTc1YWQwZmM4NTAyOWI3NmJmMTp7Imtpb3NrX2lkIjoxLCJyZmlkIjoiMTQ3MDIyMTg3MyIsImtpb3NrX3VzZXIiOjF9}
+  model: sessions.session
+  pk: 5rqosgkllphcegc6bu90iccliig57az1
+- fields: {expire_date: ! '2014-08-20 15:20:37.155484+00:00', session_data: OWNiOWFjNTMwNDk0NDljOGQxYzk0YTk5YjYzNTQ4Y2EzZDFkZjM2Yzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=}
+  model: sessions.session
+  pk: 6pppnhbq2mv1ayjpbkjd52zoqgrism56
+- fields: {expire_date: ! '2014-06-23 08:17:04.380147+00:00', session_data: OWNiOWFjNTMwNDk0NDljOGQxYzk0YTk5YjYzNTQ4Y2EzZDFkZjM2Yzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=}
+  model: sessions.session
+  pk: 6pye6tkv4kjk84m5ijgkjcaq15xt9tgl
+- fields: {expire_date: ! '2014-07-04 07:20:45.606810+00:00', session_data: OWNiOWFjNTMwNDk0NDljOGQxYzk0YTk5YjYzNTQ4Y2EzZDFkZjM2Yzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=}
+  model: sessions.session
+  pk: 6s1xi0smfgt6salc369rp3qf14v2o1dn
+- fields: {expire_date: ! '2014-07-14 10:59:43.792887+00:00', session_data: OWNiOWFjNTMwNDk0NDljOGQxYzk0YTk5YjYzNTQ4Y2EzZDFkZjM2Yzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=}
+  model: sessions.session
+  pk: 6zi5ehdlw97rhx7ymfgsgrcaj5vcb7z1
+- fields: {expire_date: ! '2014-08-14 12:40:45.151448+00:00', session_data: OWNiOWFjNTMwNDk0NDljOGQxYzk0YTk5YjYzNTQ4Y2EzZDFkZjM2Yzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=}
+  model: sessions.session
+  pk: 7thot77q77fkmd4mbjkh4lj6gsyv7b9m
+- fields: {expire_date: ! '2014-07-04 07:18:05.690007+00:00', session_data: YmNiNjA2NzIzZWM1YmNjOWU2MDM0NzUyZmFiYjlhMmU3OWJlNWUwYzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6MX0=}
+  model: sessions.session
+  pk: 85jssf25jz7cijp37spa8dy5h2arr28f
+- fields: {expire_date: ! '2014-08-22 12:38:14.042804+00:00', session_data: OWNiOWFjNTMwNDk0NDljOGQxYzk0YTk5YjYzNTQ4Y2EzZDFkZjM2Yzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=}
+  model: sessions.session
+  pk: 8ga6hqk1mge5r7z281wd444n7ls32muy
+- fields: {expire_date: ! '2014-07-22 13:46:22.348243+00:00', session_data: OWNiOWFjNTMwNDk0NDljOGQxYzk0YTk5YjYzNTQ4Y2EzZDFkZjM2Yzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=}
+  model: sessions.session
+  pk: 8ji4pep21slnbsh37l12el9oyoaob634
+- fields: {expire_date: ! '2014-06-27 13:34:40.148697+00:00', session_data: MmE2ZTczNGY1NzhkM2ZlMzg0OGY3ZGNmZDdhNzRhNzM2YTJiNTc4ZDp7Imtpb3NrX2lkIjoxLCJyZmlkIjoiRVNDIn0=}
+  model: sessions.session
+  pk: 8k5dxcljs0isu9q7vfky60q2agyq4rfk
+- fields: {expire_date: ! '2014-05-03 17:10:47.690186+00:00', session_data: ZGMxOWViNDI4Y2RlOWQ2NzkyNGRmODQwNGQ0ZDhhZjE3YmMyOGY3Zjp7InNoaWIiOnsidXNlcm5hbWUiOiIxMjA5MDY1OTdAaGVzLXNvLmNoIiwiZmlyc3RfbmFtZSI6IkFsZXNzaW8iLCJsYXN0X25hbWUiOiJEZSBTYW50byIsImVtYWlsIjoiYWxlc3Npby5kZXNhbnRvQGhlLWFyYy5jaCJ9LCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLlJlbW90ZVVzZXJCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6M30=}
+  model: sessions.session
+  pk: 8oc7trh676hqfzkb5mz4f8dpde9ae4hd
+- fields: {expire_date: ! '2014-06-23 08:03:11.537913+00:00', session_data: MmE2ZTczNGY1NzhkM2ZlMzg0OGY3ZGNmZDdhNzRhNzM2YTJiNTc4ZDp7Imtpb3NrX2lkIjoxLCJyZmlkIjoiRVNDIn0=}
+  model: sessions.session
+  pk: 8ulurb1uajjqbq80bryoum3pqs1qqlk2
+- fields: {expire_date: ! '2014-07-04 14:42:40.349643+00:00', session_data: YTdjMDg0MDRmYWYyMzA4ODU2YjgyZDFmODM2YTc5ZmMxZGIyZDVlNDp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuUmVtb3RlVXNlckJhY2tlbmQiLCJfYXV0aF91c2VyX2lkIjoyfQ==}
+  model: sessions.session
+  pk: 9bcrr5nygblxa186fc54jxxlflggn3rq
+- fields: {expire_date: ! '2014-07-17 09:49:28.688436+00:00', session_data: OWNiOWFjNTMwNDk0NDljOGQxYzk0YTk5YjYzNTQ4Y2EzZDFkZjM2Yzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=}
+  model: sessions.session
+  pk: a0r85ibg4w2mt2lhp6ff901fhlc4nrel
+- fields: {expire_date: ! '2014-07-01 06:44:23.599773+00:00', session_data: MTg0NGI4ODYzMjI1OWM3YWY2NjNhYTRlMzZhMDZmNjFiZGE0ZTgwOTp7InNoaWIiOnsidXNlcm5hbWUiOiIxMjUxMDY1MzI3QGhlcy1zby5jaCIsImZpcnN0X25hbWUiOiJKdWxpZW4iLCJsYXN0X25hbWUiOiJQbHVtZXoiLCJlbWFpbCI6Imp1bGllbi5wbHVtZXpAaGUtYXJjLmNoIn0sIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuUmVtb3RlVXNlckJhY2tlbmQiLCJfYXV0aF91c2VyX2lkIjo1fQ==}
+  model: sessions.session
+  pk: a5oiga0y33nqtk1si52md6nmgebiw83e
+- fields: {expire_date: ! '2014-09-05 14:41:24.678119+00:00', session_data: OWNiOWFjNTMwNDk0NDljOGQxYzk0YTk5YjYzNTQ4Y2EzZDFkZjM2Yzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=}
+  model: sessions.session
+  pk: aegrnnd8eee0bo8y9brq1yyxsvt2pzrl
+- fields: {expire_date: ! '2014-08-04 14:15:40.488912+00:00', session_data: OWNiOWFjNTMwNDk0NDljOGQxYzk0YTk5YjYzNTQ4Y2EzZDFkZjM2Yzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=}
+  model: sessions.session
+  pk: akaer65tafs7qhrp3spyjhsd3j4fx59y
+- fields: {expire_date: ! '2014-06-23 08:18:56.723883+00:00', session_data: OWNiOWFjNTMwNDk0NDljOGQxYzk0YTk5YjYzNTQ4Y2EzZDFkZjM2Yzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=}
+  model: sessions.session
+  pk: baarvw0c9n6cob0a7xlxcbow4b7fdupz
+- fields: {expire_date: ! '2014-06-23 15:18:04.901242+00:00', session_data: ZDI2MDM5MzA3YmU1NTM4Nzg3MTI0MGYyYWIwYjU0ODg3YTNmZWViOTp7Imtpb3NrX2lkIjoxLCJyZmlkIjoiMTA5MTg2OTEwNiIsImtpb3NrX3VzZXIiOjJ9}
+  model: sessions.session
+  pk: bcnh3ng1ngongxw09uzm1mkut73c87fz
+- fields: {expire_date: ! '2014-09-25 13:39:56.329582+00:00', session_data: YTRiZmQ4MGRlNjllODRjMjdmZGY0ZTc1YWQwZmM4NTAyOWI3NmJmMTp7Imtpb3NrX2lkIjoxLCJyZmlkIjoiMTQ3MDIyMTg3MyIsImtpb3NrX3VzZXIiOjF9}
+  model: sessions.session
+  pk: belu0kjvjo7fq8zo9turgjyb5r032ytr
+- fields: {expire_date: ! '2014-08-11 13:03:53.502137+00:00', session_data: OWNiOWFjNTMwNDk0NDljOGQxYzk0YTk5YjYzNTQ4Y2EzZDFkZjM2Yzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=}
+  model: sessions.session
+  pk: bhdtic7qe9solhm7l54n5lmooonfb4dk
+- fields: {expire_date: ! '2014-07-04 07:21:41.722320+00:00', session_data: OWNiOWFjNTMwNDk0NDljOGQxYzk0YTk5YjYzNTQ4Y2EzZDFkZjM2Yzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=}
+  model: sessions.session
+  pk: boei7m3k4ba49ug4y9dz4gf2wtf9baj9
+- fields: {expire_date: ! '2014-08-12 14:45:14.617749+00:00', session_data: OWNiOWFjNTMwNDk0NDljOGQxYzk0YTk5YjYzNTQ4Y2EzZDFkZjM2Yzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=}
+  model: sessions.session
+  pk: bvrtt7j36dvch1ioxz87oh7o4s4z7zcp
+- fields: {expire_date: ! '2014-06-27 12:53:43.010222+00:00', session_data: OWNiOWFjNTMwNDk0NDljOGQxYzk0YTk5YjYzNTQ4Y2EzZDFkZjM2Yzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=}
+  model: sessions.session
+  pk: ceuga8nm1pu9i1z4yozh6akko8segkoa
+- fields: {expire_date: ! '2014-08-14 12:41:14.748149+00:00', session_data: OWNiOWFjNTMwNDk0NDljOGQxYzk0YTk5YjYzNTQ4Y2EzZDFkZjM2Yzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=}
+  model: sessions.session
+  pk: cg84ghmshg2p12bz4ym2okh9e15n1n1v
+- fields: {expire_date: ! '2014-06-23 15:13:11.641361+00:00', session_data: YmNiNjA2NzIzZWM1YmNjOWU2MDM0NzUyZmFiYjlhMmU3OWJlNWUwYzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6MX0=}
+  model: sessions.session
+  pk: cifmj2yu3l2ou48ozcumm6qzhzoki41m
+- fields: {expire_date: ! '2015-06-19 09:52:35.437866+00:00', session_data: MWI1N2IzZGYxYjU1MWJiNmI3MmI1ZWZlZDAwNTU4MDUyMmZhZGE1Nzp7InNoaWIiOnsidXNlcm5hbWUiOiIzNTc1MjM4MTgwQGhlcy1zby5jaCIsImZpcnN0X25hbWUiOiJDXHUwMGU5ZHJpYyIsImxhc3RfbmFtZSI6Ikdhc3BveiIsImVtYWlsIjoiY2VkcmljLmdhc3BvekBoZS1hcmMuY2gifSwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5SZW1vdGVVc2VyQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOjZ9}
+  model: sessions.session
+  pk: ciun7qq766kdlo4fu8xfe9olx4j0bf4l
+- fields: {expire_date: ! '2014-05-20 08:20:09.210740+00:00', session_data: YjMxMWY1YWEzOGJhY2RhYWQ2NTEzNzUxOWZmMjU5YjE4YjFiODY4MTp7InNoaWIiOnsidXNlcm5hbWUiOiI2NTYwNjE1MEBoZXMtc28uY2giLCJmaXJzdF9uYW1lIjoiQ1x1MDBlOWRyaWMiLCJsYXN0X25hbWUiOiJHYXNwb3oiLCJlbWFpbCI6ImNlZHJpYy5nYXNwb3pAaGUtYXJjLmNoIn0sIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuUmVtb3RlVXNlckJhY2tlbmQiLCJfYXV0aF91c2VyX2lkIjoyfQ==}
+  model: sessions.session
+  pk: dc3er1u3ebv9erffba58t98b0n26nm7g
+- fields: {expire_date: ! '2014-06-23 08:18:08.413901+00:00', session_data: OWNiOWFjNTMwNDk0NDljOGQxYzk0YTk5YjYzNTQ4Y2EzZDFkZjM2Yzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=}
+  model: sessions.session
+  pk: dcx081i7ieabh8lzqo0t3x09oxr3lf8y
+- fields: {expire_date: ! '2014-05-02 13:41:56.749654+00:00', session_data: YjMxMWY1YWEzOGJhY2RhYWQ2NTEzNzUxOWZmMjU5YjE4YjFiODY4MTp7InNoaWIiOnsidXNlcm5hbWUiOiI2NTYwNjE1MEBoZXMtc28uY2giLCJmaXJzdF9uYW1lIjoiQ1x1MDBlOWRyaWMiLCJsYXN0X25hbWUiOiJHYXNwb3oiLCJlbWFpbCI6ImNlZHJpYy5nYXNwb3pAaGUtYXJjLmNoIn0sIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuUmVtb3RlVXNlckJhY2tlbmQiLCJfYXV0aF91c2VyX2lkIjoyfQ==}
+  model: sessions.session
+  pk: dewhp3whvqpoad6taouhxnvl3o53eptw
+- fields: {expire_date: ! '2014-09-04 14:11:12.487718+00:00', session_data: OWNiOWFjNTMwNDk0NDljOGQxYzk0YTk5YjYzNTQ4Y2EzZDFkZjM2Yzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=}
+  model: sessions.session
+  pk: dflu553um7okzf104nwd7ulvlkfas0kb
+- fields: {expire_date: ! '2014-08-19 13:02:42.443755+00:00', session_data: OWNiOWFjNTMwNDk0NDljOGQxYzk0YTk5YjYzNTQ4Y2EzZDFkZjM2Yzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=}
+  model: sessions.session
+  pk: druvtfdiudq0at89c1ilhms2optz7isd
+- fields: {expire_date: ! '2014-08-08 14:23:41.808336+00:00', session_data: OWNiOWFjNTMwNDk0NDljOGQxYzk0YTk5YjYzNTQ4Y2EzZDFkZjM2Yzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=}
+  model: sessions.session
+  pk: e4v25soi6ts66shbg9be7pii7ugfbw61
+- fields: {expire_date: ! '2014-09-05 14:41:23.665284+00:00', session_data: OWNiOWFjNTMwNDk0NDljOGQxYzk0YTk5YjYzNTQ4Y2EzZDFkZjM2Yzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=}
+  model: sessions.session
+  pk: e6hv2sh5fgczazyk7o14x79uoq4kduqe
+- fields: {expire_date: ! '2014-06-20 17:20:04.135801+00:00', session_data: OWNiOWFjNTMwNDk0NDljOGQxYzk0YTk5YjYzNTQ4Y2EzZDFkZjM2Yzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=}
+  model: sessions.session
+  pk: ef9qtvfzss0iyl5ge4t6ie0lyv9d03l4
+- fields: {expire_date: ! '2014-08-26 13:52:41.780084+00:00', session_data: OWNiOWFjNTMwNDk0NDljOGQxYzk0YTk5YjYzNTQ4Y2EzZDFkZjM2Yzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=}
+  model: sessions.session
+  pk: fpnm0t5au7oo337p65tzkxomz0kr6ny0
+- fields: {expire_date: ! '2014-06-23 08:19:59.293528+00:00', session_data: OWNiOWFjNTMwNDk0NDljOGQxYzk0YTk5YjYzNTQ4Y2EzZDFkZjM2Yzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=}
+  model: sessions.session
+  pk: fs4vxhxb59glwvzk0oubasng2l6b62k2
+- fields: {expire_date: ! '2014-08-22 12:38:29.530215+00:00', session_data: OWNiOWFjNTMwNDk0NDljOGQxYzk0YTk5YjYzNTQ4Y2EzZDFkZjM2Yzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=}
+  model: sessions.session
+  pk: g45c4ttjrbtfv9vxk67e3v4mnvo9zcgj
+- fields: {expire_date: ! '2014-09-04 15:21:32.333157+00:00', session_data: OWNiOWFjNTMwNDk0NDljOGQxYzk0YTk5YjYzNTQ4Y2EzZDFkZjM2Yzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=}
+  model: sessions.session
+  pk: ga9twc0rtjucfklyjxr3e24dtrwq7uji
+- fields: {expire_date: ! '2014-08-08 14:23:14.021781+00:00', session_data: OWNiOWFjNTMwNDk0NDljOGQxYzk0YTk5YjYzNTQ4Y2EzZDFkZjM2Yzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=}
+  model: sessions.session
+  pk: gfa48nlnaiw8jouhvyqsqd1nqy758hvd
+- fields: {expire_date: ! '2014-06-20 20:49:32.945915+00:00', session_data: MmE2ZTczNGY1NzhkM2ZlMzg0OGY3ZGNmZDdhNzRhNzM2YTJiNTc4ZDp7Imtpb3NrX2lkIjoxLCJyZmlkIjoiRVNDIn0=}
+  model: sessions.session
+  pk: gggo5se1qjpcmdj39xmfrdc04y7i36ci
+- fields: {expire_date: ! '2014-06-27 13:23:57.897679+00:00', session_data: OWNiOWFjNTMwNDk0NDljOGQxYzk0YTk5YjYzNTQ4Y2EzZDFkZjM2Yzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=}
+  model: sessions.session
+  pk: gj1zi1ppub6sv5w20g02e4m4rnpm3ppe
+- fields: {expire_date: ! '2014-06-23 08:18:01.696994+00:00', session_data: OWNiOWFjNTMwNDk0NDljOGQxYzk0YTk5YjYzNTQ4Y2EzZDFkZjM2Yzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=}
+  model: sessions.session
+  pk: gwkuonfcmkvagnbj8awf6xsrie5702sb
+- fields: {expire_date: ! '2014-05-02 13:41:52.000301+00:00', session_data: MzU2MzI5Y2RjYjdjZjFiM2JhZDc1YjRjODQ0MTgxYjVkYmQ2ZmFiYzp7fQ==}
+  model: sessions.session
+  pk: gyk7johnkbob8lyv5mvwke7bdc2t847d
+- fields: {expire_date: ! '2014-08-04 14:15:45.098178+00:00', session_data: OWNiOWFjNTMwNDk0NDljOGQxYzk0YTk5YjYzNTQ4Y2EzZDFkZjM2Yzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=}
+  model: sessions.session
+  pk: hid3ts4tztcez0su38lrv3oxetvzcqy6
+- fields: {expire_date: ! '2014-08-12 13:02:31.207777+00:00', session_data: OWNiOWFjNTMwNDk0NDljOGQxYzk0YTk5YjYzNTQ4Y2EzZDFkZjM2Yzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=}
+  model: sessions.session
+  pk: hmtsnmiy13jp82br50xtdtihqv8rwcqi
+- fields: {expire_date: ! '2014-06-30 10:29:03.814809+00:00', session_data: OWNiOWFjNTMwNDk0NDljOGQxYzk0YTk5YjYzNTQ4Y2EzZDFkZjM2Yzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=}
+  model: sessions.session
+  pk: hwk6nquw11iwk8kgmu1pzrlym538g1hf
+- fields: {expire_date: ! '2014-05-05 19:48:45.830890+00:00', session_data: YTdjMDg0MDRmYWYyMzA4ODU2YjgyZDFmODM2YTc5ZmMxZGIyZDVlNDp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuUmVtb3RlVXNlckJhY2tlbmQiLCJfYXV0aF91c2VyX2lkIjoyfQ==}
+  model: sessions.session
+  pk: i0ha5qahqxtgwc7v6xtpune3mzjt2war
+- fields: {expire_date: ! '2014-08-22 12:39:47.736334+00:00', session_data: OWNiOWFjNTMwNDk0NDljOGQxYzk0YTk5YjYzNTQ4Y2EzZDFkZjM2Yzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=}
+  model: sessions.session
+  pk: iaazh4fi8ptu7bx5h5niwnh0ztlxx3n3
+- fields: {expire_date: ! '2014-06-23 10:15:14.673146+00:00', session_data: OWNiOWFjNTMwNDk0NDljOGQxYzk0YTk5YjYzNTQ4Y2EzZDFkZjM2Yzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=}
+  model: sessions.session
+  pk: ifdzlcvqwcm5xy515gqzk8wlinz4cu46
+- fields: {expire_date: ! '2014-08-19 15:45:13.832406+00:00', session_data: OWNiOWFjNTMwNDk0NDljOGQxYzk0YTk5YjYzNTQ4Y2EzZDFkZjM2Yzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=}
+  model: sessions.session
+  pk: igv99solqk7tscp1aavv0853w5piz6ih
+- fields: {expire_date: ! '2014-06-23 08:18:50.376274+00:00', session_data: OWNiOWFjNTMwNDk0NDljOGQxYzk0YTk5YjYzNTQ4Y2EzZDFkZjM2Yzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=}
+  model: sessions.session
+  pk: ijdvyjur18brixd7c9aquyaqj2xb27o4
+- fields: {expire_date: ! '2014-08-01 14:00:59.389420+00:00', session_data: OWNiOWFjNTMwNDk0NDljOGQxYzk0YTk5YjYzNTQ4Y2EzZDFkZjM2Yzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=}
+  model: sessions.session
+  pk: j3zavpsxtxeigzz5b1sg1d1d2mbajcry
+- fields: {expire_date: ! '2014-06-27 13:39:50.469484+00:00', session_data: MmE2ZTczNGY1NzhkM2ZlMzg0OGY3ZGNmZDdhNzRhNzM2YTJiNTc4ZDp7Imtpb3NrX2lkIjoxLCJyZmlkIjoiRVNDIn0=}
+  model: sessions.session
+  pk: je5ntrmxueicc8k2rtdcc2okfaphtbcl
+- fields: {expire_date: ! '2014-09-03 16:33:32.809481+00:00', session_data: OWNiOWFjNTMwNDk0NDljOGQxYzk0YTk5YjYzNTQ4Y2EzZDFkZjM2Yzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=}
+  model: sessions.session
+  pk: jhjqjdm48m9vc4vymh428905z2wam3fy
+- fields: {expire_date: ! '2014-05-19 14:19:44.042917+00:00', session_data: YTdjMDg0MDRmYWYyMzA4ODU2YjgyZDFmODM2YTc5ZmMxZGIyZDVlNDp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuUmVtb3RlVXNlckJhY2tlbmQiLCJfYXV0aF91c2VyX2lkIjoyfQ==}
+  model: sessions.session
+  pk: jj3y8kpu4zbfwtbqyijrjslde4il0784
+- fields: {expire_date: ! '2014-06-23 08:20:03.429163+00:00', session_data: OWNiOWFjNTMwNDk0NDljOGQxYzk0YTk5YjYzNTQ4Y2EzZDFkZjM2Yzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=}
+  model: sessions.session
+  pk: jtaaqtdo4q7yxwle7hrz5if6k791kocs
+- fields: {expire_date: ! '2014-07-11 07:22:37.092665+00:00', session_data: OWNiOWFjNTMwNDk0NDljOGQxYzk0YTk5YjYzNTQ4Y2EzZDFkZjM2Yzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=}
+  model: sessions.session
+  pk: jtzb95gezlu286bij4xxgqpm5fr270xk
+- fields: {expire_date: ! '2014-12-18 10:49:59.380303+00:00', session_data: MmE2ZTczNGY1NzhkM2ZlMzg0OGY3ZGNmZDdhNzRhNzM2YTJiNTc4ZDp7Imtpb3NrX2lkIjoxLCJyZmlkIjoiRVNDIn0=}
+  model: sessions.session
+  pk: k4b2h54p05t28bj1eg41mr2r6xwc5cl9
+- fields: {expire_date: ! '2014-12-17 10:32:49.247175+00:00', session_data: MmE2ZTczNGY1NzhkM2ZlMzg0OGY3ZGNmZDdhNzRhNzM2YTJiNTc4ZDp7Imtpb3NrX2lkIjoxLCJyZmlkIjoiRVNDIn0=}
+  model: sessions.session
+  pk: k4itrfp6ktrdlgo0xh8poj3fuigdnmbh
+- fields: {expire_date: ! '2014-06-23 08:02:49.115631+00:00', session_data: OWNiOWFjNTMwNDk0NDljOGQxYzk0YTk5YjYzNTQ4Y2EzZDFkZjM2Yzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=}
+  model: sessions.session
+  pk: kp4lpmdtjvh9y2i2d8vr8baqpwsjutzt
+- fields: {expire_date: ! '2014-08-22 12:39:13.701589+00:00', session_data: OWNiOWFjNTMwNDk0NDljOGQxYzk0YTk5YjYzNTQ4Y2EzZDFkZjM2Yzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=}
+  model: sessions.session
+  pk: kv0c87eau5ska06ub5tzk3rfwxyrglrc
+- fields: {expire_date: ! '2014-08-14 14:57:21.385483+00:00', session_data: OWNiOWFjNTMwNDk0NDljOGQxYzk0YTk5YjYzNTQ4Y2EzZDFkZjM2Yzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=}
+  model: sessions.session
+  pk: l37x0a9nx8r2n61icm1rys948x9tzy3h
+- fields: {expire_date: ! '2014-06-20 19:38:05.318293+00:00', session_data: MmE2ZTczNGY1NzhkM2ZlMzg0OGY3ZGNmZDdhNzRhNzM2YTJiNTc4ZDp7Imtpb3NrX2lkIjoxLCJyZmlkIjoiRVNDIn0=}
+  model: sessions.session
+  pk: l7uqktmsnozamvd4xsu0hl2de4uok9ik
+- fields: {expire_date: ! '2014-06-27 14:56:09.452698+00:00', session_data: OWNiOWFjNTMwNDk0NDljOGQxYzk0YTk5YjYzNTQ4Y2EzZDFkZjM2Yzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=}
+  model: sessions.session
+  pk: loqrhz7esebun059qld9u6e9g06otcpd
+- fields: {expire_date: ! '2014-08-13 13:03:30.917269+00:00', session_data: OWNiOWFjNTMwNDk0NDljOGQxYzk0YTk5YjYzNTQ4Y2EzZDFkZjM2Yzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=}
+  model: sessions.session
+  pk: lqk6b0y04w9p0d8bncv2q1u6y4gjotau
+- fields: {expire_date: ! '2014-08-12 15:04:57.579190+00:00', session_data: OWNiOWFjNTMwNDk0NDljOGQxYzk0YTk5YjYzNTQ4Y2EzZDFkZjM2Yzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=}
+  model: sessions.session
+  pk: lqqw3f705un0qjwymdo2328oohqn6vnl
+- fields: {expire_date: ! '2014-07-07 15:01:36.267632+00:00', session_data: OWNiOWFjNTMwNDk0NDljOGQxYzk0YTk5YjYzNTQ4Y2EzZDFkZjM2Yzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=}
+  model: sessions.session
+  pk: lxa5btvlwhww8umerjpei5vl7bue74bl
+- fields: {expire_date: ! '2014-06-23 09:50:10.543348+00:00', session_data: OWNiOWFjNTMwNDk0NDljOGQxYzk0YTk5YjYzNTQ4Y2EzZDFkZjM2Yzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=}
+  model: sessions.session
+  pk: m0967gllwjqfg8uhqchv6xef7tu1mqcn
+- fields: {expire_date: ! '2014-08-26 10:52:26.137001+00:00', session_data: OWNiOWFjNTMwNDk0NDljOGQxYzk0YTk5YjYzNTQ4Y2EzZDFkZjM2Yzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=}
+  model: sessions.session
+  pk: m6jq7zud35eno7t9ah2ptagiesij1qib
+- fields: {expire_date: ! '2014-07-04 14:28:08.459834+00:00', session_data: OWNiOWFjNTMwNDk0NDljOGQxYzk0YTk5YjYzNTQ4Y2EzZDFkZjM2Yzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=}
+  model: sessions.session
+  pk: mgf6v534llmg4umj6jtgqxpq9nclyvu4
+- fields: {expire_date: ! '2014-06-27 12:36:03.915957+00:00', session_data: OWNiOWFjNTMwNDk0NDljOGQxYzk0YTk5YjYzNTQ4Y2EzZDFkZjM2Yzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=}
+  model: sessions.session
+  pk: mmwjn15420ga9x2maan36ab2baiqyb0f
+- fields: {expire_date: ! '2014-06-20 17:19:50.604704+00:00', session_data: OWNiOWFjNTMwNDk0NDljOGQxYzk0YTk5YjYzNTQ4Y2EzZDFkZjM2Yzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=}
+  model: sessions.session
+  pk: mxpr5e3rl98r0pwgnodsapqhu1ohyuk7
+- fields: {expire_date: ! '2014-06-27 13:15:17.272264+00:00', session_data: OWNiOWFjNTMwNDk0NDljOGQxYzk0YTk5YjYzNTQ4Y2EzZDFkZjM2Yzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=}
+  model: sessions.session
+  pk: n438p80pgqniveqdx6xq594h6tkqtyzb
+- fields: {expire_date: ! '2014-06-23 08:19:53.959739+00:00', session_data: OWNiOWFjNTMwNDk0NDljOGQxYzk0YTk5YjYzNTQ4Y2EzZDFkZjM2Yzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=}
+  model: sessions.session
+  pk: nppp1ax9j7flz5grm972vhsw1woy3w2e
+- fields: {expire_date: ! '2014-09-25 13:42:24.688086+00:00', session_data: MmE2ZTczNGY1NzhkM2ZlMzg0OGY3ZGNmZDdhNzRhNzM2YTJiNTc4ZDp7Imtpb3NrX2lkIjoxLCJyZmlkIjoiRVNDIn0=}
+  model: sessions.session
+  pk: nvnfx7ecdkrob4xuum47dn6ykx9n8klc
+- fields: {expire_date: ! '2014-08-14 12:40:29.773037+00:00', session_data: OWNiOWFjNTMwNDk0NDljOGQxYzk0YTk5YjYzNTQ4Y2EzZDFkZjM2Yzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=}
+  model: sessions.session
+  pk: nzjq338ot5nz4aea67xhg3hbfxdhbiu0
+- fields: {expire_date: ! '2014-12-11 11:22:26.332840+00:00', session_data: YTRiZmQ4MGRlNjllODRjMjdmZGY0ZTc1YWQwZmM4NTAyOWI3NmJmMTp7Imtpb3NrX2lkIjoxLCJyZmlkIjoiMTQ3MDIyMTg3MyIsImtpb3NrX3VzZXIiOjF9}
+  model: sessions.session
+  pk: osm7ausl0m4ssi8v60zzvpjjit60o3s4
+- fields: {expire_date: ! '2014-06-21 06:48:05.594701+00:00', session_data: OWNiOWFjNTMwNDk0NDljOGQxYzk0YTk5YjYzNTQ4Y2EzZDFkZjM2Yzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=}
+  model: sessions.session
+  pk: ow7bzj3dnz5g3ro51wxpinsvm02lkdlb
+- fields: {expire_date: ! '2014-07-18 14:33:34.790121+00:00', session_data: OWNiOWFjNTMwNDk0NDljOGQxYzk0YTk5YjYzNTQ4Y2EzZDFkZjM2Yzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=}
+  model: sessions.session
+  pk: p3029jodjrkcv5wn2ywawetgugiulao4
+- fields: {expire_date: ! '2014-06-30 10:24:06.316283+00:00', session_data: OWNiOWFjNTMwNDk0NDljOGQxYzk0YTk5YjYzNTQ4Y2EzZDFkZjM2Yzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=}
+  model: sessions.session
+  pk: ps8ovaypedl22tuv50zhhmjw2mvzb7ij
+- fields: {expire_date: ! '2014-08-20 13:01:51.117415+00:00', session_data: OWNiOWFjNTMwNDk0NDljOGQxYzk0YTk5YjYzNTQ4Y2EzZDFkZjM2Yzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=}
+  model: sessions.session
+  pk: psk3rj66u4yiw69phyjiur35wpmn4oxn
+- fields: {expire_date: ! '2014-06-23 08:20:11.298611+00:00', session_data: OWNiOWFjNTMwNDk0NDljOGQxYzk0YTk5YjYzNTQ4Y2EzZDFkZjM2Yzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=}
+  model: sessions.session
+  pk: pwr8kphztxayq9r7mp7r46o6jw3pt23u
+- fields: {expire_date: ! '2014-07-31 13:15:39.706970+00:00', session_data: OWNiOWFjNTMwNDk0NDljOGQxYzk0YTk5YjYzNTQ4Y2EzZDFkZjM2Yzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=}
+  model: sessions.session
+  pk: q4jg3h3v3j79q19sf64c0f2hjtr6upox
+- fields: {expire_date: ! '2014-05-05 20:12:03.764536+00:00', session_data: YTdjMDg0MDRmYWYyMzA4ODU2YjgyZDFmODM2YTc5ZmMxZGIyZDVlNDp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuUmVtb3RlVXNlckJhY2tlbmQiLCJfYXV0aF91c2VyX2lkIjoyfQ==}
+  model: sessions.session
+  pk: q58eklfp39s93mua2merg2dht6vlz6yq
+- fields: {expire_date: ! '2014-07-11 13:32:42.096753+00:00', session_data: OWNiOWFjNTMwNDk0NDljOGQxYzk0YTk5YjYzNTQ4Y2EzZDFkZjM2Yzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=}
+  model: sessions.session
+  pk: q6rkx2c4aqss6wwawqzctuoxsj20376u
+- fields: {expire_date: ! '2014-08-12 13:02:15.438823+00:00', session_data: OWNiOWFjNTMwNDk0NDljOGQxYzk0YTk5YjYzNTQ4Y2EzZDFkZjM2Yzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=}
+  model: sessions.session
+  pk: q9lcf8tv1yvzsllqk3zdpq7embgjw203
+- fields: {expire_date: ! '2014-06-30 12:43:57.031471+00:00', session_data: ZGMxOWViNDI4Y2RlOWQ2NzkyNGRmODQwNGQ0ZDhhZjE3YmMyOGY3Zjp7InNoaWIiOnsidXNlcm5hbWUiOiIxMjA5MDY1OTdAaGVzLXNvLmNoIiwiZmlyc3RfbmFtZSI6IkFsZXNzaW8iLCJsYXN0X25hbWUiOiJEZSBTYW50byIsImVtYWlsIjoiYWxlc3Npby5kZXNhbnRvQGhlLWFyYy5jaCJ9LCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLlJlbW90ZVVzZXJCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6M30=}
+  model: sessions.session
+  pk: qh8uud2pt21o6h2x514cfbwkxp2qipyc
+- fields: {expire_date: ! '2014-09-01 16:36:25.093791+00:00', session_data: OWNiOWFjNTMwNDk0NDljOGQxYzk0YTk5YjYzNTQ4Y2EzZDFkZjM2Yzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=}
+  model: sessions.session
+  pk: qn3alp2e4h8i29qvzhc3vh75upv3eduu
+- fields: {expire_date: ! '2014-07-04 14:40:05.232704+00:00', session_data: OWNiOWFjNTMwNDk0NDljOGQxYzk0YTk5YjYzNTQ4Y2EzZDFkZjM2Yzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=}
+  model: sessions.session
+  pk: qqv54m5smgp2zxva4gstgnv5yxpfy7uu
+- fields: {expire_date: ! '2014-06-27 13:24:31.306148+00:00', session_data: OWNiOWFjNTMwNDk0NDljOGQxYzk0YTk5YjYzNTQ4Y2EzZDFkZjM2Yzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=}
+  model: sessions.session
+  pk: r06bkbhm9emo99noh2xj987ygnbmv593
+- fields: {expire_date: ! '2014-08-28 14:42:15.492637+00:00', session_data: OWNiOWFjNTMwNDk0NDljOGQxYzk0YTk5YjYzNTQ4Y2EzZDFkZjM2Yzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=}
+  model: sessions.session
+  pk: r1m98993p1d9sfcjvcuc8n540g747y6o
+- fields: {expire_date: ! '2014-08-25 08:32:19.768517+00:00', session_data: OWNiOWFjNTMwNDk0NDljOGQxYzk0YTk5YjYzNTQ4Y2EzZDFkZjM2Yzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=}
+  model: sessions.session
+  pk: rp24nejqpsz39jtq6977azvzou2xn4is
+- fields: {expire_date: ! '2014-08-08 14:23:23.176280+00:00', session_data: OWNiOWFjNTMwNDk0NDljOGQxYzk0YTk5YjYzNTQ4Y2EzZDFkZjM2Yzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=}
+  model: sessions.session
+  pk: rreu3o975tv43bhqob5sfxlite2pn4gy
+- fields: {expire_date: ! '2014-09-05 14:41:33.101724+00:00', session_data: MmE2ZTczNGY1NzhkM2ZlMzg0OGY3ZGNmZDdhNzRhNzM2YTJiNTc4ZDp7Imtpb3NrX2lkIjoxLCJyZmlkIjoiRVNDIn0=}
+  model: sessions.session
+  pk: s0v4xoe5sfqqu4mul89y4yh0714rb6n9
+- fields: {expire_date: ! '2014-08-07 13:21:31.971205+00:00', session_data: OWNiOWFjNTMwNDk0NDljOGQxYzk0YTk5YjYzNTQ4Y2EzZDFkZjM2Yzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=}
+  model: sessions.session
+  pk: sevegpw4ypwgrq6x3l76spye6t23hcms
+- fields: {expire_date: ! '2014-06-27 13:39:42.010322+00:00', session_data: OWNiOWFjNTMwNDk0NDljOGQxYzk0YTk5YjYzNTQ4Y2EzZDFkZjM2Yzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=}
+  model: sessions.session
+  pk: sfpkaulwx18tfzse8hudfaooyplstdqo
+- fields: {expire_date: ! '2014-07-04 07:18:09.297963+00:00', session_data: OWNiOWFjNTMwNDk0NDljOGQxYzk0YTk5YjYzNTQ4Y2EzZDFkZjM2Yzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=}
+  model: sessions.session
+  pk: t4e67z766f28fjt83k3o3oigttab066u
+- fields: {expire_date: ! '2014-08-14 13:24:29.833682+00:00', session_data: OWNiOWFjNTMwNDk0NDljOGQxYzk0YTk5YjYzNTQ4Y2EzZDFkZjM2Yzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=}
+  model: sessions.session
+  pk: t4fighep5tbuspwsxgqhorw3mixu9l6j
+- fields: {expire_date: ! '2014-07-17 14:12:06.339378+00:00', session_data: OWNiOWFjNTMwNDk0NDljOGQxYzk0YTk5YjYzNTQ4Y2EzZDFkZjM2Yzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=}
+  model: sessions.session
+  pk: t5lm1g3532fcynndkmd4mix6zwqtde20
+- fields: {expire_date: ! '2014-05-19 14:05:55.592503+00:00', session_data: YjMxMWY1YWEzOGJhY2RhYWQ2NTEzNzUxOWZmMjU5YjE4YjFiODY4MTp7InNoaWIiOnsidXNlcm5hbWUiOiI2NTYwNjE1MEBoZXMtc28uY2giLCJmaXJzdF9uYW1lIjoiQ1x1MDBlOWRyaWMiLCJsYXN0X25hbWUiOiJHYXNwb3oiLCJlbWFpbCI6ImNlZHJpYy5nYXNwb3pAaGUtYXJjLmNoIn0sIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuUmVtb3RlVXNlckJhY2tlbmQiLCJfYXV0aF91c2VyX2lkIjoyfQ==}
+  model: sessions.session
+  pk: thll4oaue20kq9yfqlui6zjw26wccvmn
+- fields: {expire_date: ! '2014-08-26 10:52:41.487519+00:00', session_data: OWNiOWFjNTMwNDk0NDljOGQxYzk0YTk5YjYzNTQ4Y2EzZDFkZjM2Yzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=}
+  model: sessions.session
+  pk: tmmcehgwrjxdd8it0drx7wd7gm0rgx5g
+- fields: {expire_date: ! '2014-05-02 18:03:16.992907+00:00', session_data: YmNiNjA2NzIzZWM1YmNjOWU2MDM0NzUyZmFiYjlhMmU3OWJlNWUwYzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6MX0=}
+  model: sessions.session
+  pk: tocgsvb0xbm84l3782saf2s84opqx7cv
+- fields: {expire_date: ! '2014-06-20 17:16:16.773092+00:00', session_data: OWNiOWFjNTMwNDk0NDljOGQxYzk0YTk5YjYzNTQ4Y2EzZDFkZjM2Yzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=}
+  model: sessions.session
+  pk: tufn9d7109gvy9tavtenp0zefb9udpbi
+- fields: {expire_date: ! '2014-06-17 09:12:05.325298+00:00', session_data: YjMxMWY1YWEzOGJhY2RhYWQ2NTEzNzUxOWZmMjU5YjE4YjFiODY4MTp7InNoaWIiOnsidXNlcm5hbWUiOiI2NTYwNjE1MEBoZXMtc28uY2giLCJmaXJzdF9uYW1lIjoiQ1x1MDBlOWRyaWMiLCJsYXN0X25hbWUiOiJHYXNwb3oiLCJlbWFpbCI6ImNlZHJpYy5nYXNwb3pAaGUtYXJjLmNoIn0sIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuUmVtb3RlVXNlckJhY2tlbmQiLCJfYXV0aF91c2VyX2lkIjoyfQ==}
+  model: sessions.session
+  pk: u87dhus5qfgt2rqizex9g1jv2aia2v4l
+- fields: {expire_date: ! '2014-07-11 07:21:47.106889+00:00', session_data: OWNiOWFjNTMwNDk0NDljOGQxYzk0YTk5YjYzNTQ4Y2EzZDFkZjM2Yzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=}
+  model: sessions.session
+  pk: ucciqnpwvjfqp10f6knso8ailm84x5t7
+- fields: {expire_date: ! '2014-07-15 15:19:32.869195+00:00', session_data: OWNiOWFjNTMwNDk0NDljOGQxYzk0YTk5YjYzNTQ4Y2EzZDFkZjM2Yzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=}
+  model: sessions.session
+  pk: uo2eaz36s8jjmgzr2djto9yg0n67jv5w
+- fields: {expire_date: ! '2014-06-27 12:49:04.508930+00:00', session_data: OWNiOWFjNTMwNDk0NDljOGQxYzk0YTk5YjYzNTQ4Y2EzZDFkZjM2Yzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=}
+  model: sessions.session
+  pk: vk7k2q9vyw2chpzqoldtp4s9lxza7vna
+- fields: {expire_date: ! '2014-07-04 14:43:59.167332+00:00', session_data: ZGMxOWViNDI4Y2RlOWQ2NzkyNGRmODQwNGQ0ZDhhZjE3YmMyOGY3Zjp7InNoaWIiOnsidXNlcm5hbWUiOiIxMjA5MDY1OTdAaGVzLXNvLmNoIiwiZmlyc3RfbmFtZSI6IkFsZXNzaW8iLCJsYXN0X25hbWUiOiJEZSBTYW50byIsImVtYWlsIjoiYWxlc3Npby5kZXNhbnRvQGhlLWFyYy5jaCJ9LCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLlJlbW90ZVVzZXJCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6M30=}
+  model: sessions.session
+  pk: vzebun1pku2gqftjietltclgo0lllaiw
+- fields: {expire_date: ! '2014-08-13 16:28:40.856951+00:00', session_data: OWNiOWFjNTMwNDk0NDljOGQxYzk0YTk5YjYzNTQ4Y2EzZDFkZjM2Yzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=}
+  model: sessions.session
+  pk: w719r9prrm0m7mfz9n8l1lvdn7xrg54y
+- fields: {expire_date: ! '2014-08-11 13:03:01.708429+00:00', session_data: OWNiOWFjNTMwNDk0NDljOGQxYzk0YTk5YjYzNTQ4Y2EzZDFkZjM2Yzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=}
+  model: sessions.session
+  pk: w9ksu7fufwrgdj1555zz3iy8s68s7mtv
+- fields: {expire_date: ! '2014-09-04 15:21:17.298488+00:00', session_data: OWNiOWFjNTMwNDk0NDljOGQxYzk0YTk5YjYzNTQ4Y2EzZDFkZjM2Yzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=}
+  model: sessions.session
+  pk: wld62siwlfj67zrafm16njxpvzempdfl
+- fields: {expire_date: ! '2014-06-30 10:17:08.525050+00:00', session_data: OWNiOWFjNTMwNDk0NDljOGQxYzk0YTk5YjYzNTQ4Y2EzZDFkZjM2Yzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=}
+  model: sessions.session
+  pk: wlm6he5r1u4nsulp2qmgxf8aloetvj39
+- fields: {expire_date: ! '2014-07-03 06:47:14.208036+00:00', session_data: ZGMxOWViNDI4Y2RlOWQ2NzkyNGRmODQwNGQ0ZDhhZjE3YmMyOGY3Zjp7InNoaWIiOnsidXNlcm5hbWUiOiIxMjA5MDY1OTdAaGVzLXNvLmNoIiwiZmlyc3RfbmFtZSI6IkFsZXNzaW8iLCJsYXN0X25hbWUiOiJEZSBTYW50byIsImVtYWlsIjoiYWxlc3Npby5kZXNhbnRvQGhlLWFyYy5jaCJ9LCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLlJlbW90ZVVzZXJCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6M30=}
+  model: sessions.session
+  pk: wo5lzgr2a8lzjb8de3ip5uaye73sqdjt
+- fields: {expire_date: ! '2014-08-25 15:18:25.891856+00:00', session_data: OWNiOWFjNTMwNDk0NDljOGQxYzk0YTk5YjYzNTQ4Y2EzZDFkZjM2Yzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=}
+  model: sessions.session
+  pk: wqr5x3crumh24l365vrez4l24flf8s4l
+- fields: {expire_date: ! '2014-06-30 10:24:36.692060+00:00', session_data: OWNiOWFjNTMwNDk0NDljOGQxYzk0YTk5YjYzNTQ4Y2EzZDFkZjM2Yzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=}
+  model: sessions.session
+  pk: wrzipgl5w5xe37bz8bkz8imtfp6gw8c8
+- fields: {expire_date: ! '2014-08-14 10:38:14.707482+00:00', session_data: OWNiOWFjNTMwNDk0NDljOGQxYzk0YTk5YjYzNTQ4Y2EzZDFkZjM2Yzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=}
+  model: sessions.session
+  pk: wsc1nnk8wsb8m0onm3l9b8ii0rpdpkv3
+- fields: {expire_date: ! '2014-08-08 12:59:49.315937+00:00', session_data: OWNiOWFjNTMwNDk0NDljOGQxYzk0YTk5YjYzNTQ4Y2EzZDFkZjM2Yzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=}
+  model: sessions.session
+  pk: wwfut28qxt93fvzakrx0dkqoqpr83run
+- fields: {expire_date: ! '2014-08-01 12:54:28.728212+00:00', session_data: OWNiOWFjNTMwNDk0NDljOGQxYzk0YTk5YjYzNTQ4Y2EzZDFkZjM2Yzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=}
+  model: sessions.session
+  pk: x2uyumuckhx21agzmfy8rlol0etvq46v
+- fields: {expire_date: ! '2014-06-27 12:55:13.932741+00:00', session_data: OWNiOWFjNTMwNDk0NDljOGQxYzk0YTk5YjYzNTQ4Y2EzZDFkZjM2Yzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=}
+  model: sessions.session
+  pk: x5eqjv7dxcm8vcqzjl6579m8bj208i9d
+- fields: {expire_date: ! '2014-06-23 08:21:46.609503+00:00', session_data: OWNiOWFjNTMwNDk0NDljOGQxYzk0YTk5YjYzNTQ4Y2EzZDFkZjM2Yzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=}
+  model: sessions.session
+  pk: x5ge6kgc4a9cpjmsl49ehzh9yl780t4z
+- fields: {expire_date: ! '2014-08-19 15:42:37.539587+00:00', session_data: OWNiOWFjNTMwNDk0NDljOGQxYzk0YTk5YjYzNTQ4Y2EzZDFkZjM2Yzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=}
+  model: sessions.session
+  pk: xia44mqgemsilv32zq4qkeq896poqjl1
+- fields: {expire_date: ! '2014-06-27 13:30:08.484080+00:00', session_data: ZDI2MDM5MzA3YmU1NTM4Nzg3MTI0MGYyYWIwYjU0ODg3YTNmZWViOTp7Imtpb3NrX2lkIjoxLCJyZmlkIjoiMTA5MTg2OTEwNiIsImtpb3NrX3VzZXIiOjJ9}
+  model: sessions.session
+  pk: xkvax1p1i2m49gex9dr96qqyr8htk43d
+- fields: {expire_date: ! '2014-06-20 17:17:33.342595+00:00', session_data: OWNiOWFjNTMwNDk0NDljOGQxYzk0YTk5YjYzNTQ4Y2EzZDFkZjM2Yzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=}
+  model: sessions.session
+  pk: xo10i5x80ufoym99xx5vieoa1v2h13m9
+- fields: {expire_date: ! '2014-07-03 06:37:37.511666+00:00', session_data: OWNiOWFjNTMwNDk0NDljOGQxYzk0YTk5YjYzNTQ4Y2EzZDFkZjM2Yzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=}
+  model: sessions.session
+  pk: xx8pyh0viiu9p14ff6tlvdjxhhbjzssi
+- fields: {expire_date: ! '2014-06-30 10:16:42.074170+00:00', session_data: OWNiOWFjNTMwNDk0NDljOGQxYzk0YTk5YjYzNTQ4Y2EzZDFkZjM2Yzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=}
+  model: sessions.session
+  pk: yb8kv4lko87uz563kwzyavku57akp6lt
+- fields: {expire_date: ! '2014-08-22 12:39:32.627381+00:00', session_data: OWNiOWFjNTMwNDk0NDljOGQxYzk0YTk5YjYzNTQ4Y2EzZDFkZjM2Yzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=}
+  model: sessions.session
+  pk: ykngn76vo46glxxjb2qgy5lz8gcaf9j1
+- fields: {expire_date: ! '2014-08-06 16:22:07.636284+00:00', session_data: OWNiOWFjNTMwNDk0NDljOGQxYzk0YTk5YjYzNTQ4Y2EzZDFkZjM2Yzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=}
+  model: sessions.session
+  pk: yv1bwe95xnzoptrkwazmksa84ynrr2c4
+- fields: {expire_date: ! '2014-07-01 12:27:52.277005+00:00', session_data: OWNiOWFjNTMwNDk0NDljOGQxYzk0YTk5YjYzNTQ4Y2EzZDFkZjM2Yzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=}
+  model: sessions.session
+  pk: yvrwyl0ee6ck1l7kuxxpdklb43p7pyok
+- fields: {expire_date: ! '2014-07-04 14:29:14.714585+00:00', session_data: OWNiOWFjNTMwNDk0NDljOGQxYzk0YTk5YjYzNTQ4Y2EzZDFkZjM2Yzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=}
+  model: sessions.session
+  pk: z6phwlhw1788u1s00mbcp2wr5z5znxly
+- fields: {expire_date: ! '2014-07-03 14:39:22.391027+00:00', session_data: OWNiOWFjNTMwNDk0NDljOGQxYzk0YTk5YjYzNTQ4Y2EzZDFkZjM2Yzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=}
+  model: sessions.session
+  pk: zyt6hsp2p6kmgh4h9nlseaklrqn9n4vr
+- fields: {domain: example.com, name: example.com}
+  model: sites.site
+  pk: 1
+- fields: {app_name: wallets, applied: ! '2014-04-18 13:40:13.965226+00:00', migration: 0001_initial}
+  model: south.migrationhistory
+  pk: 1
+- fields: {app_name: products, applied: ! '2014-04-18 13:40:17.193221+00:00', migration: 0001_initial}
+  model: south.migrationhistory
+  pk: 2
+- fields: {app_name: transactions, applied: ! '2014-04-18 13:40:32.907518+00:00',
+    migration: 0001_initial}
+  model: south.migrationhistory
+  pk: 3
+- fields: {app_name: ipn, applied: ! '2014-04-21 16:38:30.327778+00:00', migration: 0001_first_migration}
+  model: south.migrationhistory
+  pk: 4
+- fields: {app_name: ipn, applied: ! '2014-04-21 16:38:30.879101+00:00', migration: 0002_auto__chg_field_paypalipn_txn_id__chg_field_paypalipn_payment_status__}
+  model: south.migrationhistory
+  pk: 5
+- fields: {app_name: transactions, applied: ! '2014-04-21 20:09:25.226812+00:00',
+    migration: 0002_auto__add_field_financialtransaction_ipn_transaction}
+  model: south.migrationhistory
+  pk: 6
+- fields: {app_name: transactions, applied: ! '2014-04-24 11:37:54.972832+00:00',
+    migration: 0003_auto__add_field_producttransaction_kcal}
+  model: south.migrationhistory
+  pk: 7
+- fields: {app_name: kiosks, applied: ! '2014-04-27 20:58:58.893236+00:00', migration: 0001_initial}
+  model: south.migrationhistory
+  pk: 8
+- fields: {app_name: kiosks, applied: ! '2014-04-27 21:32:20.414001+00:00', migration: 0002_auto__add_kioskstorage}
+  model: south.migrationhistory
+  pk: 9
+- fields: {app_name: wallets, applied: ! '2014-06-03 09:38:12.891205+00:00', migration: 0002_auto__add_userpin}
+  model: south.migrationhistory
+  pk: 10
+- fields: {app_name: transactions, applied: ! '2014-06-04 08:58:31.164808+00:00',
+    migration: 0004_auto__add_field_producttransaction_storage}
+  model: south.migrationhistory
+  pk: 11
+- fields: {app_name: kiosks, applied: ! '2014-06-06 16:02:27.826834+00:00', migration: 0003_auto__add_field_kiosk_user}
+  model: south.migrationhistory
+  pk: 12
+- fields: {app_name: transactions, applied: ! '2014-06-06 16:02:33.704005+00:00',
+    migration: 0005_auto__add_field_producttransaction_lock_open__add_field_producttransac}
+  model: south.migrationhistory
+  pk: 13
+- fields: {address_city: '', address_country: '', address_country_code: '', address_name: '',
+    address_state: '', address_status: '', address_street: '', address_zip: '', amount: '0.00',
+    amount1: '0.00', amount2: '0.00', amount3: '0.00', amount_per_cycle: '0.00', auction_buyer_id: '',
+    auction_closing_date: null, auction_multi_item: 0, auth_amount: '0.00', auth_exp: '',
+    auth_id: '', auth_status: '', business: '', case_creation_date: null, case_id: '',
+    case_type: '', charset: '', contact_phone: '', created_at: ! '2014-04-21 19:35:32.488462+00:00',
+    currency_code: USD, custom: '', exchange_rate: 0E-16, first_name: '', flag: true,
+    flag_code: '', flag_info: 'Invalid form - no charset passed, can''t decode', for_auction: '0.00',
+    from_view: null, handling_amount: '0.00', initial_payment_amount: '0.00', invoice: '',
+    ipaddress: 173.0.81.33, item_name: '', item_number: '', last_name: '', mc_amount1: '0.00',
+    mc_amount2: '0.00', mc_amount3: '0.00', mc_currency: USD, mc_fee: '0.00', mc_gross: '0.00',
+    mc_handling: '0.00', mc_shipping: '0.00', memo: '', next_payment_date: null, notify_version: '0.00',
+    num_cart_items: 0, option_name1: '', option_name2: '', outstanding_balance: '0.00',
+    parent_txn_id: '', password: '', payer_business_name: '', payer_email: '', payer_id: '',
+    payer_status: '', payment_cycle: '', payment_date: null, payment_gross: '0.00',
+    payment_status: '', payment_type: '', pending_reason: '', period1: '', period2: '',
+    period3: '', period_type: '', product_name: '', product_type: '', profile_status: '',
+    protection_eligibility: '', quantity: 1, query: residence_country=US&invoice=abc1234&address_city=San+Jose&first_name=John&payer_id=TESTBUYERID01&shipping=3.04&mc_fee=0.44&txn_id=840039322&receiver_email=seller%40paypalsandbox.com&quantity=1&custom=xyz123&payment_date=12%3A34%3A34+21+Apr+2014+PDT&address_country_code=US&address_zip=95131&tax=2.02&item_name=something&address_name=John+Smith&last_name=Smith&receiver_id=seller%40paypalsandbox.com&item_number=AK-1234&verify_sign=Amspwv5jSn.AdY8Nv6Hrs3Cdv0aZAx-lPgvebNMlGeyuHCFngxuM37ks&address_country=United+States&payment_status=Completed&address_status=confirmed&business=seller%40paypalsandbox.com&payer_email=buyer%40paypalsandbox.com&notify_version=2.1&txn_type=web_accept&test_ipn=1&payer_status=verified&mc_currency=USD&mc_gross=12.34&address_state=CA&mc_gross1=9.34&payment_type=instant&address_street=123%2C+any+street,
+    reason_code: '', reattempt: '', receipt_id: '', receiver_email: '', receiver_id: '',
+    recur_times: 0, recurring: '', recurring_payment_id: '', remaining_settle: '0.00',
+    residence_country: '', response: '', retry_at: null, rp_invoice_id: '', settle_amount: '0.00',
+    settle_currency: '', shipping: '0.00', shipping_method: '', subscr_date: null,
+    subscr_effective: null, subscr_id: '', tax: '0.00', test_ipn: false, time_created: null,
+    transaction_entity: '', transaction_subject: '', txn_id: '', txn_type: '', updated_at: ! '2014-04-21
+      19:35:32.488519+00:00', username: '', verify_sign: ''}
+  model: ipn.paypalipn
+  pk: 1
+- fields: {address_city: '', address_country: '', address_country_code: '', address_name: '',
+    address_state: '', address_status: '', address_street: '', address_zip: '', amount: '0.00',
+    amount1: '0.00', amount2: '0.00', amount3: '0.00', amount_per_cycle: '0.00', auction_buyer_id: '',
+    auction_closing_date: null, auction_multi_item: 0, auth_amount: '0.00', auth_exp: '',
+    auth_id: '', auth_status: '', business: '', case_creation_date: null, case_id: '',
+    case_type: '', charset: '', contact_phone: '', created_at: ! '2014-04-21 19:36:27.226168+00:00',
+    currency_code: USD, custom: '', exchange_rate: 0E-16, first_name: '', flag: true,
+    flag_code: '', flag_info: 'Invalid form - no charset passed, can''t decode', for_auction: '0.00',
+    from_view: null, handling_amount: '0.00', initial_payment_amount: '0.00', invoice: '',
+    ipaddress: 173.0.81.33, item_name: '', item_number: '', last_name: '', mc_amount1: '0.00',
+    mc_amount2: '0.00', mc_amount3: '0.00', mc_currency: USD, mc_fee: '0.00', mc_gross: '0.00',
+    mc_handling: '0.00', mc_shipping: '0.00', memo: '', next_payment_date: null, notify_version: '0.00',
+    num_cart_items: 0, option_name1: '', option_name2: '', outstanding_balance: '0.00',
+    parent_txn_id: '', password: '', payer_business_name: '', payer_email: '', payer_id: '',
+    payer_status: '', payment_cycle: '', payment_date: null, payment_gross: '0.00',
+    payment_status: '', payment_type: '', pending_reason: '', period1: '', period2: '',
+    period3: '', period_type: '', product_name: '', product_type: '', profile_status: '',
+    protection_eligibility: '', quantity: 1, query: residence_country=US&invoice=abc1234&address_city=San+Jose&first_name=John&payer_id=TESTBUYERID01&shipping=3.04&mc_fee=0.44&txn_id=437179354&receiver_email=seller%40paypalsandbox.com&quantity=1&custom=xyz123&payment_date=12%3A35%3A31+21+Apr+2014+PDT&address_country_code=US&address_zip=95131&tax=2.02&item_name=something&address_name=John+Smith&last_name=Smith&receiver_id=seller%40paypalsandbox.com&item_number=AK-1234&verify_sign=ABCL4zO6nnDqFXJXMFPKY9kcDxkCALDvWiaiu8tey7gCDiYMTgWaoequ&address_country=United+States&payment_status=Completed&address_status=confirmed&business=seller%40paypalsandbox.com&payer_email=buyer%40paypalsandbox.com&notify_version=2.1&txn_type=web_accept&test_ipn=1&payer_status=verified&mc_currency=USD&mc_gross=12.34&address_state=CA&mc_gross1=9.34&payment_type=instant&address_street=123%2C+any+street,
+    reason_code: '', reattempt: '', receipt_id: '', receiver_email: '', receiver_id: '',
+    recur_times: 0, recurring: '', recurring_payment_id: '', remaining_settle: '0.00',
+    residence_country: '', response: '', retry_at: null, rp_invoice_id: '', settle_amount: '0.00',
+    settle_currency: '', shipping: '0.00', shipping_method: '', subscr_date: null,
+    subscr_effective: null, subscr_id: '', tax: '0.00', test_ipn: false, time_created: null,
+    transaction_entity: '', transaction_subject: '', txn_id: '', txn_type: '', updated_at: ! '2014-04-21
+      19:36:27.226221+00:00', username: '', verify_sign: ''}
+  model: ipn.paypalipn
+  pk: 2
+- fields: {address_city: '', address_country: '', address_country_code: '', address_name: '',
+    address_state: '', address_status: '', address_street: '', address_zip: '', amount: null,
+    amount1: null, amount2: null, amount3: null, amount_per_cycle: null, auction_buyer_id: '',
+    auction_closing_date: null, auction_multi_item: null, auth_amount: null, auth_exp: '',
+    auth_id: '', auth_status: '', business: cedric-facilitator@gaspoz-fleiner.com,
+    case_creation_date: null, case_id: '', case_type: '', charset: windows-1252, contact_phone: '',
+    created_at: ! '2014-04-21 19:38:51.519477+00:00', currency_code: '', custom: '65606150',
+    exchange_rate: null, first_name: Cedric, flag: false, flag_code: '', flag_info: '',
+    for_auction: null, from_view: '', handling_amount: '0.00', initial_payment_amount: null,
+    invoice: '', ipaddress: 173.0.82.126, item_name: Gelato Kiosk, item_number: '',
+    last_name: Gaspoz, mc_amount1: null, mc_amount2: null, mc_amount3: null, mc_currency: CHF,
+    mc_fee: '1.13', mc_gross: '20.00', mc_handling: null, mc_shipping: null, memo: '',
+    next_payment_date: null, notify_version: '3.70', num_cart_items: null, option_name1: '',
+    option_name2: '', outstanding_balance: null, parent_txn_id: '', password: '',
+    payer_business_name: '', payer_email: gelatokiosk@gmail.com, payer_id: WPSXSLNFAG27N,
+    payer_status: verified, payment_cycle: '', payment_date: ! '2014-04-21 10:38:42+00:00',
+    payment_gross: null, payment_status: Pending, payment_type: instant, pending_reason: paymentreview,
+    period1: '', period2: '', period3: '', period_type: '', product_name: '', product_type: '',
+    profile_status: '', protection_eligibility: Ineligible, quantity: 1, query: mc_gross=20.00&protection_eligibility=Ineligible&payer_id=WPSXSLNFAG27N&tax=0.00&payment_date=12%3A38%3A42+Apr+21%2C+2014+PDT&payment_status=Pending&charset=windows-1252&first_name=Cedric&mc_fee=1.13&notify_version=3.7&custom=65606150&payer_status=verified&business=cedric-facilitator%40gaspoz-fleiner.com&quantity=1&verify_sign=AUaxvSojqajxsiGA9qXfGuCulUctAdtEHNQOJCk6eSWDWDPStrTWKDYB&payer_email=gelatokiosk%40gmail.com&txn_id=0HH36825YW432930G&payment_type=instant&last_name=Gaspoz&receiver_email=cedric-facilitator%40gaspoz-fleiner.com&payment_fee=&receiver_id=NTDU3AUQMXLXG&pending_reason=paymentreview&txn_type=web_accept&item_name=Gelato+Kiosk&mc_currency=CHF&item_number=&residence_country=US&test_ipn=1&handling_amount=0.00&transaction_subject=65606150&payment_gross=&shipping=0.00&ipn_track_id=845192cd46605,
+    reason_code: '', reattempt: '', receipt_id: '', receiver_email: cedric-facilitator@gaspoz-fleiner.com,
+    receiver_id: NTDU3AUQMXLXG, recur_times: null, recurring: '', recurring_payment_id: '',
+    remaining_settle: null, residence_country: US, response: VERIFIED, retry_at: null,
+    rp_invoice_id: '', settle_amount: null, settle_currency: '', shipping: '0.00',
+    shipping_method: '', subscr_date: null, subscr_effective: null, subscr_id: '',
+    tax: '0.00', test_ipn: true, time_created: null, transaction_entity: '', transaction_subject: '65606150',
+    txn_id: 0HH36825YW432930G, txn_type: web_accept, updated_at: ! '2014-04-21 19:38:51.535073+00:00',
+    username: '', verify_sign: AUaxvSojqajxsiGA9qXfGuCulUctAdtEHNQOJCk6eSWDWDPStrTWKDYB}
+  model: ipn.paypalipn
+  pk: 3
+- fields: {address_city: '', address_country: '', address_country_code: '', address_name: '',
+    address_state: '', address_status: '', address_street: '', address_zip: '', amount: null,
+    amount1: null, amount2: null, amount3: null, amount_per_cycle: null, auction_buyer_id: '',
+    auction_closing_date: null, auction_multi_item: null, auth_amount: null, auth_exp: '',
+    auth_id: '', auth_status: '', business: cedric-facilitator@gaspoz-fleiner.com,
+    case_creation_date: null, case_id: '', case_type: '', charset: windows-1252, contact_phone: '',
+    created_at: ! '2014-04-21 19:42:57.007472+00:00', currency_code: '', custom: '65606150',
+    exchange_rate: null, first_name: Cedric, flag: false, flag_code: '', flag_info: '',
+    for_auction: null, from_view: '', handling_amount: '0.00', initial_payment_amount: null,
+    invoice: '', ipaddress: 173.0.82.126, item_name: Gelato Kiosk, item_number: '',
+    last_name: Gaspoz, mc_amount1: null, mc_amount2: null, mc_amount3: null, mc_currency: CHF,
+    mc_fee: '1.13', mc_gross: '20.00', mc_handling: null, mc_shipping: null, memo: '',
+    next_payment_date: null, notify_version: '3.70', num_cart_items: null, option_name1: '',
+    option_name2: '', outstanding_balance: null, parent_txn_id: '', password: '',
+    payer_business_name: '', payer_email: gelatokiosk@gmail.com, payer_id: WPSXSLNFAG27N,
+    payer_status: verified, payment_cycle: '', payment_date: ! '2014-04-21 10:38:42+00:00',
+    payment_gross: null, payment_status: Completed, payment_type: instant, pending_reason: '',
+    period1: '', period2: '', period3: '', period_type: '', product_name: '', product_type: '',
+    profile_status: '', protection_eligibility: Ineligible, quantity: 1, query: mc_gross=20.00&protection_eligibility=Ineligible&payer_id=WPSXSLNFAG27N&tax=0.00&payment_date=12%3A38%3A42+Apr+21%2C+2014+PDT&payment_status=Completed&charset=windows-1252&first_name=Cedric&mc_fee=1.13&notify_version=3.7&custom=65606150&payer_status=verified&business=cedric-facilitator%40gaspoz-fleiner.com&quantity=1&verify_sign=AKxM4D-i5e6r94cIq2gU4qzdhK-FASRSA9Hr1WsVQHdSd30N7xURt43I&payer_email=gelatokiosk%40gmail.com&txn_id=0HH36825YW432930G&payment_type=instant&last_name=Gaspoz&receiver_email=cedric-facilitator%40gaspoz-fleiner.com&payment_fee=&receiver_id=NTDU3AUQMXLXG&txn_type=web_accept&item_name=Gelato+Kiosk&mc_currency=CHF&item_number=&residence_country=US&test_ipn=1&handling_amount=0.00&transaction_subject=65606150&payment_gross=&shipping=0.00&ipn_track_id=376101fc6f0e0,
+    reason_code: '', reattempt: '', receipt_id: '', receiver_email: cedric-facilitator@gaspoz-fleiner.com,
+    receiver_id: NTDU3AUQMXLXG, recur_times: null, recurring: '', recurring_payment_id: '',
+    remaining_settle: null, residence_country: US, response: VERIFIED, retry_at: null,
+    rp_invoice_id: '', settle_amount: null, settle_currency: '', shipping: '0.00',
+    shipping_method: '', subscr_date: null, subscr_effective: null, subscr_id: '',
+    tax: '0.00', test_ipn: true, time_created: null, transaction_entity: '', transaction_subject: '65606150',
+    txn_id: 0HH36825YW432930G, txn_type: web_accept, updated_at: ! '2014-04-21 19:42:57.007524+00:00',
+    username: '', verify_sign: AKxM4D-i5e6r94cIq2gU4qzdhK-FASRSA9Hr1WsVQHdSd30N7xURt43I}
+  model: ipn.paypalipn
+  pk: 4
+- fields: {address_city: '', address_country: '', address_country_code: '', address_name: '',
+    address_state: '', address_status: '', address_street: '', address_zip: '', amount: null,
+    amount1: null, amount2: null, amount3: null, amount_per_cycle: null, auction_buyer_id: '',
+    auction_closing_date: null, auction_multi_item: null, auth_amount: null, auth_exp: '',
+    auth_id: '', auth_status: '', business: cedric-facilitator@gaspoz-fleiner.com,
+    case_creation_date: null, case_id: '', case_type: '', charset: windows-1252, contact_phone: '',
+    created_at: ! '2014-04-21 19:43:12.699951+00:00', currency_code: '', custom: '65606150',
+    exchange_rate: null, first_name: Cedric, flag: true, flag_code: '', flag_info: Duplicate
+      txn_id. (0HH36825YW432930G), for_auction: null, from_view: '', handling_amount: '0.00',
+    initial_payment_amount: null, invoice: '', ipaddress: 173.0.82.126, item_name: Gelato
+      Kiosk, item_number: '', last_name: Gaspoz, mc_amount1: null, mc_amount2: null,
+    mc_amount3: null, mc_currency: CHF, mc_fee: '1.13', mc_gross: '20.00', mc_handling: null,
+    mc_shipping: null, memo: '', next_payment_date: null, notify_version: '3.70',
+    num_cart_items: null, option_name1: '', option_name2: '', outstanding_balance: null,
+    parent_txn_id: '', password: '', payer_business_name: '', payer_email: gelatokiosk@gmail.com,
+    payer_id: WPSXSLNFAG27N, payer_status: verified, payment_cycle: '', payment_date: ! '2014-04-21
+      10:38:42+00:00', payment_gross: null, payment_status: Completed, payment_type: instant,
+    pending_reason: '', period1: '', period2: '', period3: '', period_type: '', product_name: '',
+    product_type: '', profile_status: '', protection_eligibility: Ineligible, quantity: 1,
+    query: mc_gross=20.00&protection_eligibility=Ineligible&payer_id=WPSXSLNFAG27N&tax=0.00&payment_date=12%3A38%3A42+Apr+21%2C+2014+PDT&payment_status=Completed&charset=windows-1252&first_name=Cedric&mc_fee=1.13&notify_version=3.7&custom=65606150&payer_status=verified&business=cedric-facilitator%40gaspoz-fleiner.com&quantity=1&verify_sign=AKxM4D-i5e6r94cIq2gU4qzdhK-FASRSA9Hr1WsVQHdSd30N7xURt43I&payer_email=gelatokiosk%40gmail.com&txn_id=0HH36825YW432930G&payment_type=instant&last_name=Gaspoz&receiver_email=cedric-facilitator%40gaspoz-fleiner.com&payment_fee=&receiver_id=NTDU3AUQMXLXG&txn_type=web_accept&item_name=Gelato+Kiosk&mc_currency=CHF&item_number=&residence_country=US&test_ipn=1&handling_amount=0.00&transaction_subject=65606150&payment_gross=&shipping=0.00&ipn_track_id=376101fc6f0e0,
+    reason_code: '', reattempt: '', receipt_id: '', receiver_email: cedric-facilitator@gaspoz-fleiner.com,
+    receiver_id: NTDU3AUQMXLXG, recur_times: null, recurring: '', recurring_payment_id: '',
+    remaining_settle: null, residence_country: US, response: VERIFIED, retry_at: null,
+    rp_invoice_id: '', settle_amount: null, settle_currency: '', shipping: '0.00',
+    shipping_method: '', subscr_date: null, subscr_effective: null, subscr_id: '',
+    tax: '0.00', test_ipn: true, time_created: null, transaction_entity: '', transaction_subject: '65606150',
+    txn_id: 0HH36825YW432930G, txn_type: web_accept, updated_at: ! '2014-04-21 19:43:12.710066+00:00',
+    username: '', verify_sign: AKxM4D-i5e6r94cIq2gU4qzdhK-FASRSA9Hr1WsVQHdSd30N7xURt43I}
+  model: ipn.paypalipn
+  pk: 5
+- fields: {address_city: '', address_country: '', address_country_code: '', address_name: '',
+    address_state: '', address_status: '', address_street: '', address_zip: '', amount: null,
+    amount1: null, amount2: null, amount3: null, amount_per_cycle: null, auction_buyer_id: '',
+    auction_closing_date: null, auction_multi_item: null, auth_amount: null, auth_exp: '',
+    auth_id: '', auth_status: '', business: cedric-facilitator@gaspoz-fleiner.com,
+    case_creation_date: null, case_id: '', case_type: '', charset: windows-1252, contact_phone: '',
+    created_at: ! '2014-04-21 19:49:31.412762+00:00', currency_code: '', custom: '65606150',
+    exchange_rate: null, first_name: Cedric, flag: false, flag_code: '', flag_info: '',
+    for_auction: null, from_view: '', handling_amount: '0.00', initial_payment_amount: null,
+    invoice: '', ipaddress: 173.0.82.126, item_name: Gelato Kiosk, item_number: '',
+    last_name: Gaspoz, mc_amount1: null, mc_amount2: null, mc_amount3: null, mc_currency: CHF,
+    mc_fee: '0.84', mc_gross: '10.00', mc_handling: null, mc_shipping: null, memo: '',
+    next_payment_date: null, notify_version: '3.70', num_cart_items: null, option_name1: '',
+    option_name2: '', outstanding_balance: null, parent_txn_id: '', password: '',
+    payer_business_name: '', payer_email: gelatokiosk@gmail.com, payer_id: WPSXSLNFAG27N,
+    payer_status: verified, payment_cycle: '', payment_date: ! '2014-04-21 10:49:24+00:00',
+    payment_gross: null, payment_status: Pending, payment_type: instant, pending_reason: paymentreview,
+    period1: '', period2: '', period3: '', period_type: '', product_name: '', product_type: '',
+    profile_status: '', protection_eligibility: Ineligible, quantity: 1, query: mc_gross=10.00&protection_eligibility=Ineligible&payer_id=WPSXSLNFAG27N&tax=0.00&payment_date=12%3A49%3A24+Apr+21%2C+2014+PDT&payment_status=Pending&charset=windows-1252&first_name=Cedric&mc_fee=0.84&notify_version=3.7&custom=65606150&payer_status=verified&business=cedric-facilitator%40gaspoz-fleiner.com&quantity=1&verify_sign=AORcJ0Ag.J0-bhC8ssMsYAAdZ30PAc18zTLseYcAVFjT.g1-fPb6DTUl&payer_email=gelatokiosk%40gmail.com&txn_id=3CH46228R72765530&payment_type=instant&last_name=Gaspoz&receiver_email=cedric-facilitator%40gaspoz-fleiner.com&payment_fee=&receiver_id=NTDU3AUQMXLXG&pending_reason=paymentreview&txn_type=web_accept&item_name=Gelato+Kiosk&mc_currency=CHF&item_number=&residence_country=US&test_ipn=1&handling_amount=0.00&transaction_subject=65606150&payment_gross=&shipping=0.00&ipn_track_id=97cc7fe65588,
+    reason_code: '', reattempt: '', receipt_id: '', receiver_email: cedric-facilitator@gaspoz-fleiner.com,
+    receiver_id: NTDU3AUQMXLXG, recur_times: null, recurring: '', recurring_payment_id: '',
+    remaining_settle: null, residence_country: US, response: VERIFIED, retry_at: null,
+    rp_invoice_id: '', settle_amount: null, settle_currency: '', shipping: '0.00',
+    shipping_method: '', subscr_date: null, subscr_effective: null, subscr_id: '',
+    tax: '0.00', test_ipn: true, time_created: null, transaction_entity: '', transaction_subject: '65606150',
+    txn_id: 3CH46228R72765530, txn_type: web_accept, updated_at: ! '2014-04-21 19:49:31.454648+00:00',
+    username: '', verify_sign: AORcJ0Ag.J0-bhC8ssMsYAAdZ30PAc18zTLseYcAVFjT.g1-fPb6DTUl}
+  model: ipn.paypalipn
+  pk: 6
+- fields: {address_city: '', address_country: '', address_country_code: '', address_name: '',
+    address_state: '', address_status: '', address_street: '', address_zip: '', amount: null,
+    amount1: null, amount2: null, amount3: null, amount_per_cycle: null, auction_buyer_id: '',
+    auction_closing_date: null, auction_multi_item: null, auth_amount: null, auth_exp: '',
+    auth_id: '', auth_status: '', business: cedric-facilitator@gaspoz-fleiner.com,
+    case_creation_date: null, case_id: '', case_type: '', charset: windows-1252, contact_phone: '',
+    created_at: ! '2014-04-21 19:50:15.571790+00:00', currency_code: '', custom: '65606150',
+    exchange_rate: null, first_name: Cedric, flag: false, flag_code: '', flag_info: '',
+    for_auction: null, from_view: '', handling_amount: '0.00', initial_payment_amount: null,
+    invoice: '', ipaddress: 173.0.82.126, item_name: Gelato Kiosk, item_number: '',
+    last_name: Gaspoz, mc_amount1: null, mc_amount2: null, mc_amount3: null, mc_currency: CHF,
+    mc_fee: '1.42', mc_gross: '30.00', mc_handling: null, mc_shipping: null, memo: '',
+    next_payment_date: null, notify_version: '3.70', num_cart_items: null, option_name1: '',
+    option_name2: '', outstanding_balance: null, parent_txn_id: '', password: '',
+    payer_business_name: '', payer_email: gelatokiosk@gmail.com, payer_id: WPSXSLNFAG27N,
+    payer_status: verified, payment_cycle: '', payment_date: ! '2014-04-21 10:50:05+00:00',
+    payment_gross: null, payment_status: Pending, payment_type: instant, pending_reason: paymentreview,
+    period1: '', period2: '', period3: '', period_type: '', product_name: '', product_type: '',
+    profile_status: '', protection_eligibility: Ineligible, quantity: 1, query: mc_gross=30.00&protection_eligibility=Ineligible&payer_id=WPSXSLNFAG27N&tax=0.00&payment_date=12%3A50%3A05+Apr+21%2C+2014+PDT&payment_status=Pending&charset=windows-1252&first_name=Cedric&mc_fee=1.42&notify_version=3.7&custom=65606150&payer_status=verified&business=cedric-facilitator%40gaspoz-fleiner.com&quantity=1&verify_sign=AXxcwZj7M50Ro0w7s.S-N7ykm-TYABRmEwGo1knZNrcki6TGhPFrh4vI&payer_email=gelatokiosk%40gmail.com&txn_id=1CM16486A64117641&payment_type=instant&last_name=Gaspoz&receiver_email=cedric-facilitator%40gaspoz-fleiner.com&payment_fee=&receiver_id=NTDU3AUQMXLXG&pending_reason=paymentreview&txn_type=web_accept&item_name=Gelato+Kiosk&mc_currency=CHF&item_number=&residence_country=US&test_ipn=1&handling_amount=0.00&transaction_subject=65606150&payment_gross=&shipping=0.00&ipn_track_id=41d701aac62b3,
+    reason_code: '', reattempt: '', receipt_id: '', receiver_email: cedric-facilitator@gaspoz-fleiner.com,
+    receiver_id: NTDU3AUQMXLXG, recur_times: null, recurring: '', recurring_payment_id: '',
+    remaining_settle: null, residence_country: US, response: VERIFIED, retry_at: null,
+    rp_invoice_id: '', settle_amount: null, settle_currency: '', shipping: '0.00',
+    shipping_method: '', subscr_date: null, subscr_effective: null, subscr_id: '',
+    tax: '0.00', test_ipn: true, time_created: null, transaction_entity: '', transaction_subject: '65606150',
+    txn_id: 1CM16486A64117641, txn_type: web_accept, updated_at: ! '2014-04-21 19:50:15.584315+00:00',
+    username: '', verify_sign: AXxcwZj7M50Ro0w7s.S-N7ykm-TYABRmEwGo1knZNrcki6TGhPFrh4vI}
+  model: ipn.paypalipn
+  pk: 7
+- fields: {address_city: '', address_country: '', address_country_code: '', address_name: '',
+    address_state: '', address_status: '', address_street: '', address_zip: '', amount: null,
+    amount1: null, amount2: null, amount3: null, amount_per_cycle: null, auction_buyer_id: '',
+    auction_closing_date: null, auction_multi_item: null, auth_amount: null, auth_exp: '',
+    auth_id: '', auth_status: '', business: cedric-facilitator@gaspoz-fleiner.com,
+    case_creation_date: null, case_id: '', case_type: '', charset: windows-1252, contact_phone: '',
+    created_at: ! '2014-04-21 19:50:49.338456+00:00', currency_code: '', custom: '65606150',
+    exchange_rate: null, first_name: Cedric, flag: false, flag_code: '', flag_info: '',
+    for_auction: null, from_view: '', handling_amount: '0.00', initial_payment_amount: null,
+    invoice: '', ipaddress: 173.0.82.126, item_name: Gelato Kiosk, item_number: '',
+    last_name: Gaspoz, mc_amount1: null, mc_amount2: null, mc_amount3: null, mc_currency: CHF,
+    mc_fee: '2.00', mc_gross: '50.00', mc_handling: null, mc_shipping: null, memo: '',
+    next_payment_date: null, notify_version: '3.70', num_cart_items: null, option_name1: '',
+    option_name2: '', outstanding_balance: null, parent_txn_id: '', password: '',
+    payer_business_name: '', payer_email: gelatokiosk@gmail.com, payer_id: WPSXSLNFAG27N,
+    payer_status: verified, payment_cycle: '', payment_date: ! '2014-04-21 10:50:43+00:00',
+    payment_gross: null, payment_status: Pending, payment_type: instant, pending_reason: paymentreview,
+    period1: '', period2: '', period3: '', period_type: '', product_name: '', product_type: '',
+    profile_status: '', protection_eligibility: Ineligible, quantity: 1, query: mc_gross=50.00&protection_eligibility=Ineligible&payer_id=WPSXSLNFAG27N&tax=0.00&payment_date=12%3A50%3A43+Apr+21%2C+2014+PDT&payment_status=Pending&charset=windows-1252&first_name=Cedric&mc_fee=2.00&notify_version=3.7&custom=65606150&payer_status=verified&business=cedric-facilitator%40gaspoz-fleiner.com&quantity=1&verify_sign=AocEaCspfSN3Onrqie0.uVwPyiXsASNALmrUVyhothLa79Ogifm-rR-X&payer_email=gelatokiosk%40gmail.com&txn_id=3HU566681E6497829&payment_type=instant&last_name=Gaspoz&receiver_email=cedric-facilitator%40gaspoz-fleiner.com&payment_fee=&receiver_id=NTDU3AUQMXLXG&pending_reason=paymentreview&txn_type=web_accept&item_name=Gelato+Kiosk&mc_currency=CHF&item_number=&residence_country=US&test_ipn=1&handling_amount=0.00&transaction_subject=65606150&payment_gross=&shipping=0.00&ipn_track_id=a5787a24567f0,
+    reason_code: '', reattempt: '', receipt_id: '', receiver_email: cedric-facilitator@gaspoz-fleiner.com,
+    receiver_id: NTDU3AUQMXLXG, recur_times: null, recurring: '', recurring_payment_id: '',
+    remaining_settle: null, residence_country: US, response: VERIFIED, retry_at: null,
+    rp_invoice_id: '', settle_amount: null, settle_currency: '', shipping: '0.00',
+    shipping_method: '', subscr_date: null, subscr_effective: null, subscr_id: '',
+    tax: '0.00', test_ipn: true, time_created: null, transaction_entity: '', transaction_subject: '65606150',
+    txn_id: 3HU566681E6497829, txn_type: web_accept, updated_at: ! '2014-04-21 19:50:49.358627+00:00',
+    username: '', verify_sign: AocEaCspfSN3Onrqie0.uVwPyiXsASNALmrUVyhothLa79Ogifm-rR-X}
+  model: ipn.paypalipn
+  pk: 8
+- fields: {address_city: '', address_country: '', address_country_code: '', address_name: '',
+    address_state: '', address_status: '', address_street: '', address_zip: '', amount: null,
+    amount1: null, amount2: null, amount3: null, amount_per_cycle: null, auction_buyer_id: '',
+    auction_closing_date: null, auction_multi_item: null, auth_amount: null, auth_exp: '',
+    auth_id: '', auth_status: '', business: cedric-facilitator@gaspoz-fleiner.com,
+    case_creation_date: null, case_id: '', case_type: '', charset: windows-1252, contact_phone: '',
+    created_at: ! '2014-04-21 19:51:23.259847+00:00', currency_code: '', custom: '65606150',
+    exchange_rate: null, first_name: Cedric, flag: false, flag_code: '', flag_info: '',
+    for_auction: null, from_view: '', handling_amount: '0.00', initial_payment_amount: null,
+    invoice: '', ipaddress: 173.0.82.126, item_name: Gelato Kiosk, item_number: '',
+    last_name: Gaspoz, mc_amount1: null, mc_amount2: null, mc_amount3: null, mc_currency: CHF,
+    mc_fee: '2.87', mc_gross: '80.00', mc_handling: null, mc_shipping: null, memo: '',
+    next_payment_date: null, notify_version: '3.70', num_cart_items: null, option_name1: '',
+    option_name2: '', outstanding_balance: null, parent_txn_id: '', password: '',
+    payer_business_name: '', payer_email: gelatokiosk@gmail.com, payer_id: WPSXSLNFAG27N,
+    payer_status: verified, payment_cycle: '', payment_date: ! '2014-04-21 10:51:17+00:00',
+    payment_gross: null, payment_status: Pending, payment_type: instant, pending_reason: paymentreview,
+    period1: '', period2: '', period3: '', period_type: '', product_name: '', product_type: '',
+    profile_status: '', protection_eligibility: Ineligible, quantity: 1, query: mc_gross=80.00&protection_eligibility=Ineligible&payer_id=WPSXSLNFAG27N&tax=0.00&payment_date=12%3A51%3A17+Apr+21%2C+2014+PDT&payment_status=Pending&charset=windows-1252&first_name=Cedric&mc_fee=2.87&notify_version=3.7&custom=65606150&payer_status=verified&business=cedric-facilitator%40gaspoz-fleiner.com&quantity=1&verify_sign=A6qNwmyMe73PG--ypfbxyB.KV5exAdYm2kMIc1BwYl1kE8vluLx3EQqM&payer_email=gelatokiosk%40gmail.com&txn_id=5P008674X87209357&payment_type=instant&last_name=Gaspoz&receiver_email=cedric-facilitator%40gaspoz-fleiner.com&payment_fee=&receiver_id=NTDU3AUQMXLXG&pending_reason=paymentreview&txn_type=web_accept&item_name=Gelato+Kiosk&mc_currency=CHF&item_number=&residence_country=US&test_ipn=1&handling_amount=0.00&transaction_subject=65606150&payment_gross=&shipping=0.00&ipn_track_id=8e31826db5c2d,
+    reason_code: '', reattempt: '', receipt_id: '', receiver_email: cedric-facilitator@gaspoz-fleiner.com,
+    receiver_id: NTDU3AUQMXLXG, recur_times: null, recurring: '', recurring_payment_id: '',
+    remaining_settle: null, residence_country: US, response: VERIFIED, retry_at: null,
+    rp_invoice_id: '', settle_amount: null, settle_currency: '', shipping: '0.00',
+    shipping_method: '', subscr_date: null, subscr_effective: null, subscr_id: '',
+    tax: '0.00', test_ipn: true, time_created: null, transaction_entity: '', transaction_subject: '65606150',
+    txn_id: 5P008674X87209357, txn_type: web_accept, updated_at: ! '2014-04-21 19:51:23.270388+00:00',
+    username: '', verify_sign: A6qNwmyMe73PG--ypfbxyB.KV5exAdYm2kMIc1BwYl1kE8vluLx3EQqM}
+  model: ipn.paypalipn
+  pk: 9
+- fields: {address_city: '', address_country: '', address_country_code: '', address_name: '',
+    address_state: '', address_status: '', address_street: '', address_zip: '', amount: null,
+    amount1: null, amount2: null, amount3: null, amount_per_cycle: null, auction_buyer_id: '',
+    auction_closing_date: null, auction_multi_item: null, auth_amount: null, auth_exp: '',
+    auth_id: '', auth_status: '', business: cedric-facilitator@gaspoz-fleiner.com,
+    case_creation_date: null, case_id: '', case_type: '', charset: windows-1252, contact_phone: '',
+    created_at: ! '2014-04-21 19:55:32.781597+00:00', currency_code: '', custom: '65606150',
+    exchange_rate: null, first_name: Cedric, flag: false, flag_code: '', flag_info: '',
+    for_auction: null, from_view: '', handling_amount: '0.00', initial_payment_amount: null,
+    invoice: '', ipaddress: 173.0.82.126, item_name: Gelato Kiosk, item_number: '',
+    last_name: Gaspoz, mc_amount1: null, mc_amount2: null, mc_amount3: null, mc_currency: CHF,
+    mc_fee: '2.87', mc_gross: '80.00', mc_handling: null, mc_shipping: null, memo: '',
+    next_payment_date: null, notify_version: '3.70', num_cart_items: null, option_name1: '',
+    option_name2: '', outstanding_balance: null, parent_txn_id: '', password: '',
+    payer_business_name: '', payer_email: gelatokiosk@gmail.com, payer_id: WPSXSLNFAG27N,
+    payer_status: verified, payment_cycle: '', payment_date: ! '2014-04-21 10:51:17+00:00',
+    payment_gross: null, payment_status: Completed, payment_type: instant, pending_reason: '',
+    period1: '', period2: '', period3: '', period_type: '', product_name: '', product_type: '',
+    profile_status: '', protection_eligibility: Ineligible, quantity: 1, query: mc_gross=80.00&protection_eligibility=Ineligible&payer_id=WPSXSLNFAG27N&tax=0.00&payment_date=12%3A51%3A17+Apr+21%2C+2014+PDT&payment_status=Completed&charset=windows-1252&first_name=Cedric&mc_fee=2.87&notify_version=3.7&custom=65606150&payer_status=verified&business=cedric-facilitator%40gaspoz-fleiner.com&quantity=1&verify_sign=ACaePTNkpizsDcz1ziV8OhXKSuOdAiDBPXhsgwMb21fq662i.RwKRhER&payer_email=gelatokiosk%40gmail.com&txn_id=5P008674X87209357&payment_type=instant&last_name=Gaspoz&receiver_email=cedric-facilitator%40gaspoz-fleiner.com&payment_fee=&receiver_id=NTDU3AUQMXLXG&txn_type=web_accept&item_name=Gelato+Kiosk&mc_currency=CHF&item_number=&residence_country=US&test_ipn=1&handling_amount=0.00&transaction_subject=65606150&payment_gross=&shipping=0.00&ipn_track_id=5bbe3f18bdaff,
+    reason_code: '', reattempt: '', receipt_id: '', receiver_email: cedric-facilitator@gaspoz-fleiner.com,
+    receiver_id: NTDU3AUQMXLXG, recur_times: null, recurring: '', recurring_payment_id: '',
+    remaining_settle: null, residence_country: US, response: VERIFIED, retry_at: null,
+    rp_invoice_id: '', settle_amount: null, settle_currency: '', shipping: '0.00',
+    shipping_method: '', subscr_date: null, subscr_effective: null, subscr_id: '',
+    tax: '0.00', test_ipn: true, time_created: null, transaction_entity: '', transaction_subject: '65606150',
+    txn_id: 5P008674X87209357, txn_type: web_accept, updated_at: ! '2014-04-21 19:55:32.781640+00:00',
+    username: '', verify_sign: ACaePTNkpizsDcz1ziV8OhXKSuOdAiDBPXhsgwMb21fq662i.RwKRhER}
+  model: ipn.paypalipn
+  pk: 10
+- fields: {address_city: '', address_country: '', address_country_code: '', address_name: '',
+    address_state: '', address_status: '', address_street: '', address_zip: '', amount: null,
+    amount1: null, amount2: null, amount3: null, amount_per_cycle: null, auction_buyer_id: '',
+    auction_closing_date: null, auction_multi_item: null, auth_amount: null, auth_exp: '',
+    auth_id: '', auth_status: '', business: cedric-facilitator@gaspoz-fleiner.com,
+    case_creation_date: null, case_id: '', case_type: '', charset: windows-1252, contact_phone: '',
+    created_at: ! '2014-04-21 19:55:46.577455+00:00', currency_code: '', custom: '65606150',
+    exchange_rate: null, first_name: Cedric, flag: true, flag_code: '', flag_info: Duplicate
+      txn_id. (5P008674X87209357), for_auction: null, from_view: '', handling_amount: '0.00',
+    initial_payment_amount: null, invoice: '', ipaddress: 173.0.82.126, item_name: Gelato
+      Kiosk, item_number: '', last_name: Gaspoz, mc_amount1: null, mc_amount2: null,
+    mc_amount3: null, mc_currency: CHF, mc_fee: '2.87', mc_gross: '80.00', mc_handling: null,
+    mc_shipping: null, memo: '', next_payment_date: null, notify_version: '3.70',
+    num_cart_items: null, option_name1: '', option_name2: '', outstanding_balance: null,
+    parent_txn_id: '', password: '', payer_business_name: '', payer_email: gelatokiosk@gmail.com,
+    payer_id: WPSXSLNFAG27N, payer_status: verified, payment_cycle: '', payment_date: ! '2014-04-21
+      10:51:17+00:00', payment_gross: null, payment_status: Completed, payment_type: instant,
+    pending_reason: '', period1: '', period2: '', period3: '', period_type: '', product_name: '',
+    product_type: '', profile_status: '', protection_eligibility: Ineligible, quantity: 1,
+    query: mc_gross=80.00&protection_eligibility=Ineligible&payer_id=WPSXSLNFAG27N&tax=0.00&payment_date=12%3A51%3A17+Apr+21%2C+2014+PDT&payment_status=Completed&charset=windows-1252&first_name=Cedric&mc_fee=2.87&notify_version=3.7&custom=65606150&payer_status=verified&business=cedric-facilitator%40gaspoz-fleiner.com&quantity=1&verify_sign=ACaePTNkpizsDcz1ziV8OhXKSuOdAiDBPXhsgwMb21fq662i.RwKRhER&payer_email=gelatokiosk%40gmail.com&txn_id=5P008674X87209357&payment_type=instant&last_name=Gaspoz&receiver_email=cedric-facilitator%40gaspoz-fleiner.com&payment_fee=&receiver_id=NTDU3AUQMXLXG&txn_type=web_accept&item_name=Gelato+Kiosk&mc_currency=CHF&item_number=&residence_country=US&test_ipn=1&handling_amount=0.00&transaction_subject=65606150&payment_gross=&shipping=0.00&ipn_track_id=5bbe3f18bdaff,
+    reason_code: '', reattempt: '', receipt_id: '', receiver_email: cedric-facilitator@gaspoz-fleiner.com,
+    receiver_id: NTDU3AUQMXLXG, recur_times: null, recurring: '', recurring_payment_id: '',
+    remaining_settle: null, residence_country: US, response: VERIFIED, retry_at: null,
+    rp_invoice_id: '', settle_amount: null, settle_currency: '', shipping: '0.00',
+    shipping_method: '', subscr_date: null, subscr_effective: null, subscr_id: '',
+    tax: '0.00', test_ipn: true, time_created: null, transaction_entity: '', transaction_subject: '65606150',
+    txn_id: 5P008674X87209357, txn_type: web_accept, updated_at: ! '2014-04-21 19:55:46.586618+00:00',
+    username: '', verify_sign: ACaePTNkpizsDcz1ziV8OhXKSuOdAiDBPXhsgwMb21fq662i.RwKRhER}
+  model: ipn.paypalipn
+  pk: 11
+- fields: {address_city: '', address_country: '', address_country_code: '', address_name: '',
+    address_state: '', address_status: '', address_street: '', address_zip: '', amount: null,
+    amount1: null, amount2: null, amount3: null, amount_per_cycle: null, auction_buyer_id: '',
+    auction_closing_date: null, auction_multi_item: null, auth_amount: null, auth_exp: '',
+    auth_id: '', auth_status: '', business: cedric-facilitator@gaspoz-fleiner.com,
+    case_creation_date: null, case_id: '', case_type: '', charset: windows-1252, contact_phone: '',
+    created_at: ! '2014-04-21 19:55:54.589816+00:00', currency_code: '', custom: '65606150',
+    exchange_rate: null, first_name: Cedric, flag: false, flag_code: '', flag_info: '',
+    for_auction: null, from_view: '', handling_amount: '0.00', initial_payment_amount: null,
+    invoice: '', ipaddress: 173.0.82.126, item_name: Gelato Kiosk, item_number: '',
+    last_name: Gaspoz, mc_amount1: null, mc_amount2: null, mc_amount3: null, mc_currency: CHF,
+    mc_fee: '2.00', mc_gross: '50.00', mc_handling: null, mc_shipping: null, memo: '',
+    next_payment_date: null, notify_version: '3.70', num_cart_items: null, option_name1: '',
+    option_name2: '', outstanding_balance: null, parent_txn_id: '', password: '',
+    payer_business_name: '', payer_email: gelatokiosk@gmail.com, payer_id: WPSXSLNFAG27N,
+    payer_status: verified, payment_cycle: '', payment_date: ! '2014-04-21 10:50:43+00:00',
+    payment_gross: null, payment_status: Completed, payment_type: instant, pending_reason: '',
+    period1: '', period2: '', period3: '', period_type: '', product_name: '', product_type: '',
+    profile_status: '', protection_eligibility: Ineligible, quantity: 1, query: mc_gross=50.00&protection_eligibility=Ineligible&payer_id=WPSXSLNFAG27N&tax=0.00&payment_date=12%3A50%3A43+Apr+21%2C+2014+PDT&payment_status=Completed&charset=windows-1252&first_name=Cedric&mc_fee=2.00&notify_version=3.7&custom=65606150&payer_status=verified&business=cedric-facilitator%40gaspoz-fleiner.com&quantity=1&verify_sign=Acl9wbYCHxoVa2WpMsS6nyrPmoDZA6YoDqO8cp-Ch1sEi1I91.yLjYfZ&payer_email=gelatokiosk%40gmail.com&txn_id=3HU566681E6497829&payment_type=instant&last_name=Gaspoz&receiver_email=cedric-facilitator%40gaspoz-fleiner.com&payment_fee=&receiver_id=NTDU3AUQMXLXG&txn_type=web_accept&item_name=Gelato+Kiosk&mc_currency=CHF&item_number=&residence_country=US&test_ipn=1&handling_amount=0.00&transaction_subject=65606150&payment_gross=&shipping=0.00&ipn_track_id=b3374e53f3e47,
+    reason_code: '', reattempt: '', receipt_id: '', receiver_email: cedric-facilitator@gaspoz-fleiner.com,
+    receiver_id: NTDU3AUQMXLXG, recur_times: null, recurring: '', recurring_payment_id: '',
+    remaining_settle: null, residence_country: US, response: VERIFIED, retry_at: null,
+    rp_invoice_id: '', settle_amount: null, settle_currency: '', shipping: '0.00',
+    shipping_method: '', subscr_date: null, subscr_effective: null, subscr_id: '',
+    tax: '0.00', test_ipn: true, time_created: null, transaction_entity: '', transaction_subject: '65606150',
+    txn_id: 3HU566681E6497829, txn_type: web_accept, updated_at: ! '2014-04-21 19:55:54.589859+00:00',
+    username: '', verify_sign: Acl9wbYCHxoVa2WpMsS6nyrPmoDZA6YoDqO8cp-Ch1sEi1I91.yLjYfZ}
+  model: ipn.paypalipn
+  pk: 12
+- fields: {address_city: '', address_country: '', address_country_code: '', address_name: '',
+    address_state: '', address_status: '', address_street: '', address_zip: '', amount: null,
+    amount1: null, amount2: null, amount3: null, amount_per_cycle: null, auction_buyer_id: '',
+    auction_closing_date: null, auction_multi_item: null, auth_amount: null, auth_exp: '',
+    auth_id: '', auth_status: '', business: cedric-facilitator@gaspoz-fleiner.com,
+    case_creation_date: null, case_id: '', case_type: '', charset: windows-1252, contact_phone: '',
+    created_at: ! '2014-04-21 19:56:07.894450+00:00', currency_code: '', custom: '65606150',
+    exchange_rate: null, first_name: Cedric, flag: true, flag_code: '', flag_info: Duplicate
+      txn_id. (3HU566681E6497829), for_auction: null, from_view: '', handling_amount: '0.00',
+    initial_payment_amount: null, invoice: '', ipaddress: 173.0.82.126, item_name: Gelato
+      Kiosk, item_number: '', last_name: Gaspoz, mc_amount1: null, mc_amount2: null,
+    mc_amount3: null, mc_currency: CHF, mc_fee: '2.00', mc_gross: '50.00', mc_handling: null,
+    mc_shipping: null, memo: '', next_payment_date: null, notify_version: '3.70',
+    num_cart_items: null, option_name1: '', option_name2: '', outstanding_balance: null,
+    parent_txn_id: '', password: '', payer_business_name: '', payer_email: gelatokiosk@gmail.com,
+    payer_id: WPSXSLNFAG27N, payer_status: verified, payment_cycle: '', payment_date: ! '2014-04-21
+      10:50:43+00:00', payment_gross: null, payment_status: Completed, payment_type: instant,
+    pending_reason: '', period1: '', period2: '', period3: '', period_type: '', product_name: '',
+    product_type: '', profile_status: '', protection_eligibility: Ineligible, quantity: 1,
+    query: mc_gross=50.00&protection_eligibility=Ineligible&payer_id=WPSXSLNFAG27N&tax=0.00&payment_date=12%3A50%3A43+Apr+21%2C+2014+PDT&payment_status=Completed&charset=windows-1252&first_name=Cedric&mc_fee=2.00&notify_version=3.7&custom=65606150&payer_status=verified&business=cedric-facilitator%40gaspoz-fleiner.com&quantity=1&verify_sign=Acl9wbYCHxoVa2WpMsS6nyrPmoDZA6YoDqO8cp-Ch1sEi1I91.yLjYfZ&payer_email=gelatokiosk%40gmail.com&txn_id=3HU566681E6497829&payment_type=instant&last_name=Gaspoz&receiver_email=cedric-facilitator%40gaspoz-fleiner.com&payment_fee=&receiver_id=NTDU3AUQMXLXG&txn_type=web_accept&item_name=Gelato+Kiosk&mc_currency=CHF&item_number=&residence_country=US&test_ipn=1&handling_amount=0.00&transaction_subject=65606150&payment_gross=&shipping=0.00&ipn_track_id=b3374e53f3e47,
+    reason_code: '', reattempt: '', receipt_id: '', receiver_email: cedric-facilitator@gaspoz-fleiner.com,
+    receiver_id: NTDU3AUQMXLXG, recur_times: null, recurring: '', recurring_payment_id: '',
+    remaining_settle: null, residence_country: US, response: VERIFIED, retry_at: null,
+    rp_invoice_id: '', settle_amount: null, settle_currency: '', shipping: '0.00',
+    shipping_method: '', subscr_date: null, subscr_effective: null, subscr_id: '',
+    tax: '0.00', test_ipn: true, time_created: null, transaction_entity: '', transaction_subject: '65606150',
+    txn_id: 3HU566681E6497829, txn_type: web_accept, updated_at: ! '2014-04-21 19:56:07.905963+00:00',
+    username: '', verify_sign: Acl9wbYCHxoVa2WpMsS6nyrPmoDZA6YoDqO8cp-Ch1sEi1I91.yLjYfZ}
+  model: ipn.paypalipn
+  pk: 13
+- fields: {address_city: '', address_country: '', address_country_code: '', address_name: '',
+    address_state: '', address_status: '', address_street: '', address_zip: '', amount: null,
+    amount1: null, amount2: null, amount3: null, amount_per_cycle: null, auction_buyer_id: '',
+    auction_closing_date: null, auction_multi_item: null, auth_amount: null, auth_exp: '',
+    auth_id: '', auth_status: '', business: cedric-facilitator@gaspoz-fleiner.com,
+    case_creation_date: null, case_id: '', case_type: '', charset: windows-1252, contact_phone: '',
+    created_at: ! '2014-04-21 19:56:11.369733+00:00', currency_code: '', custom: '65606150',
+    exchange_rate: null, first_name: Cedric, flag: false, flag_code: '', flag_info: '',
+    for_auction: null, from_view: '', handling_amount: '0.00', initial_payment_amount: null,
+    invoice: '', ipaddress: 173.0.82.126, item_name: Gelato Kiosk, item_number: '',
+    last_name: Gaspoz, mc_amount1: null, mc_amount2: null, mc_amount3: null, mc_currency: CHF,
+    mc_fee: '1.42', mc_gross: '30.00', mc_handling: null, mc_shipping: null, memo: '',
+    next_payment_date: null, notify_version: '3.70', num_cart_items: null, option_name1: '',
+    option_name2: '', outstanding_balance: null, parent_txn_id: '', password: '',
+    payer_business_name: '', payer_email: gelatokiosk@gmail.com, payer_id: WPSXSLNFAG27N,
+    payer_status: verified, payment_cycle: '', payment_date: ! '2014-04-21 10:50:05+00:00',
+    payment_gross: null, payment_status: Completed, payment_type: instant, pending_reason: '',
+    period1: '', period2: '', period3: '', period_type: '', product_name: '', product_type: '',
+    profile_status: '', protection_eligibility: Ineligible, quantity: 1, query: mc_gross=30.00&protection_eligibility=Ineligible&payer_id=WPSXSLNFAG27N&tax=0.00&payment_date=12%3A50%3A05+Apr+21%2C+2014+PDT&payment_status=Completed&charset=windows-1252&first_name=Cedric&mc_fee=1.42&notify_version=3.7&custom=65606150&payer_status=verified&business=cedric-facilitator%40gaspoz-fleiner.com&quantity=1&verify_sign=An5ns1Kso7MWUdW4ErQKJJJ4qi4-AdVDABtL3VWf540p5FMJYR1vpt0v&payer_email=gelatokiosk%40gmail.com&txn_id=1CM16486A64117641&payment_type=instant&last_name=Gaspoz&receiver_email=cedric-facilitator%40gaspoz-fleiner.com&payment_fee=&receiver_id=NTDU3AUQMXLXG&txn_type=web_accept&item_name=Gelato+Kiosk&mc_currency=CHF&item_number=&residence_country=US&test_ipn=1&handling_amount=0.00&transaction_subject=65606150&payment_gross=&shipping=0.00&ipn_track_id=5e25d216679d4,
+    reason_code: '', reattempt: '', receipt_id: '', receiver_email: cedric-facilitator@gaspoz-fleiner.com,
+    receiver_id: NTDU3AUQMXLXG, recur_times: null, recurring: '', recurring_payment_id: '',
+    remaining_settle: null, residence_country: US, response: VERIFIED, retry_at: null,
+    rp_invoice_id: '', settle_amount: null, settle_currency: '', shipping: '0.00',
+    shipping_method: '', subscr_date: null, subscr_effective: null, subscr_id: '',
+    tax: '0.00', test_ipn: true, time_created: null, transaction_entity: '', transaction_subject: '65606150',
+    txn_id: 1CM16486A64117641, txn_type: web_accept, updated_at: ! '2014-04-21 19:56:11.369777+00:00',
+    username: '', verify_sign: An5ns1Kso7MWUdW4ErQKJJJ4qi4-AdVDABtL3VWf540p5FMJYR1vpt0v}
+  model: ipn.paypalipn
+  pk: 14
+- fields: {address_city: '', address_country: '', address_country_code: '', address_name: '',
+    address_state: '', address_status: '', address_street: '', address_zip: '', amount: null,
+    amount1: null, amount2: null, amount3: null, amount_per_cycle: null, auction_buyer_id: '',
+    auction_closing_date: null, auction_multi_item: null, auth_amount: null, auth_exp: '',
+    auth_id: '', auth_status: '', business: cedric-facilitator@gaspoz-fleiner.com,
+    case_creation_date: null, case_id: '', case_type: '', charset: windows-1252, contact_phone: '',
+    created_at: ! '2014-04-21 19:56:27.973481+00:00', currency_code: '', custom: '65606150',
+    exchange_rate: null, first_name: Cedric, flag: true, flag_code: '', flag_info: Duplicate
+      txn_id. (1CM16486A64117641), for_auction: null, from_view: '', handling_amount: '0.00',
+    initial_payment_amount: null, invoice: '', ipaddress: 173.0.82.126, item_name: Gelato
+      Kiosk, item_number: '', last_name: Gaspoz, mc_amount1: null, mc_amount2: null,
+    mc_amount3: null, mc_currency: CHF, mc_fee: '1.42', mc_gross: '30.00', mc_handling: null,
+    mc_shipping: null, memo: '', next_payment_date: null, notify_version: '3.70',
+    num_cart_items: null, option_name1: '', option_name2: '', outstanding_balance: null,
+    parent_txn_id: '', password: '', payer_business_name: '', payer_email: gelatokiosk@gmail.com,
+    payer_id: WPSXSLNFAG27N, payer_status: verified, payment_cycle: '', payment_date: ! '2014-04-21
+      10:50:05+00:00', payment_gross: null, payment_status: Completed, payment_type: instant,
+    pending_reason: '', period1: '', period2: '', period3: '', period_type: '', product_name: '',
+    product_type: '', profile_status: '', protection_eligibility: Ineligible, quantity: 1,
+    query: mc_gross=30.00&protection_eligibility=Ineligible&payer_id=WPSXSLNFAG27N&tax=0.00&payment_date=12%3A50%3A05+Apr+21%2C+2014+PDT&payment_status=Completed&charset=windows-1252&first_name=Cedric&mc_fee=1.42&notify_version=3.7&custom=65606150&payer_status=verified&business=cedric-facilitator%40gaspoz-fleiner.com&quantity=1&verify_sign=An5ns1Kso7MWUdW4ErQKJJJ4qi4-AdVDABtL3VWf540p5FMJYR1vpt0v&payer_email=gelatokiosk%40gmail.com&txn_id=1CM16486A64117641&payment_type=instant&last_name=Gaspoz&receiver_email=cedric-facilitator%40gaspoz-fleiner.com&payment_fee=&receiver_id=NTDU3AUQMXLXG&txn_type=web_accept&item_name=Gelato+Kiosk&mc_currency=CHF&item_number=&residence_country=US&test_ipn=1&handling_amount=0.00&transaction_subject=65606150&payment_gross=&shipping=0.00&ipn_track_id=5e25d216679d4,
+    reason_code: '', reattempt: '', receipt_id: '', receiver_email: cedric-facilitator@gaspoz-fleiner.com,
+    receiver_id: NTDU3AUQMXLXG, recur_times: null, recurring: '', recurring_payment_id: '',
+    remaining_settle: null, residence_country: US, response: VERIFIED, retry_at: null,
+    rp_invoice_id: '', settle_amount: null, settle_currency: '', shipping: '0.00',
+    shipping_method: '', subscr_date: null, subscr_effective: null, subscr_id: '',
+    tax: '0.00', test_ipn: true, time_created: null, transaction_entity: '', transaction_subject: '65606150',
+    txn_id: 1CM16486A64117641, txn_type: web_accept, updated_at: ! '2014-04-21 19:56:27.984499+00:00',
+    username: '', verify_sign: An5ns1Kso7MWUdW4ErQKJJJ4qi4-AdVDABtL3VWf540p5FMJYR1vpt0v}
+  model: ipn.paypalipn
+  pk: 15
+- fields: {address_city: '', address_country: '', address_country_code: '', address_name: '',
+    address_state: '', address_status: '', address_street: '', address_zip: '', amount: null,
+    amount1: null, amount2: null, amount3: null, amount_per_cycle: null, auction_buyer_id: '',
+    auction_closing_date: null, auction_multi_item: null, auth_amount: null, auth_exp: '',
+    auth_id: '', auth_status: '', business: cedric-facilitator@gaspoz-fleiner.com,
+    case_creation_date: null, case_id: '', case_type: '', charset: windows-1252, contact_phone: '',
+    created_at: ! '2014-04-21 19:56:29.012611+00:00', currency_code: '', custom: '65606150',
+    exchange_rate: null, first_name: Cedric, flag: false, flag_code: '', flag_info: '',
+    for_auction: null, from_view: '', handling_amount: '0.00', initial_payment_amount: null,
+    invoice: '', ipaddress: 173.0.82.126, item_name: Gelato Kiosk, item_number: '',
+    last_name: Gaspoz, mc_amount1: null, mc_amount2: null, mc_amount3: null, mc_currency: CHF,
+    mc_fee: '0.84', mc_gross: '10.00', mc_handling: null, mc_shipping: null, memo: '',
+    next_payment_date: null, notify_version: '3.70', num_cart_items: null, option_name1: '',
+    option_name2: '', outstanding_balance: null, parent_txn_id: '', password: '',
+    payer_business_name: '', payer_email: gelatokiosk@gmail.com, payer_id: WPSXSLNFAG27N,
+    payer_status: verified, payment_cycle: '', payment_date: ! '2014-04-21 10:49:24+00:00',
+    payment_gross: null, payment_status: Completed, payment_type: instant, pending_reason: '',
+    period1: '', period2: '', period3: '', period_type: '', product_name: '', product_type: '',
+    profile_status: '', protection_eligibility: Ineligible, quantity: 1, query: mc_gross=10.00&protection_eligibility=Ineligible&payer_id=WPSXSLNFAG27N&tax=0.00&payment_date=12%3A49%3A24+Apr+21%2C+2014+PDT&payment_status=Completed&charset=windows-1252&first_name=Cedric&mc_fee=0.84&notify_version=3.7&custom=65606150&payer_status=verified&business=cedric-facilitator%40gaspoz-fleiner.com&quantity=1&verify_sign=A9LC3Qajo-H2V8mPq4eIktgPvG2RAHaeopHzN-qTEyWPKqkCFZ2ZF-Zx&payer_email=gelatokiosk%40gmail.com&txn_id=3CH46228R72765530&payment_type=instant&last_name=Gaspoz&receiver_email=cedric-facilitator%40gaspoz-fleiner.com&payment_fee=&receiver_id=NTDU3AUQMXLXG&txn_type=web_accept&item_name=Gelato+Kiosk&mc_currency=CHF&item_number=&residence_country=US&test_ipn=1&handling_amount=0.00&transaction_subject=65606150&payment_gross=&shipping=0.00&ipn_track_id=6440da2b5d8e,
+    reason_code: '', reattempt: '', receipt_id: '', receiver_email: cedric-facilitator@gaspoz-fleiner.com,
+    receiver_id: NTDU3AUQMXLXG, recur_times: null, recurring: '', recurring_payment_id: '',
+    remaining_settle: null, residence_country: US, response: VERIFIED, retry_at: null,
+    rp_invoice_id: '', settle_amount: null, settle_currency: '', shipping: '0.00',
+    shipping_method: '', subscr_date: null, subscr_effective: null, subscr_id: '',
+    tax: '0.00', test_ipn: true, time_created: null, transaction_entity: '', transaction_subject: '65606150',
+    txn_id: 3CH46228R72765530, txn_type: web_accept, updated_at: ! '2014-04-21 19:56:29.012654+00:00',
+    username: '', verify_sign: A9LC3Qajo-H2V8mPq4eIktgPvG2RAHaeopHzN-qTEyWPKqkCFZ2ZF-Zx}
+  model: ipn.paypalipn
+  pk: 16
+- fields: {address_city: '', address_country: '', address_country_code: '', address_name: '',
+    address_state: '', address_status: '', address_street: '', address_zip: '', amount: null,
+    amount1: null, amount2: null, amount3: null, amount_per_cycle: null, auction_buyer_id: '',
+    auction_closing_date: null, auction_multi_item: null, auth_amount: null, auth_exp: '',
+    auth_id: '', auth_status: '', business: cedric-facilitator@gaspoz-fleiner.com,
+    case_creation_date: null, case_id: '', case_type: '', charset: windows-1252, contact_phone: '',
+    created_at: ! '2014-04-21 19:56:46.540813+00:00', currency_code: '', custom: '65606150',
+    exchange_rate: null, first_name: Cedric, flag: true, flag_code: '', flag_info: Duplicate
+      txn_id. (3CH46228R72765530), for_auction: null, from_view: '', handling_amount: '0.00',
+    initial_payment_amount: null, invoice: '', ipaddress: 173.0.82.126, item_name: Gelato
+      Kiosk, item_number: '', last_name: Gaspoz, mc_amount1: null, mc_amount2: null,
+    mc_amount3: null, mc_currency: CHF, mc_fee: '0.84', mc_gross: '10.00', mc_handling: null,
+    mc_shipping: null, memo: '', next_payment_date: null, notify_version: '3.70',
+    num_cart_items: null, option_name1: '', option_name2: '', outstanding_balance: null,
+    parent_txn_id: '', password: '', payer_business_name: '', payer_email: gelatokiosk@gmail.com,
+    payer_id: WPSXSLNFAG27N, payer_status: verified, payment_cycle: '', payment_date: ! '2014-04-21
+      10:49:24+00:00', payment_gross: null, payment_status: Completed, payment_type: instant,
+    pending_reason: '', period1: '', period2: '', period3: '', period_type: '', product_name: '',
+    product_type: '', profile_status: '', protection_eligibility: Ineligible, quantity: 1,
+    query: mc_gross=10.00&protection_eligibility=Ineligible&payer_id=WPSXSLNFAG27N&tax=0.00&payment_date=12%3A49%3A24+Apr+21%2C+2014+PDT&payment_status=Completed&charset=windows-1252&first_name=Cedric&mc_fee=0.84&notify_version=3.7&custom=65606150&payer_status=verified&business=cedric-facilitator%40gaspoz-fleiner.com&quantity=1&verify_sign=A9LC3Qajo-H2V8mPq4eIktgPvG2RAHaeopHzN-qTEyWPKqkCFZ2ZF-Zx&payer_email=gelatokiosk%40gmail.com&txn_id=3CH46228R72765530&payment_type=instant&last_name=Gaspoz&receiver_email=cedric-facilitator%40gaspoz-fleiner.com&payment_fee=&receiver_id=NTDU3AUQMXLXG&txn_type=web_accept&item_name=Gelato+Kiosk&mc_currency=CHF&item_number=&residence_country=US&test_ipn=1&handling_amount=0.00&transaction_subject=65606150&payment_gross=&shipping=0.00&ipn_track_id=6440da2b5d8e,
+    reason_code: '', reattempt: '', receipt_id: '', receiver_email: cedric-facilitator@gaspoz-fleiner.com,
+    receiver_id: NTDU3AUQMXLXG, recur_times: null, recurring: '', recurring_payment_id: '',
+    remaining_settle: null, residence_country: US, response: VERIFIED, retry_at: null,
+    rp_invoice_id: '', settle_amount: null, settle_currency: '', shipping: '0.00',
+    shipping_method: '', subscr_date: null, subscr_effective: null, subscr_id: '',
+    tax: '0.00', test_ipn: true, time_created: null, transaction_entity: '', transaction_subject: '65606150',
+    txn_id: 3CH46228R72765530, txn_type: web_accept, updated_at: ! '2014-04-21 19:56:46.549566+00:00',
+    username: '', verify_sign: A9LC3Qajo-H2V8mPq4eIktgPvG2RAHaeopHzN-qTEyWPKqkCFZ2ZF-Zx}
+  model: ipn.paypalipn
+  pk: 17
+- fields: {address_city: '', address_country: '', address_country_code: '', address_name: '',
+    address_state: '', address_status: '', address_street: '', address_zip: '', amount: null,
+    amount1: null, amount2: null, amount3: null, amount_per_cycle: null, auction_buyer_id: '',
+    auction_closing_date: null, auction_multi_item: null, auth_amount: null, auth_exp: '',
+    auth_id: '', auth_status: '', business: cedric-facilitator@gaspoz-fleiner.com,
+    case_creation_date: null, case_id: '', case_type: '', charset: windows-1252, contact_phone: '',
+    created_at: ! '2014-04-21 20:29:02.321323+00:00', currency_code: '', custom: '65606150',
+    exchange_rate: null, first_name: Cedric, flag: false, flag_code: '', flag_info: '',
+    for_auction: null, from_view: '', handling_amount: '0.00', initial_payment_amount: null,
+    invoice: '', ipaddress: 173.0.82.126, item_name: Gelato Kiosk, item_number: '',
+    last_name: Gaspoz, mc_amount1: null, mc_amount2: null, mc_amount3: null, mc_currency: CHF,
+    mc_fee: '2.87', mc_gross: '80.00', mc_handling: null, mc_shipping: null, memo: '',
+    next_payment_date: null, notify_version: '3.70', num_cart_items: null, option_name1: '',
+    option_name2: '', outstanding_balance: null, parent_txn_id: '', password: '',
+    payer_business_name: '', payer_email: gelatokiosk@gmail.com, payer_id: WPSXSLNFAG27N,
+    payer_status: verified, payment_cycle: '', payment_date: ! '2014-04-21 11:28:55+00:00',
+    payment_gross: null, payment_status: Pending, payment_type: instant, pending_reason: paymentreview,
+    period1: '', period2: '', period3: '', period_type: '', product_name: '', product_type: '',
+    profile_status: '', protection_eligibility: Ineligible, quantity: 1, query: mc_gross=80.00&protection_eligibility=Ineligible&payer_id=WPSXSLNFAG27N&tax=0.00&payment_date=13%3A28%3A55+Apr+21%2C+2014+PDT&payment_status=Pending&charset=windows-1252&first_name=Cedric&mc_fee=2.87&notify_version=3.7&custom=65606150&payer_status=verified&business=cedric-facilitator%40gaspoz-fleiner.com&quantity=1&verify_sign=A2S1fniRGsoquzRDbs4f5rc383f8AQZDlzJAa2L8qpcnFnc8a7mXCOgj&payer_email=gelatokiosk%40gmail.com&txn_id=3EJ58290BG951590E&payment_type=instant&last_name=Gaspoz&receiver_email=cedric-facilitator%40gaspoz-fleiner.com&payment_fee=&receiver_id=NTDU3AUQMXLXG&pending_reason=paymentreview&txn_type=web_accept&item_name=Gelato+Kiosk&mc_currency=CHF&item_number=&residence_country=US&test_ipn=1&handling_amount=0.00&transaction_subject=65606150&payment_gross=&shipping=0.00&ipn_track_id=59184c296706a,
+    reason_code: '', reattempt: '', receipt_id: '', receiver_email: cedric-facilitator@gaspoz-fleiner.com,
+    receiver_id: NTDU3AUQMXLXG, recur_times: null, recurring: '', recurring_payment_id: '',
+    remaining_settle: null, residence_country: US, response: VERIFIED, retry_at: null,
+    rp_invoice_id: '', settle_amount: null, settle_currency: '', shipping: '0.00',
+    shipping_method: '', subscr_date: null, subscr_effective: null, subscr_id: '',
+    tax: '0.00', test_ipn: true, time_created: null, transaction_entity: '', transaction_subject: '65606150',
+    txn_id: 3EJ58290BG951590E, txn_type: web_accept, updated_at: ! '2014-04-21 20:29:02.341112+00:00',
+    username: '', verify_sign: A2S1fniRGsoquzRDbs4f5rc383f8AQZDlzJAa2L8qpcnFnc8a7mXCOgj}
+  model: ipn.paypalipn
+  pk: 18
+- fields: {address_city: '', address_country: '', address_country_code: '', address_name: '',
+    address_state: '', address_status: '', address_street: '', address_zip: '', amount: null,
+    amount1: null, amount2: null, amount3: null, amount_per_cycle: null, auction_buyer_id: '',
+    auction_closing_date: null, auction_multi_item: null, auth_amount: null, auth_exp: '',
+    auth_id: '', auth_status: '', business: cedric-facilitator@gaspoz-fleiner.com,
+    case_creation_date: null, case_id: '', case_type: '', charset: windows-1252, contact_phone: '',
+    created_at: ! '2014-04-21 20:30:22.796635+00:00', currency_code: '', custom: '65606150',
+    exchange_rate: null, first_name: Cedric, flag: false, flag_code: '', flag_info: '',
+    for_auction: null, from_view: '', handling_amount: '0.00', initial_payment_amount: null,
+    invoice: '', ipaddress: 173.0.82.126, item_name: Gelato Kiosk, item_number: '',
+    last_name: Gaspoz, mc_amount1: null, mc_amount2: null, mc_amount3: null, mc_currency: CHF,
+    mc_fee: '2.87', mc_gross: '80.00', mc_handling: null, mc_shipping: null, memo: '',
+    next_payment_date: null, notify_version: '3.70', num_cart_items: null, option_name1: '',
+    option_name2: '', outstanding_balance: null, parent_txn_id: '', password: '',
+    payer_business_name: '', payer_email: gelatokiosk@gmail.com, payer_id: WPSXSLNFAG27N,
+    payer_status: verified, payment_cycle: '', payment_date: ! '2014-04-21 11:28:55+00:00',
+    payment_gross: null, payment_status: Completed, payment_type: instant, pending_reason: '',
+    period1: '', period2: '', period3: '', period_type: '', product_name: '', product_type: '',
+    profile_status: '', protection_eligibility: Ineligible, quantity: 1, query: mc_gross=80.00&protection_eligibility=Ineligible&payer_id=WPSXSLNFAG27N&tax=0.00&payment_date=13%3A28%3A55+Apr+21%2C+2014+PDT&payment_status=Completed&charset=windows-1252&first_name=Cedric&mc_fee=2.87&notify_version=3.7&custom=65606150&payer_status=verified&business=cedric-facilitator%40gaspoz-fleiner.com&quantity=1&verify_sign=ArgX1JoEl.LNTJ5nkTmgzkfLaDiVAhxJ4sP8PvuilH1yd6D.U4E4-A2T&payer_email=gelatokiosk%40gmail.com&txn_id=3EJ58290BG951590E&payment_type=instant&last_name=Gaspoz&receiver_email=cedric-facilitator%40gaspoz-fleiner.com&payment_fee=&receiver_id=NTDU3AUQMXLXG&txn_type=web_accept&item_name=Gelato+Kiosk&mc_currency=CHF&item_number=&residence_country=US&test_ipn=1&handling_amount=0.00&transaction_subject=65606150&payment_gross=&shipping=0.00&ipn_track_id=a8c3088f251b6,
+    reason_code: '', reattempt: '', receipt_id: '', receiver_email: cedric-facilitator@gaspoz-fleiner.com,
+    receiver_id: NTDU3AUQMXLXG, recur_times: null, recurring: '', recurring_payment_id: '',
+    remaining_settle: null, residence_country: US, response: VERIFIED, retry_at: null,
+    rp_invoice_id: '', settle_amount: null, settle_currency: '', shipping: '0.00',
+    shipping_method: '', subscr_date: null, subscr_effective: null, subscr_id: '',
+    tax: '0.00', test_ipn: true, time_created: null, transaction_entity: '', transaction_subject: '65606150',
+    txn_id: 3EJ58290BG951590E, txn_type: web_accept, updated_at: ! '2014-04-21 20:30:22.836331+00:00',
+    username: '', verify_sign: ArgX1JoEl.LNTJ5nkTmgzkfLaDiVAhxJ4sP8PvuilH1yd6D.U4E4-A2T}
+  model: ipn.paypalipn
+  pk: 19
+- fields: {address_city: '', address_country: '', address_country_code: '', address_name: '',
+    address_state: '', address_status: '', address_street: '', address_zip: '', amount: null,
+    amount1: null, amount2: null, amount3: null, amount_per_cycle: null, auction_buyer_id: '',
+    auction_closing_date: null, auction_multi_item: null, auth_amount: null, auth_exp: '',
+    auth_id: '', auth_status: '', business: cedric-facilitator@gaspoz-fleiner.com,
+    case_creation_date: null, case_id: '', case_type: '', charset: windows-1252, contact_phone: '',
+    created_at: ! '2014-04-21 20:53:12.307120+00:00', currency_code: '', custom: '65606150',
+    exchange_rate: null, first_name: Cedric, flag: false, flag_code: '', flag_info: '',
+    for_auction: null, from_view: '', handling_amount: '0.00', initial_payment_amount: null,
+    invoice: '', ipaddress: 173.0.82.126, item_name: Gelato Kiosk, item_number: '',
+    last_name: Gaspoz, mc_amount1: null, mc_amount2: null, mc_amount3: null, mc_currency: CHF,
+    mc_fee: '1.13', mc_gross: '20.00', mc_handling: null, mc_shipping: null, memo: '',
+    next_payment_date: null, notify_version: '3.70', num_cart_items: null, option_name1: '',
+    option_name2: '', outstanding_balance: null, parent_txn_id: '', password: '',
+    payer_business_name: '', payer_email: gelatokiosk@gmail.com, payer_id: WPSXSLNFAG27N,
+    payer_status: verified, payment_cycle: '', payment_date: ! '2014-04-21 11:53:06+00:00',
+    payment_gross: null, payment_status: Pending, payment_type: instant, pending_reason: paymentreview,
+    period1: '', period2: '', period3: '', period_type: '', product_name: '', product_type: '',
+    profile_status: '', protection_eligibility: Ineligible, quantity: 1, query: mc_gross=20.00&protection_eligibility=Ineligible&payer_id=WPSXSLNFAG27N&tax=0.00&payment_date=13%3A53%3A06+Apr+21%2C+2014+PDT&payment_status=Pending&charset=windows-1252&first_name=Cedric&mc_fee=1.13&notify_version=3.7&custom=65606150&payer_status=verified&business=cedric-facilitator%40gaspoz-fleiner.com&quantity=1&verify_sign=Akdd94pn9TmKSdjMfRouuytVZKAEATKPcruGrN2bBvncNY6lfweFmjuk&payer_email=gelatokiosk%40gmail.com&txn_id=8776222523007501J&payment_type=instant&last_name=Gaspoz&receiver_email=cedric-facilitator%40gaspoz-fleiner.com&payment_fee=&receiver_id=NTDU3AUQMXLXG&pending_reason=paymentreview&txn_type=web_accept&item_name=Gelato+Kiosk&mc_currency=CHF&item_number=&residence_country=US&test_ipn=1&handling_amount=0.00&transaction_subject=65606150&payment_gross=&shipping=0.00&ipn_track_id=f528aeb729a,
+    reason_code: '', reattempt: '', receipt_id: '', receiver_email: cedric-facilitator@gaspoz-fleiner.com,
+    receiver_id: NTDU3AUQMXLXG, recur_times: null, recurring: '', recurring_payment_id: '',
+    remaining_settle: null, residence_country: US, response: VERIFIED, retry_at: null,
+    rp_invoice_id: '', settle_amount: null, settle_currency: '', shipping: '0.00',
+    shipping_method: '', subscr_date: null, subscr_effective: null, subscr_id: '',
+    tax: '0.00', test_ipn: true, time_created: null, transaction_entity: '', transaction_subject: '65606150',
+    txn_id: 8776222523007501J, txn_type: web_accept, updated_at: ! '2014-04-21 20:53:12.322481+00:00',
+    username: '', verify_sign: Akdd94pn9TmKSdjMfRouuytVZKAEATKPcruGrN2bBvncNY6lfweFmjuk}
+  model: ipn.paypalipn
+  pk: 20
+- fields: {address_city: '', address_country: '', address_country_code: '', address_name: '',
+    address_state: '', address_status: '', address_street: '', address_zip: '', amount: null,
+    amount1: null, amount2: null, amount3: null, amount_per_cycle: null, auction_buyer_id: '',
+    auction_closing_date: null, auction_multi_item: null, auth_amount: null, auth_exp: '',
+    auth_id: '', auth_status: '', business: cedric-facilitator@gaspoz-fleiner.com,
+    case_creation_date: null, case_id: '', case_type: '', charset: windows-1252, contact_phone: '',
+    created_at: ! '2014-04-21 20:54:08.548445+00:00', currency_code: '', custom: '65606150',
+    exchange_rate: null, first_name: Cedric, flag: false, flag_code: '', flag_info: '',
+    for_auction: null, from_view: '', handling_amount: '0.00', initial_payment_amount: null,
+    invoice: '', ipaddress: 173.0.82.126, item_name: Gelato Kiosk, item_number: '',
+    last_name: Gaspoz, mc_amount1: null, mc_amount2: null, mc_amount3: null, mc_currency: CHF,
+    mc_fee: '1.13', mc_gross: '20.00', mc_handling: null, mc_shipping: null, memo: '',
+    next_payment_date: null, notify_version: '3.70', num_cart_items: null, option_name1: '',
+    option_name2: '', outstanding_balance: null, parent_txn_id: '', password: '',
+    payer_business_name: '', payer_email: gelatokiosk@gmail.com, payer_id: WPSXSLNFAG27N,
+    payer_status: verified, payment_cycle: '', payment_date: ! '2014-04-21 11:53:06+00:00',
+    payment_gross: null, payment_status: Completed, payment_type: instant, pending_reason: '',
+    period1: '', period2: '', period3: '', period_type: '', product_name: '', product_type: '',
+    profile_status: '', protection_eligibility: Ineligible, quantity: 1, query: mc_gross=20.00&protection_eligibility=Ineligible&payer_id=WPSXSLNFAG27N&tax=0.00&payment_date=13%3A53%3A06+Apr+21%2C+2014+PDT&payment_status=Completed&charset=windows-1252&first_name=Cedric&mc_fee=1.13&notify_version=3.7&custom=65606150&payer_status=verified&business=cedric-facilitator%40gaspoz-fleiner.com&quantity=1&verify_sign=AKffgPWKQHPjNOVSnqXVOafoajO9AYZIL1lk5qdTBlElEvJlKh-bBO2H&payer_email=gelatokiosk%40gmail.com&txn_id=8776222523007501J&payment_type=instant&last_name=Gaspoz&receiver_email=cedric-facilitator%40gaspoz-fleiner.com&payment_fee=&receiver_id=NTDU3AUQMXLXG&txn_type=web_accept&item_name=Gelato+Kiosk&mc_currency=CHF&item_number=&residence_country=US&test_ipn=1&handling_amount=0.00&transaction_subject=65606150&payment_gross=&shipping=0.00&ipn_track_id=c906ef2535b51,
+    reason_code: '', reattempt: '', receipt_id: '', receiver_email: cedric-facilitator@gaspoz-fleiner.com,
+    receiver_id: NTDU3AUQMXLXG, recur_times: null, recurring: '', recurring_payment_id: '',
+    remaining_settle: null, residence_country: US, response: VERIFIED, retry_at: null,
+    rp_invoice_id: '', settle_amount: null, settle_currency: '', shipping: '0.00',
+    shipping_method: '', subscr_date: null, subscr_effective: null, subscr_id: '',
+    tax: '0.00', test_ipn: true, time_created: null, transaction_entity: '', transaction_subject: '65606150',
+    txn_id: 8776222523007501J, txn_type: web_accept, updated_at: ! '2014-04-21 20:54:08.573280+00:00',
+    username: '', verify_sign: AKffgPWKQHPjNOVSnqXVOafoajO9AYZIL1lk5qdTBlElEvJlKh-bBO2H}
+  model: ipn.paypalipn
+  pk: 21
+- fields: {codename: add_permission, content_type: 1, name: Can add permission}
+  model: auth.permission
+  pk: 1
+- fields: {codename: change_permission, content_type: 1, name: Can change permission}
+  model: auth.permission
+  pk: 2
+- fields: {codename: delete_permission, content_type: 1, name: Can delete permission}
+  model: auth.permission
+  pk: 3
+- fields: {codename: add_group, content_type: 2, name: Can add group}
+  model: auth.permission
+  pk: 4
+- fields: {codename: change_group, content_type: 2, name: Can change group}
+  model: auth.permission
+  pk: 5
+- fields: {codename: delete_group, content_type: 2, name: Can delete group}
+  model: auth.permission
+  pk: 6
+- fields: {codename: add_contenttype, content_type: 3, name: Can add content type}
+  model: auth.permission
+  pk: 7
+- fields: {codename: change_contenttype, content_type: 3, name: Can change content
+      type}
+  model: auth.permission
+  pk: 8
+- fields: {codename: delete_contenttype, content_type: 3, name: Can delete content
+      type}
+  model: auth.permission
+  pk: 9
+- fields: {codename: add_session, content_type: 4, name: Can add session}
+  model: auth.permission
+  pk: 10
+- fields: {codename: change_session, content_type: 4, name: Can change session}
+  model: auth.permission
+  pk: 11
+- fields: {codename: delete_session, content_type: 4, name: Can delete session}
+  model: auth.permission
+  pk: 12
+- fields: {codename: add_site, content_type: 5, name: Can add site}
+  model: auth.permission
+  pk: 13
+- fields: {codename: change_site, content_type: 5, name: Can change site}
+  model: auth.permission
+  pk: 14
+- fields: {codename: delete_site, content_type: 5, name: Can delete site}
+  model: auth.permission
+  pk: 15
+- fields: {codename: add_logentry, content_type: 6, name: Can add log entry}
+  model: auth.permission
+  pk: 16
+- fields: {codename: change_logentry, content_type: 6, name: Can change log entry}
+  model: auth.permission
+  pk: 17
+- fields: {codename: delete_logentry, content_type: 6, name: Can delete log entry}
+  model: auth.permission
+  pk: 18
+- fields: {codename: add_migrationhistory, content_type: 7, name: Can add migration
+      history}
+  model: auth.permission
+  pk: 19
+- fields: {codename: change_migrationhistory, content_type: 7, name: Can change migration
+      history}
+  model: auth.permission
+  pk: 20
+- fields: {codename: delete_migrationhistory, content_type: 7, name: Can delete migration
+      history}
+  model: auth.permission
+  pk: 21
+- fields: {codename: add_productsupplier, content_type: 8, name: Can add supplier}
+  model: auth.permission
+  pk: 22
+- fields: {codename: change_productsupplier, content_type: 8, name: Can change supplier}
+  model: auth.permission
+  pk: 23
+- fields: {codename: delete_productsupplier, content_type: 8, name: Can delete supplier}
+  model: auth.permission
+  pk: 24
+- fields: {codename: add_productbrand, content_type: 9, name: Can add product brand}
+  model: auth.permission
+  pk: 25
+- fields: {codename: change_productbrand, content_type: 9, name: Can change product
+      brand}
+  model: auth.permission
+  pk: 26
+- fields: {codename: delete_productbrand, content_type: 9, name: Can delete product
+      brand}
+  model: auth.permission
+  pk: 27
+- fields: {codename: add_productcategory, content_type: 10, name: Can add product
+      category}
+  model: auth.permission
+  pk: 28
+- fields: {codename: change_productcategory, content_type: 10, name: Can change product
+      category}
+  model: auth.permission
+  pk: 29
+- fields: {codename: delete_productcategory, content_type: 10, name: Can delete product
+      category}
+  model: auth.permission
+  pk: 30
+- fields: {codename: add_product, content_type: 11, name: Can add product}
+  model: auth.permission
+  pk: 31
+- fields: {codename: change_product, content_type: 11, name: Can change product}
+  model: auth.permission
+  pk: 32
+- fields: {codename: delete_product, content_type: 11, name: Can delete product}
+  model: auth.permission
+  pk: 33
+- fields: {codename: add_user, content_type: 12, name: Can add user}
+  model: auth.permission
+  pk: 34
+- fields: {codename: change_user, content_type: 12, name: Can change user}
+  model: auth.permission
+  pk: 35
+- fields: {codename: delete_user, content_type: 12, name: Can delete user}
+  model: auth.permission
+  pk: 36
+- fields: {codename: add_producttransaction, content_type: 13, name: Can add product
+      transaction}
+  model: auth.permission
+  pk: 37
+- fields: {codename: change_producttransaction, content_type: 13, name: Can change
+      product transaction}
+  model: auth.permission
+  pk: 38
+- fields: {codename: delete_producttransaction, content_type: 13, name: Can delete
+      product transaction}
+  model: auth.permission
+  pk: 39
+- fields: {codename: add_financialtransaction, content_type: 14, name: Can add financial
+      transaction}
+  model: auth.permission
+  pk: 40
+- fields: {codename: change_financialtransaction, content_type: 14, name: Can change
+      financial transaction}
+  model: auth.permission
+  pk: 41
+- fields: {codename: delete_financialtransaction, content_type: 14, name: Can delete
+      financial transaction}
+  model: auth.permission
+  pk: 42
+- fields: {codename: add_paypalipn, content_type: 15, name: Can add PayPal IPN}
+  model: auth.permission
+  pk: 43
+- fields: {codename: change_paypalipn, content_type: 15, name: Can change PayPal IPN}
+  model: auth.permission
+  pk: 44
+- fields: {codename: delete_paypalipn, content_type: 15, name: Can delete PayPal IPN}
+  model: auth.permission
+  pk: 45
+- fields: {codename: add_kiosk, content_type: 16, name: Can add kiosk}
+  model: auth.permission
+  pk: 46
+- fields: {codename: change_kiosk, content_type: 16, name: Can change kiosk}
+  model: auth.permission
+  pk: 47
+- fields: {codename: delete_kiosk, content_type: 16, name: Can delete kiosk}
+  model: auth.permission
+  pk: 48
+- fields: {codename: add_kioskstorage, content_type: 17, name: Can add kiosk storage}
+  model: auth.permission
+  pk: 49
+- fields: {codename: change_kioskstorage, content_type: 17, name: Can change kiosk
+      storage}
+  model: auth.permission
+  pk: 50
+- fields: {codename: delete_kioskstorage, content_type: 17, name: Can delete kiosk
+      storage}
+  model: auth.permission
+  pk: 51
+- fields: {codename: add_userpin, content_type: 18, name: Can add user pin}
+  model: auth.permission
+  pk: 52
+- fields: {codename: change_userpin, content_type: 18, name: Can change user pin}
+  model: auth.permission
+  pk: 53
+- fields: {codename: delete_userpin, content_type: 18, name: Can delete user pin}
+  model: auth.permission
+  pk: 54
+- fields:
+    card_uid: '1470221873'
+    date_joined: 2014-04-18 13:41:39+00:00
+    email: gelatokiosk@gmail.com
+    first_name: Gelato
+    groups: []
+    is_active: true
+    is_staff: true
+    is_superuser: true
+    last_login: 2014-10-20 09:46:22.394970+00:00
+    last_name: Kiosk
+    password: pbkdf2_sha256$12000$3F5k6IfGZFqN$Kd/8VVBetCDjQnzXeiigDprZ4TEGn0hQj1CKlfTrR2g=
+    user_permissions: []
+    username: gelato
+  model: wallets.user
+  pk: 1
+- fields:
+    card_uid: '1091869106'
+    date_joined: 2014-04-18 13:41:56+00:00
+    email: cedric.gaspoz@he-arc.ch
+    first_name: "C\xE9dric"
+    groups: []
+    is_active: false
+    is_staff: true
+    is_superuser: false
+    last_login: 2014-06-20 14:42:40.317349+00:00
+    last_name: Gaspoz
+    password: '!vnT43Ed1v2di19L5rv0ul5o1zgKYci0MpyItEAIS'
+    user_permissions: []
+    username: '65606150'
+  model: wallets.user
+  pk: 2
+- fields:
+    card_uid: '1091866269'
+    date_joined: 2014-04-19 17:10:47+00:00
+    email: alessio.desanto@he-arc.ch
+    first_name: Alessio
+    groups: []
+    is_active: false
+    is_staff: true
+    is_superuser: false
+    last_login: 2014-06-20 14:43:59.131519+00:00
+    last_name: De Santo
+    password: '!eo1JH2bq25qj9vfDo72o7TISy7OjBVzjNfByULqS'
+    user_permissions: []
+    username: '120906597'
+  model: wallets.user
+  pk: 3
+- fields:
+    card_uid: ''
+    date_joined: 2014-06-06 16:04:18+00:00
+    email: ''
+    first_name: Gelato
+    groups: []
+    is_active: true
+    is_staff: false
+    is_superuser: false
+    last_login: 2014-08-22 14:41:24.669781+00:00
+    last_name: Kiosk 1
+    password: pbkdf2_sha256$12000$zKNMq2aGfAzu$O8PXjR5irGGEC8KV67tWtVH6u9RLrUtCryexNtAwhMc=
+    user_permissions: []
+    username: gelato1
+  model: wallets.user
+  pk: 4
+- fields:
+    card_uid: '1091831909'
+    date_joined: 2014-06-17 06:44:23.523368+00:00
+    email: julien.plumez@he-arc.ch
+    first_name: Julien
+    groups: []
+    is_active: true
+    is_staff: false
+    is_superuser: false
+    last_login: 2014-06-17 06:44:23.579395+00:00
+    last_name: Plumez
+    password: '!89XNA6v7ljN3dsNT3aXDCyv7CVWj9DfOhc1toZII'
+    user_permissions: []
+    username: '1251065327'
+  model: wallets.user
+  pk: 5
+- fields:
+    card_uid: null
+    date_joined: 2015-06-05 09:52:28.779743+00:00
+    email: cedric.gaspoz@he-arc.ch
+    first_name: "C\xE9dric"
+    groups: []
+    is_active: false
+    is_staff: false
+    is_superuser: false
+    last_login: 2015-06-05 09:52:28.909969+00:00
+    last_name: Gaspoz
+    password: '!rwFakrYENAGQklNmPfpgMRQRQorrZRTHLpsk3REN'
+    user_permissions: []
+    username: '3575238180'
+  model: wallets.user
+  pk: 6
+- fields: {pin: 7169, pin_creation: ! '2014-06-09 15:13:00.434447+00:00', user: 2}
+  model: wallets.userpin
+  pk: 5
+- fields: {pin: 1717, pin_creation: ! '2014-06-19 06:47:14.275802+00:00', user: 3}
+  model: wallets.userpin
+  pk: 8
+- fields: {created: ! '2014-04-27 21:33:34.994898+00:00', edited: ! '2014-06-06 17:19:08.527587+00:00',
+    editor: 1, location: Campus Arc 1, name: Gelato 1, user: 4}
+  model: kiosks.kiosk
+  pk: 1
+- fields: {created: ! '2014-04-27 21:33:56.710118+00:00', edited: ! '2014-04-27 21:33:56.710164+00:00',
+    editor: 1, kiosk: 1, tier: 1, tub: A}
+  model: kiosks.kioskstorage
+  pk: 1
+- fields: {created: ! '2014-04-27 21:34:05.095470+00:00', edited: ! '2014-04-27 21:34:05.095518+00:00',
+    editor: 1, kiosk: 1, tier: 1, tub: B}
+  model: kiosks.kioskstorage
+  pk: 2
+- fields: {created: ! '2014-04-27 21:34:14.819531+00:00', edited: ! '2014-04-27 21:34:14.819578+00:00',
+    editor: 1, kiosk: 1, tier: 1, tub: C}
+  model: kiosks.kioskstorage
+  pk: 3
+- fields: {created: ! '2014-04-27 21:34:25.599785+00:00', edited: ! '2014-04-27 21:34:25.599831+00:00',
+    editor: 1, kiosk: 1, tier: 2, tub: A}
+  model: kiosks.kioskstorage
+  pk: 4
+- fields: {created: ! '2014-04-27 21:34:34.531898+00:00', edited: ! '2014-04-27 21:34:34.531946+00:00',
+    editor: 1, kiosk: 1, tier: 2, tub: B}
+  model: kiosks.kioskstorage
+  pk: 5
+- fields: {created: ! '2014-04-27 21:34:43.719204+00:00', edited: ! '2014-04-27 21:34:43.719250+00:00',
+    editor: 1, kiosk: 1, tier: 2, tub: C}
+  model: kiosks.kioskstorage
+  pk: 6
+- fields: {created: ! '2014-04-27 21:34:53.165276+00:00', edited: ! '2014-04-27 21:34:53.165324+00:00',
+    editor: 1, kiosk: 1, tier: 3, tub: A}
+  model: kiosks.kioskstorage
+  pk: 7
+- fields: {created: ! '2014-04-27 21:35:01.480264+00:00', edited: ! '2014-04-27 21:35:01.480311+00:00',
+    editor: 1, kiosk: 1, tier: 3, tub: B}
+  model: kiosks.kioskstorage
+  pk: 8
+- fields: {created: ! '2014-04-27 21:35:42.321466+00:00', edited: ! '2014-04-27 21:35:42.321515+00:00',
+    editor: 1, kiosk: 1, tier: 3, tub: C}
+  model: kiosks.kioskstorage
+  pk: 9
+- fields: {amount: '-3.60', banker: 4, created: ! '2014-06-19 12:39:56.571984+00:00',
+    financial_transaction_type: P, ipn_transaction: None, product_transaction: 53,
+    user: 2}
+  model: transactions.financialtransaction
+  pk: 46
+- fields: {amount: '100.00', banker: 2, created: ! '2014-06-20 14:23:21.265079+00:00',
+    financial_transaction_type: CC, ipn_transaction: None, product_transaction: null,
+    user: 2}
+  model: transactions.financialtransaction
+  pk: 47
+- fields: {amount: '-2.70', banker: 4, created: ! '2014-06-20 14:23:37.032468+00:00',
+    financial_transaction_type: P, ipn_transaction: None, product_transaction: 54,
+    user: 2}
+  model: transactions.financialtransaction
+  pk: 48
+- fields: {amount: '-2.90', banker: 4, created: ! '2014-09-05 13:50:38.421866+00:00',
+    financial_transaction_type: P, ipn_transaction: None, product_transaction: 55,
+    user: 2}
+  model: transactions.financialtransaction
+  pk: 49
+- fields: {created: ! '2014-06-19 06:40:48.880914+00:00', door_open: false, kcal: 560,
+    lock_open: false, product: 1, product_transaction_type: R, quantity: 2, storage: 1,
+    transaction_price: '0.00', user: 2}
+  model: transactions.producttransaction
+  pk: 42
+- fields: {created: ! '2014-06-19 06:41:05.685694+00:00', door_open: false, kcal: 198,
+    lock_open: false, product: 5, product_transaction_type: R, quantity: 2, storage: 2,
+    transaction_price: '0.00', user: 2}
+  model: transactions.producttransaction
+  pk: 43
+- fields: {created: ! '2014-06-19 12:27:00.550302+00:00', door_open: false, kcal: 588,
+    lock_open: false, product: 32, product_transaction_type: R, quantity: 2, storage: 3,
+    transaction_price: '0.00', user: 2}
+  model: transactions.producttransaction
+  pk: 50
+- fields: {created: ! '2014-06-19 12:39:58.253582+00:00', door_open: true, kcal: -294,
+    lock_open: true, product: 32, product_transaction_type: S, quantity: -1, storage: 3,
+    transaction_price: '-3.60', user: 2}
+  model: transactions.producttransaction
+  pk: 53
+- fields: {created: ! '2014-06-20 14:23:36.907635+00:00', door_open: true, kcal: -99,
+    lock_open: true, product: 5, product_transaction_type: S, quantity: -1, storage: 2,
+    transaction_price: '-2.70', user: 2}
+  model: transactions.producttransaction
+  pk: 54
+- fields: {created: ! '2014-09-05 13:50:38.344346+00:00', door_open: false, kcal: -280,
+    lock_open: false, product: 1, product_transaction_type: S, quantity: -1, storage: 1,
+    transaction_price: '-2.90', user: 2}
+  model: transactions.producttransaction
+  pk: 55
+- fields: {brand: 5, calorie: 280, category: 5, created: ! '2014-04-18 18:19:10.051825+00:00',
+    ean: '', edited: ! '2014-04-18 18:45:01.404946+00:00', editor: 2, k_name: Magnum
+      Almond, k_picture: products/kiosk/swissfrmagnumalmond838-292008.png, name: Magnum
+      Almond, picture: products/swissfrmagnumalmond838-292008.png, price: '2.90',
+    product_code: '51860', supplier: 3, tu: 20, weight: 120}
+  model: products.product
+  pk: 1
+- fields: {brand: 5, calorie: 260, category: 5, created: ! '2014-04-18 18:19:39.459665+00:00',
+    ean: '', edited: ! '2014-04-18 18:45:47.198766+00:00', editor: 2, k_name: Magnum
+      Classic, k_picture: products/kiosk/swissfrmagnumclassic838-292009.png, name: Magnum
+      Classic, picture: products/swissfrmagnumclassic838-292009.png, price: '2.90',
+    product_code: '51790', supplier: 3, tu: 20, weight: 120}
+  model: products.product
+  pk: 2
+- fields: {brand: 5, calorie: 260, category: 5, created: ! '2014-04-18 18:20:03.552047+00:00',
+    ean: '', edited: ! '2014-04-18 18:47:38.658736+00:00', editor: 2, k_name: Magnum
+      White, k_picture: products/kiosk/swissfrmagnumwhite838-292017.png, name: Magnum
+      White, picture: products/swissfrmagnumwhite838-292017.png, price: '2.90', product_code: '51810',
+    supplier: 3, tu: 20, weight: 120}
+  model: products.product
+  pk: 3
+- fields: {brand: 5, calorie: 280, category: 5, created: ! '2014-04-18 18:20:28.245094+00:00',
+    ean: '', edited: ! '2014-04-18 18:46:59.526200+00:00', editor: 2, k_name: Magnum
+      Gold, k_picture: products/kiosk/swissfrmagnumgold838-292012.png, name: Magnum
+      Gold, picture: products/swissfrmagnumgold838-292012.png, price: '3.00', product_code: '92580',
+    supplier: 3, tu: 20, weight: 110}
+  model: products.product
+  pk: 4
+- fields: {brand: 5, calorie: 99, category: 5, created: ! '2014-04-18 18:51:53.120664+00:00',
+    ean: '', edited: ! '2014-04-18 19:06:12.487013+00:00', editor: 2, k_name: Solero
+      Exotic, k_picture: products/kiosk/soleroexotic_1.png, name: Solero Exotic, picture: products/soleroexotic.png,
+    price: '2.70', product_code: '70138', supplier: 3, tu: 25, weight: 90}
+  model: products.product
+  pk: 5
+- fields: {brand: 5, calorie: 55, category: 5, created: ! '2014-04-18 19:01:15.396275+00:00',
+    ean: '', edited: ! '2014-04-18 19:06:32.737879+00:00', editor: 2, k_name: Solero
+      Mojito, k_picture: products/kiosk/soleramojito_1.png, name: Solero Mojito, picture: products/soleramojito.png,
+    price: '2.70', product_code: '', supplier: 3, tu: 25, weight: 90}
+  model: products.product
+  pk: 6
+- fields: {brand: 5, calorie: 260, category: 1, created: ! '2014-04-18 19:22:10.029346+00:00',
+    ean: '', edited: ! '2014-04-18 19:23:36.540490+00:00', editor: 2, k_name: Cornetto
+      Vanille, k_picture: products/kiosk/cornettovanille.png, name: Cornetto Royal
+      Vanille, picture: products/cornettovanille.png, price: '2.70', product_code: '91648',
+    supplier: 3, tu: 24, weight: 145}
+  model: products.product
+  pk: 7
+- fields: {brand: 5, calorie: 240, category: 1, created: ! '2014-04-18 19:23:28.091553+00:00',
+    ean: '', edited: ! '2014-04-18 19:23:28.091600+00:00', editor: 2, k_name: Cornetto
+      Chocolat, k_picture: products/kiosk/cornettochocolat.png, name: Cornetto Royal
+      Chocolat, picture: products/cornettochocolat.png, price: '2.70', product_code: '91653',
+    supplier: 3, tu: 24, weight: 145}
+  model: products.product
+  pk: 8
+- fields: {brand: 5, calorie: 210, category: 1, created: ! '2014-04-18 19:24:43.464018+00:00',
+    ean: '', edited: ! '2014-04-18 19:24:43.464065+00:00', editor: 2, k_name: Cornetto
+      Fraise, k_picture: products/kiosk/cornettofraise.png, name: Cornetto Royal Fraise,
+    picture: products/cornettofraise.png, price: '2.70', product_code: '91652', supplier: 3,
+    tu: 1, weight: 145}
+  model: products.product
+  pk: 9
+- fields: {brand: 5, calorie: 170, category: 1, created: ! '2014-04-18 19:26:35.349870+00:00',
+    ean: '', edited: ! '2014-04-18 19:26:35.349917+00:00', editor: 2, k_name: "Cornetto
+      Caff\xE8 Latte", k_picture: products/kiosk/cornettocaffelatte.png, name: "Cornetto
+      Caff\xE8 Latte", picture: products/cornettocaffelatte.png, price: '2.60', product_code: '75654',
+    supplier: 3, tu: 24, weight: 125}
+  model: products.product
+  pk: 10
+- fields: {brand: 5, calorie: 210, category: 1, created: ! '2014-04-18 19:27:32.926040+00:00',
+    ean: '', edited: ! '2014-04-18 19:27:32.926087+00:00', editor: 2, k_name: Cornetto
+      Cheesecake, k_picture: products/kiosk/cornettocheesecake.png, name: Cornetto
+      Cheesecake Glory, picture: products/cornettocheesecake.png, price: '2.60', product_code: '75652',
+    supplier: 3, tu: 24, weight: 125}
+  model: products.product
+  pk: 11
+- fields: {brand: 5, calorie: 0, category: 2, created: ! '2014-04-18 19:36:18.337394+00:00',
+    ean: '', edited: ! '2014-04-18 19:37:32.157819+00:00', editor: 2, k_name: Cremissimo
+      Caramello, k_picture: products/kiosk/cremissimocaramello_1.png, name: My Cremissimo
+      Amore di Caramello, picture: products/cremissimocaramello_1.png, price: '3.30',
+    product_code: '91526', supplier: 3, tu: 12, weight: 180}
+  model: products.product
+  pk: 12
+- fields: {brand: 2, calorie: 0, category: 2, created: ! '2014-04-19 11:51:00.016951+00:00',
+    ean: '', edited: ! '2014-04-20 08:07:41.799272+00:00', editor: 2, k_name: Cookie
+      Dough, k_picture: products/kiosk/bencookiedough.png, name: Cookie Dough, picture: products/bencookiedough-large.png,
+    price: '4.90', product_code: '70503', supplier: 3, tu: 12, weight: 150}
+  model: products.product
+  pk: 13
+- fields: {brand: 2, calorie: 0, category: 2, created: ! '2014-04-19 11:52:06.223570+00:00',
+    ean: '', edited: ! '2014-04-20 08:08:08.444257+00:00', editor: 2, k_name: Strawb.
+      Cheesecake, k_picture: products/kiosk/benStrawberryCheesecake.png, name: Strawberry
+      Cheesecake, picture: products/benStrawberryCheesecake-large.png, price: '4.90',
+    product_code: '83521', supplier: 3, tu: 12, weight: 150}
+  model: products.product
+  pk: 14
+- fields: {brand: 2, calorie: 0, category: 2, created: ! '2014-04-19 11:53:12.620623+00:00',
+    ean: '', edited: ! '2014-04-20 08:07:14.784029+00:00', editor: 2, k_name: Chocolate
+      Brownie, k_picture: products/kiosk/benChocolateFudgeBrownie.png, name: Chocolate
+      Fudge Brownie, picture: products/benChocolateFudgeBrownie-large.png, price: '4.90',
+    product_code: '70501', supplier: 3, tu: 12, weight: 150}
+  model: products.product
+  pk: 15
+- fields: {brand: 2, calorie: 0, category: 2, created: ! '2014-04-19 11:53:58.847851+00:00',
+    ean: '', edited: ! '2014-04-20 08:07:55.517956+00:00', editor: 2, k_name: Fairly
+      Nuts, k_picture: products/kiosk/benfairlynuts.png, name: Fairly Nuts, picture: products/benfairlynuts-large.png,
+    price: '4.90', product_code: '92525', supplier: 3, tu: 12, weight: 150}
+  model: products.product
+  pk: 16
+- fields: {brand: 2, calorie: 0, category: 2, created: ! '2014-04-19 11:55:11.171558+00:00',
+    ean: '', edited: ! '2014-04-20 08:07:28.359576+00:00', editor: 2, k_name: Chunky
+      Monkey, k_picture: products/kiosk/benchunkymonkey.png, name: Chunky Monkey,
+    picture: products/benchunkymonkey-large.png, price: '4.90', product_code: '70500',
+    supplier: 3, tu: 12, weight: 150}
+  model: products.product
+  pk: 17
+- fields: {brand: 2, calorie: 0, category: 2, created: ! '2014-04-19 11:56:57.708216+00:00',
+    ean: '', edited: ! '2014-04-20 08:07:01.429281+00:00', editor: 2, k_name: Caramel
+      Chew Chew, k_picture: products/kiosk/bencaramelchewchew.png, name: Caramel Chew
+      Chew, picture: products/bencaramelchewchew-large.png, price: '4.90', product_code: '83493',
+    supplier: 3, tu: 12, weight: 150}
+  model: products.product
+  pk: 18
+- fields: {brand: 5, calorie: 0, category: 4, created: ! '2014-04-19 12:06:31.194843+00:00',
+    ean: '', edited: ! '2014-04-19 12:06:31.194890+00:00', editor: 2, k_name: Push
+      Up HARIBO, k_picture: products/kiosk/haribo.png, name: Lusso Max Push Up with
+      HARIBO, picture: products/haribo.png, price: '1.80', product_code: '97109',
+    supplier: 3, tu: 30, weight: 85}
+  model: products.product
+  pk: 19
+- fields: {brand: 5, calorie: 0, category: 4, created: ! '2014-04-19 12:11:04.902611+00:00',
+    ean: '', edited: ! '2014-04-19 12:11:04.902658+00:00', editor: 2, k_name: Calippo
+      Lime, k_picture: products/kiosk/calippolime.png, name: Lusso Max Calippo Lime,
+    picture: products/calippolime.png, price: '1.70', product_code: '40128', supplier: 3,
+    tu: 24, weight: 105}
+  model: products.product
+  pk: 20
+- fields: {brand: 5, calorie: 0, category: 5, created: ! '2014-04-19 12:15:05.313396+00:00',
+    ean: '', edited: ! '2014-04-19 12:15:05.313443+00:00', editor: 2, k_name: Twister,
+    k_picture: products/kiosk/twister.png, name: Lusso Max Twister, picture: products/twister.png,
+    price: '1.60', product_code: '40099', supplier: 3, tu: 35, weight: 80}
+  model: products.product
+  pk: 21
+- fields: {brand: 5, calorie: 0, category: 5, created: ! '2014-04-19 12:36:25.395282+00:00',
+    ean: '', edited: ! '2014-04-19 12:36:25.395329+00:00', editor: 2, k_name: Magnum
+      Silver, k_picture: products/kiosk/magnumsilver.png, name: Magnum Silver 25 Years,
+    picture: products/magnumsilver.png, price: '3.10', product_code: '74854', supplier: 3,
+    tu: 20, weight: 100}
+  model: products.product
+  pk: 22
+- fields: {brand: 6, calorie: 234, category: 1, created: ! '2014-04-19 12:58:20.866387+00:00',
+    ean: '', edited: ! '2014-04-19 19:35:00.810186+00:00', editor: 2, k_name: Cornet
+      Espresso, k_picture: products/kiosk/movenpickEspressoCroquant.png, name: "M\xF6venpick
+      Espresso Croquant Cornet", picture: products/movenpickEspressoCroquant.png,
+    price: '3.30', product_code: '12230648', supplier: 1, tu: 16, weight: 120}
+  model: products.product
+  pk: 23
+- fields: {brand: 6, calorie: 240, category: 1, created: ! '2014-04-19 12:59:45.211758+00:00',
+    ean: '', edited: ! '2014-04-19 19:34:28.075629+00:00', editor: 2, k_name: Cornet
+      Caramelita, k_picture: products/kiosk/movenpickcaramelita.png, name: "M\xF6venpick
+      Cornet Caramelita", picture: products/movenpickcaramelita.png, price: '3.30',
+    product_code: '12230649', supplier: 1, tu: 16, weight: 120}
+  model: products.product
+  pk: 24
+- fields: {brand: 6, calorie: 267, category: 2, created: ! '2014-04-19 13:57:29.645699+00:00',
+    ean: '', edited: ! '2014-04-19 13:57:29.645747+00:00', editor: 2, k_name: "M\xF6venpick
+      Pistache", k_picture: products/kiosk/movenpick-pistachio.png, name: "M\xF6venpick
+      Pistache", picture: products/movenpick-pistachio-large.png, price: '3.60', product_code: '',
+    supplier: 2, tu: 1, weight: 175}
+  model: products.product
+  pk: 25
+- fields: {brand: 6, calorie: 300, category: 2, created: ! '2014-04-19 14:00:29.619149+00:00',
+    ean: '', edited: ! '2014-04-19 14:00:29.619196+00:00', editor: 2, k_name: Swiss
+      Chocolate, k_picture: products/kiosk/movenpick-swisschocolate.png, name: "M\xF6venpick
+      Swiss Chocolate", picture: products/movenpick-swisschocolate-large.png, price: '3.60',
+    product_code: '', supplier: 2, tu: 1, weight: 175}
+  model: products.product
+  pk: 26
+- fields: {brand: 6, calorie: 229, category: 2, created: ! '2014-04-19 14:02:14.765458+00:00',
+    ean: '', edited: ! '2014-04-19 14:02:14.765504+00:00', editor: 2, k_name: Vanilla
+      Dream, k_picture: products/kiosk/movenpick-vanilladream.png, name: "M\xF6venpick
+      Vanilla Dream", picture: products/movenpick-vanilladream-large.png, price: '3.60',
+    product_code: '', supplier: 2, tu: 1, weight: 175}
+  model: products.product
+  pk: 27
+- fields: {brand: 6, calorie: 262, category: 2, created: ! '2014-04-19 14:03:43.536228+00:00',
+    ean: '', edited: ! '2014-04-19 14:03:43.536275+00:00', editor: 2, k_name: Stracciatella,
+    k_picture: products/kiosk/movenpick-stracciatella.png, name: "M\xF6venpick Stracciatella",
+    picture: products/movenpick-stracciatella-large.png, price: '3.60', product_code: '',
+    supplier: 2, tu: 1, weight: 175}
+  model: products.product
+  pk: 28
+- fields: {brand: 6, calorie: 266, category: 2, created: ! '2014-04-19 14:22:11.688254+00:00',
+    ean: '', edited: ! '2014-04-19 14:22:11.688302+00:00', editor: 2, k_name: Maple
+      Walnut, k_picture: products/kiosk/movenpick-maplewalnut.png, name: "M\xF6venpick
+      Maple Walnut", picture: products/movenpick-maplewalnut-large.png, price: '3.60',
+    product_code: '', supplier: 2, tu: 1, weight: 175}
+  model: products.product
+  pk: 29
+- fields: {brand: 6, calorie: 242, category: 2, created: ! '2014-04-19 14:23:38.522483+00:00',
+    ean: '', edited: ! '2014-04-19 14:23:38.522532+00:00', editor: 2, k_name: Espresso
+      Croquant, k_picture: products/kiosk/movenpick-espressocroquant.png, name: "M\xF6venpick
+      Espresso Croquant", picture: products/movenpick-espressocroquant-large.png,
+    price: '3.60', product_code: '', supplier: 2, tu: 1, weight: 175}
+  model: products.product
+  pk: 30
+- fields: {brand: 6, calorie: 266, category: 2, created: ! '2014-04-19 14:24:48.319027+00:00',
+    ean: '', edited: ! '2014-04-19 14:24:48.319075+00:00', editor: 2, k_name: Caramelita,
+    k_picture: products/kiosk/movenpick-caramelita.png, name: "M\xF6venpick Caramelita",
+    picture: products/movenpick-caramelita-large.png, price: '3.60', product_code: '',
+    supplier: 2, tu: 1, weight: 175}
+  model: products.product
+  pk: 31
+- fields: {brand: 6, calorie: 294, category: 2, created: ! '2014-04-19 14:27:24.280855+00:00',
+    ean: '', edited: ! '2014-06-19 12:20:19.016425+00:00', editor: 2, k_name: "Dble
+      cr\xE8me meringue", k_picture: products/kiosk/movenpick-doublecrememeringue.png,
+    name: "M\xF6venpick Double cr\xE8me & Meringue", picture: products/movenpick-doublecrememeringue-large.png,
+    price: '3.60', product_code: '', supplier: 1, tu: 1, weight: 175}
+  model: products.product
+  pk: 32
+- fields: {brand: 6, calorie: 151, category: 2, created: ! '2014-04-19 14:29:05.630287+00:00',
+    ean: '', edited: ! '2014-04-19 14:29:05.630335+00:00', editor: 2, k_name: Passion
+      Fruit Mango, k_picture: products/kiosk/movenpick-passionmango.png, name: "M\xF6venpick
+      Passion Fruit & Mango", picture: products/movenpick-passionmango-large.png,
+    price: '3.60', product_code: '', supplier: 2, tu: 1, weight: 175}
+  model: products.product
+  pk: 33
+- fields: {brand: 6, calorie: 196, category: 2, created: ! '2014-04-19 14:30:36.978489+00:00',
+    ean: '', edited: ! '2014-04-19 14:30:36.978536+00:00', editor: 2, k_name: Coconut
+      & Passion, k_picture: products/kiosk/movenpick-coconut.png, name: "M\xF6venpick
+      Coconut & Passion Fruit", picture: products/movenpick-coconut-large.png, price: '3.60',
+    product_code: '', supplier: 2, tu: 1, weight: 175}
+  model: products.product
+  pk: 34
+- fields: {brand: 6, calorie: 147, category: 2, created: ! '2014-04-19 14:32:31.249715+00:00',
+    ean: '', edited: ! '2014-04-19 14:32:31.249762+00:00', editor: 2, k_name: Kalamansi
+      Dragon, k_picture: products/kiosk/movenpick-kalamansi.png, name: "M\xF6venpick
+      Vietnamese Kalamansi & Dragon Fruit Sorbet", picture: products/movenpick-kalamansi-large.png,
+    price: '3.60', product_code: '', supplier: 2, tu: 1, weight: 175}
+  model: products.product
+  pk: 35
+- fields: {brand: 6, calorie: 219, category: 2, created: ! '2014-04-19 14:33:52.400707+00:00',
+    ean: '', edited: ! '2014-04-19 14:33:52.400753+00:00', editor: 2, k_name: Masala
+      Chai, k_picture: products/kiosk/movenpick-masalachai.png, name: "M\xF6venpick
+      Masala Chai Indian Recipe", picture: products/movenpick-masalachai-large.png,
+    price: '3.60', product_code: '', supplier: 2, tu: 1, weight: 175}
+  model: products.product
+  pk: 36
+- fields: {brand: 6, calorie: 245, category: 2, created: ! '2014-04-19 14:35:28.342536+00:00',
+    ean: '', edited: ! '2014-04-19 14:35:28.342583+00:00', editor: 2, k_name: Vanilla
+      Mango Sesam, k_picture: products/kiosk/movenpick-indiantreasuresvanilla.png,
+    name: "M\xF6venpick Indian Treasures Vanilla, Mango & Sesam", picture: products/movenpick-indiantreasuresvanilla-large.png,
+    price: '3.60', product_code: '', supplier: 2, tu: 1, weight: 175}
+  model: products.product
+  pk: 37
+- fields: {brand: 4, calorie: 225, category: 2, created: ! '2014-04-19 17:46:15.701986+00:00',
+    ean: '', edited: ! '2014-04-19 17:46:15.702034+00:00', editor: 2, k_name: Cookies
+      & Cream, k_picture: products/kiosk/haagen-cookiescream.png, name: "H\xE4agen-Dazs
+      Cookies & Cream", picture: products/haagen-cookiescream-large.png, price: '3.10',
+    product_code: '', supplier: 2, tu: 1, weight: 100}
+  model: products.product
+  pk: 38
+- fields: {brand: 4, calorie: 225, category: 2, created: ! '2014-04-19 17:47:44.992271+00:00',
+    ean: '', edited: ! '2014-04-19 17:47:44.992318+00:00', editor: 2, k_name: Vanilla,
+    k_picture: products/kiosk/haagen-vanilla.png, name: "H\xE4agen-Dazs Vanilla",
+    picture: products/haagen-vanilla-large.png, price: '3.10', product_code: '', supplier: 2,
+    tu: 1, weight: 100}
+  model: products.product
+  pk: 39
+- fields: {brand: 4, calorie: 236, category: 2, created: ! '2014-04-19 17:48:41.331311+00:00',
+    ean: '', edited: ! '2014-04-19 17:48:41.331358+00:00', editor: 2, k_name: Strawberries
+      & Cream, k_picture: products/kiosk/haagen-strawberriescream.png, name: "H\xE4agen-Dazs
+      Strawberries & Cream", picture: products/haagen-strawberriescream-large.png,
+    price: '3.10', product_code: '', supplier: 2, tu: 1, weight: 100}
+  model: products.product
+  pk: 40
+- fields: {brand: 4, calorie: 281, category: 2, created: ! '2014-04-19 17:50:37.355920+00:00',
+    ean: '', edited: ! '2014-04-19 17:50:37.355968+00:00', editor: 2, k_name: Belgian
+      Chocolate, k_picture: products/kiosk/haagen-belgianchocolate.png, name: "H\xE4agen-Dazs
+      Belgian Chocolate", picture: products/haagen-belgianchocolate-large.png, price: '3.10',
+    product_code: '', supplier: 2, tu: 1, weight: 100}
+  model: products.product
+  pk: 41
+- fields: {brand: 4, calorie: 240, category: 2, created: ! '2014-04-19 17:52:50.299964+00:00',
+    ean: '', edited: ! '2014-04-19 17:52:50.300011+00:00', editor: 2, k_name: Vanilla
+      Car. Brownie, k_picture: products/kiosk/haagen-vanillacaramebrownie.png, name: "H\xE4agen-Dazs
+      Vanilla Caramel Brownie", picture: products/haagen-vanillacaramebrownie-large.png,
+    price: '3.10', product_code: '', supplier: 2, tu: 1, weight: 100}
+  model: products.product
+  pk: 42
+- fields: {brand: 4, calorie: 277, category: 2, created: ! '2014-04-19 17:53:44.798754+00:00',
+    ean: '', edited: ! '2014-04-19 17:53:44.798803+00:00', editor: 2, k_name: Macadamia
+      Nut, k_picture: products/kiosk/haagen-macadamianutbrittle.png, name: "H\xE4agen-Dazs
+      Macadamia Nut Brittle", picture: products/haagen-macadamianutbrittle-large.png,
+    price: '3.10', product_code: '', supplier: 2, tu: 1, weight: 100}
+  model: products.product
+  pk: 43
+- fields: {brand: 4, calorie: 236, category: 2, created: ! '2014-04-19 17:54:39.484273+00:00',
+    ean: '', edited: ! '2014-04-19 17:54:39.484320+00:00', editor: 2, k_name: Dulce
+      de Leche, k_picture: products/kiosk/haagen-dulcedeleche.png, name: "H\xE4agen-Dazs
+      Dulce de Leche", picture: products/haagen-dulcedeleche-large.png, price: '3.10',
+    product_code: '', supplier: 2, tu: 1, weight: 100}
+  model: products.product
+  pk: 44
+- fields: {brand: 1, calorie: 198, category: 2, created: ! '2014-04-19 18:55:30.806712+00:00',
+    ean: '', edited: ! '2014-04-19 18:55:30.806762+00:00', editor: 2, k_name: Baies
+      des bois, k_picture: products/kiosk/frozen-yogurt-baiescookie.png, name: Frozen
+      Yogurt Baies des bois Cookies, picture: products/frozen-yogurt-baiescookie-large.png,
+    price: '3.90', product_code: '', supplier: 2, tu: 1, weight: 150}
+  model: products.product
+  pk: 45
+- fields: {brand: 1, calorie: 245, category: 2, created: ! '2014-04-19 18:57:04.768315+00:00',
+    ean: '', edited: ! '2014-04-19 18:57:04.768364+00:00', editor: 2, k_name: Caramel
+      Amande, k_picture: products/kiosk/frozen-yogurt-caramelamandes.png, name: Frozen
+      Yogurt Caramel Amande, picture: products/frozen-yogurt-caramelamandes-large.png,
+    price: '3.90', product_code: '', supplier: 2, tu: 1, weight: 150}
+  model: products.product
+  pk: 46
+- fields: {brand: 1, calorie: 198, category: 2, created: ! '2014-04-19 18:58:04.690488+00:00',
+    ean: '', edited: ! '2014-04-19 18:58:04.690536+00:00', editor: 2, k_name: Nature
+      Muesli, k_picture: products/kiosk/frozen-yogurt-naturemuesli.png, name: Frozen
+      Yogurt Nature Muesli, picture: products/frozen-yogurt-naturemuesli-large.png,
+    price: '3.90', product_code: '', supplier: 2, tu: 1, weight: 150}
+  model: products.product
+  pk: 47
+- fields: {brand: 1, calorie: 0, category: 3, created: ! '2014-04-19 19:16:51.197520+00:00',
+    ean: '', edited: ! '2014-04-19 19:16:51.197568+00:00', editor: 2, k_name: Maxibon
+      Classic, k_picture: products/kiosk/maxibon.png, name: Maxibon Classic, picture: products/maxibon-large.png,
+    price: '2.70', product_code: '12176975', supplier: 1, tu: 24, weight: 150}
+  model: products.product
+  pk: 48
+- fields: {brand: 1, calorie: 0, category: 4, created: ! '2014-04-19 19:25:10.230002+00:00',
+    ean: '', edited: ! '2014-04-19 19:25:10.230050+00:00', editor: 2, k_name: Maxibon
+      Pops, k_picture: products/kiosk/maxibon-pops.png, name: Maxibon Pops, picture: products/maxibon-pops-large.png,
+    price: '2.90', product_code: '676601', supplier: 1, tu: 12, weight: 80}
+  model: products.product
+  pk: 49
+- fields: {brand: 1, calorie: 0, category: 5, created: ! '2014-04-19 19:32:52.919490+00:00',
+    ean: '', edited: ! '2014-04-19 19:32:52.919538+00:00', editor: 2, k_name: Pralinato
+      Classico, k_picture: products/kiosk/pralinato.png, name: Pralinato Classico,
+    picture: products/pralinato-large.png, price: '2.10', product_code: '12116693',
+    supplier: 1, tu: 24, weight: 85}
+  model: products.product
+  pk: 50
+- fields: {brand: 1, calorie: 0, category: 1, created: ! '2014-04-19 19:41:02.890562+00:00',
+    ean: '', edited: ! '2014-04-19 19:41:02.890610+00:00', editor: 2, k_name: Smarties
+      Cornet, k_picture: products/kiosk/smarties-cornet.png, name: Smarties Cornet,
+    picture: products/smarties-cornet-large.png, price: '1.70', product_code: '12223764',
+    supplier: 1, tu: 24, weight: 80}
+  model: products.product
+  pk: 51
+- fields: {brand: 1, calorie: 0, category: 5, created: ! '2014-04-19 19:45:56.933807+00:00',
+    ean: '', edited: ! '2014-04-19 19:45:56.933856+00:00', editor: 2, k_name: Winnetou,
+    k_picture: products/kiosk/winnetou.png, name: Winnetou, picture: products/winnetou-large.png,
+    price: '1.30', product_code: '12231284', supplier: 1, tu: 32, weight: 80}
+  model: products.product
+  pk: 52
+- fields: {created: ! '2014-04-18 15:07:28.901126+00:00', description: Cornets de
+      glace, edited: ! '2014-04-18 15:07:28.901173+00:00', editor: 1, name: Cornet,
+    picture: categories/picto-cornet-rose.png}
+  model: products.productcategory
+  pk: 1
+- fields: {created: ! '2014-04-18 15:11:22.502490+00:00', description: Cup de glace,
+    edited: ! '2014-04-18 15:11:22.502538+00:00', editor: 1, name: Cup, picture: categories/picto-cup-bleu.png}
+  model: products.productcategory
+  pk: 2
+- fields: {created: ! '2014-04-18 15:11:45.458623+00:00', description: "Sandwich glac\xE9s",
+    edited: ! '2014-04-18 15:11:45.458669+00:00', editor: 1, name: Sandwich, picture: categories/picto-sandwich-bleu.png}
+  model: products.productcategory
+  pk: 3
+- fields: {created: ! '2014-04-18 15:12:12.099969+00:00', description: "Sp\xE9cialit\xE9s
+      glac\xE9es", edited: ! '2014-04-18 15:12:12.100018+00:00', editor: 1, name: "Sp\xE9cialit\xE9",
+    picture: categories/picto-special-brun.png}
+  model: products.productcategory
+  pk: 4
+- fields: {created: ! '2014-04-18 15:12:51.026261+00:00', description: "B\xE2tonnet
+      \xE0 l'eau ou \xE0 la cr\xE8me", edited: ! '2014-04-18 15:12:51.026307+00:00',
+    editor: 1, name: "B\xE2tonnet", picture: categories/picto-sucette-rose.png}
+  model: products.productcategory
+  pk: 5
+- fields: {created: ! '2014-04-18 14:24:54.967410+00:00', edited: ! '2014-04-18 14:24:54.967456+00:00',
+    editor: 1, logo: brands/logo-frisco.png, name: Frisco}
+  model: products.productbrand
+  pk: 1
+- fields: {created: ! '2014-04-18 14:26:00.172685+00:00', edited: ! '2014-04-18 14:26:00.172732+00:00',
+    editor: 1, logo: brands/logo-ben-jerry.png, name: Ben & Jerry's}
+  model: products.productbrand
+  pk: 2
+- fields: {created: ! '2014-04-18 14:26:20.157526+00:00', edited: ! '2014-04-18 14:26:20.157571+00:00',
+    editor: 1, logo: brands/logo-emmi.png, name: Emmi}
+  model: products.productbrand
+  pk: 3
+- fields: {created: ! '2014-04-18 14:27:00.463023+00:00', edited: ! '2014-04-18 14:27:00.463069+00:00',
+    editor: 1, logo: brands/logo-haagen-dazs.png, name: "H\xE4agen-Dazs"}
+  model: products.productbrand
+  pk: 4
+- fields: {created: ! '2014-04-18 14:27:14.426160+00:00', edited: ! '2014-04-18 14:27:14.426205+00:00',
+    editor: 1, logo: brands/logo-lusso.png, name: Lusso}
+  model: products.productbrand
+  pk: 5
+- fields: {created: ! '2014-04-18 14:27:31.381433+00:00', edited: ! '2014-04-18 14:27:31.381480+00:00',
+    editor: 1, logo: brands/logo-movenpick.png, name: "M\xF6venpick"}
+  model: products.productbrand
+  pk: 6
+- fields: {address_city: '', address_street: '', address_zip: '', contact: '', contact_email: '',
+    contact_phone: '', created: ! '2014-04-18 14:18:07.658540+00:00', edited: ! '2014-04-18
+      14:18:07.658589+00:00', editor: 1, name: Gelato, order_email: ''}
+  model: products.productsupplier
+  pk: 1
+- fields: {address_city: '', address_street: '', address_zip: '', contact: '', contact_email: '',
+    contact_phone: '', created: ! '2014-04-19 13:57:23.891107+00:00', edited: ! '2014-04-19
+      13:57:23.891190+00:00', editor: 2, name: LeShop.ch, order_email: ''}
+  model: products.productsupplier
+  pk: 2
+- fields: {address_city: '', address_street: '', address_zip: '', contact: '', contact_email: '',
+    contact_phone: '', created: ! '2014-04-19 18:28:08.209838+00:00', edited: ! '2014-04-19
+      18:28:08.209887+00:00', editor: 2, name: Scolarest, order_email: ''}
+  model: products.productsupplier
+  pk: 3
+- fields: {action_flag: 2, action_time: ! '2014-04-18 14:16:40.219810+00:00', change_message: "Modifi\xE9
+      first_name, last_name et email.", content_type: 12, object_id: '1', object_repr: Gelato
+      Kiosk, user: 1}
+  model: admin.logentry
+  pk: 1
+- fields: {action_flag: 2, action_time: ! '2014-04-18 14:17:13.104340+00:00', change_message: "Modifi\xE9
+      is_superuser, is_staff et is_active.", content_type: 12, object_id: '2', object_repr: "C\xE9dric
+      Gaspoz", user: 1}
+  model: admin.logentry
+  pk: 2
+- fields: {action_flag: 1, action_time: ! '2014-04-18 14:18:07.660492+00:00', change_message: '',
+    content_type: 8, object_id: '1', object_repr: Gelato, user: 1}
+  model: admin.logentry
+  pk: 3
+- fields: {action_flag: 1, action_time: ! '2014-04-18 14:24:54.969820+00:00', change_message: '',
+    content_type: 9, object_id: '1', object_repr: Frisco, user: 1}
+  model: admin.logentry
+  pk: 4
+- fields: {action_flag: 1, action_time: ! '2014-04-18 14:26:00.174293+00:00', change_message: '',
+    content_type: 9, object_id: '2', object_repr: Ben & Jerry's, user: 1}
+  model: admin.logentry
+  pk: 5
+- fields: {action_flag: 1, action_time: ! '2014-04-18 14:26:20.159088+00:00', change_message: '',
+    content_type: 9, object_id: '3', object_repr: Emmi, user: 1}
+  model: admin.logentry
+  pk: 6
+- fields: {action_flag: 1, action_time: ! '2014-04-18 14:27:00.464667+00:00', change_message: '',
+    content_type: 9, object_id: '4', object_repr: "H\xE4agen-Dazs", user: 1}
+  model: admin.logentry
+  pk: 7
+- fields: {action_flag: 1, action_time: ! '2014-04-18 14:27:14.427707+00:00', change_message: '',
+    content_type: 9, object_id: '5', object_repr: Lusso, user: 1}
+  model: admin.logentry
+  pk: 8
+- fields: {action_flag: 1, action_time: ! '2014-04-18 14:27:31.382965+00:00', change_message: '',
+    content_type: 9, object_id: '6', object_repr: "M\xF6venpick", user: 1}
+  model: admin.logentry
+  pk: 9
+- fields: {action_flag: 1, action_time: ! '2014-04-18 15:07:28.903269+00:00', change_message: '',
+    content_type: 10, object_id: '1', object_repr: Cornet, user: 1}
+  model: admin.logentry
+  pk: 10
+- fields: {action_flag: 1, action_time: ! '2014-04-18 15:11:22.504304+00:00', change_message: '',
+    content_type: 10, object_id: '2', object_repr: Cup, user: 1}
+  model: admin.logentry
+  pk: 11
+- fields: {action_flag: 1, action_time: ! '2014-04-18 15:11:45.460356+00:00', change_message: '',
+    content_type: 10, object_id: '3', object_repr: Sandwich, user: 1}
+  model: admin.logentry
+  pk: 12
+- fields: {action_flag: 1, action_time: ! '2014-04-18 15:12:12.101622+00:00', change_message: '',
+    content_type: 10, object_id: '4', object_repr: "Sp\xE9cialit\xE9", user: 1}
+  model: admin.logentry
+  pk: 13
+- fields: {action_flag: 1, action_time: ! '2014-04-18 15:12:51.027894+00:00', change_message: '',
+    content_type: 10, object_id: '5', object_repr: "B\xE2tonnet", user: 1}
+  model: admin.logentry
+  pk: 14
+- fields: {action_flag: 1, action_time: ! '2014-04-18 18:19:10.061452+00:00', change_message: '',
+    content_type: 11, object_id: '1', object_repr: Magnum Almond, user: 1}
+  model: admin.logentry
+  pk: 15
+- fields: {action_flag: 1, action_time: ! '2014-04-18 18:19:39.461643+00:00', change_message: '',
+    content_type: 11, object_id: '2', object_repr: Magnum Classic, user: 1}
+  model: admin.logentry
+  pk: 16
+- fields: {action_flag: 1, action_time: ! '2014-04-18 18:20:03.553935+00:00', change_message: '',
+    content_type: 11, object_id: '3', object_repr: Magnum White, user: 1}
+  model: admin.logentry
+  pk: 17
+- fields: {action_flag: 1, action_time: ! '2014-04-18 18:20:28.246864+00:00', change_message: '',
+    content_type: 11, object_id: '4', object_repr: Magnum Gold, user: 1}
+  model: admin.logentry
+  pk: 18
+- fields: {action_flag: 2, action_time: ! '2014-04-18 18:45:01.410200+00:00', change_message: "Modifi\xE9
+      product_code, tu, weight et calorie.", content_type: 11, object_id: '1', object_repr: Magnum
+      Almond, user: 1}
+  model: admin.logentry
+  pk: 19
+- fields: {action_flag: 2, action_time: ! '2014-04-18 18:45:47.201828+00:00', change_message: "Modifi\xE9
+      product_code, tu, weight et calorie.", content_type: 11, object_id: '2', object_repr: Magnum
+      Classic, user: 1}
+  model: admin.logentry
+  pk: 20
+- fields: {action_flag: 2, action_time: ! '2014-04-18 18:46:59.529402+00:00', change_message: "Modifi\xE9
+      product_code, tu, price, weight et calorie.", content_type: 11, object_id: '4',
+    object_repr: Magnum Gold, user: 1}
+  model: admin.logentry
+  pk: 21
+- fields: {action_flag: 2, action_time: ! '2014-04-18 18:47:38.662079+00:00', change_message: "Modifi\xE9
+      product_code, tu, weight et calorie.", content_type: 11, object_id: '3', object_repr: Magnum
+      White, user: 1}
+  model: admin.logentry
+  pk: 22
+- fields: {action_flag: 1, action_time: ! '2014-04-18 18:51:53.122736+00:00', change_message: '',
+    content_type: 11, object_id: '5', object_repr: Solero Exotic, user: 1}
+  model: admin.logentry
+  pk: 23
+- fields: {action_flag: 1, action_time: ! '2014-04-18 19:01:15.398455+00:00', change_message: '',
+    content_type: 11, object_id: '6', object_repr: Solero Mojito, user: 1}
+  model: admin.logentry
+  pk: 24
+- fields: {action_flag: 2, action_time: ! '2014-04-18 19:06:12.492788+00:00', change_message: "Modifi\xE9
+      picture et k_picture.", content_type: 11, object_id: '5', object_repr: Solero
+      Exotic, user: 1}
+  model: admin.logentry
+  pk: 25
+- fields: {action_flag: 2, action_time: ! '2014-04-18 19:06:32.740981+00:00', change_message: "Modifi\xE9
+      picture et k_picture.", content_type: 11, object_id: '6', object_repr: Solero
+      Mojito, user: 1}
+  model: admin.logentry
+  pk: 26
+- fields: {action_flag: 1, action_time: ! '2014-04-18 19:22:10.031424+00:00', change_message: '',
+    content_type: 11, object_id: '7', object_repr: Cornetto Royal Vanille, user: 1}
+  model: admin.logentry
+  pk: 27
+- fields: {action_flag: 1, action_time: ! '2014-04-18 19:23:28.093522+00:00', change_message: '',
+    content_type: 11, object_id: '8', object_repr: Cornetto Royal Chocolat, user: 1}
+  model: admin.logentry
+  pk: 28
+- fields: {action_flag: 2, action_time: ! '2014-04-18 19:23:36.543541+00:00', change_message: "Modifi\xE9
+      tu.", content_type: 11, object_id: '7', object_repr: Cornetto Royal Vanille,
+    user: 1}
+  model: admin.logentry
+  pk: 29
+- fields: {action_flag: 1, action_time: ! '2014-04-18 19:24:43.466074+00:00', change_message: '',
+    content_type: 11, object_id: '9', object_repr: Cornetto Royal Fraise, user: 1}
+  model: admin.logentry
+  pk: 30
+- fields: {action_flag: 1, action_time: ! '2014-04-18 19:26:35.351872+00:00', change_message: '',
+    content_type: 11, object_id: '10', object_repr: "Cornetto Caff\xE8 Latte", user: 1}
+  model: admin.logentry
+  pk: 31
+- fields: {action_flag: 1, action_time: ! '2014-04-18 19:27:32.928156+00:00', change_message: '',
+    content_type: 11, object_id: '11', object_repr: Cornetto Cheesecake Glory, user: 1}
+  model: admin.logentry
+  pk: 32
+- fields: {action_flag: 1, action_time: ! '2014-04-18 19:36:18.339572+00:00', change_message: '',
+    content_type: 11, object_id: '12', object_repr: My Cremissimo Amore di Caramello,
+    user: 1}
+  model: admin.logentry
+  pk: 33
+- fields: {action_flag: 2, action_time: ! '2014-04-18 19:37:32.161044+00:00', change_message: "Modifi\xE9
+      picture et k_picture.", content_type: 11, object_id: '12', object_repr: My Cremissimo
+      Amore di Caramello, user: 1}
+  model: admin.logentry
+  pk: 34
+- fields: {action_flag: 1, action_time: ! '2014-04-19 11:51:00.019157+00:00', change_message: '',
+    content_type: 11, object_id: '13', object_repr: Cookie Dough, user: 1}
+  model: admin.logentry
+  pk: 35
+- fields: {action_flag: 1, action_time: ! '2014-04-19 11:52:06.225552+00:00', change_message: '',
+    content_type: 11, object_id: '14', object_repr: Strawberry Cheesecake, user: 1}
+  model: admin.logentry
+  pk: 36
+- fields: {action_flag: 1, action_time: ! '2014-04-19 11:53:12.622642+00:00', change_message: '',
+    content_type: 11, object_id: '15', object_repr: Chocolate Fudge Brownie, user: 1}
+  model: admin.logentry
+  pk: 37
+- fields: {action_flag: 1, action_time: ! '2014-04-19 11:53:58.849627+00:00', change_message: '',
+    content_type: 11, object_id: '16', object_repr: Fairly Nuts, user: 1}
+  model: admin.logentry
+  pk: 38
+- fields: {action_flag: 1, action_time: ! '2014-04-19 11:55:11.173470+00:00', change_message: '',
+    content_type: 11, object_id: '17', object_repr: Chunky Monkey, user: 1}
+  model: admin.logentry
+  pk: 39
+- fields: {action_flag: 1, action_time: ! '2014-04-19 11:56:57.710093+00:00', change_message: '',
+    content_type: 11, object_id: '18', object_repr: Caramel Chew Chew, user: 1}
+  model: admin.logentry
+  pk: 40
+- fields: {action_flag: 1, action_time: ! '2014-04-19 12:06:31.196939+00:00', change_message: '',
+    content_type: 11, object_id: '19', object_repr: Lusso Max Push Up with HARIBO,
+    user: 1}
+  model: admin.logentry
+  pk: 41
+- fields: {action_flag: 1, action_time: ! '2014-04-19 12:11:04.904614+00:00', change_message: '',
+    content_type: 11, object_id: '20', object_repr: Lusso Max Calippo Lime, user: 1}
+  model: admin.logentry
+  pk: 42
+- fields: {action_flag: 1, action_time: ! '2014-04-19 12:15:05.315485+00:00', change_message: '',
+    content_type: 11, object_id: '21', object_repr: Lusso Max Twister, user: 1}
+  model: admin.logentry
+  pk: 43
+- fields: {action_flag: 1, action_time: ! '2014-04-19 12:36:25.397485+00:00', change_message: '',
+    content_type: 11, object_id: '22', object_repr: Magnum Silver 25 Years, user: 1}
+  model: admin.logentry
+  pk: 44
+- fields: {action_flag: 1, action_time: ! '2014-04-19 12:58:20.868670+00:00', change_message: '',
+    content_type: 11, object_id: '23', object_repr: "M\xF6venpick Espresso Croquant
+      Cornet", user: 1}
+  model: admin.logentry
+  pk: 45
+- fields: {action_flag: 1, action_time: ! '2014-04-19 12:59:45.213731+00:00', change_message: '',
+    content_type: 11, object_id: '24', object_repr: "M\xF6venpick Cornet Caramelita",
+    user: 1}
+  model: admin.logentry
+  pk: 46
+- fields: {action_flag: 1, action_time: ! '2014-04-19 13:57:23.892991+00:00', change_message: '',
+    content_type: 8, object_id: '2', object_repr: LeShop.ch, user: 1}
+  model: admin.logentry
+  pk: 47
+- fields: {action_flag: 1, action_time: ! '2014-04-19 13:57:29.647850+00:00', change_message: '',
+    content_type: 11, object_id: '25', object_repr: "M\xF6venpick Pistache", user: 1}
+  model: admin.logentry
+  pk: 48
+- fields: {action_flag: 1, action_time: ! '2014-04-19 14:00:29.621280+00:00', change_message: '',
+    content_type: 11, object_id: '26', object_repr: "M\xF6venpick Swiss Chocolate",
+    user: 1}
+  model: admin.logentry
+  pk: 49
+- fields: {action_flag: 1, action_time: ! '2014-04-19 14:02:14.767416+00:00', change_message: '',
+    content_type: 11, object_id: '27', object_repr: "M\xF6venpick Vanilla Dream",
+    user: 1}
+  model: admin.logentry
+  pk: 50
+- fields: {action_flag: 1, action_time: ! '2014-04-19 14:03:43.538334+00:00', change_message: '',
+    content_type: 11, object_id: '28', object_repr: "M\xF6venpick Stracciatella",
+    user: 1}
+  model: admin.logentry
+  pk: 51
+- fields: {action_flag: 1, action_time: ! '2014-04-19 14:22:11.690518+00:00', change_message: '',
+    content_type: 11, object_id: '29', object_repr: "M\xF6venpick Maple Walnut", user: 1}
+  model: admin.logentry
+  pk: 52
+- fields: {action_flag: 1, action_time: ! '2014-04-19 14:23:38.524677+00:00', change_message: '',
+    content_type: 11, object_id: '30', object_repr: "M\xF6venpick Espresso Croquant",
+    user: 1}
+  model: admin.logentry
+  pk: 53
+- fields: {action_flag: 1, action_time: ! '2014-04-19 14:24:48.321034+00:00', change_message: '',
+    content_type: 11, object_id: '31', object_repr: "M\xF6venpick Caramelita", user: 1}
+  model: admin.logentry
+  pk: 54
+- fields: {action_flag: 1, action_time: ! '2014-04-19 14:27:24.283032+00:00', change_message: '',
+    content_type: 11, object_id: '32', object_repr: "M\xF6venpick Double cr\xE8me
+      & Meringue", user: 1}
+  model: admin.logentry
+  pk: 55
+- fields: {action_flag: 1, action_time: ! '2014-04-19 14:29:05.632325+00:00', change_message: '',
+    content_type: 11, object_id: '33', object_repr: "M\xF6venpick Passion Fruit &
+      Mango", user: 1}
+  model: admin.logentry
+  pk: 56
+- fields: {action_flag: 1, action_time: ! '2014-04-19 14:30:36.980494+00:00', change_message: '',
+    content_type: 11, object_id: '34', object_repr: "M\xF6venpick Coconut & Passion
+      Fruit", user: 1}
+  model: admin.logentry
+  pk: 57
+- fields: {action_flag: 1, action_time: ! '2014-04-19 14:32:31.252073+00:00', change_message: '',
+    content_type: 11, object_id: '35', object_repr: "M\xF6venpick Vietnamese Kalamansi
+      & Dragon Fruit Sorbet", user: 1}
+  model: admin.logentry
+  pk: 58
+- fields: {action_flag: 1, action_time: ! '2014-04-19 14:33:52.402702+00:00', change_message: '',
+    content_type: 11, object_id: '36', object_repr: "M\xF6venpick Masala Chai Indian
+      Recipe", user: 1}
+  model: admin.logentry
+  pk: 59
+- fields: {action_flag: 1, action_time: ! '2014-04-19 14:35:28.344602+00:00', change_message: '',
+    content_type: 11, object_id: '37', object_repr: "M\xF6venpick Indian Treasures
+      Vanilla, Mango & Sesam", user: 1}
+  model: admin.logentry
+  pk: 60
+- fields: {action_flag: 1, action_time: ! '2014-04-19 17:46:15.704241+00:00', change_message: '',
+    content_type: 11, object_id: '38', object_repr: "H\xE4agen-Dazs Cookies & Cream",
+    user: 1}
+  model: admin.logentry
+  pk: 61
+- fields: {action_flag: 2, action_time: ! '2014-04-19 17:46:36.384631+00:00', change_message: "Modifi\xE9
+      is_superuser et is_staff.", content_type: 12, object_id: '3', object_repr: Alessio
+      De Santo, user: 1}
+  model: admin.logentry
+  pk: 62
+- fields: {action_flag: 1, action_time: ! '2014-04-19 17:47:44.994492+00:00', change_message: '',
+    content_type: 11, object_id: '39', object_repr: "H\xE4agen-Dazs Vanilla", user: 1}
+  model: admin.logentry
+  pk: 63
+- fields: {action_flag: 1, action_time: ! '2014-04-19 17:48:41.333206+00:00', change_message: '',
+    content_type: 11, object_id: '40', object_repr: "H\xE4agen-Dazs Strawberries &
+      Cream", user: 1}
+  model: admin.logentry
+  pk: 64
+- fields: {action_flag: 1, action_time: ! '2014-04-19 17:50:37.357888+00:00', change_message: '',
+    content_type: 11, object_id: '41', object_repr: "H\xE4agen-Dazs Belgian Chocolate",
+    user: 1}
+  model: admin.logentry
+  pk: 65
+- fields: {action_flag: 1, action_time: ! '2014-04-19 17:52:50.301987+00:00', change_message: '',
+    content_type: 11, object_id: '42', object_repr: "H\xE4agen-Dazs Vanilla Caramel
+      Brownie", user: 1}
+  model: admin.logentry
+  pk: 66
+- fields: {action_flag: 1, action_time: ! '2014-04-19 17:53:44.800738+00:00', change_message: '',
+    content_type: 11, object_id: '43', object_repr: "H\xE4agen-Dazs Macadamia Nut
+      Brittle", user: 1}
+  model: admin.logentry
+  pk: 67
+- fields: {action_flag: 1, action_time: ! '2014-04-19 17:54:39.486256+00:00', change_message: '',
+    content_type: 11, object_id: '44', object_repr: "H\xE4agen-Dazs Dulce de Leche",
+    user: 1}
+  model: admin.logentry
+  pk: 68
+- fields: {action_flag: 2, action_time: ! '2014-04-19 18:22:47.709542+00:00', change_message: "Modifi\xE9
+      supplier.", content_type: 11, object_id: '23', object_repr: "M\xF6venpick Espresso
+      Croquant Cornet", user: 1}
+  model: admin.logentry
+  pk: 69
+- fields: {action_flag: 2, action_time: ! '2014-04-19 18:23:04.377530+00:00', change_message: "Modifi\xE9
+      supplier.", content_type: 11, object_id: '24', object_repr: "M\xF6venpick Cornet
+      Caramelita", user: 1}
+  model: admin.logentry
+  pk: 70
+- fields: {action_flag: 1, action_time: ! '2014-04-19 18:28:08.211584+00:00', change_message: '',
+    content_type: 8, object_id: '3', object_repr: Scolarest, user: 1}
+  model: admin.logentry
+  pk: 71
+- fields: {action_flag: 1, action_time: ! '2014-04-19 18:55:30.809096+00:00', change_message: '',
+    content_type: 11, object_id: '45', object_repr: Frozen Yogurt Baies des bois Cookies,
+    user: 1}
+  model: admin.logentry
+  pk: 72
+- fields: {action_flag: 1, action_time: ! '2014-04-19 18:57:04.770374+00:00', change_message: '',
+    content_type: 11, object_id: '46', object_repr: Frozen Yogurt Caramel Amande,
+    user: 1}
+  model: admin.logentry
+  pk: 73
+- fields: {action_flag: 1, action_time: ! '2014-04-19 18:58:04.692698+00:00', change_message: '',
+    content_type: 11, object_id: '47', object_repr: Frozen Yogurt Nature Muesli, user: 1}
+  model: admin.logentry
+  pk: 74
+- fields: {action_flag: 1, action_time: ! '2014-04-19 19:16:51.199720+00:00', change_message: '',
+    content_type: 11, object_id: '48', object_repr: Maxibon Classic, user: 1}
+  model: admin.logentry
+  pk: 75
+- fields: {action_flag: 1, action_time: ! '2014-04-19 19:25:10.232353+00:00', change_message: '',
+    content_type: 11, object_id: '49', object_repr: Maxibon Pops, user: 1}
+  model: admin.logentry
+  pk: 76
+- fields: {action_flag: 1, action_time: ! '2014-04-19 19:32:52.921846+00:00', change_message: '',
+    content_type: 11, object_id: '50', object_repr: Pralinato Classico, user: 1}
+  model: admin.logentry
+  pk: 77
+- fields: {action_flag: 2, action_time: ! '2014-04-19 19:34:28.078851+00:00', change_message: "Modifi\xE9
+      product_code, tu, price et supplier.", content_type: 11, object_id: '24', object_repr: "M\xF6venpick
+      Cornet Caramelita", user: 1}
+  model: admin.logentry
+  pk: 78
+- fields: {action_flag: 2, action_time: ! '2014-04-19 19:35:00.813390+00:00', change_message: "Modifi\xE9
+      product_code, tu, price et supplier.", content_type: 11, object_id: '23', object_repr: "M\xF6venpick
+      Espresso Croquant Cornet", user: 1}
+  model: admin.logentry
+  pk: 79
+- fields: {action_flag: 1, action_time: ! '2014-04-19 19:41:02.892853+00:00', change_message: '',
+    content_type: 11, object_id: '51', object_repr: Smarties Cornet, user: 1}
+  model: admin.logentry
+  pk: 80
+- fields: {action_flag: 1, action_time: ! '2014-04-19 19:45:56.936216+00:00', change_message: '',
+    content_type: 11, object_id: '52', object_repr: Winnetou, user: 1}
+  model: admin.logentry
+  pk: 81
+- fields: {action_flag: 2, action_time: ! '2014-04-20 08:07:01.432453+00:00', change_message: "Modifi\xE9
+      picture.", content_type: 11, object_id: '18', object_repr: Caramel Chew Chew,
+    user: 1}
+  model: admin.logentry
+  pk: 82
+- fields: {action_flag: 2, action_time: ! '2014-04-20 08:07:14.787212+00:00', change_message: "Modifi\xE9
+      picture.", content_type: 11, object_id: '15', object_repr: Chocolate Fudge Brownie,
+    user: 1}
+  model: admin.logentry
+  pk: 83
+- fields: {action_flag: 2, action_time: ! '2014-04-20 08:07:28.362704+00:00', change_message: "Modifi\xE9
+      picture.", content_type: 11, object_id: '17', object_repr: Chunky Monkey, user: 1}
+  model: admin.logentry
+  pk: 84
+- fields: {action_flag: 2, action_time: ! '2014-04-20 08:07:41.802410+00:00', change_message: "Modifi\xE9
+      picture.", content_type: 11, object_id: '13', object_repr: Cookie Dough, user: 1}
+  model: admin.logentry
+  pk: 85
+- fields: {action_flag: 2, action_time: ! '2014-04-20 08:07:55.521047+00:00', change_message: "Modifi\xE9
+      picture.", content_type: 11, object_id: '16', object_repr: Fairly Nuts, user: 1}
+  model: admin.logentry
+  pk: 86
+- fields: {action_flag: 2, action_time: ! '2014-04-20 08:08:08.447298+00:00', change_message: "Modifi\xE9
+      picture.", content_type: 11, object_id: '14', object_repr: Strawberry Cheesecake,
+    user: 1}
+  model: admin.logentry
+  pk: 87
+- fields: {action_flag: 1, action_time: ! '2014-04-20 19:48:09.420639+00:00', change_message: '',
+    content_type: 14, object_id: '1', object_repr: "2014-04-20 19:48:09 [CC] C\xE9dric
+      Gaspoz (20)", user: 1}
+  model: admin.logentry
+  pk: 88
+- fields: {action_flag: 1, action_time: ! '2014-04-20 19:50:04.257458+00:00', change_message: '',
+    content_type: 13, object_id: '1', object_repr: Frozen Yogurt Baies des bois Cookies
+      (1x), user: 1}
+  model: admin.logentry
+  pk: 89
+- fields: {action_flag: 1, action_time: ! '2014-04-20 19:50:33.572923+00:00', change_message: '',
+    content_type: 14, object_id: '2', object_repr: "2014-04-20 19:50:33 [P] C\xE9dric
+      Gaspoz (-3.6)", user: 1}
+  model: admin.logentry
+  pk: 90
+- fields: {action_flag: 1, action_time: ! '2014-04-20 19:52:15.842741+00:00', change_message: '',
+    content_type: 13, object_id: '2', object_repr: Frozen Yogurt Baies des bois Cookies
+      (12x), user: 1}
+  model: admin.logentry
+  pk: 91
+- fields: {action_flag: 2, action_time: ! '2014-04-21 21:00:38.429028+00:00', change_message: "Modifi\xE9
+      is_active.", content_type: 12, object_id: '2', object_repr: "C\xE9dric Gaspoz",
+    user: 1}
+  model: admin.logentry
+  pk: 92
+- fields: {action_flag: 2, action_time: ! '2014-04-21 21:01:36.064447+00:00', change_message: "Modifi\xE9
+      is_active.", content_type: 12, object_id: '2', object_repr: "C\xE9dric Gaspoz",
+    user: 1}
+  model: admin.logentry
+  pk: 93
+- fields: {action_flag: 2, action_time: ! '2014-04-21 21:01:43.099512+00:00', change_message: "Aucun
+      champ modifi\xE9.", content_type: 12, object_id: '2', object_repr: "C\xE9dric
+      Gaspoz", user: 1}
+  model: admin.logentry
+  pk: 94
+- fields: {action_flag: 2, action_time: ! '2014-04-21 21:02:11.247841+00:00', change_message: "Modifi\xE9
+      is_active.", content_type: 12, object_id: '2', object_repr: "C\xE9dric Gaspoz",
+    user: 1}
+  model: admin.logentry
+  pk: 95
+- fields: {action_flag: 2, action_time: ! '2014-04-24 11:40:10.323422+00:00', change_message: "Modifi\xE9
+      is_active.", content_type: 12, object_id: '2', object_repr: "C\xE9dric Gaspoz",
+    user: 1}
+  model: admin.logentry
+  pk: 96
+- fields: {action_flag: 1, action_time: ! '2014-04-27 21:33:34.996910+00:00', change_message: '',
+    content_type: 16, object_id: '1', object_repr: Gelato 1, user: 1}
+  model: admin.logentry
+  pk: 97
+- fields: {action_flag: 1, action_time: ! '2014-04-27 21:33:56.712015+00:00', change_message: '',
+    content_type: 17, object_id: '1', object_repr: 1A, user: 1}
+  model: admin.logentry
+  pk: 98
+- fields: {action_flag: 1, action_time: ! '2014-04-27 21:34:05.097248+00:00', change_message: '',
+    content_type: 17, object_id: '2', object_repr: 1B, user: 1}
+  model: admin.logentry
+  pk: 99
+- fields: {action_flag: 1, action_time: ! '2014-04-27 21:34:14.821191+00:00', change_message: '',
+    content_type: 17, object_id: '3', object_repr: 1C, user: 1}
+  model: admin.logentry
+  pk: 100
+- fields: {action_flag: 1, action_time: ! '2014-04-27 21:34:25.601465+00:00', change_message: '',
+    content_type: 17, object_id: '4', object_repr: 2A, user: 1}
+  model: admin.logentry
+  pk: 101
+- fields: {action_flag: 1, action_time: ! '2014-04-27 21:34:34.533591+00:00', change_message: '',
+    content_type: 17, object_id: '5', object_repr: 2B, user: 1}
+  model: admin.logentry
+  pk: 102
+- fields: {action_flag: 1, action_time: ! '2014-04-27 21:34:43.720848+00:00', change_message: '',
+    content_type: 17, object_id: '6', object_repr: 2C, user: 1}
+  model: admin.logentry
+  pk: 103
+- fields: {action_flag: 1, action_time: ! '2014-04-27 21:34:53.166987+00:00', change_message: '',
+    content_type: 17, object_id: '7', object_repr: 3A, user: 1}
+  model: admin.logentry
+  pk: 104
+- fields: {action_flag: 1, action_time: ! '2014-04-27 21:35:01.481877+00:00', change_message: '',
+    content_type: 17, object_id: '8', object_repr: 3B, user: 1}
+  model: admin.logentry
+  pk: 105
+- fields: {action_flag: 1, action_time: ! '2014-04-27 21:35:42.323212+00:00', change_message: '',
+    content_type: 17, object_id: '9', object_repr: 3C, user: 1}
+  model: admin.logentry
+  pk: 106
+- fields: {action_flag: 2, action_time: ! '2014-06-06 16:04:54.680766+00:00', change_message: "Modifi\xE9
+      is_superuser, first_name, last_name et is_staff.", content_type: 12, object_id: '4',
+    object_repr: Gelato Kiosk 1, user: 2}
+  model: admin.logentry
+  pk: 107
+- fields: {action_flag: 2, action_time: ! '2014-06-06 17:19:08.543894+00:00', change_message: "Modifi\xE9
+      user.", content_type: 16, object_id: '1', object_repr: Gelato 1, user: 2}
+  model: admin.logentry
+  pk: 108
+- fields: {action_flag: 1, action_time: ! '2014-06-09 15:13:34.586543+00:00', change_message: '',
+    content_type: 13, object_id: '14', object_repr: Caramel Chew Chew (5x), user: 1}
+  model: admin.logentry
+  pk: 109
+- fields: {action_flag: 1, action_time: ! '2014-06-09 15:14:24.144381+00:00', change_message: '',
+    content_type: 13, object_id: '17', object_repr: Cornetto Royal Vanille (5x), user: 1}
+  model: admin.logentry
+  pk: 112
+- fields: {action_flag: 1, action_time: ! '2014-06-09 15:14:58.696250+00:00', change_message: '',
+    content_type: 13, object_id: '18', object_repr: Maxibon Pops (100x), user: 1}
+  model: admin.logentry
+  pk: 113
+- fields: {action_flag: 2, action_time: ! '2014-06-16 15:04:16.007482+00:00', change_message: "Modifi\xE9
+      card_uid.", content_type: 12, object_id: '1', object_repr: Gelato Kiosk, user: 1}
+  model: admin.logentry
+  pk: 114
+- fields: {action_flag: 2, action_time: ! '2014-06-16 15:04:37.839196+00:00', change_message: "Modifi\xE9
+      is_superuser et is_active.", content_type: 12, object_id: '2', object_repr: "C\xE9dric
+      Gaspoz", user: 1}
+  model: admin.logentry
+  pk: 115
+- fields: {action_flag: 2, action_time: ! '2014-06-16 15:04:50.695535+00:00', change_message: "Modifi\xE9
+      is_superuser.", content_type: 12, object_id: '3', object_repr: Alessio De Santo,
+    user: 1}
+  model: admin.logentry
+  pk: 116
+- fields: {action_flag: 1, action_time: ! '2014-06-19 06:37:22.222142+00:00', change_message: '',
+    content_type: 14, object_id: '44', object_repr: "2014-06-19 06:37:22 [CC] C\xE9dric
+      Gaspoz (100)", user: 1}
+  model: admin.logentry
+  pk: 117
+- fields: {action_flag: 1, action_time: ! '2014-06-19 06:40:48.885242+00:00', change_message: '',
+    content_type: 13, object_id: '42', object_repr: Magnum Almond (2x), user: 1}
+  model: admin.logentry
+  pk: 119
+- fields: {action_flag: 1, action_time: ! '2014-06-19 06:41:05.687662+00:00', change_message: '',
+    content_type: 13, object_id: '43', object_repr: Solero Exotic (2x), user: 1}
+  model: admin.logentry
+  pk: 120
+- fields: {action_flag: 2, action_time: ! '2014-06-19 12:20:19.054467+00:00', change_message: "Modifi\xE9
+      supplier.", content_type: 11, object_id: '32', object_repr: "M\xF6venpick Double
+      cr\xE8me & Meringue", user: 1}
+  model: admin.logentry
+  pk: 122
+- fields: {action_flag: 1, action_time: ! '2014-06-19 12:25:59.453307+00:00', change_message: '',
+    content_type: 13, object_id: '49', object_repr: "M\xF6venpick Double cr\xE8me
+      & Meringue (2x)", user: 1}
+  model: admin.logentry
+  pk: 127
+- fields: {action_flag: 1, action_time: ! '2014-06-19 12:27:00.555151+00:00', change_message: '',
+    content_type: 13, object_id: '50', object_repr: "M\xF6venpick Double cr\xE8me
+      & Meringue (2x)", user: 1}
+  model: admin.logentry
+  pk: 128
+- fields: {action_flag: 1, action_time: ! '2014-06-20 14:23:21.329521+00:00', change_message: '',
+    content_type: 14, object_id: '47', object_repr: "2014-06-20 14:23:21 [CC] C\xE9dric
+      Gaspoz (100)", user: 1}
+  model: admin.logentry
+  pk: 129
