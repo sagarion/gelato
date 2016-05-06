@@ -1,0 +1,28 @@
+{% extends "congelateur/base.html" %}
+{% load staticfiles %}
+{% block title %}Products{% endblock %}
+{% block stylesheets %}
+    {{ block.super }}
+{% endblock stylesheets %}
+{% block content %}
+    {{ block.super }}
+    <div class="row">
+        <div class="col-lg-10">
+            <h2>Liste des congélateurs</h2>
+            <table class="table table-hover">
+                <tr>
+                    <th>Code</th>
+                    <th>Libellé</th>
+                    <th>Emplacement</th>
+                </tr>
+            {% for object in object_list %}
+                <tr>
+                    <th><a href="{% url 'congelo-detail' object.id %}">{{object.code}}</a></th>
+                    <th>{{object.libelle}}</th>
+                    <th>{{object.emplacement}}</th>
+                </tr>
+            {% endfor %}
+            </table>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends "congelateur/base.html" %}
+{% load staticfiles %}
+{% block title %}Products{% endblock %}
+{% block stylesheets %}
+    {{ block.super }}
+{% endblock stylesheets %}
+{% block content %}
+    {{ block.super }}
+    <div class="row">
+        <div class="col-lg-10">
+            <h2>Liste des produits</h2>
+            <table class="table table-hover">
+                <tr>
+                    <th>Catégorie</th>
+                    <th>Libellé</th>
+                    <th>Calories</th>
+                    <th>Prix</th>
+                    <th>Image</th>
+                </tr>
+            {% for g in glaces %}
+                <tr>
+                    <th>{{g.cat}}</th>
+                    <th>{{g.libelle}}</th>
+                    <th>{{g.calories}}</th>
+                    <th>{{g.prixVente}}</th>
+                    <th><img height="50" width="50" src="{{ g.image.url }}" /></th>
+                </tr>
+            {% endfor %}
+            </table>
+        </div>
+        <div class="col-lg-2">
+            <h3>Trier</h3>
+
+
+            <h4>Catégorie</h4>
+            <ul class="logo-list">
+                {% for ca in cats %}
+                    <li>
+                        <a href="{% url 'listeCat' ca.id %}">{{ca.libelle}}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+{% endblock %}

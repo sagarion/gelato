@@ -1,0 +1,80 @@
+body {
+  background-color: #FFF8ED;
+  color: #562513;
+}
+.btn-success {
+    background-color: #FF799D;
+    border-color: #FF799D;
+    color: #FFFFFF;
+}
+
+.btn-success:hover, .btn-success:focus, .btn-success:active {
+    background-color: #FF799D;
+    border-color: #FF799D;
+    color: #562513;
+}
+
+.btn-primary {
+    background-color: #89C6DF;
+    border-color: #89C6DF;
+    color: #FFFFFF;
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active {
+    background-color: #89C6DF;
+    border-color: #89C6DF;
+    color: #562513;
+}
+
+ul.nav > li > a.active, .nav-justified > .active > a:hover, .nav-justified > .active > a:focus {
+    background-color: #89C6DF;
+    background-image: none;
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.15) inset;
+}
+
+.nav-justified > li > a {
+    background-color: #89C6DF;
+}
+
+.logo-brands {
+    margin-right: 15px;
+}
+
+ul.logo-list {
+    list-style-type: none;
+    text-align: center;
+    padding:0;
+    margin:0;
+}
+
+.big-text {
+    font-size: 4em;
+    font-weight: bolder;
+}
+
+.product-name {
+    font-size: 2em;
+    font-weight: bolder;
+}
+
+.kiosk-cell {
+    float: left;
+    border:1px solid #CEDCEA;
+    padding:5px;
+}
+
+.kiosk-row {
+    margin-bottom: 15px;
+    padding: 10px;
+    color: #0A416B;
+    clear:both;
+    width: 100%;
+}
+
+.kiosk-storage {
+    background-color: #89C6DF;
+}
+
+.kiosk-table {
+    width: 100%;
+}

@@ -1,0 +1,46 @@
+{% extends "congelateur/base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+      <!-- Jumbotron -->
+      <div class="jumbotron">
+        <h1>ICE CREAM KIOSK</h1>
+        <p class="lead">Gelato est un projet innovant de distribution de glaces. Nous étudions la mise en oeuvre de
+            diverses technologies afin de permettre la gestion de la distribution de produits en libre-accès.</p>
+        <p><a class="btn btn-lg btn-success" href="" role="button">Découvrez gelato!</a></p>
+      </div>
+
+      <!-- Example row of columns -->
+      <div class="row">
+        <div class="col-lg-4">
+          <h2>Le concept</h2>
+          <p>La gestion de la distribution de produits dans les environnements professionnels nécessite de nombreuses
+              heures de travail pour les personnes qui en ont la charge (inventaire, commandes, caisse, service, ...),
+              travail qui n'est souvent que périphérique à leur cahier des charges.</p>
+          <p>Gelato vise à créer un concept de kiosk permettant la gestion et la distribution d'un petit inventaire de
+              produits en libre-service. Diverses technologies sont utilisées et combinées, pour rendre le processus
+              le plus transparent possible pour les entreprises et les utilisateurs.</p>
+          <p><a class="btn btn-primary" href="" role="button">Découvrez gelato &raquo;</a></p>
+        </div>
+        <div class="col-lg-4">
+          <h2>Technologies</h2>
+          <p>Gelato est construit autour de composants logiciels et matériels largement répandus.</p>
+          <p><b>Logiciel</b><br>Gelato utilise une architecture client-serveur construite à partir du framework Django
+            (pour la partie serveur) et de Kivy (pour l'interface du kiosk). L'authentification est réalisée à partir de
+            l'infrastructure d'authentification unique de Switch (AAI).</p>
+          <p><b>Matériel</b><br>Mis à part le congélateur, le kiosk est construit autour d'un micro-ordinateur de type
+              Raspberry Pi, de relais pour commander l'ouverture de la porte, de senseurs pour détecter l'ouverture des
+              tiroirs ainsi que de lecteurs de codes à barre et de cartes RFID pour procéder à l'authentification des
+              utilisateurs.</p>
+          <p><a class="btn btn-primary" href="https://github.com/HEG-Arc/gelato" target="_blank" role="button">Voir le détail &raquo;</a></p>
+       </div>
+        <div class="col-lg-4">
+          <h2>Contact</h2>
+          <p>Gelato est un projet mis en oeuvre par Alessio De Santo, Cédric Gaspoz, [...]. Pour de plus amples
+              informations ou pour tous problèmes liés à l'utilisation de gelato, veuillez vous adresser aux assistants
+              du bureau 150.</p>
+          <p><b>Haute école de gestion Arc</b><br>Espace de l'Europe 21<br>2000 Neuchâtel</p>
+          <p><img class="img-rounded pull-right" src="{% static "img/man-ice-cream.png" %}"></p>
+        </div>
+      </div>
+      {% endblock content %}

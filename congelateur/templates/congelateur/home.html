@@ -1,0 +1,50 @@
+{% extends "congelateur/base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+      <div class="row">
+        <div class="col-lg-4">
+            <p><img src="{% static "img/barmaid-ice-cream.png" %}"></p>
+        </div>
+        <div class="col-lg-8">
+            <h1>ICE CREAM KIOSK</h1>
+            <p class="lead">Gelato vous offre accès à une pause rafraichissante à travers son kiosk à glaces innovant.
+            Avec gelato, vous disposez d'un accès pratique 24/7 à notre sélection de glaces durant toute la saison.</p>
+            <p><a class="btn btn-lg btn-success" href="{%url 'discover' %}" role="button">Découvrez gelato maintenant!</a></p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-8">
+          <h2>Sélection</h2>
+          <p>Nous vous proposons en tout temps une sélection de 9 sortes de glaces, sélectionnées par nos soins.
+              Consultez la page des produits pour avoir un aperçu de la sélection actuellement disponible dans le kiosk.
+             Vous pouvez également nous faire part de vos suggestions afin d'adapter notre offre à vos goûts...</p>
+          <p><a class="btn btn-primary" href="" role="button">Liste des produits &raquo;</a></p>
+          <h2>Marques</h2>
+          <p>Nous essayons de vous proposer les produits du plus grand nombre de fournisseurs. Etant donné la quantité
+             limitée de produits que nous pouvons proposer simultanément, toutes les marques ne sont pas dans le kiosk
+             en tout temps.</p>
+          <p>{% for brand in brands %}
+              <img class="logo-brands" src="{{ brand.logo.url }}" />
+             {% endfor %}</p>
+        </div>
+        <div class="col-lg-4">
+          <h2>Bestsellers</h2>
+          <table class="table table-condensed">
+              <tr>
+                  <th></th>
+                  <th>Produit</th>
+                  <th>Qté</th>
+              </tr>
+              {% for sale in sales %}
+                  <tr>
+                    <td><img src="/gelato/media/{{ sale.img_url }}" height="50px"></td>
+                    <td>{{ sale.name }}</td>
+                    <td class="text-right">{{ sale.quantity }}</td>
+                  </tr>
+              {% endfor %}
+          </table>
+        </div>
+      </div>
+      {% endblock content %}

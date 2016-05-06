@@ -1,0 +1,100 @@
+{% load i18n static %}<!DOCTYPE html>
+{% get_current_language as LANGUAGE_CODE %}
+<html lang="{{ LANGUAGE_CODE|default:"en-us" }}">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="robots" content="NONE,NOARCHIVE" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}{% endblock %}</title>
+    <!--Import Google Icon Font-->
+    <link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+
+    <link rel="stylesheet" type="text/css" href="{% static "css/theming.css" %}" />
+    <link rel="stylesheet" type="text/css" href="{% static "css/main.css" %}" />
+
+    {% block extrastyle %}{% endblock %}
+    {% block extrahead %}{% endblock %}
+</head>
+
+<body class="{% block bodyclass %}{% endblock %}">
+<header>
+    <nav class="white blue-text" role="navigation">
+        <div class="nav-wrapper container">
+            <a id="logo" href="/" class="brand-logo"></a>
+            <a href="#" data-activates="nav-mobile" class="button-collapse blue-text" ><i class="material-icons">menu</i></a>
+            <ul class="right hide-on-med-and-down">
+                <li class="{% if request.get_full_path == "/" %}active{%  endif %}"><a  class="blue-text" href="/">{% trans "Home" %}</a></li>
+                {% if user.is_authenticated != True %}<li class="{% if request.get_full_path == "/register" %}active{%  endif %}"><a  class="blue-text" href="/register">{% trans "Register" %}</a></li>{% endif %}
+                {% if user.is_authenticated == True %}<li class="{% if request.get_full_path == "/accounts/members" %}active{%  endif %}"><a  class="blue-text" href="/accounts/members">{% trans 'Members' %}</a></li>{% endif %}
+                {% if user.is_authenticated == True %}<li class="{% if request.get_full_path == "/accounts/profile" %}active{%  endif %}"><a  class="blue-text" href="/accounts/profile">{{ user.first_name|default:'Profile' }}</a></li>{% endif %}
+                {% if user.is_authenticated == True %}<li><a  class="blue-text" href="/accounts/logout">{% trans 'Logout' %}</a></li>{% endif %}
+                {% if user.is_authenticated != True %}<li class="{% if request.get_full_path == "/accounts/login" %}active{%  endif %}"><a  class="blue-text" href="/accounts/login">{% trans 'Login' %}</a></li>{% endif %}
+                {% if user.is_staff == True %}<li><a  class="blue-text" href="/admin"><i class="material-icons">settings</i></a></li>{% endif %}
+            </ul>
+
+            <ul id="nav-mobile" class="side-nav blue-text">
+                <li class="{% if request.get_full_path == "/" %}active{%  endif %}"><a  class="blue-text" href="/">{% trans "Home" %}</a></li>
+                {% if user.is_authenticated != True %}<li class="{% if request.get_full_path == "/register" %}active{%  endif %}"><a  class="blue-text" href="/register">{% trans "Register" %}</a></li>{% endif %}
+                {% if user.is_authenticated == True %}<li class="{% if request.get_full_path == "/accounts/members" %}active{%  endif %}"><a  class="blue-text" href="/accounts/members">{% trans 'Members' %}</a></li>{% endif %}
+                {% if user.is_authenticated == True %}<li class="{% if request.get_full_path == "/accounts/profile" %}active{%  endif %}"><a  class="blue-text" href="/accounts/profile">{{ user.first_name|default:'Profile' }}</a></li>{% endif %}
+                {% if user.is_authenticated == True %}<li><a  class="blue-text" href="/accounts/logout">{% trans 'Logout' %}</a></li>{% endif %}
+                {% if user.is_authenticated != True %}<li class="{% if request.get_full_path == "/accounts/login" %}active{%  endif %}"><a  class="blue-text" href="/accounts/login">{% trans 'Login' %}</a></li>{% endif %}
+                {% if user.is_staff == True %}<li><a  class="blue-text" href="/admin">{% trans "Admin" %}</a></li>{% endif %}
+            </ul>
+        </div>
+    </nav>
+</header>
+<main>
+    <div class="back-ribbon"></div>
+    <div id="main">
+        <div class="container">
+            {% block content %}{% endblock %}
+        </div>
+    </div>
+</main>
+    <footer class="page-footer grey darken-2">
+        <div class="container">
+          <div class="row">
+            <div class="col l6 s12">
+              <h5 class="white-text">FabLab la Côte</h5>
+              <p class="grey-text text-lighten-4">Make!</p>
+
+
+            </div>
+            <div class="col l3 s12">
+              <h5 class="white-text">Social</h5>
+              <ul>
+                <li><a  class="grey-text lighten-4" href="http://www.fablab-lacote.ch/">FabLab la Côte</a></li>
+                <li><a  class="grey-text lighten-4" href="http://www.fablab-lacote.ch/wiki">Wiki</a></li>
+                <li><a  class="grey-text lighten-4" href="https://www.facebook.com/FabLabLaCote">Facebook</a></li>
+              </ul>
+            </div>
+            <div class="col l3 s12">
+              <h5 class="white-text">Code</h5>
+              <ul>
+                <li><a  class="grey-text lighten-4" href="https://trello.com/fablablacote">Trello</a></li>
+                <li><a  class="grey-text lighten-4" href="https://github.com/FabLab-LaCote">Github</a></li>
+                <li><a  class="grey-text lighten-4" href="https://github.com/bfritscher/fablab-admin/issues">Report bug / new feature</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="footer-copyright">
+          <div class="container">
+            Powered by <a class="blue-grey-text text-lighten-2" href="https://github.com/bfritscher/fablab-admin">Fablab-admin</a>
+          </div>
+        </div>
+    </footer>
+    <script src="{% static 'admin/js/vendor/jquery/jquery.min.js' %}" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+    {% include 'autocomplete_light/static.html' %}
+    <script>
+        $( document ).ready(function(){
+            $(".button-collapse").sideNav();
+            {% block readyscript %}{% endblock %}
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="An innovative ice cream kiosk for small offices, developed at the University of Applied Sciences Western Switzerland (HES-SO), HEG Arc.">
+    <meta name="author" content="See https://github.com/HEG-Arc/gelato/blob/master/CONTRIBUTORS.txt">
+    <link rel="shortcut icon" href="{% static "ico/favicon.ico" %}">
+
+    <title>
+        {% block title %}Gelato{% endblock title %}
+    </title>
+
+    {% block stylesheets %}
+        <!-- Bootstrap core CSS -->
+        <link href="{% static "css/bootstrap.min.css" %}" rel="stylesheet">
+        <!-- Custom styles for this template -->
+        <link href="{% static "css/justified_nav.css" %}" rel="stylesheet"\>
+        <link href="{% static "css/gelato.css" %}" rel="stylesheet">
+    {% endblock stylesheets %}
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="container">
+
+      <div class="masthead">
+        <h3 class="text-muted"><a href="{% url 'home' %}"><img src="{% static "img/logo_gelato_200.png" %}" /></a></h3>
+        <ul class="nav nav-justified">
+          <li><a href="{% url 'home' %}">Accueil</a></li>
+          <li><a href="{% url 'produit' %}">Produits</a></li>
+          <li><a href="{% url 'dashboard' %}">Compte</a></li>
+          <li><a href="{% url 'about' %}">A propos</a></li>
+          <li class="dropdown"><a href="" class="dropdown-toggle" data-toggle="dropdown" role="button">Admin<b class="caret"></b></a>
+            <ul class="dropdown-menu" aria-labelledby="drop3" role="menu">
+                <li role="presentation">
+                    <a href="" tabindex="-1" role="menuitem">Users list</a>
+                </li>
+                <li class="divider" role="presentation"></li>
+                <li role="presentation">
+                    <a href="http://localhost:8000/admin" tabindex="-1" role="menuitem">Admin backend</a>
+                </li>
+                <li class="divider" role="congelateur"></li>
+                <li role="presentation">
+                    <a href="{% url 'congo' %}" tabindex="-1" role="menuitem">Gestion congélateur</a>
+                </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+
+      {% block content %}
+
+      {% endblock content %}
+
+      <!-- Site footer -->
+      <div class="footer">
+        <p>&copy; HES-SO // HEG Arc 2016</p>
+      </div>
+
+    </div> <!-- /container -->
+
+    {% block javascripts %}
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="{% static "js/jquery-2.1.0.min.js" %}"></script>
+    <script src="{% static "js/bootstrap.min.js" %}"></script>
+    {% endblock javascripts %}
+  </body>
+</html>
