@@ -7,7 +7,7 @@ class ClientAdmin(admin.ModelAdmin):
 class DemandeAdmin(admin.ModelAdmin):
     list_display = ('id', 'clientDemandeur', 'clientReceveur', 'montant', 'mode', 'accepte', 'dateDemande')
 
-
 admin.site.register(Client, ClientAdmin)
 admin.site.register(Demande, DemandeAdmin)
 admin.site.register(Mode)
+admin.site.register(Compte)
