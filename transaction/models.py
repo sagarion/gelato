@@ -24,7 +24,7 @@ class Transaction(models.Model):
 
 
 class LigneTransaction(models.Model):
-    transaction = models.ForeignKey(Transaction, related_name="lignes", verbose_name="Ligne transaction")
+    transaction = models.ForeignKey(Transaction, related_name="lignes", verbose_name="Transaction")
     glace = models.ForeignKey(Glace, related_name="glaces", verbose_name="Glace de la transaction")
     quantite = models.IntegerField
     prix = models.DecimalField(max_digits=5, decimal_places=2, verbose_name="Montant de la ligne")
