@@ -1,4 +1,4 @@
-from django.conf.urls import patterns, url
+from django.conf.urls import patterns, url, include
 
 from . import views
 from congelateur.views import CongelateurListView, CongelateurDetailView, GlaceView
@@ -12,7 +12,8 @@ urlpatterns = [
     url(r'^discover$', views.discover, name='discover'),
     url(r'^dashboard$', views.dashboard, name='dashboard'),
     url(r'^produit/(?P<pk>\d+)/$', CongelateurDetailView.as_view(), name='congelo-detail'),
-    url(r'^categorie/(?P<p_id>\d+)$', views.lire, name='listeCat')
+    url(r'^categorie/(?P<p_id>\d+)$', views.lire, name='listeCat'),
+    url(r'^client/', include('client.urls')),
 ]
 
 

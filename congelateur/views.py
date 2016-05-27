@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, render_to_response, get_object_or_404
 from congelateur.models import Glace, Congelateur, Categorie
 from django.views.generic import TemplateView, ListView, DetailView
@@ -14,6 +15,7 @@ def about(request):
 def discover(request):
     return render(request, 'congelateur/discover.html', locals())
 
+@login_required
 def dashboard(request):
     return render(request, 'congelateur/dashboard.html', locals())
 
