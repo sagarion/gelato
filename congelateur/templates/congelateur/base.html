@@ -40,21 +40,30 @@
           <li><a href="{% url 'produit' %}">Produits</a></li>
           <li><a href="{% url 'dashboard' %}">Compte</a></li>
           <li><a href="{% url 'about' %}">A propos</a></li>
+            {% if user.is_superuser %}
           <li class="dropdown"><a href="" class="dropdown-toggle" data-toggle="dropdown" role="button">Admin<b class="caret"></b></a>
             <ul class="dropdown-menu" aria-labelledby="drop3" role="menu">
+
+
+                <li role="presentation">
+                    <a href="" tabindex="-1" role="menuitem">Tableaux de bord</a>
+                </li>
+                <li class="divider" role="presentation"></li>
                 <li role="presentation">
                     <a href="" tabindex="-1" role="menuitem">Users list</a>
                 </li>
+
                 <li class="divider" role="presentation"></li>
                 <li role="presentation">
                     <a href="http://localhost:8000/admin" tabindex="-1" role="menuitem">Admin backend</a>
                 </li>
-                <li class="divider" role="congelateur"></li>
+                <li class="divider" role="presentation"></li>
                 <li role="presentation">
                     <a href="{% url 'congo' %}" tabindex="-1" role="menuitem">Gestion congélateur</a>
                 </li>
+
             </ul>
-          </li>
+          </li>{% endif %}
         </ul>
       </div>
 
