@@ -1,1 +1,0 @@
-Users uploaded brands' logos

@@ -1,7 +1,0 @@
-# Local development dependencies go here
--r base.txt
-Sphinx
-django-debug-toolbar
-docutils
-pygraphviz
-

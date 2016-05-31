@@ -1,1 +1,0 @@
-Users uploaded products' pictures

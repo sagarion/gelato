@@ -1,4 +1,0 @@
-python-daemon
-evdev
-requests
-web.py

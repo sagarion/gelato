@@ -1,1 +1,0 @@
-Users uploaded categories' logos

@@ -1,5 +1,8 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, render_to_response, get_object_or_404
 from congelateur.models import Glace, Congelateur, Categorie
+from client import *
+from django.contrib.auth.models import User
 from django.views.generic import TemplateView, ListView, DetailView
 
 # Create your views here.
@@ -24,7 +27,7 @@ def home(request):
 
 class GlaceView(TemplateView):
     template_name = 'congelateur/glace_list.html'
-
+    @login_required(login_url='client/connexion.html')
     def get_context_data(self, **kwargs):
         context = super(GlaceView, self).get_context_data(**kwargs)
         context['glaces'] = Glace.objects.all()
@@ -51,6 +54,7 @@ def lire(request, p_id):
     toutesLesCats = Categorie.objects.all()
 
     return render(request, 'congelateur/glace_categorie.html', {'cat': categorie, 'gl': glaces, 'cats':toutesLesCats})
+
 
 
 class CongelateurListView(ListView):

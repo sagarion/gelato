@@ -1,5 +1,0 @@
-Django
-django-extensions
-Pillow
-psycopg2
-pytz
