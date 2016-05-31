@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block title %}Credit account{% endblock %}
+{% block stylesheets %}
+    {{ block.super }}
+{% endblock stylesheets %}
+{% block content %}
+    {{ block.super }}
+    <div class="row">
+        <div class="col-lg-12">
+            <h2>Créditer le compte Gelato</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-8">
+            <p>Vous pouvez créditer votre compte Gelato en utilisant votre compte Paypal ou avec de l'argent
+               liquide. Dans tous les cas, vous pouvez vous faire restituer le solde de votre compte en tout temps en passant
+               au bureau 150.</p>
+            <h3>Créditer le compte avec du cash</h3>
+            <p>Pour créditer votre compte, rien de plus facile! Vous passez au bureau 150 avec le montant que vous désirez
+               créditer sur votre compte en cash (montant exact, pas de retour de monnaie).</p>
+            <p>Nous créditons votre compte directement et votre solde est instantanément disponible.</p>
+
+            <h3>Créditer le compte avec Paypal</h3>
+            <p>Grâce à ce service vous pouvez créditer votre compte en tout temps, même lorsque vous êtes devant le kiosk...
+               Le crédit est instantanément disponible et tout excédent vous sera remboursé en passant au bureau 150.</p>
+            <p>Lors d'un paiement Paypal par carte de crédit, des <strong>frais de transaction sont prélevés</strong>.
+               Ces frais sont débités de votre compte lors de la comptabilisation de votre crédit et ne sont pas
+               remboursables. Vous devez avoir un compte Paypal pour pouvoir créditer votre compte.</p>
+
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title">Crédit Paypal</h3>
+              </div>
+              <div class="panel-body">
+                  <dl class="dl-horizontal">
+                      <dt>Compte:</dt>
+                      <dd>{{ user.first_name }} {{ user.last_name }}</dd>
+                      <dt>Solde:</dt>
+                      <dd>CHF XXX.XX</dd>
+                      <dt>Montant:</dt>
+                      <dd><select id="paypal_amount" name="paypal_amount"><option value="10.00">CHF 10.00 (-0.84 frais)</option>
+                    <option selected value="20.00">CHF 20.00 (-1.13 frais)</option><option value="30.00">CHF 30.00  (-1.42 frais)</option>
+                    <option value="50.00">CHF 50.00  (-2.00 frais)</option><option value="80.00">CHF 80.00  (-2.87 frais)</option></select></dd>
+                      <dt>&nbsp;</dt>
+                      <dd>&nbsp;</dd>
+                      <dt>&nbsp;</dt>
+                      <dd>{{ form.render }}</dd>
+                  </dl>
+              </div>
+            </div>
+
+
+
+        </div>
+        <div class="col-lg-4">
+            <p><img class="img-rounded pull-right" src="{% static "img/youth-ice-cream.png" %}"></p>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ block.super }}
+    <script type="text/javascript">
+    $('#paypal_amount').change(function() {
+            $('input#id_amount').val($(this).val())
+    });
+    </script>
+{% endblock %}

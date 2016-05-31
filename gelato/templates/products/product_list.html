@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block title %}Products{% endblock %}
+{% block stylesheets %}
+    {{ block.super }}
+{% endblock stylesheets %}
+{% block content %}
+    {{ block.super }}
+    <div class="row">
+        <div class="col-lg-10">
+            <h2>Products list</h2>
+            <table class="table table-hover">
+                <tr>
+                    <th>Category</th>
+                    <th>Brand</th>
+                    <th colspan="2">Product</th>
+                    <th>Stock</th>
+                    <th>Price</th>
+                </tr>
+            {% for object in object_list %}
+                <tr>
+                    <th><a href="{% url 'products_by_category' object.category.id %}"><img src="{{ object.category.picture.url }}" alt="{{ object.category.name }}" title="{{ object.category.name }}" /></a></th>
+                    <td><a href="{% url 'products_by_brand' object.brand.id %}"><img src="{{ object.brand.logo.url }}" alt="{{ object.brand.name }}" title="{{ object.brand.name }}" /></a></td>
+                    <td><a href="{% url 'product_detail' object.id %}"><img src="{{ object.k_picture.url }}" /></a></td>
+                    <td><a href="{% url 'product_detail' object.id %}">{{ object.name }}</a></td>
+                    <td class="text-right">{{ object.stock }}</td>
+                    <td class="text-right">{{ object.price|floatformat:"2" }}</td>
+                </tr>
+            {% endfor %}
+            </table>
+        </div>
+        <div class="col-lg-2">
+            <h3>Sort</h3>
+
+            <h4>Brand</h4>
+            <ul class="logo-list">
+                {% for brand in brands %}
+                    <li><a href="{% url 'products_by_brand' brand.id %}"><img src="{{ brand.logo.url }}" alt="{{ brand.name }}" title="{{ brand.name }}" /></a></li>
+                {% endfor %}
+            </ul>
+
+            <h4>Category</h4>
+            <ul class="logo-list">
+                {% for category in categories %}
+                    <li><a href="{% url 'products_by_category' category.id %}"><img src="{{ category.picture.url }}" alt="{{ category.name }}" title="{{ category.name }}" /></a></li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "kiosk/base.html" %}
+{% load staticfiles %}
+{% block title %}Kiosk Admin{% endblock %}
+{% block stylesheets %}
+    {{ block.super }}
+{% endblock stylesheets %}
+{% block content %}
+    <script src="{% static "js/jquery-2.1.0.min.js" %}"></script>
+    <script>
+     var openDoorUrl = "http://127.0.0.1:8080/admin/{{ user.id }}/";
+     $.getJSON(openDoorUrl, function (response) {
+         var jsonData = response;
+     });
+     $.getJSON(openDoorUrl, function( response ) {
+        jsonData = response;
+     });
+        var kioskMessage = response.message;
+        console.log('Kiosk Message : ', kioskMessage);
+
+        var kioskSuccess = response.success;
+        console.log('Kiosk Success : ', kioskSuccess);
+
+    </script>
+    {{ block.super }}
+    <div class="row">
+        <h1>Kiosk admin</h1>
+        <p>Nothing to show now... Just opening the door...</p>
+    </div>
+
+{% endblock %}

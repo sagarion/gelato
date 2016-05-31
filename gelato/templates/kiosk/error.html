@@ -1,0 +1,24 @@
+{% extends "kiosk/base.html" %}
+{% load staticfiles %}
+{% block title %}Create account{% endblock %}
+{% block stylesheets %}
+    {{ block.super }}
+{% endblock stylesheets %}
+{% block content %}
+    {{ block.super }}
+    <div class="row">
+        <div class="col-lg-12">
+            <h2>Erreur</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-5">
+            <h1>{{ error.title }}</h1>
+            <p>{{ error.message }}</p>
+        </div>
+        <div class="col-lg-7">
+            <p><img class="img-rounded pull-right" src="{% static "img/error.png" %}"></p>
+        </div>
+    </div>
+
+{% endblock %}
