@@ -27,7 +27,7 @@ def home(request):
 
 class GlaceView(TemplateView):
     template_name = 'congelateur/glace_list.html'
-    @login_required(login_url='client/connexion.html')
+
     def get_context_data(self, **kwargs):
         context = super(GlaceView, self).get_context_data(**kwargs)
         context['glaces'] = Glace.objects.all()
