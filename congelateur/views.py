@@ -17,6 +17,7 @@ def about(request):
 def discover(request):
     return render(request, 'congelateur/discover.html', locals())
 
+@login_required
 def dashboard(request):
     return render(request, 'congelateur/dashboard.html', locals())
 
