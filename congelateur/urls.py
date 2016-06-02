@@ -11,6 +11,7 @@ urlpatterns = [
     url(r'^about$', views.about, name='about'),
     url(r'^discover$', views.discover, name='discover'),
     url(r'^dashboard$', views.dashboard, name='dashboard'),
+    url(r'^achat/(?P<p_idGlace>\d+)$', views.achat, name='achat'),
     url(r'^produit/(?P<pk>\d+)/$', CongelateurDetailView.as_view(), name='congelo-detail'),
     url(r'^categorie/(?P<p_id>\d+)$', views.lire, name='listeCat'),
     url(r'^client/', include('client.urls')),

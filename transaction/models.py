@@ -1,6 +1,7 @@
 from django.db import models
 from client.models import Client
 from congelateur.models import Glace
+from django.db.models import Count, Min, Sum, Avg
 
 # Create your models here.
 
@@ -29,3 +30,5 @@ class LigneTransaction(models.Model):
     glace = models.ForeignKey(Glace, related_name="glaces", verbose_name="Glace de la transaction")
     quantite = models.IntegerField
     prix = models.DecimalField(max_digits=5, decimal_places=2, verbose_name="Montant de la ligne")
+
+

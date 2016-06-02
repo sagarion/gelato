@@ -16,6 +16,7 @@
                     <th>Calories</th>
                     <th>Prix</th>
                     <th>Image</th>
+                    <th></th>
                 </b></tr>
                 {{gl.libelle}}
             {% for g in gl %}
@@ -25,6 +26,11 @@
                     <th>{{g.calories}}</th>
                     <th>{{g.prixVente}}</th>
                     <th><img height="50" width="50" src="{{ g.image.url }}" /></th>
+                    <th>
+                        <FORM ACTION="">
+                            <INPUT TYPE="SUBMIT" VALUE="Acheter">
+                        </FORM>
+                    </th>
                 </tr>
             {% endfor %}
                 <tr><th colspan="5"><a href="{% url 'produit' %}"><b>Tous les produits</b></a></th></tr>

@@ -1,8 +1,6 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, render_to_response, get_object_or_404
 from congelateur.models import Glace, Congelateur, Categorie
-from client import *
-from django.contrib.auth.models import User
 from django.views.generic import TemplateView, ListView, DetailView
 
 # Create your views here.
@@ -24,6 +22,11 @@ def dashboard(request):
 def home(request):
     return render(request, 'congelateur/home.html')
 
+@login_required
+def achat(request, p_idGlace):
+
+    glace = get_object_or_404(Glace, id=p_idGlace)
+    return render(request, 'congelateur/achat.html', {'gl': glace})
 
 
 class GlaceView(TemplateView):
