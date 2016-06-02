@@ -17,10 +17,11 @@ class Transaction(models.Model):
     type = models.CharField(max_length=2, choices=TYPE)
     image = models.ImageField(upload_to='transactions', verbose_name="Image", blank=True, null=True)
     client = models.ForeignKey(Client, related_name="clients", verbose_name="Client de la transaction")
+    total = models.DecimalField(max_digits=5, decimal_places=2, verbose_name="Total de transaction")
 
 
     def __str__(self):
-            return self.id
+            return self.code
 
 
 class LigneTransaction(models.Model):
@@ -28,6 +29,3 @@ class LigneTransaction(models.Model):
     glace = models.ForeignKey(Glace, related_name="glaces", verbose_name="Glace de la transaction")
     quantite = models.IntegerField
     prix = models.DecimalField(max_digits=5, decimal_places=2, verbose_name="Montant de la ligne")
-
-    def __str__(self):
-            return self.transaction

@@ -5,6 +5,15 @@ from transaction.models import *
 
 
 
+class LigneInline(admin.TabularInline):
+    model = LigneTransaction
+    fields = ('glace', 'prix')
 
-admin.site.register(Transaction)
+
+
+class TransactionAdmin(admin.ModelAdmin):
+    model = Transaction
+    inlines = (LigneInline,)
+
+admin.site.register(Transaction, TransactionAdmin)
 admin.site.register(LigneTransaction)
