@@ -6,6 +6,11 @@
 {% endblock stylesheets %}
 {% block content %}
     {{ block.super }}
+{% if user.is_authenticated %}
+{% else %}
+    Pour acheter un produit, connectez vous !
+{% endif %}
+
     <div class="row">
         <div class="col-lg-10">
             <h2>Liste des produits</h2>
@@ -25,9 +30,11 @@
                     <th>{{g.calories}}</th>
                     <th>{{g.prixVente}}</th>
                     <th><img height="50" width="50" src="{{ g.image.url }}" /></th>
+                    {% if user.is_authenticated %}
                     <th>
                         <a href="{% url 'achat' g.id %}">Acheter</a>
                     </th>
+                    {% endif %}
                 </tr>
             {% endfor %}
             </table>

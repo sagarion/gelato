@@ -43,4 +43,4 @@ def connexion(request):
 
 def deconnexion(request):
     logout(request)
-    return redirect(reverse(connexion))
+    return render(request, 'congelateur/dashboard.html', locals())

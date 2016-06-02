@@ -14,6 +14,7 @@ urlpatterns = [
     url(r'^achat/(?P<p_idGlace>\d+)$', views.achat, name='achat'),
     url(r'^produit/(?P<pk>\d+)/$', CongelateurDetailView.as_view(), name='congelo-detail'),
     url(r'^categorie/(?P<p_id>\d+)$', views.lire, name='listeCat'),
+    #url(r'^validationAchat/(?P<p_id>\d+)$', views.lire, name='listeCat'),
     url(r'^client/', include('client.urls')),
 ]
 

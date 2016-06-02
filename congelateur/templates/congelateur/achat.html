@@ -8,8 +8,16 @@
     {{ block.super }}
     <div class="row">
         <div class="col-lg-10">
-            La glace : {{gl.libelle}}
+            Récapitulatif :<br>
+            Glace sélectionnée :<br>
+            libelle : {{gl.libelle}}<br>
+            datePeremption : {{gl.datePeremption}}<br>
+            calories : {{gl.calories}}<br>
+            prix : {{gl.prixVente}}
 
+            <form method="get" action="{% url 'validationAchat' gl.id, user.id">
+                <input type="button" value="Valider mon achat">
+            </form>
         </div>
     </div>
 {% endblock %}
