@@ -1,7 +1,12 @@
 from django.contrib.auth.decorators import login_required
+from django.db.models import Max
+from django.http import HttpResponse
 from django.shortcuts import render, render_to_response, get_object_or_404
 from congelateur.models import Glace, Congelateur, Categorie
+from transaction.models import Transaction, LigneTransaction
+from client.models import *
 from django.views.generic import TemplateView, ListView, DetailView
+from django.utils import timezone
 
 # Create your views here.
 
@@ -75,3 +80,27 @@ class CongelateurDetailView(DetailView):
         return context
 
 
+def transactionAchat(request, idGlace, idClient):
+    cli = get_object_or_404(User, id=idClient)
+    glace = get_object_or_404(Glace, id=idGlace)
+
+    t = Transaction()
+    t.type = achat
+    t.code = timezone.now()
+    t.client = cli
+    t.total = 0
+    t.save()
+
+
+    ligne = LigneTransaction()
+    ligne.transaction = t
+    ligne.glace = glace
+    ligne.quantite = 1
+    ligne.prix = glace.prixVente
+    t.total = t.total + ligne.prix
+
+
+    ligne.save()
+
+    html = "<html><body>It is now </body></html>"
+    return HttpResponse(html)

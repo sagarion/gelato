@@ -1,5 +1,6 @@
+from django.contrib.auth.models import User
 from django.db import models
-from client.models import Client
+from client.models import Compte
 from congelateur.models import Glace
 from django.db.models import Count, Min, Sum, Avg
 
@@ -17,7 +18,7 @@ class Transaction(models.Model):
     )
     type = models.CharField(max_length=2, choices=TYPE)
     image = models.ImageField(upload_to='transactions', verbose_name="Image", blank=True, null=True)
-    client = models.ForeignKey(Client, related_name="clients", verbose_name="Client de la transaction")
+    client = models.ForeignKey(User, related_name="clients", verbose_name="Client de la transaction")
     total = models.DecimalField(max_digits=5, decimal_places=2, verbose_name="Total de transaction")
 
 
