@@ -14,11 +14,9 @@
             datePeremption : {{gl.datePeremption}}<br>
             calories : {{gl.calories}}<br>
             prix : {{gl.prixVente}}
-            <a href="{% url 'validationAchat' idGlace=gl.id idClient=user.id %}">Clique</a>
-
-            <form method="post" action="{% url 'validationAchat' gl.id user.id %}">
-                <input type="button" value="Valider mon achat">
-            </form>
-        </div>
+            <p>
+                <a href="{% url 'validationAchat' idGlace=gl.id idClient=user.id %}"><input type="button" value="Acheter la glace"></a>
+            </p>
+            </div>
     </div>
 {% endblock %}

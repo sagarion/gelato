@@ -85,7 +85,7 @@ def transactionAchat(request, idGlace, idClient):
     glace = get_object_or_404(Glace, id=idGlace)
 
     t = Transaction()
-    t.type = achat
+    t.type = 'A'
     t.code = timezone.now()
     t.client = cli
     t.total = 0
