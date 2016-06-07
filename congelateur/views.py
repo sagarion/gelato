@@ -101,6 +101,7 @@ def transactionAchat(request, idGlace, idClient):
 
 
     ligne.save()
+    t.save()
 
     html = "<html><body>It is now </body></html>"
     return HttpResponse(html)
