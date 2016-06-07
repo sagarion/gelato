@@ -39,7 +39,10 @@ class GlaceView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(GlaceView, self).get_context_data(**kwargs)
-        context['glaces'] = Glace.objects.all()
+
+        context['glaces'] = Glace.objects.filter(statut='A')
+        #context['glaces'] = Glace.objects.all()
+        #Post.objects.filter(author=me)
         context['cats'] = Categorie.objects.all()
         return context
 
@@ -98,8 +101,10 @@ def transactionAchat(request, idGlace, idClient):
     ligne.quantite = 1
     ligne.prix = glace.prixVente
     t.total = t.total + ligne.prix
+    glace.statut = 'V'
 
 
+    glace.save()
     ligne.save()
     t.save()
 
