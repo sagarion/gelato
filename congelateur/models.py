@@ -47,6 +47,13 @@ class Glace (models.Model):
         fournisseur = models.CharField(max_length=50, choices=listeFournisseurs, default=ADMIN, verbose_name="Fournisseur")
         bac = models.ForeignKey(Bac, verbose_name="Bac ou trouver la glace")
         cat = models.ForeignKey('Categorie', related_name="glaces", verbose_name="Catégorie de la glace")
+        Avendre = 'A'
+        Vendu = 'V'
+        STATUT = (
+            (Avendre, 'A vendre'),
+            (Vendu, 'Vendue'),
+        )
+        statut = models.CharField(max_length=2, choices=STATUT)
 
 
         def __str__(self):
