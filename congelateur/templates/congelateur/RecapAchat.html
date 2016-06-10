@@ -1,0 +1,17 @@
+{% extends "congelateur/base.html" %}
+{% load staticfiles %}
+{% block title %}Products{% endblock %}
+{% block stylesheets %}
+    {{ block.super }}
+{% endblock stylesheets %}
+{% block content %}
+    {{ block.super }}
+    <div class="row">
+        <div class="col-lg-10">
+            <b>Situation de la glace :</b><br>
+            Congélateur : {{congo}}<br>
+            Tiroir : {{tiroir}}<br>
+            Bac : {{bac}}<br>
+            </div>
+    </div>
+{% endblock %}

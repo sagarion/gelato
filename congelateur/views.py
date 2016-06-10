@@ -87,6 +87,10 @@ def transactionAchat(request, idGlace, idClient):
     cli = get_object_or_404(User, id=idClient)
     glace = get_object_or_404(Glace, id=idGlace)
 
+    bac = glace.bac
+    tiroir = bac.tiroir
+    congo = tiroir.congelateur
+
     t = Transaction()
     t.type = 'A'
     t.code = timezone.now()
@@ -108,5 +112,5 @@ def transactionAchat(request, idGlace, idClient):
     ligne.save()
     t.save()
 
-    html = "<html><body>It is now </body></html>"
-    return HttpResponse(html)
+    return render(request, 'congelateur/RecapAchat.html', {'bac': bac, 'tiroir':tiroir, 'congo':congo})
+
