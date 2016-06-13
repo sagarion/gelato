@@ -11,6 +11,15 @@
     Pour acheter un produit, connectez vous !
 {% endif %}
 
+
+{% if messages %}
+<div class="messages">
+    {% for message in messages %}
+    <b {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</b>
+    {% endfor %}
+</div>
+{% endif %}
+
     <div class="row">
         <div class="col-lg-10">
             <h2>Liste des produits</h2>
@@ -32,7 +41,8 @@
                     <th><img height="50" width="50" src="{{ g.image.url }}" /></th>
                     {% if user.is_authenticated %}
                     <th>
-                        <a href="{% url 'achat' g.id %}">Acheter</a>
+                        <a href="{% url 'achat' idGlace=g.id idClient=user.id %}">Acheter</a>
+
                     </th>
                     {% endif %}
                 </tr>

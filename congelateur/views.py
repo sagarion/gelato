@@ -1,12 +1,13 @@
 from django.contrib.auth.decorators import login_required
 from django.db.models import Max
 from django.http import HttpResponse
-from django.shortcuts import render, render_to_response, get_object_or_404
+from django.shortcuts import render, render_to_response, get_object_or_404, redirect
 from congelateur.models import Glace, Congelateur, Categorie
 from transaction.models import Transaction, LigneTransaction
 from client.models import *
 from django.views.generic import TemplateView, ListView, DetailView
 from django.utils import timezone
+from django.contrib import messages
 
 # Create your views here.
 
@@ -28,10 +29,18 @@ def home(request):
     return render(request, 'congelateur/home.html')
 
 @login_required
-def achat(request, p_idGlace):
+def achat(request, idGlace, idClient):
+    cli = get_object_or_404(User, id=idClient)
+    compte = get_object_or_404(Compte, user=idClient)
+    solde = compte.solde
+    glace = get_object_or_404(Glace, id=idGlace)
 
-    glace = get_object_or_404(Glace, id=p_idGlace)
-    return render(request, 'congelateur/achat.html', {'gl': glace})
+    if(glace.prixVente > solde):
+        messages.error(request, 'Solde insuffisant !')
+        #return render(request, 'congelateur/glace_list.html')
+        return redirect('produit')
+    else:
+        return render(request, 'congelateur/achat.html', {'gl': glace})
 
 
 class GlaceView(TemplateView):

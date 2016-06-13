@@ -26,11 +26,12 @@
                     <th>{{g.calories}}</th>
                     <th>{{g.prixVente}}</th>
                     <th><img height="50" width="50" src="{{ g.image.url }}" /></th>
+                    {% if user.is_authenticated %}
                     <th>
-                        <FORM ACTION="">
-                            <INPUT TYPE="SUBMIT" VALUE="Acheter">
-                        </FORM>
+                        <a href="{% url 'achat' idGlace=g.id idClient=user.id %}">Acheter</a>
+
                     </th>
+                    {% endif %}
                 </tr>
             {% endfor %}
                 <tr><th colspan="5"><a href="{% url 'produit' %}"><b>Tous les produits</b></a></th></tr>

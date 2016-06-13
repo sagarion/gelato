@@ -8,12 +8,14 @@
     {{ block.super }}
     <div class="row">
         <div class="col-lg-10">
+
             Récapitulatif :<br>
             Glace sélectionnée :<br>
             libelle : {{gl.libelle}}<br>
             datePeremption : {{gl.datePeremption}}<br>
             calories : {{gl.calories}}<br>
             prix : {{gl.prixVente}}
+
             <p>
                 <a href="{% url 'validationAchat' idGlace=gl.id idClient=user.id %}"><input type="button" value="Acheter la glace"></a>
             </p>
