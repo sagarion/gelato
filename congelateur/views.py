@@ -86,6 +86,8 @@ class CongelateurDetailView(DetailView):
 def transactionAchat(request, idGlace, idClient):
     cli = get_object_or_404(User, id=idClient)
     glace = get_object_or_404(Glace, id=idGlace)
+    compte = get_object_or_404(Compte, user=idClient)
+    solde = compte.solde
 
     bac = glace.bac
     tiroir = bac.tiroir
@@ -107,10 +109,12 @@ def transactionAchat(request, idGlace, idClient):
     t.total = t.total + ligne.prix
     glace.statut = 'V'
 
+    compte.solde = solde - t.total
 
+    compte.save()
     glace.save()
     ligne.save()
     t.save()
 
-    return render(request, 'congelateur/RecapAchat.html', {'bac': bac, 'tiroir':tiroir, 'congo':congo})
+    return render(request, 'congelateur/RecapAchat.html', {'bac': bac, 'tiroir':tiroir, 'congo':congo, 'solde':compte.solde})
 
