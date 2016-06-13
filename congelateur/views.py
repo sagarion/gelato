@@ -37,7 +37,6 @@ def achat(request, idGlace, idClient):
 
     if(glace.prixVente > solde):
         messages.error(request, 'Solde insuffisant !')
-        #return render(request, 'congelateur/glace_list.html')
         return redirect('produit')
     else:
         return render(request, 'congelateur/achat.html', {'gl': glace})
