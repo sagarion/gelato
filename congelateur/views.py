@@ -23,7 +23,10 @@ def discover(request):
 
 @login_required
 def dashboard(request):
-    return render(request, 'congelateur/dashboard.html', locals())
+    userConnected = request.user
+    compte = get_object_or_404(Compte, user=userConnected)
+    listeUtilisateurs = Compte.objects.exclude(user=userConnected)
+    return render(request, 'congelateur/dashboard.html', {'user':compte, 'listUsers':listeUtilisateurs})
 
 def home(request):
     return render(request, 'congelateur/home.html')
