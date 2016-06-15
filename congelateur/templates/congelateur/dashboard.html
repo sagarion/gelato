@@ -41,4 +41,35 @@
               </div>
           </div>
       </div>
+    <div class="row">
+        <div class="col-lg-6">
+            <h1>Mes transactions</h1>
+            <table class="table">
+                <tr>
+                    <th>Code</th>
+                    <th>Type</th>
+                    <th>Total</th>
+                </tr>
+
+            {% for tr in t %}
+                     <tr>
+                         <td><button data-toggle="collapse" data-target="#details">{{tr.code}}</button></td>
+                         <td>{{tr.type}}</td>
+                         <td>{{tr.total}}</td>
+                     </tr>
+
+                  {% endfor %}
+                </table>
+
+        </div>
+        <div class="col-lg-6">
+
+            <div id="details" class="collapse">
+                <h1>Détails de la transactions</h1>
+                    {{tr.code}}
+            </div>
+
+        </div>
+    </div>
+
 {% endblock content %}
