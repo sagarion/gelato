@@ -5,13 +5,25 @@
       <div class="row">
           <div class="col-lg-8">
               <h1>Créer une demande d'argent</h1>
-              <select class="form-control">
+              Demande la somme à :
+              <select class="form-control" style="width:22em">
                   {% for u in listUsers %}
                       <option>{{u.prenom}} {{u.nom}}</option>
                   {% endfor %}
               </select>
+              <br>
+              Montant souhaité : <input type="number" class="form-control" style="width:22em">
+              <br>
+                Je souhait remboursé à l'aide de :
+              <select class="form-control" style="width:22em">
+              {% for m in mode %}
+                      <option>{{m.libelle}}</option>
+                  {% endfor %}
+                  </select>
+              <br>
+              <button type="button" class="btn btn-secondary">Envoyer la demande</button>
 
-              </div>
+          </div>
 
           <div class="col-lg-4">
               <div class="table-responsive">
@@ -37,6 +49,10 @@
                           <th>Solde</th>
                           <th>{{user.solde}}</th>
                       </tr>
+                      <tr>
+                          <td>Moyen de remboursement préféré</td>
+                          <td>{{user.modePrefere}}</td>
+                      </tr>
                   </table>
               </div>
           </div>
@@ -53,7 +69,7 @@
 
             {% for tr in t %}
                      <tr>
-                         <td><button data-toggle="collapse" data-target="#details">{{tr.code}}</button></td>
+                         <td>{{tr.code}}</td>
                          <td>{{tr.type}}</td>
                          <td>{{tr.total}}</td>
                      </tr>

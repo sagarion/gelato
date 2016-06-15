@@ -27,7 +27,8 @@ def dashboard(request):
     compte = get_object_or_404(Compte, user=userConnected)
     listeUtilisateurs = Compte.objects.exclude(user=userConnected)
     transactions = Transaction.objects.filter(client=userConnected)
-    return render(request, 'congelateur/dashboard.html', {'user':compte, 'listUsers':listeUtilisateurs, 't':transactions})
+    modes = Mode.objects.all()
+    return render(request, 'congelateur/dashboard.html', {'user':compte, 'listUsers':listeUtilisateurs, 't':transactions, 'mode':modes})
 
 def home(request):
     return render(request, 'congelateur/home.html')

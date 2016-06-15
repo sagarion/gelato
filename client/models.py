@@ -2,6 +2,16 @@ from django.db import models
 from django.contrib.auth.models import User
 
 
+
+
+class Mode(models.Model):
+    id = models.AutoField(primary_key=True)
+    code = models.CharField(max_length=10, unique=True, verbose_name="Code")
+    libelle = models.CharField(max_length=100, verbose_name="Libellé")
+
+    def __str__(self):
+        return self.libelle
+
 class Compte(models.Model):
     user = models.OneToOneField(User)
     mnemo = models.CharField(max_length=15, unique=True, verbose_name="Mnemonique")
@@ -27,6 +37,7 @@ class Compte(models.Model):
         (TOP, 'TOP'),
     )
     niveau = models.CharField(max_length=7, choices=NIVEAU)
+    modePrefere = models.ForeignKey(Mode, related_name="modePrefere", verbose_name="Mode de remboursement préféré")
 
     ADMIN = 'AD'
     USER = 'US'
@@ -85,13 +96,7 @@ class Client(models.Model):
         return self.mnemo
 
 
-class Mode(models.Model):
-    id = models.AutoField(primary_key=True)
-    code = models.CharField(max_length=10, unique=True, verbose_name="Code")
-    libelle = models.CharField(max_length=100, verbose_name="Libellé")
 
-    def __str__(self):
-        return self.libelle
 
 
 class Demande(models.Model):
