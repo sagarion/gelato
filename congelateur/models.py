@@ -32,10 +32,17 @@ class Bac (models.Model):
     def __str__(self):
         return self.libelle
 
+class LibelleGlace (models.Model):
+    id = models.AutoField(primary_key=True)
+    libelle = models.CharField(max_length=150, verbose_name="Libellé de la glace")
+
+    def __str__(self):
+        return self.libelle
+
 
 class Glace (models.Model):
         id = models.AutoField(primary_key=True)
-        libelle = models.CharField(max_length=100, verbose_name="Libellé")
+        libelle = models.ForeignKey(LibelleGlace, on_delete=None, verbose_name="Libellé")
         datePeremption = models.DateField(auto_now=True, verbose_name="Date de péremption")
         image = models.ImageField(upload_to='products', verbose_name="Image", blank=True, null=True)
         calories = models.DecimalField(max_digits=5, decimal_places=2, verbose_name="Callories") #Maximum 5 chiffres comptant deux décimales
@@ -56,8 +63,6 @@ class Glace (models.Model):
         statut = models.CharField(max_length=2, choices=STATUT)
 
 
-        def __str__(self):
-            return self.libelle
 
 
 class Categorie (models.Model):

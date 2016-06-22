@@ -1,8 +1,12 @@
 {% extends "congelateur/base.html" %}
 {% load staticfiles %}
-
+{% block title %}Dashboard{% endblock %}
+{% block stylesheets %}
+    {{ block.super }}
+{% endblock stylesheets %}
 {% block content %}
-      <div class="row">
+    {{ block.super }}
+    <div class="row">
           <div class="col-lg-8">
               <h1>Créer une demande d'argent</h1>
               Demande la somme à :
@@ -87,5 +91,4 @@
 
         </div>
     </div>
-
-{% endblock content %}
+{% endblock %}

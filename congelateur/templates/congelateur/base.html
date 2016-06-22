@@ -44,10 +44,10 @@
                   <br>
                   <br>
                   {% if user.is_authenticated %}
-          <a href="{% url 'deconnexion' %}">Déconnexion</a>
-          {% else %}
-            <a href="{% url 'connexion' %}">Connexion</a>
-          {% endif %}
+                      <a href="{% url 'deconnexion' %}">Déconnexion</a>
+                      {% else %}
+                        <a href="{% url 'connexion' %}">Connexion</a>
+                  {% endif %}
               </div>
               </div>
 

@@ -32,10 +32,14 @@ class CategorieAdmin(admin.ModelAdmin):
     inlines = (GlaceInline,)
     list_display = ('code', 'libelle', 'sousCategorie')
 
+class GlaceAdmin(admin.ModelAdmin):
+    model = Glace
+    list_display = ('libelle',)
+
 
 
 admin.site.register(Congelateur, CongelateurAdmin)
 admin.site.register(Tiroir, TiroirAdmin)
 admin.site.register(Bac)
-admin.site.register(Glace)
+admin.site.register(Glace, GlaceAdmin)
 admin.site.register(Categorie, CategorieAdmin)

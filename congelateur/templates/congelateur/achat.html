@@ -9,16 +9,41 @@
     <div class="row">
         <div class="col-lg-10">
 
-            Récapitulatif :<br>
-            Glace sélectionnée :<br>
-            libelle : {{gl.libelle}}<br>
-            datePeremption : {{gl.datePeremption}}<br>
-            calories : {{gl.calories}}<br>
-            prix : {{gl.prixVente}}
 
-            <p>
-                <a href="{% url 'validationAchat' idGlace=gl.id idClient=user.id %}"><input type="button" value="Acheter la glace"></a>
-            </p>
+            <h2>Récapitulatif</h2>
+            <table class="table table-hover">
+                <tr>
+                    <th></th>
+                    <th>Catégorie</th>
+                    <th>Libellé</th>
+                    <th>Calories</th>
+                    <th>Prix</th>
+                </tr>
+                <tr>
+
+                    <td><img height="50" width="50" src="{{ gl.image.url }}" /></td>
+                    <td>{{gl.cat}}</td>
+                    <td>{{gl.libelle}}</td>
+                    <td>{{gl.calories}}</td>
+                    <td>{{gl.prixVente}}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td><b>Total :</b> </td>
+                    <td>{{gl.prixVente}}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td><b>Solde après achat :</b> </td>
+                    <td>{{soldeSiAchat}}</td>
+                </tr>
+            </table>
+                <a href="{% url 'validationAchat' idGlace=gl.id idClient=user.id %}"><input type="button" value="Effectuer l'achat"></a>
+
             </div>
     </div>
 {% endblock %}

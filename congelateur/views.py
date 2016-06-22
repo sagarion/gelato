@@ -39,12 +39,13 @@ def achat(request, idGlace, idClient):
     compte = get_object_or_404(Compte, user=idClient)
     solde = compte.solde
     glace = get_object_or_404(Glace, id=idGlace)
+    soldeApresAchat = solde - glace.prixVente
 
     if(glace.prixVente > solde):
         messages.error(request, 'Solde insuffisant !')
         return redirect('produit')
     else:
-        return render(request, 'congelateur/achat.html', {'gl': glace})
+        return render(request, 'congelateur/achat.html', {'gl': glace, 'soldeSiAchat':soldeApresAchat})
 
 
 class GlaceView(TemplateView):
