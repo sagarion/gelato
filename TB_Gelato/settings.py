@@ -40,6 +40,9 @@ INSTALLED_APPS = [
     'congelateur',
     'client',
     'transaction',
+    'dal',
+    'dal_select2',
+
 
 ]
 

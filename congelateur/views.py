@@ -1,6 +1,4 @@
 from django.contrib.auth.decorators import login_required
-from django.db.models import Max
-from django.http import HttpResponse
 from django.shortcuts import render, render_to_response, get_object_or_404, redirect
 from congelateur.models import Glace, Congelateur, Categorie
 from transaction.models import Transaction, LigneTransaction
@@ -8,6 +6,7 @@ from client.models import *
 from django.views.generic import TemplateView, ListView, DetailView
 from django.utils import timezone
 from django.contrib import messages
+from dal import autocomplete
 
 # Create your views here.
 
@@ -96,6 +95,18 @@ class CongelateurDetailView(DetailView):
         context = super(CongelateurDetailView, self).get_context_data(**kwargs)
         return context
 
+class ClientAutocomplete(autocomplete.Select2QuerySetView):
+    def get_queryset(self):
+        if not self.request.user.is_authenticated():
+            return Compte.objects.none()
+
+        qs = Compte.objects.all()
+
+        if self.q:
+            qs = qs.filter(name_istartswith=self.q)
+
+        return qs
+
 
 def transactionAchat(request, idGlace, idClient):
     cli = get_object_or_404(User, id=idClient)
@@ -131,4 +142,3 @@ def transactionAchat(request, idGlace, idClient):
     t.save()
 
     return render(request, 'congelateur/RecapAchat.html', {'bac': bac, 'tiroir':tiroir, 'congo':congo, 'solde':compte.solde})
-

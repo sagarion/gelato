@@ -1,7 +1,9 @@
+from dal import autocomplete
 from django.conf.urls import patterns, url, include
 
+from client.models import Compte
 from . import views
-from congelateur.views import CongelateurListView, CongelateurDetailView, GlaceView
+from congelateur.views import CongelateurListView, CongelateurDetailView, GlaceView, ClientAutocomplete
 
 urlpatterns = [
     url(r'^accueil$', views.accueil, name='accueil'),
@@ -16,6 +18,9 @@ urlpatterns = [
     url(r'^categorie/(?P<p_id>\d+)$', views.lire, name='listeCat'),
     url(r'^validationAchat/(?P<idGlace>\d+)/(?P<idClient>\d+)$', views.transactionAchat, name='validationAchat'),
     url(r'^client/', include('client.urls')),
+    url('client-autocomplete/$', ClientAutocomplete.as_view(), name='client-autocomplete',),
+
+
 ]
 
 
