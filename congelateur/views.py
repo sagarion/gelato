@@ -1,6 +1,6 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, render_to_response, get_object_or_404, redirect
-from congelateur.models import Glace, Congelateur, Categorie
+from congelateur.models import *
 from transaction.models import Transaction, LigneTransaction
 from client.models import *
 from django.views.generic import TemplateView, ListView, DetailView
@@ -37,10 +37,10 @@ def achat(request, idGlace, idClient):
     cli = get_object_or_404(User, id=idClient)
     compte = get_object_or_404(Compte, user=idClient)
     solde = compte.solde
-    glace = get_object_or_404(Glace, id=idGlace)
-    soldeApresAchat = solde - glace.prixVente
+    glace = get_object_or_404(Produit, id=idGlace)
+    soldeApresAchat = solde - glace.prixVenteConseille
 
-    if(glace.prixVente > solde):
+    if(glace.prixVenteConseille > solde):
         messages.error(request, 'Solde insuffisant !')
         return redirect('produit')
     else:
@@ -53,7 +53,9 @@ class GlaceView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super(GlaceView, self).get_context_data(**kwargs)
 
-        context['glaces'] = Glace.objects.filter(statut='A')
+        #Plus grand que se traduit par : __gt
+        context['glaces'] = Produit.objects.filter(stockRestant__gt=0)
+        #context['glaces'] = Produit.objects.filter(statut='A')
         #context['glaces'] = Glace.objects.all()
         #Post.objects.filter(author=me)
         context['cats'] = Categorie.objects.all()
@@ -110,7 +112,7 @@ class ClientAutocomplete(autocomplete.Select2QuerySetView):
 
 def transactionAchat(request, idGlace, idClient):
     cli = get_object_or_404(User, id=idClient)
-    glace = get_object_or_404(Glace, id=idGlace)
+    glace = get_object_or_404(Produit, id=idGlace)
     compte = get_object_or_404(Compte, user=idClient)
     solde = compte.solde
 
@@ -130,11 +132,13 @@ def transactionAchat(request, idGlace, idClient):
     ligne.transaction = t
     ligne.glace = glace
     ligne.quantite = 1
-    ligne.prix = glace.prixVente
+    ligne.prix = glace.prixVenteConseille
     t.total = t.total + ligne.prix
-    glace.statut = 'V'
+    glace.stockRestant = glace.stockRestant - ligne.quantite
+
 
     compte.solde = solde - t.total
+
 
     compte.save()
     glace.save()

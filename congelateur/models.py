@@ -46,7 +46,9 @@ class Produit(models.Model):
     image = models.ImageField(upload_to='products', verbose_name="Image", blank=True, null=True)
     cat = models.ForeignKey('Categorie', related_name="produits", verbose_name="Catégorie de la glace")
     prixVenteConseille = models.DecimalField(max_digits=4, decimal_places=2, verbose_name="Prix de vente")
+    calories = models.DecimalField(max_digits=5, decimal_places=2, blank=True, null=True, verbose_name="Callories") #Maximum 5 chiffres comptant deux décimales
     stockRestant = models.DecimalField(max_digits=4, decimal_places=0, verbose_name='Stock')
+    bac = models.ForeignKey(Bac, verbose_name="Bac ou trouver la glace")
 
     def __str__(self):
         return self.libelle
@@ -54,7 +56,6 @@ class Produit(models.Model):
 class Glace(models.Model):
     id = models.AutoField(primary_key=True)
     produit = models.ForeignKey(Produit, related_name='glaces', on_delete=None, verbose_name='Produit')
-    calories = models.DecimalField(max_digits=5, decimal_places=2, verbose_name="Callories") #Maximum 5 chiffres comptant deux décimales
     datePeremption = models.DateField(auto_now=False, verbose_name="Date de péremption")
     ADMIN = 'AD'
     listeFourni = (

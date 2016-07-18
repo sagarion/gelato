@@ -34,17 +34,17 @@ class CategorieAdmin(admin.ModelAdmin):
 
 class GlaceAdmin(admin.ModelAdmin):
     model = Glace
-    list_display = ('produit','calories','datePeremption','fournisseur')
+    list_display = ('produit','datePeremption','fournisseur')
 
 
 class GlaceInline(admin.TabularInline):
     model = Glace
-    fields = ('calories', 'datePeremption', 'fournisseur')
+    fields = ('datePeremption', 'fournisseur')
 
 class ProduitAdmin(admin.ModelAdmin):
     model = Produit
     inlines = (GlaceInline, )
-    list_display = ('libelle', 'image', 'cat', 'prixVenteConseille', 'stockRestant')
+    list_display = ('libelle', 'image', 'cat', 'prixVenteConseille','calories', 'stockRestant', 'bac')
 
 
 
