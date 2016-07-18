@@ -72,11 +72,11 @@ def lire(request, p_id):
 
         for p in lesCat:
             pk = p.id
-            uneCat = Glace.objects.filter(cat=pk)
+            uneCat = Produit.objects.filter(cat=pk)
             for u in uneCat:
                 glaces.append(u)
     else:
-        glaces = Glace.objects.filter(cat=p_id)
+        glaces = Produit.objects.filter(cat=p_id)
 
     toutesLesCats = Categorie.objects.all()
 
