@@ -23,18 +23,28 @@ class TiroirAdmin(admin.ModelAdmin):
     inlines = (BacInline,)
 
 
-class GlaceInline(admin.TabularInline):
-    model = Glace
-    fields = ('libelle', 'calories', 'prixVente')
+class ProduitInline(admin.TabularInline):
+    model = Produit
+    fields = ('libelle', 'prixVenteConseille', 'stockRestant')
 
 class CategorieAdmin(admin.ModelAdmin):
     model = Categorie
-    inlines = (GlaceInline,)
+    inlines = (ProduitInline,)
     list_display = ('code', 'libelle', 'sousCategorie')
 
 class GlaceAdmin(admin.ModelAdmin):
     model = Glace
-    list_display = ('libelle',)
+    list_display = ('produit','calories','datePeremption','fournisseur')
+
+
+class GlaceInline(admin.TabularInline):
+    model = Glace
+    fields = ('calories', 'datePeremption', 'fournisseur')
+
+class ProduitAdmin(admin.ModelAdmin):
+    model = Produit
+    inlines = (GlaceInline, )
+    list_display = ('libelle', 'image', 'cat', 'prixVenteConseille', 'stockRestant')
 
 
 
@@ -43,3 +53,4 @@ admin.site.register(Tiroir, TiroirAdmin)
 admin.site.register(Bac)
 admin.site.register(Glace, GlaceAdmin)
 admin.site.register(Categorie, CategorieAdmin)
+admin.site.register(Produit, ProduitAdmin)

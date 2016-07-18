@@ -40,7 +40,35 @@ class LibelleGlace (models.Model):
         return self.libelle
 
 
-class Glace (models.Model):
+class Produit(models.Model):
+    id = models.AutoField(primary_key=True)
+    libelle = models.CharField(max_length=150, verbose_name="Libellé de la glace")
+    image = models.ImageField(upload_to='products', verbose_name="Image", blank=True, null=True)
+    cat = models.ForeignKey('Categorie', related_name="produits", verbose_name="Catégorie de la glace")
+    prixVenteConseille = models.DecimalField(max_digits=4, decimal_places=2, verbose_name="Prix de vente")
+    stockRestant = models.DecimalField(max_digits=4, decimal_places=0, verbose_name='Stock')
+
+    def __str__(self):
+        return self.libelle
+
+class Glace(models.Model):
+    id = models.AutoField(primary_key=True)
+    produit = models.ForeignKey(Produit, related_name='glaces', on_delete=None, verbose_name='Produit')
+    calories = models.DecimalField(max_digits=5, decimal_places=2, verbose_name="Callories") #Maximum 5 chiffres comptant deux décimales
+    datePeremption = models.DateField(auto_now=False, verbose_name="Date de péremption")
+    ADMIN = 'AD'
+    listeFourni = (
+        (ADMIN, 'Admin'),
+    )
+    fournisseur = models.CharField(max_length=50, choices=listeFourni, default=ADMIN, verbose_name="Fournisseur")
+
+    def __str__(self):
+        return str(self.produit)
+
+
+
+
+"""class Glace (models.Model):
         id = models.AutoField(primary_key=True)
         libelle = models.ForeignKey(LibelleGlace, on_delete=None, verbose_name="Libellé")
         datePeremption = models.DateField(auto_now=True, verbose_name="Date de péremption")
@@ -62,7 +90,7 @@ class Glace (models.Model):
         )
         statut = models.CharField(max_length=2, choices=STATUT)
 
-
+"""
 
 
 class Categorie (models.Model):
