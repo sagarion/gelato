@@ -9,7 +9,7 @@ from django.db.models import Count, Min, Sum, Avg
 
 class Transaction(models.Model):
     id = models.AutoField(primary_key=True)
-    code = models.CharField(max_length=25, unique=True, verbose_name="Code transaction")
+    date = models.DateField(verbose_name="Date de la transaction")
     ACHAT = 'A'
     REAPPROVI = 'R'
     TYPE = (

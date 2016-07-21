@@ -7,6 +7,7 @@ from django.views.generic import TemplateView, ListView, DetailView
 from django.utils import timezone
 from django.contrib import messages
 from dal import autocomplete
+from .forms import DemandeForm
 
 # Create your views here.
 
@@ -20,6 +21,21 @@ def about(request):
 def discover(request):
     return render(request, 'congelateur/discover.html', locals())
 
+
+class ClientAutocomplete(autocomplete.Select2QuerySetView):
+    def get_queryset(self):
+        # Don't forget to filter out results depending on the visitor !
+        if not self.request.user.is_authenticated():
+            return Compte.objects.none()
+
+        qs = Compte.objects.all()
+
+        if self.q:
+            qs = qs.filter(nom__startswith=self.q)
+
+        return qs
+
+
 @login_required
 def dashboard(request):
     userConnected = request.user
@@ -27,7 +43,8 @@ def dashboard(request):
     listeUtilisateurs = Compte.objects.exclude(user=userConnected)
     transactions = Transaction.objects.filter(client=userConnected)
     modes = Mode.objects.all()
-    return render(request, 'congelateur/dashboard.html', {'user':compte, 'listUsers':listeUtilisateurs, 't':transactions, 'mode':modes})
+    form = DemandeForm()
+    return render(request, 'congelateur/dashboard.html', {'user':compte, 'listUsers':listeUtilisateurs, 't':transactions, 'mode':modes, 'form': form})
 
 def home(request):
     return render(request, 'congelateur/home.html')
@@ -96,18 +113,6 @@ class CongelateurDetailView(DetailView):
     def get_context_data(self, **kwargs):
         context = super(CongelateurDetailView, self).get_context_data(**kwargs)
         return context
-
-class ClientAutocomplete(autocomplete.Select2QuerySetView):
-    def get_queryset(self):
-        if not self.request.user.is_authenticated():
-            return Compte.objects.none()
-
-        qs = Compte.objects.all()
-
-        if self.q:
-            qs = qs.filter(name_istartswith=self.q)
-
-        return qs
 
 
 def transactionAchat(request, idGlace, idClient):

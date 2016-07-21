@@ -6,6 +6,7 @@
 {% endblock stylesheets %}
 {% block content %}
     {{ block.super }}
+<script type="text/javascript" src="/static/collected/admin/js/vendor/jquery/jquery.js"></script>
     <div class="row">
           <div class="col-lg-8">
               <h1>Créer une demande d'argent</h1>
@@ -18,7 +19,7 @@
               <br>
               Montant souhaité : <input type="number" class="form-control" style="width:22em">
               <br>
-                Je souhait remboursé à l'aide de :
+                Je souhaite rembourser à l'aide de :
               <select class="form-control" style="width:22em">
               {% for m in mode %}
                       <option>{{m.libelle}}</option>
@@ -61,6 +62,12 @@
               </div>
           </div>
       </div>
+<div>
+    <form method="POST" class="post-form">{% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="save btn btn-default">Envoyer</button>
+    </form>
+</div>
     <div class="row">
         <div class="col-lg-6">
             <h1>Mes transactions</h1>

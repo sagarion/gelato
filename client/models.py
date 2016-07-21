@@ -50,7 +50,7 @@ class Compte(models.Model):
 
 
     def __str__(self):
-        return "Profil de {0}".format(self.user.username)
+        return "Profil de {0} {1}".format(self.prenom, self.nom)
 
 
 
@@ -112,8 +112,8 @@ class Demande(models.Model):
         (NON, 'Non'),
     )
     accepte = models.CharField(max_length=2, blank=True, choices=ON)
-    clientDemandeur = models.ForeignKey(Client, related_name="ClientsDemandeurs", verbose_name="Client demandeur")
-    clientReceveur = models.ForeignKey(Client, related_name="ClientsReceveurs", verbose_name="Client receveur")
+    clientDemandeur = models.ForeignKey(Compte, related_name="ClientsDemandeurs", verbose_name="Client demandeur")
+    clientReceveur = models.ForeignKey(Compte, related_name="ClientsReceveurs", verbose_name="Client receveur")
 
     def __str__(self):
         return str(self.montant)
