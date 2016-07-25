@@ -15,6 +15,34 @@
         {{ form.as_p }}
         <input type="submit" value="Effectuer la demande" />
     </form>
+
+              <div class="table-responsive">
+                  <h1>Demandes à traiter</h1>
+                  <table class="table">
+                      <tr>
+                          <th>Date de la demande</th>
+                          <th>Demandeur</th>
+                          <th>Montant</th>
+                          <th>Souhait de remboursement</th>
+                      </tr>
+                      {% for dat in demandeATraiter %}
+                     <tr>
+                         <td><a href="{% url 'traiterDemande' idDemande=dat.id%}">{{dat.dateDemande}}</a></td>
+                         <td>{{dat.clientDemandeur}}</td>
+                         <td>{{dat.montant}}</td>
+                         <td>{{dat.mode}}</td>
+                     </tr>
+                  {% endfor %}
+
+
+
+
+                  </table>
+              </div>
+
+
+
+
               </div>
 
 
@@ -74,30 +102,53 @@
           </div>
       </div>
     <div class="row">
-        <div class="col-lg-6">
+        <div class="col-lg-5">
             <h1>Historique des demandes</h1>
+            <h2>Demandes faites</h2>
             <table class="table">
                 <tr>
                     <th>Date de la demande</th>
                     <th>Montant</th>
                     <th>Demandé à</th>
                     <th>Mode</th>
+                    <th>Etat</th>
                 </tr>
 
-            {% for trans in transferts %}
+            {% for df in demandesFaites %}
                      <tr>
-                         <td>{{trans.dateDemande}}</td>
-                         <td>{{trans.montant}}</td>
-                         <td>{{trans.clientReceveur}}</td>
-                         <td>{{trans.mode}}</td>
+                         <td>{{df.dateDemande}}</td>
+                         <td>{{df.montant}}</td>
+                         <td>{{df.clientReceveur}}</td>
+                         <td>{{df.mode}}</td>
+                         <td>{{df.etat}}</td>
+                     </tr>
+                  {% endfor %}
+                </table>
+            <h2>Demandes recues</h2>
+            <table class="table">
+                <tr>
+                    <th>Date de la demande</th>
+                    <th>Montant</th>
+                    <th>Demandé par</th>
+                    <th>Mode</th>
+                    <th>Etat</th>
+                </tr>
+
+            {% for dr in demandesRecues %}
+                     <tr>
+                         <td>{{dr.dateDemande}}</td>
+                         <td>{{dr.montant}}</td>
+                         <td>{{dr.clientDemandeur}}</td>
+                         <td>{{dr.mode}}</td>
+                         <td>{{dr.etat}}</td>
                      </tr>
                   {% endfor %}
                 </table>
 
         </div>
-</div>
-    <div class="row">
-        <div class="col-lg-6">
+        <div class="col-lg-2"></div>
+
+        <div class="col-lg-5">
             <h1>Mes transactions</h1>
             <table class="table">
                 <tr>

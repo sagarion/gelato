@@ -8,7 +8,8 @@ from django.views.generic import TemplateView, ListView, DetailView
 from django.utils import timezone
 from django.contrib import messages
 from dal import autocomplete
-from .forms import DemandeForm
+from .forms import *
+from django.db.models import Q
 
 # Create your views here.
 
@@ -43,10 +44,15 @@ def dashboard(request):
     compte = get_object_or_404(Compte, user=userConnected)
     listeUtilisateurs = Compte.objects.exclude(user=userConnected)
     transactions = Transaction.objects.filter(client=userConnected)
-    transferts = Demande.objects.filter(clientDemandeur=compte)
+    #Toutes les demandes :
+    # transferts = Demande.objects.filter(Q(clientDemandeur=compte) | Q(clientReceveur=compte))
+    demandesFaites = Demande.objects.filter(clientDemandeur=compte)
+    demandesRecues = Demande.objects.filter(clientReceveur=compte)
+    demandesATraiter = Demande.objects.filter(Q(clientReceveur=compte) & Q(etat='E'))
     modes = Mode.objects.all()
     form = DemandeForm()
-    return render(request, 'congelateur/dashboard.html', {'user':compte, 'listUsers':listeUtilisateurs, 't':transactions, 'mode':modes, 'form': form, 'transferts':transferts})
+    return render(request, 'congelateur/dashboard.html', {'user':compte, 'listUsers':listeUtilisateurs, 't':transactions,
+                                                          'mode':modes, 'form': form, 'demandesFaites':demandesFaites, 'demandesRecues':demandesRecues, 'demandeATraiter':demandesATraiter})
 
 
 def demande(request):
@@ -70,6 +76,7 @@ def demande(request):
             d.mode = mode
             d.clientDemandeur = compte
             d.clientReceveur = clientReceveur
+            d.etat = 'E'
 
             d.save()
             # Nous pourrions ici envoyer l'e-mail grâce aux données que nous venons de récupérer
@@ -186,3 +193,8 @@ def transactionAchat(request, idGlace, idClient):
     t.save()
 
     return render(request, 'congelateur/RecapAchat.html', {'bac': bac, 'tiroir':tiroir, 'congo':congo, 'solde':compte.solde})
+
+
+def traiterDemander(request, idDemande):
+    demande = get_object_or_404(Demande, id = idDemande)
+    return render(request, 'congelateur/traiterDemande.html',{'demande':demande})

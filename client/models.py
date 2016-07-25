@@ -50,7 +50,7 @@ class Compte(models.Model):
 
 
     def __str__(self):
-        return "Profil de {0} {1}".format(self.prenom, self.nom)
+        return "{0} {1}".format(self.prenom, self.nom)
 
 
 
@@ -105,15 +105,18 @@ class Demande(models.Model):
     montant = models.DecimalField(max_digits=5, decimal_places=2, verbose_name="Montant de la demande")
     mode = models.ForeignKey(Mode, verbose_name="Mode de paiement")
     dateReponse = models.DateField(auto_now=False, blank=True, null=True, verbose_name="Date de réponse")
-    OUI = 'OUI'
-    NON = 'NON'
+    EnAttente = 'E'
+    Acceptee = 'A'
+    Refusee = 'R'
     ON = (
-        (OUI, 'Oui'),
-        (NON, 'Non'),
+        (EnAttente, 'En attente'),
+        (Acceptee, 'Acceptée'),
+        (Refusee, 'Refusée'),
     )
-    accepte = models.CharField(max_length=2, blank=True, choices=ON)
+    etat = models.CharField(max_length=20, blank=True, choices=ON)
     clientDemandeur = models.ForeignKey(Compte, related_name="ClientsDemandeurs", verbose_name="Client demandeur")
     clientReceveur = models.ForeignKey(Compte, related_name="ClientsReceveurs", verbose_name="Client receveur")
+    commentaire = models.TextField(blank=True, null=True)
 
     def __str__(self):
         return str(self.montant)
