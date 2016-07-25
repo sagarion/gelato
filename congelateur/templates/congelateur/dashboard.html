@@ -10,6 +10,17 @@
     <div class="row">
           <div class="col-lg-8">
               <h1>Créer une demande d'argent</h1>
+          <form action="{% url 'demande' %}" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Effectuer la demande" />
+    </form>
+              </div>
+
+
+          <!--
+
+              <h1>Créer une demande d'argent</h1>
               Demande la somme à :
               <select class="form-control" style="width:22em">
                   {% for u in listUsers %}
@@ -28,8 +39,8 @@
               <br>
               <button type="button" class="btn btn-secondary">Envoyer la demande</button>
 
-          </div>
-
+          </div>-->
+{% if envoi %}Votre demande a bien été envoyée !{% endif %}
           <div class="col-lg-4">
               <div class="table-responsive">
                   <h1>Informations personnelles</h1>
@@ -62,11 +73,28 @@
               </div>
           </div>
       </div>
-<div>
-    <form method="POST" class="post-form">{% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="save btn btn-default">Envoyer</button>
-    </form>
+    <div class="row">
+        <div class="col-lg-6">
+            <h1>Historique des demandes</h1>
+            <table class="table">
+                <tr>
+                    <th>Date de la demande</th>
+                    <th>Montant</th>
+                    <th>Demandé à</th>
+                    <th>Mode</th>
+                </tr>
+
+            {% for trans in transferts %}
+                     <tr>
+                         <td>{{trans.dateDemande}}</td>
+                         <td>{{trans.montant}}</td>
+                         <td>{{trans.clientReceveur}}</td>
+                         <td>{{trans.mode}}</td>
+                     </tr>
+                  {% endfor %}
+                </table>
+
+        </div>
 </div>
     <div class="row">
         <div class="col-lg-6">
@@ -84,7 +112,6 @@
                          <td>{{tr.type}}</td>
                          <td>{{tr.total}}</td>
                      </tr>
-
                   {% endfor %}
                 </table>
 

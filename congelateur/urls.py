@@ -16,6 +16,7 @@ urlpatterns = [
     url(r'^validationAchat/(?P<idGlace>\d+)/(?P<idClient>\d+)$', views.transactionAchat, name='validationAchat'),
     url(r'^client/', include('client.urls')),
     url(r'^client-autocomplete/$', ClientAutocomplete.as_view(), name='client-autocomplete',),
+    url(r'^demande/$', views.demande, name='demande'),
 
 
 ]

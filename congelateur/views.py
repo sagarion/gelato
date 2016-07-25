@@ -1,4 +1,5 @@
 from django.contrib.auth.decorators import login_required
+from django.http import HttpResponseRedirect
 from django.shortcuts import render, render_to_response, get_object_or_404, redirect
 from congelateur.models import *
 from transaction.models import Transaction, LigneTransaction
@@ -42,9 +43,43 @@ def dashboard(request):
     compte = get_object_or_404(Compte, user=userConnected)
     listeUtilisateurs = Compte.objects.exclude(user=userConnected)
     transactions = Transaction.objects.filter(client=userConnected)
+    transferts = Demande.objects.filter(clientDemandeur=compte)
     modes = Mode.objects.all()
     form = DemandeForm()
-    return render(request, 'congelateur/dashboard.html', {'user':compte, 'listUsers':listeUtilisateurs, 't':transactions, 'mode':modes, 'form': form})
+    return render(request, 'congelateur/dashboard.html', {'user':compte, 'listUsers':listeUtilisateurs, 't':transactions, 'mode':modes, 'form': form, 'transferts':transferts})
+
+
+def demande(request):
+    userConnected = request.user
+    compte = get_object_or_404(Compte, user=userConnected)
+    if request.method == 'POST':  # S'il s'agit d'une requête POST
+        form = DemandeForm(request.POST)  # Nous reprenons les données
+
+        if form.is_valid(): # Nous vérifions que les données envoyées sont valides
+
+            # Ici nous pouvons traiter les données du formulaire
+            montant = form.cleaned_data['montant']
+            mode = form.cleaned_data['mode']
+            #dateReponse = form.cleaned_data['dateReponse']
+            #accepte = form.cleaned_data['accepte']
+            clientDemandeur = userConnected
+            clientReceveur = form.cleaned_data['clientReceveur']
+
+            d = Demande()
+            d.montant = montant
+            d.mode = mode
+            d.clientDemandeur = compte
+            d.clientReceveur = clientReceveur
+
+            d.save()
+            # Nous pourrions ici envoyer l'e-mail grâce aux données que nous venons de récupérer
+
+            envoi = True
+
+    else: # Si ce n'est pas du POST, c'est probablement une requête GET
+        form = DemandeForm()  # Nous créons un formulaire vide
+
+    return dashboard(request)
 
 def home(request):
     return render(request, 'congelateur/home.html')
