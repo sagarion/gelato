@@ -55,9 +55,9 @@ def achat(request, idGlace, idClient):
     compte = get_object_or_404(Compte, user=idClient)
     solde = compte.solde
     glace = get_object_or_404(Produit, id=idGlace)
-    soldeApresAchat = solde - glace.prixVenteConseille
+    soldeApresAchat = solde - glace.prixVente
 
-    if(glace.prixVenteConseille > solde):
+    if(glace.prixVente > solde):
         messages.error(request, 'Solde insuffisant !')
         return redirect('produit')
     else:
@@ -89,7 +89,7 @@ def lire(request, p_id):
 
         for p in lesCat:
             pk = p.id
-            uneCat = Produit.objects.filter(cat=pk)
+            uneCat = Produit.objects.filter(categorie=pk)
             for u in uneCat:
                 glaces.append(u)
     else:
@@ -137,7 +137,7 @@ def transactionAchat(request, idGlace, idClient):
     ligne.transaction = t
     ligne.glace = glace
     ligne.quantite = 1
-    ligne.prix = glace.prixVenteConseille
+    ligne.prix = glace.prixVente
     t.total = t.total + ligne.prix
     glace.stockRestant = glace.stockRestant - ligne.quantite
 

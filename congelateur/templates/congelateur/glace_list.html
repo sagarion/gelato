@@ -27,7 +27,6 @@
                 <tr>
                     <th>Catégorie</th>
                     <th>Libellé</th>
-                    <th>Calories</th>
                     <th>Prix</th>
                     <th>Image</th>
                     <th>Stock</th>
@@ -35,10 +34,9 @@
                 </tr>
             {% for g in glaces %}
                 <tr>
-                    <th>{{g.cat}}</th>
+                    <th>{{g.categorie}}</th>
                     <th>{{g.libelle}}</th>
-                    <th>{{g.calories}}</th>
-                    <th>{{g.prixVenteConseille}}</th>
+                    <th>{{g.prixVente}}</th>
                     <th><img height="50" width="50" src="{{ g.image.url }}" /></th>
                     <th>{{g.stockRestant}}</th>
                     {% if user.is_authenticated %}
