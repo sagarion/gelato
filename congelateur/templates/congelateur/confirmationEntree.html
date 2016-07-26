@@ -1,0 +1,30 @@
+{% extends "congelateur/base.html" %}
+{% load staticfiles %}
+{% block title %}Dashboard{% endblock %}
+{% block stylesheets %}
+    {{ block.super }}
+{% endblock stylesheets %}
+{% block content %}
+    {{ block.super }}
+<script type="text/javascript" src="/static/collected/admin/js/vendor/jquery/jquery.js"></script>
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <b {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</b>
+    {% endfor %}
+</ul>
+{% endif %}
+
+    <div class="row">
+        <div class="col-lg-6">
+            Veuillez entrer les produits dans le bac suivant : {{bac.libelle}}<br>
+            Votre nouveau solde : {{solde}}
+
+
+        </div>
+
+    </div>
+
+
+
+{% endblock %}
