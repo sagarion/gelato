@@ -10,25 +10,32 @@
         <div class="col-lg-10">
 
 
+                <h2>Récapitulatif</h2>
+                <table class="table-responsive">
+                    <tr>
+                        <th>Demandeur</th><td>{{demande.clientDemandeur}}</td>
+                    </tr>
+                    <tr>
+                        <th>Date de la demande</th><td>{{demande.dateDemande}}</td>
+                    </tr>
+                    <tr>
+                        <th>Montant souhaité</th><td>{{demande.montant}}</td>
+                    </tr>
+                    <tr>
+                        <th>Souhait de remboursement</th><td>{{demande.mode}}</td></td>
+                    </tr>
+                </table>
+                <h4>Accepter la demande ?</h4>
+            <form action="{% url 'reponseDemande' demandeID=demande.id %}" method="post">
+                {% csrf_token %}
+                <input type= "radio" name="reponse" value="oui"> Oui
+                <input type= "radio" name="reponse" value="non"> Non
 
-
-            <h2>Récapitulatif</h2>
-            <table class="table-responsive">
-                <tr>
-                    <th>Demandeur</th><td>{{demande.clientDemandeur}}</td>
-                </tr>
-                <tr>
-                    <th>Date de la demande</th><td>{{demande.dateDemande}}</td>
-                </tr>
-                <tr>
-                    <th>Montant souhaité</th><td>{{demande.montant}}</td>
-                </tr>
-                <tr>
-                    <th>Souhait de remboursement</th><td>{{demande.mode}}</td></td>
-                </tr>
-            </table>
-
-
+                <h4>Ajouter un commentaire</h4>
+                <textarea name="commentaire"></textarea>
+                <br>
+                <input type="submit" value="Répondre à la demande" />
+            </form>
             </div>
         </div>
 

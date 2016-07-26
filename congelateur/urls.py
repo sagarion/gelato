@@ -18,6 +18,7 @@ urlpatterns = [
     url(r'^client-autocomplete/$', ClientAutocomplete.as_view(), name='client-autocomplete',),
     url(r'^demande/$', views.demande, name='demande'),
     url(r'^traiterDemande/(?P<idDemande>\d+)$', views.traiterDemander, name='traiterDemande'),
+    url(r'^reponseDemande/(?P<demandeID>\d+)$', views.reponseDemande, name='reponseDemande'),
 
 
 

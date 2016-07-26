@@ -1,3 +1,4 @@
+import datetime
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, render_to_response, get_object_or_404, redirect
@@ -197,4 +198,29 @@ def transactionAchat(request, idGlace, idClient):
 
 def traiterDemander(request, idDemande):
     demande = get_object_or_404(Demande, id = idDemande)
-    return render(request, 'congelateur/traiterDemande.html',{'demande':demande})
+    form = TraiterDemandeForm()
+    return render(request, 'congelateur/traiterDemande.html',{'demande':demande, 'form':form})
+
+
+def reponseDemande(request, demandeID):
+    demande = get_object_or_404(Demande, id=demandeID)
+    reponse = request.POST['reponse']
+    commentaire = request.POST['commentaire']
+    clientDemandeur = demande.clientDemandeur
+    clientReceveur = demande.clientReceveur
+
+    demande.commentaire = commentaire
+    demande.dateReponse = datetime.datetime.now()
+
+    if reponse =='oui':
+        demande.etat = 'A'
+        clientDemandeur.solde = clientDemandeur.solde + demande.montant
+        clientReceveur.solde = clientReceveur.solde - demande.montant
+    else:
+        demande.etat = 'R'
+
+    demande.save()
+    clientDemandeur.save()
+    clientReceveur.save()
+
+    return dashboard(request)
