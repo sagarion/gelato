@@ -7,7 +7,7 @@ from transaction.models import *
 
 class LigneInline(admin.TabularInline):
     model = LigneTransaction
-    fields = ('produit', 'prix', 'bac')
+    fields = ('produit', 'prix')
 
 
 

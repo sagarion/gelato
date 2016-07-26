@@ -55,7 +55,7 @@ class Produit(models.Model):
     )
     fournisseur = models.CharField(max_length=50, choices=listeFourni, default=ADMIN, verbose_name="Fournisseur")
     stockRestant = models.DecimalField(max_digits=4, decimal_places=0, verbose_name='Stock')
-    #bac = models.ForeignKey(Bac, verbose_name="Bac ou trouver la glace")
+    bac = models.ManyToManyField(Bac, related_name="produits", blank=True, null=True)
 
     def __str__(self):
         return self.libelle
@@ -96,6 +96,15 @@ class Categorie (models.Model):
 
     def __str__(self):
         return self.libelle
+
+
+class Mouvement(models.Model):
+    qte = models.DecimalField(max_digits=5, decimal_places=0, verbose_name="Quantité du mouvement")
+    bac = models.ForeignKey(Bac, related_name="Bac")
+    produit = models.ForeignKey(Produit, related_name="Produit")
+
+    def __str__(self):
+        return str(self.qte)
 
 
 

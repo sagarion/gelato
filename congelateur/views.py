@@ -174,8 +174,16 @@ def transactionAchat(request, idGlace, idClient):
     glace = get_object_or_404(Produit, id=idGlace)
     compte = get_object_or_404(Compte, user=idClient)
     solde = compte.solde
+    bacs = Bac.objects.all()
 
-    bac = glace.bac
+    mvt = get_object_or_404(Mouvement, produit=idGlace)
+    idbac = mvt.bac
+    bac = get_object_or_404(Bac, libelle=idbac)
+    mvt.qte = mvt.qte-1
+    mvt.save()
+    if mvt.qte<1:
+        mvt.delete()
+
     tiroir = bac.tiroir
     congo = tiroir.congelateur
 
@@ -189,11 +197,10 @@ def transactionAchat(request, idGlace, idClient):
 
     ligne = LigneTransaction()
     ligne.transaction = t
-    ligne.glace = glace
-    ligne.quantite = 1
+    ligne.produit = glace
     ligne.prix = glace.prixVente
     t.total = t.total + ligne.prix
-    glace.stockRestant = glace.stockRestant - ligne.quantite
+    glace.stockRestant = glace.stockRestant - 1
 
 
     compte.solde = solde - t.total
@@ -247,7 +254,7 @@ def retourBac():
     bacs = Bac.objects.all()
 
 
-
+#Méthode de réapprovisionnement
 def creerReap(request):
     bacs = Bac.objects.all()
     produit = get_object_or_404(Produit, libelle=request.POST['produits'])
@@ -261,21 +268,18 @@ def creerReap(request):
 
     for b in bacs:
         if qte <= (b.capaciteMax - b.nbProduit):
+            produit.bac.add(b)
             b.nbProduit = b.nbProduit + qte
-            """i = 0
-            while i < qte:
-                p = Produit()
-                p = get_object_or_404(Produit, id=idProduit)
-                p.bac = b
-                p.save()
-                b.save()
-                i = i+1"""
-
         break
+
 
     compte.solde = compte.solde + prix
 
-
+    m = Mouvement()
+    m.bac = b
+    m.produit = produit
+    m.qte = qte
+    m.save()
     t = Transaction()
     t.type = 'R'
     t.date = timezone.now()
@@ -292,7 +296,6 @@ def creerReap(request):
         ligne.quantite = 1
         ligne.prix = prixParProduit
         t.total = t.total + ligne.prix
-        ligne.bac = b
 
 
         ligne.save()
