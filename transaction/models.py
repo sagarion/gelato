@@ -23,13 +23,13 @@ class Transaction(models.Model):
 
 
     def __str__(self):
-            return self.code
+            return str(self.date)
 
 
 class LigneTransaction(models.Model):
     transaction = models.ForeignKey(Transaction, related_name="lignes", verbose_name="Transaction")
-    glace = models.ForeignKey(Produit, related_name="glace", verbose_name="Glace de la transaction")
-    quantite = models.IntegerField
+    produit = models.ForeignKey(Produit, related_name="glace", verbose_name="Glace de la transaction")
     prix = models.DecimalField(max_digits=5, decimal_places=2, verbose_name="Montant de la ligne")
+    bac = models.ForeignKey(Bac, related_name="bacsLignes", verbose_name="bac de la ligne")
 
 

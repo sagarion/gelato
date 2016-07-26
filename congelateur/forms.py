@@ -1,6 +1,8 @@
 from dal import autocomplete
 from django import forms
 from client.models import *
+from congelateur.models import Produit
+
 
 class DemandeForm(forms.ModelForm):
     class Meta:

@@ -25,12 +25,16 @@ class TiroirAdmin(admin.ModelAdmin):
 
 class ProduitInline(admin.TabularInline):
     model = Produit
-    fields = ('libelle', 'stockRestant')
+    fields = ('libelle',)
 
 class CategorieAdmin(admin.ModelAdmin):
     model = Categorie
     inlines = (ProduitInline,)
     list_display = ('code', 'libelle', 'sousCategorie')
+
+class BacAdmin(admin.ModelAdmin):
+    model = Bac
+    list_display = ('libelle','tiroir','capaciteMax','nbProduit')
 
 """class GlaceAdmin(admin.ModelAdmin):
     model = Glace
@@ -50,6 +54,6 @@ class ProduitAdmin(admin.ModelAdmin):
 
 admin.site.register(Congelateur, CongelateurAdmin)
 admin.site.register(Tiroir, TiroirAdmin)
-admin.site.register(Bac)
+admin.site.register(Bac, BacAdmin)
 admin.site.register(Categorie, CategorieAdmin)
 admin.site.register(Produit)

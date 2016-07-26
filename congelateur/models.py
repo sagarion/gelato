@@ -27,18 +27,20 @@ class Bac (models.Model):
     id = models.AutoField(primary_key=True)
     code = models.CharField(max_length=5, unique=True, verbose_name="Code")
     libelle = models.CharField(max_length=100, verbose_name="Libellé")
+    capaciteMax = models.DecimalField(max_digits=5, decimal_places=0, blank=True, null=True, verbose_name="Capacité maximum")
+    nbProduit = models.DecimalField(max_digits=5, decimal_places=0, blank=True, null=True, verbose_name="Nombre de produits actuel")
     tiroir = models.ForeignKey(Tiroir, on_delete=models.CASCADE, verbose_name="Tiroir")
 
     def __str__(self):
         return self.libelle
 
-class LibelleGlace (models.Model):
+"""class LibelleGlace (models.Model):
     id = models.AutoField(primary_key=True)
     libelle = models.CharField(max_length=150, verbose_name="Libellé de la glace")
 
     def __str__(self):
         return self.libelle
-
+"""
 
 class Produit(models.Model):
     id = models.AutoField(primary_key=True)
@@ -53,7 +55,7 @@ class Produit(models.Model):
     )
     fournisseur = models.CharField(max_length=50, choices=listeFourni, default=ADMIN, verbose_name="Fournisseur")
     stockRestant = models.DecimalField(max_digits=4, decimal_places=0, verbose_name='Stock')
-    bac = models.ForeignKey(Bac, verbose_name="Bac ou trouver la glace")
+    #bac = models.ForeignKey(Bac, verbose_name="Bac ou trouver la glace")
 
     def __str__(self):
         return self.libelle

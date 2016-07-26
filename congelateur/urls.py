@@ -19,6 +19,8 @@ urlpatterns = [
     url(r'^demande/$', views.demande, name='demande'),
     url(r'^traiterDemande/(?P<idDemande>\d+)$', views.traiterDemander, name='traiterDemande'),
     url(r'^reponseDemande/(?P<demandeID>\d+)$', views.reponseDemande, name='reponseDemande'),
+    url(r'^reapprovisionnement/$', views.reap, name='reap'),
+    url(r'^effectuerReap/$', views.creerReap, name='creerReap'),
 
 
 

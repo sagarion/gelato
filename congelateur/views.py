@@ -11,6 +11,8 @@ from django.contrib import messages
 from dal import autocomplete
 from .forms import *
 from django.db.models import Q
+from decimal import *
+from django.core.mail import send_mail
 
 # Create your views here.
 
@@ -71,18 +73,27 @@ def demande(request):
             #accepte = form.cleaned_data['accepte']
             clientDemandeur = userConnected
             clientReceveur = form.cleaned_data['clientReceveur']
+            if clientReceveur.solde < montant :
+                messages.info(request, 'Le solde du client n\'est pas suffisant !')
+            else :
 
-            d = Demande()
-            d.montant = montant
-            d.mode = mode
-            d.clientDemandeur = compte
-            d.clientReceveur = clientReceveur
-            d.etat = 'E'
+                d = Demande()
+                d.montant = montant
+                d.mode = mode
+                d.clientDemandeur = compte
+                d.clientReceveur = clientReceveur
+                d.etat = 'E'
 
-            d.save()
-            # Nous pourrions ici envoyer l'e-mail grâce aux données que nous venons de récupérer
+                d.save()
+                """send_mail(
+                    'Subject here',
+                    'Here is the message.',
+                    'schaffner20@gmail.com',
+                    ['schaffner.colin@bluewin.ch.com'],
+                    fail_silently=False,
+                )"""
 
-            messages.info(request, 'Demande envoyée !')
+                messages.info(request, 'Demande envoyée !')
 
     else: # Si ce n'est pas du POST, c'est probablement une requête GET
         form = DemandeForm()  # Nous créons un formulaire vide
@@ -170,7 +181,7 @@ def transactionAchat(request, idGlace, idClient):
 
     t = Transaction()
     t.type = 'A'
-    t.code = timezone.now()
+    t.date = timezone.now()
     t.client = cli
     t.total = 0
     t.save()
@@ -225,3 +236,73 @@ def reponseDemande(request, demandeID):
     clientReceveur.save()
 
     return dashboard(request)
+
+
+def reap(request):
+    listeProduits = Produit.objects.all()
+
+    return render (request, 'congelateur/reapprovisionnement.html', {'prod':listeProduits})
+
+def retourBac():
+    bacs = Bac.objects.all()
+
+
+
+def creerReap(request):
+    bacs = Bac.objects.all()
+    produit = get_object_or_404(Produit, libelle=request.POST['produits'])
+    idProduit = produit.id
+    qteString = request.POST['qte']
+    qte = Decimal(qteString)
+    prixString = request.POST['montant']
+    prix = Decimal(prixString)
+    userConnected = request.user
+    compte = get_object_or_404(Compte, user=userConnected)
+
+    for b in bacs:
+        if qte <= (b.capaciteMax - b.nbProduit):
+            b.nbProduit = b.nbProduit + qte
+            """i = 0
+            while i < qte:
+                p = Produit()
+                p = get_object_or_404(Produit, id=idProduit)
+                p.bac = b
+                p.save()
+                b.save()
+                i = i+1"""
+
+        break
+
+    compte.solde = compte.solde + prix
+
+
+    t = Transaction()
+    t.type = 'R'
+    t.date = timezone.now()
+    t.client = userConnected
+    t.total = 0
+    t.save()
+
+    prixParProduit = prix/qte
+    i = 0
+    while i < qte:
+        ligne = LigneTransaction()
+        ligne.transaction = t
+        ligne.produit = produit
+        ligne.quantite = 1
+        ligne.prix = prixParProduit
+        t.total = t.total + ligne.prix
+        ligne.bac = b
+
+
+        ligne.save()
+        t.save()
+        i = i +1
+
+    produit.stockRestant = produit.stockRestant + qte
+
+    produit.save()
+    b.save()
+    compte.save()
+
+    return render(request, 'congelateur/confirmationEntree.html', {'bac':b, 'solde':compte.solde})
