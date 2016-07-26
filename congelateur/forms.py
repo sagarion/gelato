@@ -18,13 +18,3 @@ class DemandeForm(forms.ModelForm):
             "clientReceveur":autocomplete.ModelSelect2(url='client-autocomplete')
         }"""
 
-
-class TraiterDemandeForm(forms.ModelForm):
-    class Meta:
-        model = Demande
-        fields = ('montant','etat', 'commentaire')
-        labels = {
-            'montant':('Montant envoyé'),
-            'etat':('Accepter la demande ?'),
-            'commentaire':('Ajouter un commentaire')
-        }

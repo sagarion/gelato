@@ -7,6 +7,13 @@
 {% block content %}
     {{ block.super }}
 <script type="text/javascript" src="/static/collected/admin/js/vendor/jquery/jquery.js"></script>
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <b {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</b>
+    {% endfor %}
+</ul>
+{% endif %}
     <div class="row">
           <div class="col-lg-8">
               <h1>Créer une demande d'argent</h1>

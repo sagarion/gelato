@@ -82,7 +82,7 @@ def demande(request):
             d.save()
             # Nous pourrions ici envoyer l'e-mail grâce aux données que nous venons de récupérer
 
-            envoi = True
+            messages.info(request, 'Demande envoyée !')
 
     else: # Si ce n'est pas du POST, c'est probablement une requête GET
         form = DemandeForm()  # Nous créons un formulaire vide
@@ -198,8 +198,7 @@ def transactionAchat(request, idGlace, idClient):
 
 def traiterDemander(request, idDemande):
     demande = get_object_or_404(Demande, id = idDemande)
-    form = TraiterDemandeForm()
-    return render(request, 'congelateur/traiterDemande.html',{'demande':demande, 'form':form})
+    return render(request, 'congelateur/traiterDemande.html',{'demande':demande})
 
 
 def reponseDemande(request, demandeID):
@@ -216,8 +215,10 @@ def reponseDemande(request, demandeID):
         demande.etat = 'A'
         clientDemandeur.solde = clientDemandeur.solde + demande.montant
         clientReceveur.solde = clientReceveur.solde - demande.montant
+        messages.info(request, 'Demande acceptée !')
     else:
         demande.etat = 'R'
+        messages.info(request, 'Demande refusée !')
 
     demande.save()
     clientDemandeur.save()
