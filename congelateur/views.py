@@ -47,7 +47,7 @@ def dashboard(request):
     userConnected = request.user
     compte = get_object_or_404(Compte, user=userConnected)
     listeUtilisateurs = Compte.objects.exclude(user=userConnected)
-    list_transactions = Transaction.objects.filter(client=userConnected)
+    list_transactions = Transaction.objects.filter(client=userConnected).order_by('-date')
     #Toutes les demandes :
     # transferts = Demande.objects.filter(Q(clientDemandeur=compte) | Q(clientReceveur=compte))
     demandesFaites = Demande.objects.filter(clientDemandeur=compte)
