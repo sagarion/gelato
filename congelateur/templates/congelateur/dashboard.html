@@ -17,13 +17,11 @@
     <div class="row">
           <div class="col-lg-8">
               <h1>Créer une demande d'argent</h1>
-          <form action="{% url 'demande' %}" method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Effectuer la demande" />
-    </form>
-
-
+              <form action="{% url 'demande' %}" method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input type="submit" value="Effectuer la demande" />
+              </form>
               <div class="table-responsive">
                   <h1>Demandes à traiter</h1>
                   <table class="table">
@@ -41,19 +39,9 @@
                          <td>{{dat.mode}}</td>
                      </tr>
                   {% endfor %}
-
-
-
-
                   </table>
               </div>
-
-
-
-
-              </div>
-
-
+          </div>
           <!--
 
               <h1>Créer une demande d'argent</h1>
@@ -77,7 +65,7 @@
 
           </div>-->
 {% if envoi %}Votre demande a bien été envoyée !{% endif %}
-          <div class="col-lg-4">
+        <div class="col-lg-4">
               <div class="table-responsive">
                   <h1>Informations personnelles</h1>
                   <table class="table">
@@ -165,24 +153,31 @@
                     <th>Type</th>
                     <th>Total</th>
                 </tr>
-
-            {% for tr in t %}
-                     <tr>
-                         <td>{{tr.date}}</td>
-                         <td>{{tr.type}}</td>
-                         <td>{{tr.total}}</td>
-                     </tr>
-                  {% endfor %}
+            {% for t in transactions %}
+                <tr>
+                         <td>{{t.date}}</td>
+                         <td>{{t.type}}</td>
+                         <td>{{t.total}}</td>
+                </tr>
+            {% endfor %}
                 </table>
 
-        </div>
-        <div class="col-lg-6">
+            <div class="pagination">
+                <span class="step-links">
+                    {% if transactions.has_previous %}
+                        <a href="?page={{ transactions.previous_page_number }}">Précédent</a>
+                    {% endif %}
 
-            <div id="details" class="collapse">
-                <h1>Détails de la transactions</h1>
-                    {{tr.code}}
+                    <span class="current">
+                        Page {{ transactions.number }} sur {{ transactions.paginator.num_pages }}.
+                    </span>
+
+                    {% if transactions.has_next %}
+                        <a href="?page={{ transactions.next_page_number }}">Suivant</a>
+                    {% endif %}
+                </span>
             </div>
-
         </div>
+
     </div>
 {% endblock %}

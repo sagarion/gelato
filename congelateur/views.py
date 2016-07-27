@@ -13,6 +13,7 @@ from .forms import *
 from django.db.models import Q
 from decimal import *
 from django.core.mail import send_mail
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 # Create your views here.
 
@@ -46,7 +47,7 @@ def dashboard(request):
     userConnected = request.user
     compte = get_object_or_404(Compte, user=userConnected)
     listeUtilisateurs = Compte.objects.exclude(user=userConnected)
-    transactions = Transaction.objects.filter(client=userConnected)
+    list_transactions = Transaction.objects.filter(client=userConnected)
     #Toutes les demandes :
     # transferts = Demande.objects.filter(Q(clientDemandeur=compte) | Q(clientReceveur=compte))
     demandesFaites = Demande.objects.filter(clientDemandeur=compte)
@@ -54,7 +55,24 @@ def dashboard(request):
     demandesATraiter = Demande.objects.filter(Q(clientReceveur=compte) & Q(etat='E'))
     modes = Mode.objects.all()
     form = DemandeForm()
-    return render(request, 'congelateur/dashboard.html', {'user':compte, 'listUsers':listeUtilisateurs, 't':transactions,
+
+    #Pagination pour les transactions
+    paginator = Paginator(list_transactions, 5)
+
+    page = request.GET.get('page')
+    try:
+        transactions = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        transactions = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+        transactions = paginator.page(paginator.num_pages)
+
+
+
+
+    return render(request, 'congelateur/dashboard.html', {'user':compte, 'listUsers':listeUtilisateurs, 'transactions':transactions,
                                                           'mode':modes, 'form': form, 'demandesFaites':demandesFaites, 'demandesRecues':demandesRecues, 'demandeATraiter':demandesATraiter})
 
 
