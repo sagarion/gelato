@@ -34,13 +34,6 @@ class Bac (models.Model):
     def __str__(self):
         return self.libelle
 
-"""class LibelleGlace (models.Model):
-    id = models.AutoField(primary_key=True)
-    libelle = models.CharField(max_length=150, verbose_name="Libellé de la glace")
-
-    def __str__(self):
-        return self.libelle
-"""
 
 class Produit(models.Model):
     id = models.AutoField(primary_key=True)

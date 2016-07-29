@@ -55,7 +55,7 @@ class Compte(models.Model):
 
 
 
-
+"""
 class Client(models.Model):
     id = models.AutoField(primary_key=True)
     mnemo = models.CharField(max_length=15, unique=True, verbose_name="Mnemonique")
@@ -94,7 +94,7 @@ class Client(models.Model):
 
     def __str__(self):
         return self.mnemo
-
+"""
 
 
 

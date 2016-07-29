@@ -6,16 +6,6 @@ from django.shortcuts import render, redirect
 from django.views.generic import ListView, DetailView
 
 from client.forms import ConnexionForm
-from client.models import Client
-
-
-class UserListView(ListView):
-    queryset = Client.objects.select_related()
-
-    def get_context_data(self, **kwargs):
-        context = super(UserListView, self).get_context_data(**kwargs)
-        return context
-
 
 
 def connexion(request):
