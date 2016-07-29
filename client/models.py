@@ -14,8 +14,11 @@ class Mode(models.Model):
 
 
 class Niveau(models.Model):
+    class Meta:
+        verbose_name_plural = "Niveaux"
     id = models.AutoField(primary_key=True)
     libelle = models.CharField(max_length=100, verbose_name="Libellé")
+
     def __str__(self):
         return self.libelle
 
