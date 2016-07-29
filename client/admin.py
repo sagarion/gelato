@@ -7,3 +7,4 @@ class DemandeAdmin(admin.ModelAdmin):
 admin.site.register(Demande, DemandeAdmin)
 admin.site.register(Mode)
 admin.site.register(Compte)
+admin.site.register(Niveau)

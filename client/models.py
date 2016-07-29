@@ -12,6 +12,14 @@ class Mode(models.Model):
     def __str__(self):
         return self.libelle
 
+
+class Niveau(models.Model):
+    id = models.AutoField(primary_key=True)
+    libelle = models.CharField(max_length=100, verbose_name="Libellé")
+    def __str__(self):
+        return self.libelle
+
+
 class Compte(models.Model):
     user = models.OneToOneField(User)
     mnemo = models.CharField(max_length=15, unique=True, verbose_name="Mnemonique")
@@ -20,23 +28,14 @@ class Compte(models.Model):
     naissance = models.DateField(verbose_name="Date de naissance")
     mail = models.EmailField(unique=True)
     solde = models.DecimalField(max_digits=6, decimal_places=2, verbose_name="Solde")
-    HOMME = 'HO'
-    FEMME = 'FE'
+    HOMME = 'Homme'
+    FEMME = 'Femme'
     SEXE = (
         (HOMME, 'Homme'),
         (FEMME, 'Femme'),
     )
-    sexe = models.CharField(max_length=2, choices=SEXE)
-
-    MINI = 'MINI'
-    NOVICE = 'NOVICE'
-    TOP = 'TOP'
-    NIVEAU = (
-        (MINI, 'MINI'),
-        (NOVICE, 'NOVICE'),
-        (TOP, 'TOP'),
-    )
-    niveau = models.CharField(max_length=7, choices=NIVEAU)
+    sexe = models.CharField(max_length=20, choices=SEXE)
+    niveau = models.ForeignKey(Niveau,verbose_name="Niveau")
     modePrefere = models.ForeignKey(Mode, related_name="modePrefere", verbose_name="Mode de remboursement préféré")
 
     ADMIN = 'AD'
@@ -51,50 +50,6 @@ class Compte(models.Model):
 
     def __str__(self):
         return "{0} {1}".format(self.prenom, self.nom)
-
-
-
-
-"""
-class Client(models.Model):
-    id = models.AutoField(primary_key=True)
-    mnemo = models.CharField(max_length=15, unique=True, verbose_name="Mnemonique")
-    prenom = models.CharField(max_length=100, verbose_name="Prénom")
-    nom = models.CharField(max_length=100, verbose_name="Nom")
-    naissance = models.DateField(verbose_name="Date de naissance")
-    mail = models.EmailField(unique=True)
-    solde = models.DecimalField(max_digits=6, decimal_places=2, verbose_name="Solde")
-    HOMME = 'HO'
-    FEMME = 'FE'
-    SEXE = (
-        (HOMME, 'Homme'),
-        (FEMME, 'Femme'),
-    )
-    sexe = models.CharField(max_length=2, choices=SEXE)
-
-    MINI = 'MINI'
-    NOVICE = 'NOVICE'
-    TOP = 'TOP'
-    NIVEAU = (
-        (MINI, 'MINI'),
-        (NOVICE, 'NOVICE'),
-        (TOP, 'TOP'),
-    )
-    niveau = models.CharField(max_length=7, choices=NIVEAU)
-
-    ADMIN = 'AD'
-    USER = 'US'
-    ROLE = (
-        (ADMIN, 'Admin'),
-        (USER, 'User'),
-    )
-    role = models.CharField(max_length=5,
-                                      choices=ROLE)
-
-
-    def __str__(self):
-        return self.mnemo
-"""
 
 
 
