@@ -13,7 +13,7 @@ class LigneInline(admin.TabularInline):
 
 class TransactionAdmin(admin.ModelAdmin):
     model = Transaction
-    list_display = ('date', 'type','client','total')
+    list_display = ('id','date', 'type','client','total')
     inlines = (LigneInline,)
 
 admin.site.register(Transaction, TransactionAdmin)

@@ -18,7 +18,7 @@ class Transaction(models.Model):
     )
     type = models.CharField(max_length=30, choices=TYPE)
     image = models.ImageField(upload_to='transactions', verbose_name="Image", blank=True, null=True)
-    client = models.ForeignKey(User, related_name="clients", verbose_name="Client de la transaction")
+    client = models.ForeignKey(Compte, related_name="clients", verbose_name="Client de la transaction")
     total = models.DecimalField(max_digits=5, decimal_places=2, verbose_name="Total de transaction")
 
 

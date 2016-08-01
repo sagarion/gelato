@@ -47,7 +47,7 @@ def dashboard(request):
     userConnected = request.user
     compte = get_object_or_404(Compte, user=userConnected)
     listeUtilisateurs = Compte.objects.exclude(user=userConnected)
-    list_transactions = Transaction.objects.filter(client=userConnected).order_by('-date')
+    list_transactions = Transaction.objects.filter(client=compte).order_by('-date')
     #Toutes les demandes :
     # transferts = Demande.objects.filter(Q(clientDemandeur=compte) | Q(clientReceveur=compte))
     demandesFaites = Demande.objects.filter(clientDemandeur=compte)
@@ -208,7 +208,7 @@ def transactionAchat(request, idGlace, idClient):
     t = Transaction()
     t.type = 'Achat'
     t.date = timezone.now()
-    t.client = cli
+    t.client = compte
     t.total = 0
     t.save()
 
@@ -302,7 +302,7 @@ def creerReap(request):
     t = Transaction()
     t.type = 'Réapprovisionnement'
     t.date = timezone.now()
-    t.client = userConnected
+    t.client = compte
     t.total = 0
     t.save()
 
