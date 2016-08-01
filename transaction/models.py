@@ -12,9 +12,11 @@ class Transaction(models.Model):
     date = models.DateField(verbose_name="Date de la transaction")
     ACHAT = 'Achat'
     REAPPROVI = 'Réapprovisionnement'
+    ADMIN = 'Admin'
     TYPE = (
         (ACHAT, 'Achat'),
         (REAPPROVI, 'Réapprovisionnement'),
+        (ADMIN, 'Admin'),
     )
     type = models.CharField(max_length=30, choices=TYPE)
     image = models.ImageField(upload_to='transactions', verbose_name="Image", blank=True, null=True)

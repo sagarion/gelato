@@ -328,3 +328,62 @@ def creerReap(request):
     compte.save()
 
     return render(request, 'congelateur/confirmationEntree.html', {'bac':b, 'solde':compte.solde})
+
+
+def remplissageAdmin(request):
+    bacs = Bac.objects.all()
+    produits = Produit.objects.all()
+    return render(request, 'congelateur/RemplissageAdmin.html', {'bacs':bacs, 'produits':produits})
+
+
+def EnregistrementAdmin(request):
+    produit = request.POST['produits']
+    p = get_object_or_404(Produit, libelle=produit)
+    compte = get_object_or_404(Compte, id=10)
+    bac = request.POST['bacs']
+    b = get_object_or_404(Bac, libelle=bac)
+
+    qte = Decimal(request.POST['qte'])
+
+    p.bac.add(b)
+    b.nbProduit = b.nbProduit + qte
+
+
+    m = Mouvement()
+    m.bac = b
+    m.produit = p
+    m.qte = qte
+    m.save()
+    t = Transaction()
+    t.type = 'Admin'
+    t.date = timezone.now()
+    t.client = compte
+    t.total=0
+    t.save()
+
+    i = 0
+    while i < qte:
+        ligne = LigneTransaction()
+        ligne.transaction = t
+        ligne.produit = p
+        ligne.quantite = 1
+        ligne.prix = 0
+
+        ligne.save()
+        t.save()
+        i = i +1
+
+    p.stockRestant = p.stockRestant + qte
+
+    p.save()
+    b.save()
+
+    return render(request, 'congelateur/accueil.html')
+
+
+
+
+
+
+
+

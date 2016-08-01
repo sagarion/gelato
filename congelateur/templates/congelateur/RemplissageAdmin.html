@@ -1,0 +1,49 @@
+{% extends "congelateur/base.html" %}
+{% load staticfiles %}
+{% block title %}Dashboard{% endblock %}
+{% block stylesheets %}
+    {{ block.super }}
+{% endblock stylesheets %}
+{% block content %}
+    {{ block.super }}
+<script type="text/javascript" src="/static/collected/admin/js/vendor/jquery/jquery.js"></script>
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <b {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</b>
+    {% endfor %}
+</ul>
+{% endif %}
+
+    <div class="row">
+        <div class="col-lg-2">
+        </div>
+        <div class="col-lg-4">
+             <form action="{% url 'EnregistrementAdmin' %}" method="post">
+                {% csrf_token %}
+                <h4>Veuillez sélectionner le produit à entrer :</h4>
+
+                <select class="form-control" name="produits" style="width:22em">
+                    {% for p in produits %}
+                    <option>{{p.libelle}}</option>
+                    {% endfor %}
+                </select>
+                <br>
+                Quantité : <input type="number" name="qte" class="form-control">
+                <br>
+                 <select class="form-control" name="bacs" style="width:22em">
+                    {% for b in bacs %}
+                    <option>{{b.libelle}}</option>
+                    {% endfor %}
+                </select><br>
+
+                <button type="submit" class="btn btn-secondary">Effectuer le réapprovisionnement</button>
+            </form>
+
+        </div>
+
+    </div>
+
+
+
+{% endblock %}

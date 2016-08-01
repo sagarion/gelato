@@ -21,6 +21,8 @@ urlpatterns = [
     url(r'^reponseDemande/(?P<demandeID>\d+)$', views.reponseDemande, name='reponseDemande'),
     url(r'^reapprovisionnement/$', views.reap, name='reap'),
     url(r'^effectuerReap/$', views.creerReap, name='creerReap'),
+    url(r'^remplissageAdmin/$', views.remplissageAdmin, name='remplissageAdmin'),
+    url(r'^EnregistrementAdmin/$', views.EnregistrementAdmin, name='EnregistrementAdmin'),
 
 
 
