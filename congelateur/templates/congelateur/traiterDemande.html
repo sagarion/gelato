@@ -7,7 +7,8 @@
 {% block content %}
     {{ block.super }}
     <div class="row">
-        <div class="col-lg-10">
+        <div class="col-lg-6">
+            <b>Dès la demande acceptée, votre solde sera débité !</b>
 
 
                 <h2>Récapitulatif</h2>
@@ -37,6 +38,21 @@
                 <input type="submit" value="Répondre à la demande" />
             </form>
             </div>
+        <div class="col-lg-6">
+            <h2>Informations à prendre en compte</h2>
+            <table class="table-responsive" width="100%">
+                    <tr>
+                        <th width="45%">Votre solde actuel : </th><td>{{demande.clientReceveur.solde}}</td>
+                    </tr>
+                <tr>
+                        <th>Votre solde si vous acceptez : </th><td>{{solde}}</td>
+                    </tr>
+
+
+
+                </table>
+
+        </div>
         </div>
 
 

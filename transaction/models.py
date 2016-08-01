@@ -10,13 +10,13 @@ from django.db.models import Count, Min, Sum, Avg
 class Transaction(models.Model):
     id = models.AutoField(primary_key=True)
     date = models.DateField(verbose_name="Date de la transaction")
-    ACHAT = 'A'
-    REAPPROVI = 'R'
+    ACHAT = 'Achat'
+    REAPPROVI = 'Réapprovisionnement'
     TYPE = (
         (ACHAT, 'Achat'),
         (REAPPROVI, 'Réapprovisionnement'),
     )
-    type = models.CharField(max_length=2, choices=TYPE)
+    type = models.CharField(max_length=30, choices=TYPE)
     image = models.ImageField(upload_to='transactions', verbose_name="Image", blank=True, null=True)
     client = models.ForeignKey(User, related_name="clients", verbose_name="Client de la transaction")
     total = models.DecimalField(max_digits=5, decimal_places=2, verbose_name="Total de transaction")

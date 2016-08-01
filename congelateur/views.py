@@ -206,7 +206,7 @@ def transactionAchat(request, idGlace, idClient):
     congo = tiroir.congelateur
 
     t = Transaction()
-    t.type = 'A'
+    t.type = 'Achat'
     t.date = timezone.now()
     t.client = cli
     t.total = 0
@@ -234,7 +234,8 @@ def transactionAchat(request, idGlace, idClient):
 
 def traiterDemander(request, idDemande):
     demande = get_object_or_404(Demande, id = idDemande)
-    return render(request, 'congelateur/traiterDemande.html',{'demande':demande})
+    soldeSiAcceptation = demande.clientReceveur.solde - demande.montant
+    return render(request, 'congelateur/traiterDemande.html',{'demande':demande, 'solde':soldeSiAcceptation})
 
 
 def reponseDemande(request, demandeID):
@@ -288,7 +289,7 @@ def creerReap(request):
         if qte <= (b.capaciteMax - b.nbProduit):
             produit.bac.add(b)
             b.nbProduit = b.nbProduit + qte
-        break
+            break
 
 
     compte.solde = compte.solde + prix
@@ -299,7 +300,7 @@ def creerReap(request):
     m.qte = qte
     m.save()
     t = Transaction()
-    t.type = 'R'
+    t.type = 'Réapprovisionnement'
     t.date = timezone.now()
     t.client = userConnected
     t.total = 0
