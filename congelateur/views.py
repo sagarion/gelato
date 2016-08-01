@@ -165,7 +165,7 @@ def lire(request, p_id):
             for u in uneCat:
                 glaces.append(u)
     else:
-        glaces = Produit.objects.filter(cat=p_id)
+        glaces = Produit.objects.filter(categorie=p_id)
 
     toutesLesCats = Categorie.objects.all()
 
