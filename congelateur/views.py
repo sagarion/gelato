@@ -277,7 +277,6 @@ def retourBac():
 def creerReap(request):
     bacs = Bac.objects.all()
     produit = get_object_or_404(Produit, libelle=request.POST['produits'])
-    idProduit = produit.id
     qteString = request.POST['qte']
     qte = Decimal(qteString)
     prixString = request.POST['montant']
@@ -339,7 +338,7 @@ def remplissageAdmin(request):
 def EnregistrementAdmin(request):
     produit = request.POST['produits']
     p = get_object_or_404(Produit, libelle=produit)
-    compte = get_object_or_404(Compte, id=10)
+    compte = get_object_or_404(Compte, mnemo='ADMIN')
     bac = request.POST['bacs']
     b = get_object_or_404(Bac, libelle=bac)
 

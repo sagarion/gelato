@@ -32,9 +32,9 @@ class CategorieAdmin(admin.ModelAdmin):
     inlines = (ProduitInline,)
     list_display = ('code', 'libelle', 'sousCategorie')
 
-class BacAdmin(admin.ModelAdmin):
+"""class BacAdmin(admin.ModelAdmin):
     model = Bac
-    list_display = ('libelle','tiroir','capaciteMax','nbProduit')
+    list_display = ('libelle','tiroir','capaciteMax','nbProduit')"""
 
 class ProduitAdmin(admin.ModelAdmin):
      model= Produit
@@ -44,10 +44,10 @@ class ProduitAdmin(admin.ModelAdmin):
 class BacAdmin(admin.ModelAdmin):
 
   form = BacForm
-  list_display = ('libelle', 'nbProduit', 'capaciteMax', 'tiroir')
+  list_display = ('code','libelle', 'nbProduit', 'capaciteMax', 'tiroir')
 
   fieldsets = (
-    (None, {'fields': ('libelle','nbProduit', 'capaciteMax', 'tiroir', 'produits')}),
+    (None, {'fields': ('code','libelle','nbProduit', 'capaciteMax', 'tiroir', 'produits')}),
   )
 
 class MouvementAdmin(admin.ModelAdmin):
