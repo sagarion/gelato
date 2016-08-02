@@ -30,6 +30,7 @@ class Compte(models.Model):
     nom = models.CharField(max_length=100, verbose_name="Nom")
     naissance = models.DateField(verbose_name="Date de naissance")
     mail = models.EmailField(unique=True)
+    telephone = models.CharField(max_length=13, verbose_name="Téléphone", null=True, blank=True)
     solde = models.DecimalField(max_digits=6, decimal_places=2, verbose_name="Solde")
     HOMME = 'Homme'
     FEMME = 'Femme'
