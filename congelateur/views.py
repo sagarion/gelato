@@ -52,7 +52,7 @@ def dashboard(request):
     # transferts = Demande.objects.filter(Q(clientDemandeur=compte) | Q(clientReceveur=compte))
     demandesFaites = Demande.objects.filter(clientDemandeur=compte)
     demandesRecues = Demande.objects.filter(clientReceveur=compte)
-    demandesATraiter = Demande.objects.filter(Q(clientReceveur=compte) & Q(etat='E'))
+    demandesATraiter = Demande.objects.filter(Q(clientReceveur=compte) & Q(etat='En attente'))
     modes = Mode.objects.all()
     form = DemandeForm()
 
@@ -100,7 +100,7 @@ def demande(request):
                 d.mode = mode
                 d.clientDemandeur = compte
                 d.clientReceveur = clientReceveur
-                d.etat = 'E'
+                d.etat = 'En attente'
 
                 d.save()
                 """send_mail(
@@ -161,11 +161,11 @@ def lire(request, p_id):
 
         for p in lesCat:
             pk = p.id
-            uneCat = Produit.objects.filter(categorie=pk)
+            uneCat = Produit.objects.filter(categorie=pk).filter(stockRestant__gt=0)
             for u in uneCat:
                 glaces.append(u)
     else:
-        glaces = Produit.objects.filter(categorie=p_id)
+        glaces = Produit.objects.filter(categorie=p_id).filter(stockRestant__gt=0)
 
     toutesLesCats = Categorie.objects.all()
 
@@ -249,12 +249,12 @@ def reponseDemande(request, demandeID):
     demande.dateReponse = datetime.datetime.now()
 
     if reponse =='oui':
-        demande.etat = 'A'
+        demande.etat = 'Acceptée'
         clientDemandeur.solde = clientDemandeur.solde + demande.montant
         clientReceveur.solde = clientReceveur.solde - demande.montant
         messages.info(request, 'Demande acceptée !')
     else:
-        demande.etat = 'R'
+        demande.etat = 'Refusée'
         messages.info(request, 'Demande refusée !')
 
     demande.save()

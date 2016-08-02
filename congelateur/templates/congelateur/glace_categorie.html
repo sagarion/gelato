@@ -13,9 +13,9 @@
                 <tr><b>
                     <th>Catégorie</th>
                     <th>Libellé</th>
-                    <th>Calories</th>
                     <th>Prix</th>
                     <th>Image</th>
+                    <th>Stock</th>
                     <th></th>
                 </b></tr>
                 {{gl.libelle}}
@@ -23,9 +23,9 @@
                 <tr>
                     <th>{{g.categorie}}</th>
                     <th>{{g.libelle}}</th>
-                    <th>{{g.calories}}</th>
                     <th>{{g.prixVente}}</th>
                     <th><img height="50" width="50" src="{{ g.image.url }}" /></th>
+                    <th>{{ g.stockRestant }}</th>
                     {% if user.is_authenticated %}
                     <th>
                         <a href="{% url 'achat' idGlace=g.id idClient=user.id %}">Acheter</a>

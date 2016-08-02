@@ -63,9 +63,9 @@ class Demande(models.Model):
     montant = models.DecimalField(max_digits=5, decimal_places=2, verbose_name="Montant de la demande")
     mode = models.ForeignKey(Mode, verbose_name="Mode de paiement")
     dateReponse = models.DateField(auto_now=False, blank=True, null=True, verbose_name="Date de réponse")
-    EnAttente = 'E'
-    Acceptee = 'A'
-    Refusee = 'R'
+    EnAttente = 'En attente'
+    Acceptee = 'Acceptée'
+    Refusee = 'Refusée'
     ON = (
         (EnAttente, 'En attente'),
         (Acceptee, 'Acceptée'),
