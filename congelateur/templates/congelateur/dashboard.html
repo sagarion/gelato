@@ -99,7 +99,7 @@
           </div>
       </div>
     <div class="row">
-        <div class="col-lg-5">
+        <div class="col-lg-7">
             <h1>Historique des demandes</h1>
             <h2>Demandes faites</h2>
             <table class="table">
@@ -109,6 +109,7 @@
                     <th>Demandé à</th>
                     <th>Mode</th>
                     <th>Etat</th>
+                    <th>Commentaire</th>
                 </tr>
 
             {% for df in demandesFaites %}
@@ -118,6 +119,7 @@
                          <td>{{df.clientReceveur}}</td>
                          <td>{{df.mode}}</td>
                          <td>{{df.etat}}</td>
+                         <td>{{df.commentaire}}</td>
                      </tr>
                   {% endfor %}
                 </table>
@@ -143,9 +145,9 @@
                 </table>
 
         </div>
-        <div class="col-lg-2"></div>
+        <div class="col-lg-1"></div>
 
-        <div class="col-lg-5">
+        <div class="col-lg-4">
             <h1>Mes transactions</h1>
             <table class="table">
                 <tr>

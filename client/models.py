@@ -42,16 +42,6 @@ class Compte(models.Model):
     niveau = models.ForeignKey(Niveau,verbose_name="Niveau")
     modePrefere = models.ForeignKey(Mode, related_name="modePrefere", verbose_name="Mode de remboursement préféré")
 
-    ADMIN = 'AD'
-    USER = 'US'
-    ROLE = (
-        (ADMIN, 'Admin'),
-        (USER, 'User'),
-    )
-    role = models.CharField(max_length=5,
-                                      choices=ROLE)
-
-
     def __str__(self):
         return "{0} {1}".format(self.prenom, self.nom)
 
