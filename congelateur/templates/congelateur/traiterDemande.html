@@ -29,7 +29,7 @@
                 <h4>Accepter la demande ?</h4>
             <form action="{% url 'reponseDemande' demandeID=demande.id %}" method="post">
                 {% csrf_token %}
-                <input type= "radio" name="reponse" value="oui"> Oui
+                <input type= "radio" name="reponse" value="oui" checked> Oui
                 <input type= "radio" name="reponse" value="non"> Non
 
                 <h4>Ajouter un commentaire</h4>
