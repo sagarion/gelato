@@ -34,4 +34,7 @@ class LigneTransaction(models.Model):
     prix = models.DecimalField(max_digits=5, decimal_places=2, verbose_name="Montant de la ligne")
     #bac = models.ForeignKey(Bac, related_name="bacsLignes", verbose_name="bac de la ligne")
 
+    def __str__(self):
+        return str(self.transaction.id)
+
 
