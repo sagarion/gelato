@@ -18,3 +18,4 @@ class TransactionAdmin(admin.ModelAdmin):
 
 admin.site.register(Transaction, TransactionAdmin)
 admin.site.register(LigneTransaction)
+admin.site.register(TransactionAnnexe)

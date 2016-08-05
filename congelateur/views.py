@@ -194,13 +194,18 @@ def transactionAchat(request, idGlace, idClient):
     solde = compte.solde
     bacs = Bac.objects.all()
 
-    mvt = get_object_or_404(Mouvement, produit=idGlace)
+    #[0] cela retourne uniquement le premier enregistrement qu'il trouve
+    mvt = Mouvement.objects.filter(produit=idGlace)[0]
     idbac = mvt.bac
     bac = get_object_or_404(Bac, libelle=idbac)
     mvt.qte = mvt.qte-1
     mvt.save()
     if mvt.qte<1:
         mvt.delete()
+        """autresMouvement = Mouvement.objects.filter(produit=idGlace)
+        if autresMouvement is None :
+            bac.produit.delete(glace)
+            glace.bac.delete(bac)"""
 
     tiroir = bac.tiroir
     congo = tiroir.congelateur
@@ -340,6 +345,8 @@ def EnregistrementAdmin(request):
     p = get_object_or_404(Produit, libelle=produit)
     compte = get_object_or_404(Compte, mnemo='ADMIN')
     bac = request.POST['bacs']
+    prixString = request.POST['montant']
+    prix = Decimal(prixString)
     b = get_object_or_404(Bac, libelle=bac)
 
     qte = Decimal(request.POST['qte'])
@@ -360,13 +367,16 @@ def EnregistrementAdmin(request):
     t.total=0
     t.save()
 
+    prixParProduit = prix/qte
     i = 0
     while i < qte:
         ligne = LigneTransaction()
         ligne.transaction = t
         ligne.produit = p
         ligne.quantite = 1
-        ligne.prix = 0
+        ligne.prix = prixParProduit
+        t.total = t.total + ligne.prix
+
 
         ligne.save()
         t.save()

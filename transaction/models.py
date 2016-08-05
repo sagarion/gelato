@@ -38,3 +38,18 @@ class LigneTransaction(models.Model):
         return str(self.transaction.id)
 
 
+class TransactionAnnexe(models.Model):
+    id = models.AutoField(primary_key=True)
+    date = models.DateField(verbose_name="Date")
+    prix = models.DecimalField(max_digits=5, decimal_places=2, verbose_name="Montant")
+    commentaire = models.CharField(max_length=250)
+    clientTouche = models.ForeignKey(Compte,null=True, blank=True, verbose_name="Client")
+
+    def __str__(self):
+        return str(self.commentaire)
+
+
+
+
+
+
