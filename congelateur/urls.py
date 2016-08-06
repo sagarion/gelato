@@ -23,6 +23,7 @@ urlpatterns = [
     url(r'^effectuerReap/$', views.creerReap, name='creerReap'),
     url(r'^remplissageAdmin/$', views.remplissageAdmin, name='remplissageAdmin'),
     url(r'^EnregistrementAdmin/$', views.EnregistrementAdmin, name='EnregistrementAdmin'),
+    url(r'^remplissageManuel/$', views.remplissageManuel, name='remplissageManuel'),
 
 
 

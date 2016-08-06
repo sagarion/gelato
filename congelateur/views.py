@@ -311,6 +311,10 @@ def creerReap(request):
             produit.bac.add(b)
             b.nbProduit = b.nbProduit + qte
             break
+        else:
+            bacs = Bac.objects.all()
+            produits = Produit.objects.all()
+            return render(request, 'congelateur/remplissageManuel.html', {'bacs':bacs, 'produits':produits})
 
 
     compte.solde = compte.solde + prix
@@ -407,9 +411,59 @@ def EnregistrementAdmin(request):
     return render(request, 'congelateur/accueil.html')
 
 
+def remplissageManuel(request):
+    produit = request.POST['produits']
+    p = get_object_or_404(Produit, libelle=produit)
+    userConnected = request.user
+    compte = get_object_or_404(Compte, user=userConnected)
+    bac = request.POST['bacs']
+    prixString = request.POST['montant']
+    prix = Decimal(prixString)
+    b = get_object_or_404(Bac, libelle=bac)
+
+    qte = Decimal(request.POST['qte'])
+
+    p.bac.add(b)
+    b.nbProduit = b.nbProduit + qte
+
+    #Ajustement de la capacité max
+    if b.capaciteMax<b.nbProduit:
+        b.capaciteMax=b.nbProduit
+
+    compte.solde = compte.solde + prix
 
 
+    m = Mouvement()
+    m.bac = b
+    m.produit = p
+    m.qte = qte
+    m.save()
+    t = Transaction()
+    t.type = 'Réapprovisionnement'
+    t.date = timezone.now()
+    t.client = compte
+    t.total=0
+    t.save()
+
+    prixParProduit = prix/qte
+    i = 0
+    while i < qte:
+        ligne = LigneTransaction()
+        ligne.transaction = t
+        ligne.produit = p
+        ligne.quantite = 1
+        ligne.prix = prixParProduit
+        t.total = t.total + ligne.prix
 
 
+        ligne.save()
+        t.save()
+        i = i +1
 
+    p.stockRestant = p.stockRestant + qte
 
+    compte.save()
+    p.save()
+    b.save()
+
+    return render(request, 'congelateur/home.html')

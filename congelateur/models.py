@@ -48,7 +48,7 @@ class Produit(models.Model):
     )
     fournisseur = models.CharField(max_length=50, choices=listeFourni, default=ADMIN, verbose_name="Fournisseur")
     stockRestant = models.DecimalField(max_digits=4, decimal_places=0, verbose_name='Stock')
-    bac = models.ManyToManyField(Bac, related_name="produits", blank=True, null=True)
+    bac = models.ManyToManyField(Bac, related_name="produits", blank=True)
 
     def __str__(self):
         return self.libelle

@@ -1,0 +1,55 @@
+{% extends "congelateur/base.html" %}
+{% load staticfiles %}
+{% block title %}Dashboard{% endblock %}
+{% block stylesheets %}
+    {{ block.super }}
+{% endblock stylesheets %}
+{% block content %}
+    {{ block.super }}
+<script type="text/javascript" src="/static/collected/admin/js/vendor/jquery/jquery.js"></script>
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <b {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</b>
+    {% endfor %}
+</ul>
+{% endif %}
+
+Nous n'avons trouvé aucun bac automatiquement, le congélateur est déverrouilé, veuillez entrez les produits manuellement.<br>
+<b>Veuillez réaliser une entrée par produit différent. Et une entrée par bac !</b>
+
+    <div class="row">
+        <div class="col-lg-2">
+        </div>
+        <div class="col-lg-4">
+             <form action="{% url 'remplissageManuel' %}" method="post">
+                {% csrf_token %}
+                <h4>Quel type de produit avez-vous mis ?</h4>
+
+                <select class="form-control" name="produits" style="width:22em">
+                    {% for p in produits %}
+                    <option>{{p.libelle}}</option>
+                    {% endfor %}
+                </select>
+                <br>
+                <h4>Combien : </h4><input type="number" name="qte" class="form-control">
+                <br>
+                 <h4>Dans quel Bac ?</h4>
+                 <select class="form-control" name="bacs" style="width:22em">
+                    {% for b in bacs %}
+                    <option>{{b.libelle}}</option>
+                    {% endfor %}
+                </select><br>
+                         <h4>Montant du remplissage</h4> <input type="number" step="any" name="montant" class="form-control"><br>
+
+
+                <button type="submit" class="btn btn-secondary">Effectuer le réapprovisionnement</button>
+            </form>
+
+        </div>
+
+    </div>
+
+
+
+{% endblock %}
