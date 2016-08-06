@@ -155,7 +155,7 @@ class GlaceView(TemplateView):
 def listeGlace(idCongo):
     cursor = connection.cursor()
 
-    cursor.execute("SELECT DISTINCT congelateur_categorie.libelle,congelateur_produit.libelle,congelateur_produit.\"prixVente\", sum(congelateur_mouvement.qte"
+    cursor.execute("SELECT DISTINCT congelateur_categorie.libelle,congelateur_produit.libelle,congelateur_produit.\"prixVente\", sum(congelateur_mouvement.qte)"
                    " FROM public.congelateur_mouvement, public.congelateur_produit,public.congelateur_bac,public.congelateur_tiroir,public.congelateur_congelateur,public.congelateur_categorie"
                    " WHERE congelateur_mouvement.produit_id = congelateur_produit.id AND congelateur_mouvement.bac_id = congelateur_bac.id AND"
                    " congelateur_bac.tiroir_id = congelateur_tiroir.id AND congelateur_tiroir.congelateur_id = congelateur_congelateur.id AND"
