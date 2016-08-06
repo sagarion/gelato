@@ -43,7 +43,6 @@ class TransactionAnnexe(models.Model):
     date = models.DateField(verbose_name="Date")
     prix = models.DecimalField(max_digits=5, decimal_places=2, verbose_name="Montant")
     commentaire = models.CharField(max_length=250)
-    clientTouche = models.ForeignKey(Compte,null=True, blank=True, verbose_name="Client")
 
     def __str__(self):
         return str(self.commentaire)

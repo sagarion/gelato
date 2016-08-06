@@ -1,5 +1,6 @@
 import datetime
 from django.contrib.auth.decorators import login_required
+from django.db import connection
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, render_to_response, get_object_or_404, redirect
 from congelateur.models import *
@@ -149,6 +150,22 @@ class GlaceView(TemplateView):
         #Post.objects.filter(author=me)
         context['cats'] = Categorie.objects.all()
         return context
+
+
+def listeGlace(idCongo):
+    cursor = connection.cursor()
+
+    cursor.execute("SELECT DISTINCT congelateur_categorie.libelle,congelateur_produit.libelle,congelateur_produit.\"prixVente\", sum(congelateur_mouvement.qte"
+                   " FROM public.congelateur_mouvement, public.congelateur_produit,public.congelateur_bac,public.congelateur_tiroir,public.congelateur_congelateur,public.congelateur_categorie"
+                   " WHERE congelateur_mouvement.produit_id = congelateur_produit.id AND congelateur_mouvement.bac_id = congelateur_bac.id AND"
+                   " congelateur_bac.tiroir_id = congelateur_tiroir.id AND congelateur_tiroir.congelateur_id = congelateur_congelateur.id AND"
+                   " congelateur_produit.categorie_id = congelateur_categorie.id AND congelateur_congelateur.id = 1"
+                   " GROUP BY congelateur_categorie.libelle, congelateur_produit.libelle, congelateur_produit.\"prixVente\"")
+
+
+    row = cursor.fetchall()
+
+    return row
 
 
 def lire(request, p_id):
