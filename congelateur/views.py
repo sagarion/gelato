@@ -215,14 +215,14 @@ def transactionAchat(request, idGlace, idClient):
     mvt = Mouvement.objects.filter(produit=idGlace)[0]
     idbac = mvt.bac
     bac = get_object_or_404(Bac, libelle=idbac)
+    bac.nbProduit = bac.nbProduit-1
+    bac.save()
     mvt.qte = mvt.qte-1
     mvt.save()
     if mvt.qte<1:
         mvt.delete()
-        """autresMouvement = Mouvement.objects.filter(produit=idGlace)
-        if autresMouvement is None :
-            bac.produit.delete(glace)
-            glace.bac.delete(bac)"""
+        if not Mouvement.objects.filter(produit=idGlace, bac=idbac).exists():
+            glace.bac.remove(bac)
 
     tiroir = bac.tiroir
     congo = tiroir.congelateur
