@@ -144,7 +144,7 @@ class GlaceView(TemplateView):
         context = super(GlaceView, self).get_context_data(**kwargs)
 
         #Plus grand que se traduit par : __gt
-        context['glaces'] = Produit.objects.filter(stockRestant__gt=0)
+        context['glaces'] = listeGlace(1)
         #context['glaces'] = Produit.objects.filter(statut='A')
         #context['glaces'] = Glace.objects.all()
         #Post.objects.filter(author=me)
@@ -153,19 +153,40 @@ class GlaceView(TemplateView):
 
 
 def listeGlace(idCongo):
+    produits = []
+
+
+
+
+
+
+
     cursor = connection.cursor()
 
-    cursor.execute("SELECT DISTINCT congelateur_categorie.libelle,congelateur_produit.libelle,congelateur_produit.\"prixVente\", sum(congelateur_mouvement.qte)"
-                   " FROM public.congelateur_mouvement, public.congelateur_produit,public.congelateur_bac,public.congelateur_tiroir,public.congelateur_congelateur,public.congelateur_categorie"
-                   " WHERE congelateur_mouvement.produit_id = congelateur_produit.id AND congelateur_mouvement.bac_id = congelateur_bac.id AND"
-                   " congelateur_bac.tiroir_id = congelateur_tiroir.id AND congelateur_tiroir.congelateur_id = congelateur_congelateur.id AND"
-                   " congelateur_produit.categorie_id = congelateur_categorie.id AND congelateur_congelateur.id = 1"
-                   " GROUP BY congelateur_categorie.libelle, congelateur_produit.libelle, congelateur_produit.\"prixVente\"")
+    cursor.execute(''' SELECT
+  congelateur_mouvement.produit_id, SUM(congelateur_mouvement.qte)
+  FROM
+  public.congelateur_mouvement,
+  public.congelateur_bac,
+  public.congelateur_tiroir,
+  public.congelateur_congelateur
+  WHERE
+  congelateur_mouvement.bac_id = congelateur_bac.id AND
+  congelateur_bac.tiroir_id = congelateur_tiroir.id AND
+  congelateur_tiroir.congelateur_id = congelateur_congelateur.id AND
+  congelateur_congelateur.id = %s
+  GROUP BY congelateur_mouvement.produit_id;''', [idCongo])
+
+    rows = cursor.fetchall()
+
+    for r in rows:
+        p = get_object_or_404(Produit, id=r[0])
+        p.stockRestant = r[1]
+        produits.append(p)
 
 
-    row = cursor.fetchall()
 
-    return row
+    return produits
 
 
 def lire(request, p_id):
