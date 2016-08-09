@@ -230,10 +230,30 @@ def transactionAchat(request, idGlace, idClient):
     glace = get_object_or_404(Produit, id=idGlace)
     compte = get_object_or_404(Compte, user=idClient)
     solde = compte.solde
-    bacs = Bac.objects.all()
+    idCongo = 1
 
-    #[0] cela retourne uniquement le premier enregistrement qu'il trouve
-    mvt = Mouvement.objects.filter(produit=idGlace)[0]
+
+    cursor = connection.cursor()
+
+    cursor.execute(''' SELECT
+                          congelateur_mouvement.id,
+                          congelateur_mouvement.qte,
+                          congelateur_mouvement.bac_id,
+                          congelateur_mouvement.produit_id
+                        FROM
+                          public.congelateur_mouvement,
+                          public.congelateur_bac,
+                          public.congelateur_tiroir,
+                          public.congelateur_congelateur
+                        WHERE
+                          congelateur_mouvement.bac_id = congelateur_bac.id AND
+                          congelateur_bac.tiroir_id = congelateur_tiroir.id AND
+                          congelateur_tiroir.congelateur_id = congelateur_congelateur.id AND
+                          congelateur_mouvement.produit_id = %s AND
+                          congelateur_congelateur.id = %s; ''', [glace.id, idCongo])
+
+    row = cursor.fetchone()
+    mvt = get_object_or_404(Mouvement, id=row[0])
     idbac = mvt.bac
     bac = get_object_or_404(Bac, libelle=idbac)
     bac.nbProduit = bac.nbProduit-1
