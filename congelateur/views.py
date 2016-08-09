@@ -338,7 +338,14 @@ def retourBac():
 
 #Méthode de réapprovisionnement
 def creerReap(request):
-    bacs = Bac.objects.all()
+
+    idCongo=2
+
+    bacs = Bac.objects.raw('SELECT congelateur_bac.id, congelateur_bac.code, congelateur_bac.libelle, congelateur_bac.tiroir_id, congelateur_bac."capaciteMax", congelateur_bac."nbProduit" '
+                           'FROM public.congelateur_bac, public.congelateur_tiroir, public.congelateur_congelateur '
+                           'WHERE congelateur_bac.tiroir_id = congelateur_tiroir.id AND congelateur_tiroir.congelateur_id = congelateur_congelateur.id AND congelateur_congelateur.id = %s;', [idCongo])
+
+    #bacs = Bac.objects.all()
     produit = get_object_or_404(Produit, libelle=request.POST['produits'])
     qteString = request.POST['qte']
     qte = Decimal(qteString)
