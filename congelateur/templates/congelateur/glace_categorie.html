@@ -40,13 +40,9 @@
         <div class="col-lg-2">
             <h3>Trier</h3>
             <h4>Catégorie</h4>
-            <ul class="logo-list">
                 {% for ca in cats %}
-                    <li>
-                        <a href="{% url 'listeCat' ca.id %}">{{ca.libelle}}</a>
-                    </li>
+                        <a href="{% url 'listeCat' ca.id %}">{{ca.libelle}}</a><br>
                 {% endfor %}
-            </ul>
         </div>
     </div>
 {% endblock %}

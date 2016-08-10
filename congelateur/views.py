@@ -148,34 +148,27 @@ class GlaceView(TemplateView):
         #context['glaces'] = Produit.objects.filter(statut='A')
         #context['glaces'] = Glace.objects.all()
         #Post.objects.filter(author=me)
-        context['cats'] = Categorie.objects.all()
+        context['cats'] = Categorie.objects.all().order_by('libelle')
         return context
 
 
 def listeGlace(idCongo):
     produits = []
-
-
-
-
-
-
-
     cursor = connection.cursor()
 
     cursor.execute(''' SELECT
-  congelateur_mouvement.produit_id, SUM(congelateur_mouvement.qte)
-  FROM
-  public.congelateur_mouvement,
-  public.congelateur_bac,
-  public.congelateur_tiroir,
-  public.congelateur_congelateur
-  WHERE
-  congelateur_mouvement.bac_id = congelateur_bac.id AND
-  congelateur_bac.tiroir_id = congelateur_tiroir.id AND
-  congelateur_tiroir.congelateur_id = congelateur_congelateur.id AND
-  congelateur_congelateur.id = %s
-  GROUP BY congelateur_mouvement.produit_id;''', [idCongo])
+                          congelateur_mouvement.produit_id, SUM(congelateur_mouvement.qte)
+                      FROM
+                          public.congelateur_mouvement,
+                          public.congelateur_bac,
+                          public.congelateur_tiroir,
+                          public.congelateur_congelateur
+                      WHERE
+                          congelateur_mouvement.bac_id = congelateur_bac.id AND
+                          congelateur_bac.tiroir_id = congelateur_tiroir.id AND
+                          congelateur_tiroir.congelateur_id = congelateur_congelateur.id AND
+                          congelateur_congelateur.id = %s
+                      GROUP BY congelateur_mouvement.produit_id;''', [idCongo])
 
     rows = cursor.fetchall()
 
@@ -205,7 +198,7 @@ def lire(request, p_id):
     else:
         glaces = Produit.objects.filter(categorie=p_id).filter(stockRestant__gt=0)
 
-    toutesLesCats = Categorie.objects.all()
+    toutesLesCats = Categorie.objects.all().order_by('libelle')
 
     return render(request, 'congelateur/glace_categorie.html', {'cat': categorie, 'gl': glaces, 'cats':toutesLesCats})
 
@@ -339,7 +332,7 @@ def retourBac():
 #Méthode de réapprovisionnement
 def creerReap(request):
 
-    idCongo=2
+    idCongo=1
 
     bacs = Bac.objects.raw('SELECT congelateur_bac.id, congelateur_bac.code, congelateur_bac.libelle, congelateur_bac.tiroir_id, congelateur_bac."capaciteMax", congelateur_bac."nbProduit" '
                            'FROM public.congelateur_bac, public.congelateur_tiroir, public.congelateur_congelateur '
