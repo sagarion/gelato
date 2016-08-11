@@ -331,14 +331,10 @@ def retourBac():
 
 #Méthode de réapprovisionnement
 def creerReap(request):
-
     idCongo=1
-
     bacs = Bac.objects.raw('SELECT congelateur_bac.id, congelateur_bac.code, congelateur_bac.libelle, congelateur_bac.tiroir_id, congelateur_bac."capaciteMax", congelateur_bac."nbProduit" '
                            'FROM public.congelateur_bac, public.congelateur_tiroir, public.congelateur_congelateur '
                            'WHERE congelateur_bac.tiroir_id = congelateur_tiroir.id AND congelateur_tiroir.congelateur_id = congelateur_congelateur.id AND congelateur_congelateur.id = %s;', [idCongo])
-
-    #bacs = Bac.objects.all()
     produit = get_object_or_404(Produit, libelle=request.POST['produits'])
     qteString = request.POST['qte']
     qte = Decimal(qteString)
@@ -358,18 +354,14 @@ def creerReap(request):
             return render(request, 'congelateur/remplissageManuel.html', {'bacs':bacs, 'produits':produits})
 
 
-    compte.solde = compte.solde + prix
+    bonus = calculBonus(compte, prix)
+    compte.solde = compte.solde + prix + bonus
 
-    m = Mouvement()
-    m.bac = b
-    m.produit = produit
-    m.qte = qte
-    m.save()
     t = Transaction()
     t.type = 'Réapprovisionnement'
     t.date = timezone.now()
     t.client = compte
-    t.total = 0
+    t.total = bonus
     t.save()
 
     prixParProduit = prix/qte
@@ -388,7 +380,12 @@ def creerReap(request):
         i = i +1
 
     produit.stockRestant = produit.stockRestant + qte
+    m = Mouvement()
+    m.bac = b
+    m.produit = produit
+    m.qte = qte
 
+    m.save()
     produit.save()
     b.save()
     compte.save()
@@ -471,8 +468,10 @@ def remplissageManuel(request):
     if b.capaciteMax<b.nbProduit:
         b.capaciteMax=b.nbProduit
 
-    compte.solde = compte.solde + prix
 
+
+    bonus = calculBonus(compte, prix)
+    compte.solde = compte.solde + prix + bonus
 
     m = Mouvement()
     m.bac = b
@@ -483,7 +482,7 @@ def remplissageManuel(request):
     t.type = 'Réapprovisionnement'
     t.date = timezone.now()
     t.client = compte
-    t.total=0
+    t.total=bonus
     t.save()
 
     prixParProduit = prix/qte
@@ -508,3 +507,31 @@ def remplissageManuel(request):
     b.save()
 
     return render(request, 'congelateur/home.html')
+
+
+
+def calculBonus(compte, prix):
+
+    bonus = 0
+
+
+    #Contrôle du niveau du client et calcul du bonus
+
+    if compte.niveau.libelle == 'MINI':
+        bonus = 0
+
+    elif compte.niveau.libelle == 'NOVICE':
+        bonus = (prix*5)/100
+
+    elif compte.niveau.libelle == 'TOP':
+        bonus = (prix*7)/100
+
+    elif compte.niveau.libelle == 'EXPERT':
+        bonus = (prix*10)/100
+
+    return bonus
+
+
+
+
+
