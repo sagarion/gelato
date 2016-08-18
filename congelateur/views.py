@@ -533,5 +533,40 @@ def calculBonus(compte, prix):
 
 
 
+def calculNiveau(compte):
+
+    niveau = ''
+
+    cursor = connection.cursor()
+
+    cursor.execute(''' SELECT
+                            transaction_transaction.date,
+                            COUNT(DISTINCT transaction_transaction.date)
+                        FROM
+                            public.client_compte,
+                            public.transaction_transaction,
+                            public.auth_user
+                        WHERE
+                            client_compte.user_id = auth_user.id AND
+                            transaction_transaction.client_id = client_compte.id AND
+                            transaction_transaction.type = 'Réapprovisionnement' AND
+                            transaction_transaction.client_id = %s
+                        GROUP BY
+                            transaction_transaction.date;''', [compte])
+
+    nombre = cursor.fetchone()
+
+    if nombre < 3 :
+        niveau = 'MINI'
+    elif nombre >= 3 & nombre < 7 :
+        niveau = 'NOVICE'
+    elif nombre >= 7 & nombre <12 :
+        niveau = 'TOP'
+    elif nombre >= 12 :
+        niveau = 'EXPERT'
+
+    return niveau
+
+
 
 
