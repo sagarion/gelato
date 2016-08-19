@@ -479,6 +479,9 @@ def remplissageManuel(request):
     #Calcul nouveau niveau
     idNewLevel = calculNiveau(compte)
     nouveauNiveau = get_object_or_404(Niveau, id=idNewLevel)
+    if compte.niveau!=nouveauNiveau:
+        compte.niveau = nouveauNiveau
+        messages.info(request, 'Bravo ! Vous venez d\'augmenter votre niveau ! Vous êtes maintenant {0} ! Merci de contribuer !'.format(nouveauNiveau))
 
     bonus = calculBonus(compte, prix)
     compte.solde = compte.solde + prix + bonus
@@ -516,7 +519,7 @@ def remplissageManuel(request):
     p.save()
     b.save()
 
-    return render(request, 'congelateur/home.html')
+    return render(request, 'congelateur/remplissageManuel.html')
 
 
 
@@ -528,16 +531,16 @@ def calculBonus(compte, prix):
     #Contrôle du niveau du client et calcul du bonus
 
     if compte.niveau.libelle == 'MINI':
-        bonus = 0
+        bonus = (prix*compte.niveau.rabais)/100
 
     elif compte.niveau.libelle == 'NOVICE':
-        bonus = (prix*5)/100
+        bonus = (prix*compte.niveau.rabais)/100
 
     elif compte.niveau.libelle == 'TOP':
-        bonus = (prix*7)/100
+        bonus = (prix*compte.niveau.rabais)/100
 
     elif compte.niveau.libelle == 'EXPERT':
-        bonus = (prix*10)/100
+        bonus = (prix*compte.niveau.rabais)/100
 
     return bonus
 

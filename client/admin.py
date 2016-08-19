@@ -7,7 +7,7 @@ class DemandeAdmin(admin.ModelAdmin):
 class CompteAdmin(admin.ModelAdmin):
     list_display = ('prenom','nom','solde', 'niveau')
 class NiveauAdmin(admin.ModelAdmin):
-    list_display = ('libelle','nbTransactionMinimum')
+    list_display = ('libelle','nbTransactionMinimum', 'rabais')
 
 admin.site.register(Demande, DemandeAdmin)
 admin.site.register(Mode)
