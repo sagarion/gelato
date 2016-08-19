@@ -18,6 +18,7 @@ class Niveau(models.Model):
         verbose_name_plural = "Niveaux"
     id = models.AutoField(primary_key=True)
     libelle = models.CharField(max_length=100, verbose_name="Libellé")
+    nbTransactionMinimum = models.IntegerField(verbose_name="Nombre de transactions minimum")
 
     def __str__(self):
         return self.libelle

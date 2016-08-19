@@ -334,7 +334,8 @@ def creerReap(request):
     idCongo=1
     bacs = Bac.objects.raw('SELECT congelateur_bac.id, congelateur_bac.code, congelateur_bac.libelle, congelateur_bac.tiroir_id, congelateur_bac."capaciteMax", congelateur_bac."nbProduit" '
                            'FROM public.congelateur_bac, public.congelateur_tiroir, public.congelateur_congelateur '
-                           'WHERE congelateur_bac.tiroir_id = congelateur_tiroir.id AND congelateur_tiroir.congelateur_id = congelateur_congelateur.id AND congelateur_congelateur.id = %s;', [idCongo])
+                           'WHERE congelateur_bac.tiroir_id = congelateur_tiroir.id AND congelateur_tiroir.congelateur_id = congelateur_congelateur.id AND congelateur_congelateur.id = %s '
+                           'ORDER BY congelateur_bac."nbProduit";', [idCongo])
     produit = get_object_or_404(Produit, libelle=request.POST['produits'])
     qteString = request.POST['qte']
     qte = Decimal(qteString)
@@ -353,7 +354,11 @@ def creerReap(request):
             produits = Produit.objects.all()
             return render(request, 'congelateur/remplissageManuel.html', {'bacs':bacs, 'produits':produits})
 
+    #Calcul nouveau niveau
+    idNewLevel = calculNiveau(compte)
+    nouveauNiveau = get_object_or_404(Niveau, id=idNewLevel)
 
+    compte.niveau = nouveauNiveau
     bonus = calculBonus(compte, prix)
     compte.solde = compte.solde + prix + bonus
 
@@ -468,7 +473,9 @@ def remplissageManuel(request):
     if b.capaciteMax<b.nbProduit:
         b.capaciteMax=b.nbProduit
 
-
+    #Calcul nouveau niveau
+    idNewLevel = calculNiveau(compte)
+    nouveauNiveau = get_object_or_404(Niveau, id=idNewLevel)
 
     bonus = calculBonus(compte, prix)
     compte.solde = compte.solde + prix + bonus
@@ -535,37 +542,22 @@ def calculBonus(compte, prix):
 
 def calculNiveau(compte):
 
-    niveau = ''
-
+    niveaux = Niveau.objects.all().order_by('nbTransactionMinimum')
     cursor = connection.cursor()
-
-    cursor.execute(''' SELECT
-                            transaction_transaction.date,
-                            COUNT(DISTINCT transaction_transaction.date)
-                        FROM
-                            public.client_compte,
-                            public.transaction_transaction,
-                            public.auth_user
-                        WHERE
-                            client_compte.user_id = auth_user.id AND
-                            transaction_transaction.client_id = client_compte.id AND
-                            transaction_transaction.type = 'Réapprovisionnement' AND
-                            transaction_transaction.client_id = %s
-                        GROUP BY
-                            transaction_transaction.date;''', [compte])
+    cursor.execute("SELECT COUNT(distinct transaction_transaction.date) "
+                   "FROM public.client_compte, public.transaction_transaction, public.auth_user "
+                   "WHERE client_compte.user_id = auth_user.id AND "
+                   "transaction_transaction.client_id = client_compte.id AND "
+                   "transaction_transaction.type = 'Réapprovisionnement' AND "
+                   "transaction_transaction.client_id = %s;", [compte.id])
 
     nombre = cursor.fetchone()
 
-    if nombre < 3 :
-        niveau = 'MINI'
-    elif nombre >= 3 & nombre < 7 :
-        niveau = 'NOVICE'
-    elif nombre >= 7 & nombre <12 :
-        niveau = 'TOP'
-    elif nombre >= 12 :
-        niveau = 'EXPERT'
+    for n in niveaux :
+        if nombre[0]+1 >= n.nbTransactionMinimum:
+            niveauId = n.id
 
-    return niveau
+    return niveauId
 
 
 
