@@ -357,8 +357,11 @@ def creerReap(request):
     #Calcul nouveau niveau
     idNewLevel = calculNiveau(compte)
     nouveauNiveau = get_object_or_404(Niveau, id=idNewLevel)
+    if compte.niveau!=nouveauNiveau:
+        compte.niveau = nouveauNiveau
+        messages.info(request, 'Bravo ! Vous venez d\'augmenter votre niveau ! Vous êtes maintenant {0} ! Merci de contribuer !'.format(nouveauNiveau))
 
-    compte.niveau = nouveauNiveau
+
     bonus = calculBonus(compte, prix)
     compte.solde = compte.solde + prix + bonus
 
@@ -395,7 +398,7 @@ def creerReap(request):
     b.save()
     compte.save()
 
-    return render(request, 'congelateur/confirmationEntree.html', {'bac':b, 'solde':compte.solde})
+    return render(request, 'congelateur/confirmationEntree.html', {'bac':b, 'compte':compte})
 
 
 def remplissageAdmin(request):
