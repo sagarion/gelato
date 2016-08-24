@@ -8,6 +8,11 @@ urlpatterns = [
     url(r'^home$', views.home, name='home'),
     url(r'^produits$',GlaceView.as_view(), name='produit'),
     url(r'^about$', views.about, name='about'),
+
+    url(r'^accueilConnect', views.accueilConnect, name='accueilConnect'),
+    url(r'^listeCategorie', views.listeCategorie, name='listeCategorie'),
+    url(r'^listeSousCat/(?P<idCate>\d+)/$', views.listeSousCat, name='listeSousCat'),
+
     url(r'^discover$', views.discover, name='discover'),
     url(r'^dashboard$', views.dashboard, name='dashboard'),
     url(r'^achat/(?P<idGlace>\d+)/(?P<idClient>\d+)$', views.achat, name='achat'),

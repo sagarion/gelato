@@ -1,0 +1,23 @@
+body{
+background-color:#e2e2e2
+}
+
+
+.navbar {
+  position: relative;
+  min-height: 50px;
+  margin-bottom: 20px;
+  margin-top:20px;
+  border: 1px solid transparent;
+}
+
+.navbar-default {
+  background-color: #171717;
+  border-color: #e7e7e7;
+}
+
+.btn {
+    width: 200px;
+    height: 200px;
+
+}

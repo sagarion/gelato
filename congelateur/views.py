@@ -25,6 +25,23 @@ def accueil(request):
 def about(request):
     return render(request, 'congelateur/about.html')
 
+def accueilConnect(request):
+    return render(request, 'congelateur/accueilConnect.html')
+
+def listeCategorie(request):
+    cats = Categorie.objects.filter(sousCategorie__isnull = True)
+    return render(request, 'congelateur/NouvelAchat.html', {'cats':cats})
+
+def listeSousCat(request, idCate):
+    sousCats = Categorie.objects.filter(sousCategorie = idCate)
+    if not sousCats :
+        messages.info(request, 'Aucune sous-catégorie trouvée pour cette catégorie !')
+    return render(request, 'congelateur/listeSousCategorie.html', {'sousCats':sousCats})
+
+def listeProduits(request, idSousCate):
+    produits = Produit.objects.filter
+
+
 def discover(request):
     return render(request, 'congelateur/discover.html', locals())
 

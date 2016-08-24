@@ -1,0 +1,21 @@
+{% extends "congelateur/connect.html" %}
+{% load staticfiles %}
+{% block title %}NouvelAchat{% endblock %}
+{% block stylesheets %}
+    {{ block.super }}
+{% endblock stylesheets %}
+{% block content %}
+    {{ block.super }}
+{% for message in messages %}
+    <b {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</b>
+    {% endfor %}
+    <div class="container">
+        <section class="row">
+
+            {% for sc in sousCats %}
+            <div class="col-lg-3"><a href=""><button class="btn btn-default">{{sc.libelle}}</button></a></div>
+            {% endfor %}
+
+        </section>
+    </div>
+{% endblock %}

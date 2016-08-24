@@ -19,6 +19,7 @@ def connexion(request):
             user = authenticate(username=username, password=password)  # Nous vérifions si les données sont correctes
             if user:  # Si l'objet renvoyé n'est pas None
                 login(request, user)  # nous connectons l'utilisateur
+                return render(request, 'congelateur/connect.html', locals())
             else: # sinon une erreur sera affichée
                 error = True
     else:

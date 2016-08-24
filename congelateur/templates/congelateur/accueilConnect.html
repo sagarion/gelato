@@ -1,0 +1,18 @@
+{% extends "congelateur/connect.html" %}
+{% load staticfiles %}
+{% block title %}NouvelAchat{% endblock %}
+{% block stylesheets %}
+    {{ block.super }}
+{% endblock stylesheets %}
+{% block content %}
+    {{ block.super }}
+    <div class="container">
+        <section class="row">
+            <div class="col-lg-1"></div>
+            <div class="col-lg-3"><a href="{% url 'listeCategorie' %}"><button class="btn btn-default">Acheter</button></a></div>
+            <div class="col-lg-3"><button class="btn btn-default">Réapprovisionner</button></div>
+            <div class="col-lg-3"><button class="btn btn-default">Mon compte</button></div>
+            <div class="col-lg-1"></div>
+        </section>
+    </div>
+{% endblock %}
