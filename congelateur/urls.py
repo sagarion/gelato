@@ -12,6 +12,8 @@ urlpatterns = [
     url(r'^accueilConnect', views.accueilConnect, name='accueilConnect'),
     url(r'^listeCategorie', views.listeCategorie, name='listeCategorie'),
     url(r'^listeSousCat/(?P<idCate>\d+)/$', views.listeSousCat, name='listeSousCat'),
+    url(r'^listeProduits/(?P<idSousCate>\d+)/$', views.listeProduits, name='listeProduits'),
+    url(r'^effectuerAchat/(?P<idGlace>\d+)/(?P<idClient>\d+)$', views.effectuerAchat, name='effectuerAchat'),
 
     url(r'^discover$', views.discover, name='discover'),
     url(r'^dashboard$', views.dashboard, name='dashboard'),

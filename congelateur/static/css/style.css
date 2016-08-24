@@ -1,5 +1,5 @@
 body{
-background-color:#e2e2e2
+background-color: #e4e4e4;
 }
 
 
@@ -12,12 +12,23 @@ background-color:#e2e2e2
 }
 
 .navbar-default {
-  background-color: #171717;
+  background-color: #828181;
   border-color: #e7e7e7;
 }
 
-.btn {
+.navbar-default .navbar-nav>li>a {
+    color: #101010;
+    font-weight:bold;
+}
+
+
+
+.btn-default {
     width: 200px;
     height: 200px;
+    background-color: #828181;
+    color:#000000;
+    font-size: 20px;
+    font-weight: bold;
 
 }

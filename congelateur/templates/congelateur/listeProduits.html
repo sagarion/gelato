@@ -12,10 +12,18 @@
     <div class="container">
         <section class="row">
 
-            {% for sc in sousCats %}
-            <div class="col-lg-3"><a href="{% url 'listeProduits' idSousCate=sc.id %}"><button class="btn btn-default">{{sc.libelle}}</button></a></div>
+            {% for p in produits %}
+
+                <div class="col-lg-3">
+                    <img height="150px" class="img-rounded" src="{{ p.image.url }}" /><br>
+                    <br><a href="{% url 'effectuerAchat' idGlace=p.id idClient=user.id %}"><button type="button" class="btn btn-success">Acheter <span class="badge">{{p.stockRestant}}</span></button></a>
+                </div>
+
             {% endfor %}
+
 
         </section>
     </div>
 {% endblock %}
+
+

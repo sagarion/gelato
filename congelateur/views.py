@@ -39,7 +39,61 @@ def listeSousCat(request, idCate):
     return render(request, 'congelateur/listeSousCategorie.html', {'sousCats':sousCats})
 
 def listeProduits(request, idSousCate):
-    produits = Produit.objects.filter
+    produits = []
+    cursor = connection.cursor()
+
+    cursor.execute(''' SELECT
+                          SUM(congelateur_mouvement.qte),
+                          congelateur_produit.id
+                        FROM
+                          public.congelateur_produit,
+                          public.congelateur_mouvement,
+                          public.congelateur_bac,
+                          public.congelateur_tiroir,
+                          public.congelateur_congelateur,
+                          public.congelateur_categorie
+                        WHERE
+                          congelateur_produit.categorie_id = congelateur_categorie.id AND
+                          congelateur_mouvement.bac_id = congelateur_bac.id AND
+                          congelateur_mouvement.produit_id = congelateur_produit.id AND
+                          congelateur_bac.tiroir_id = congelateur_tiroir.id AND
+                          congelateur_tiroir.congelateur_id = congelateur_congelateur.id AND
+                          congelateur_produit.categorie_id = %s AND
+                          congelateur_congelateur.id = 1
+
+                          GROUP BY congelateur_produit.id;''', [idSousCate])
+
+
+    rows = cursor.fetchall()
+
+    for r in rows:
+        p = get_object_or_404(Produit, id=r[1])
+        p.stockRestant = r[0]
+        produits.append(p)
+
+
+    if not produits :
+        messages.info(request, 'Aucun produit trouvé pour cette sous-catégorie !')
+
+    return render(request, 'congelateur/listeProduits.html', {'produits':produits})
+
+
+def effectuerAchat(request, idGlace, idClient):
+    cli = get_object_or_404(User, id=idClient)
+    compte = get_object_or_404(Compte, user=idClient)
+    solde = compte.solde
+    glace = get_object_or_404(Produit, id=idGlace)
+    soldeApresAchat = solde - glace.prixVente
+
+    if(glace.prixVente > solde):
+        messages.error(request, 'Solde insuffisant !')
+        return redirect('produit')
+    else:
+        return render(request, 'congelateur/EffectuerAchat.html', {'gl': glace, 'soldeSiAchat':soldeApresAchat})
+
+
+
+
 
 
 def discover(request):
