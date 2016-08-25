@@ -34,9 +34,46 @@ def listeCategorie(request):
 
 def listeSousCat(request, idCate):
     sousCats = Categorie.objects.filter(sousCategorie = idCate)
+    produits = []
+    cursor = connection.cursor()
+
+    cursor.execute(''' SELECT
+                          SUM(congelateur_mouvement.qte),
+                          congelateur_produit.id
+                        FROM
+                          public.congelateur_produit,
+                          public.congelateur_mouvement,
+                          public.congelateur_bac,
+                          public.congelateur_tiroir,
+                          public.congelateur_congelateur,
+                          public.congelateur_categorie
+                        WHERE
+                          congelateur_produit.categorie_id = congelateur_categorie.id AND
+                          congelateur_mouvement.bac_id = congelateur_bac.id AND
+                          congelateur_mouvement.produit_id = congelateur_produit.id AND
+                          congelateur_bac.tiroir_id = congelateur_tiroir.id AND
+                          congelateur_tiroir.congelateur_id = congelateur_congelateur.id AND
+                          congelateur_categorie.id = %s AND
+                          congelateur_categorie."sousCategorie_id" IS NULL AND
+                          congelateur_congelateur.id = 1
+
+                          GROUP BY congelateur_produit.id;''',[idCate])
+
+
+    rows = cursor.fetchall()
+
+    for r in rows:
+        p = get_object_or_404(Produit, id=r[1])
+        p.stockRestant = r[0]
+        produits.append(p)
+
+
+
+
+
     if not sousCats :
         messages.info(request, 'Aucune sous-catégorie trouvée pour cette catégorie !')
-    return render(request, 'congelateur/listeSousCategorie.html', {'sousCats':sousCats})
+    return render(request, 'congelateur/listeSousCategorie.html', {'sousCats':sousCats, 'produits':produits})
 
 def monCompte(request):
     userConnected = request.user
