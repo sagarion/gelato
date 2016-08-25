@@ -1,0 +1,71 @@
+{% extends "congelateur/connect.html" %}
+{% load staticfiles %}
+{% block title %}NouvelAchat{% endblock %}
+{% block stylesheets %}
+    {{ block.super }}
+{% endblock stylesheets %}
+{% block content %}
+    {{ block.super }}
+{% for message in messages %}
+    <b {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</b>
+    {% endfor %}
+
+
+    <div class="container">
+        <section class="row">
+
+
+
+
+
+                <div class="col-lg-12">
+
+
+        <h1>Retirer votre glace</h1>
+                        </div>
+            </section>
+
+
+        <section class="row">
+
+
+
+
+
+                <div class="col-lg-3">
+
+                    <table class="table table-hover">
+
+                    <tr>
+                    <td>Congélateur : </td><td>{{congo}}</td>
+                </tr>
+
+
+                    <tr>
+                    <td>Tiroir : </td><td>{{tiroir}}</td>
+                </tr>
+
+
+                    <tr>
+                    <b><td>Bac : </td><td>{{bac}}</td></b>
+                </tr>
+
+                    <tr>
+                    <td>Solde restant : </td><td>{{solde}}</td>
+                </tr>
+
+            </table>
+
+
+
+
+            <a href="{% url 'accueilConnect' %}"><button type="button" class="btn btn-primary">OK</button></a>
+        </div>
+
+
+
+        </section>
+    </div>
+{% endblock %}
+
+

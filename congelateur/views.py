@@ -38,6 +38,45 @@ def listeSousCat(request, idCate):
         messages.info(request, 'Aucune sous-catégorie trouvée pour cette catégorie !')
     return render(request, 'congelateur/listeSousCategorie.html', {'sousCats':sousCats})
 
+def monCompte(request):
+    userConnected = request.user
+    compte = get_object_or_404(Compte, user=userConnected)
+    listeUtilisateurs = Compte.objects.exclude(user=userConnected)
+    list_transactions = Transaction.objects.filter(client=compte).order_by('-date')
+    #Toutes les demandes :
+    # transferts = Demande.objects.filter(Q(clientDemandeur=compte) | Q(clientReceveur=compte))
+    demandesFaites = Demande.objects.filter(clientDemandeur=compte)
+    demandesRecues = Demande.objects.filter(clientReceveur=compte)
+    demandesATraiter = Demande.objects.filter(Q(clientReceveur=compte) & Q(etat='En attente'))
+    modes = Mode.objects.all()
+    form = DemandeForm()
+
+    #Pagination pour les transactions
+    paginator = Paginator(list_transactions, 5)
+
+    page = request.GET.get('page')
+    try:
+        transactions = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        transactions = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+        transactions = paginator.page(paginator.num_pages)
+
+
+
+
+    return render(request, 'congelateur/monCompte.html', {'user':compte, 'listUsers':listeUtilisateurs, 'transactions':transactions,
+                                                          'mode':modes, 'form': form, 'demandesFaites':demandesFaites, 'demandesRecues':demandesRecues, 'demandeATraiter':demandesATraiter})
+
+
+
+
+
+
+    return render(request, 'congelateur/monCompte.html', {'sousCats':sousCats})
+
 def listeProduits(request, idSousCate):
     produits = []
     cursor = connection.cursor()
@@ -90,6 +129,77 @@ def effectuerAchat(request, idGlace, idClient):
         return redirect('produit')
     else:
         return render(request, 'congelateur/EffectuerAchat.html', {'gl': glace, 'soldeSiAchat':soldeApresAchat})
+
+
+
+def AchatConfirme(request, idGlace, idClient):
+    cli = get_object_or_404(User, id=idClient)
+    glace = get_object_or_404(Produit, id=idGlace)
+    compte = get_object_or_404(Compte, user=idClient)
+    solde = compte.solde
+    idCongo = 1
+
+
+    cursor = connection.cursor()
+
+    cursor.execute(''' SELECT
+                          congelateur_mouvement.id,
+                          congelateur_mouvement.qte,
+                          congelateur_mouvement.bac_id,
+                          congelateur_mouvement.produit_id
+                        FROM
+                          public.congelateur_mouvement,
+                          public.congelateur_bac,
+                          public.congelateur_tiroir,
+                          public.congelateur_congelateur
+                        WHERE
+                          congelateur_mouvement.bac_id = congelateur_bac.id AND
+                          congelateur_bac.tiroir_id = congelateur_tiroir.id AND
+                          congelateur_tiroir.congelateur_id = congelateur_congelateur.id AND
+                          congelateur_mouvement.produit_id = %s AND
+                          congelateur_congelateur.id = %s; ''', [glace.id, idCongo])
+
+    row = cursor.fetchone()
+    mvt = get_object_or_404(Mouvement, id=row[0])
+    idbac = mvt.bac
+    bac = get_object_or_404(Bac, libelle=idbac)
+    bac.nbProduit = bac.nbProduit-1
+    bac.save()
+    mvt.qte = mvt.qte-1
+    mvt.save()
+    if mvt.qte<1:
+        mvt.delete()
+        if not Mouvement.objects.filter(produit=idGlace, bac=idbac).exists():
+            glace.bac.remove(bac)
+
+    tiroir = bac.tiroir
+    congo = tiroir.congelateur
+
+    t = Transaction()
+    t.type = 'Achat'
+    t.date = timezone.now()
+    t.client = compte
+    t.total = 0
+    t.save()
+
+
+    ligne = LigneTransaction()
+    ligne.transaction = t
+    ligne.produit = glace
+    ligne.prix = glace.prixVente
+    t.total = t.total + ligne.prix
+    glace.stockRestant = glace.stockRestant - 1
+
+
+    compte.solde = solde - t.total
+
+
+    compte.save()
+    glace.save()
+    ligne.save()
+    t.save()
+
+    return render(request, 'congelateur/BacAchat.html', {'bac': bac, 'tiroir':tiroir, 'congo':congo, 'solde':compte.solde})
 
 
 

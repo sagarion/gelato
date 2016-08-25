@@ -10,14 +10,62 @@
     <b {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</b>
     {% endfor %}
     <div class="container">
+        <h1>Récapitulatif avant la vente</h1>
         <section class="row">
 
-hello
+
+
+            <div class="col-lg-2">
+                    <img height="150px" class="img-rounded" src="{{ gl.image.url }}" />
+            </div>
+            <div class = "col-lg-4">
+
+
+
+                <table class="table table-hover">
+
+                    <tr>
+                    <td>{{gl.libelle}}</td>
+                </tr>
+
+
+                    <tr>
+                    <td>{{gl.calories}} calories</td>
+                </tr>
+
+
+                    <tr>
+                    <td>{{gl.prixVente}} CHF</td>
+                </tr>
+
+                    <tr>
+                    <td>Solde après achat : </td><td>{{soldeSiAchat}}</td>
+                </tr>
+
+            </table>
+
+            </div>
+
+
+
 
 
 
         </section>
+        <br>
+        <section class="row">
+            <div class="col-lg-1"></div>
+            <div class="col-lg-5">
+                <a href="{% url 'AchatConfirme' idGlace=gl.id idClient=user.id %}"><button type="button" class="btn btn-primary">Acheter</button></a>
+                <a href=""><button type="button" class="btn btn-danger">Annuler</button></a>
+
+            </div>
+
+        </section>
     </div>
 {% endblock %}
+
+
+
 
 

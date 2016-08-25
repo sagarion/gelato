@@ -1,0 +1,31 @@
+{% extends "congelateur/connect.html" %}
+{% load staticfiles %}
+{% block title %}NouvelAchat{% endblock %}
+{% block stylesheets %}
+    {{ block.super }}
+{% endblock stylesheets %}
+{% block content %}
+    {{ block.super }}
+{% for message in messages %}
+    <b {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</b>
+    {% endfor %}
+    <div class="container">
+        <section class="row">
+            <div class="col-lg-2">
+                <ul class="nav nav-pills nav-stacked">
+  <li class="active"><a href="#">Information</a></li>
+  <li><a href="#">Mes historiques</a></li>
+  <li><a href="#">Demandes d'argent</a></li>
+  <li><a href="#">Modifier mes informations</a></li>
+</ul>
+            </div>
+            <div class="col-lg-10">
+                contenu
+            </div>
+
+
+        </section>
+    </div>
+{% endblock %}
+
+

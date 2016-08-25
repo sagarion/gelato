@@ -14,6 +14,8 @@ urlpatterns = [
     url(r'^listeSousCat/(?P<idCate>\d+)/$', views.listeSousCat, name='listeSousCat'),
     url(r'^listeProduits/(?P<idSousCate>\d+)/$', views.listeProduits, name='listeProduits'),
     url(r'^effectuerAchat/(?P<idGlace>\d+)/(?P<idClient>\d+)$', views.effectuerAchat, name='effectuerAchat'),
+    url(r'^monCompte$', views.monCompte, name='monCompte'),
+    url(r'^AchatConfirme/(?P<idGlace>\d+)/(?P<idClient>\d+)$', views.AchatConfirme, name='AchatConfirme'),
 
     url(r'^discover$', views.discover, name='discover'),
     url(r'^dashboard$', views.dashboard, name='dashboard'),
