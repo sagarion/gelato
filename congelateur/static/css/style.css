@@ -12,10 +12,10 @@ background-color: #e4e4e4;
 
 .navbar {
   position: relative;
-  min-height: 50px;
   margin-bottom: 20px;
   margin-top:20px;
   border: 1px solid transparent;
+  font-size:26px;
 }
 
 .navbar-default {
@@ -26,6 +26,13 @@ background-color: #e4e4e4;
 .navbar-default .navbar-nav>li>a {
     color: #101010;
     font-weight:bold;
+    margin-right:40px;
+}
+
+.nav-pills{
+
+    font-size:18px;
+
 }
 
 .nav-pills>li.active>a, .nav-pills>li.active>a:hover, .nav-pills>li.active>a:focus {

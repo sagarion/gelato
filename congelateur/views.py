@@ -245,6 +245,50 @@ def AchatConfirme(request, idGlace, idClient):
     return render(request, 'congelateur/BacAchat.html', {'bac': bac, 'tiroir':tiroir, 'congo':congo, 'solde':compte.solde})
 
 
+def demandeArgent(request):
+    form = DemandeForm()
+    return render(request, 'congelateur/demandeArgent.html', {'form': form})
+
+def historique(request):
+    userConnected = request.user
+    compte = get_object_or_404(Compte, user=userConnected)
+    listeUtilisateurs = Compte.objects.exclude(user=userConnected)
+    list_transactions = Transaction.objects.filter(client=compte).order_by('-date')
+    #Toutes les demandes :
+    # transferts = Demande.objects.filter(Q(clientDemandeur=compte) | Q(clientReceveur=compte))
+    demandesFaites = Demande.objects.filter(clientDemandeur=compte)
+    demandesRecues = Demande.objects.filter(clientReceveur=compte)
+    demandesATraiter = Demande.objects.filter(Q(clientReceveur=compte) & Q(etat='En attente'))
+    modes = Mode.objects.all()
+
+    #Pagination pour les transactions
+    paginator = Paginator(list_transactions, 5)
+
+    page = request.GET.get('page')
+    try:
+        transactions = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        transactions = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+        transactions = paginator.page(paginator.num_pages)
+
+
+
+    return render(request, 'congelateur/historiques.html', {'user':compte, 'listUsers':listeUtilisateurs, 'transactions':transactions,
+                                                          'mode':modes, 'demandesFaites':demandesFaites, 'demandesRecues':demandesRecues, 'demandeATraiter':demandesATraiter})
+
+
+
+
+
+def reapprovisionnement(request):
+    listeProduits = Produit.objects.all()
+
+    return render (request, 'congelateur/reapprovisionnementClient.html', {'prod':listeProduits})
+
+
 def discover(request):
     return render(request, 'congelateur/discover.html', locals())
 
