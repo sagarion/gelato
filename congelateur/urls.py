@@ -17,6 +17,8 @@ urlpatterns = [
     url(r'^monCompte$', views.monCompte, name='monCompte'),
     url(r'^AchatConfirme/(?P<idGlace>\d+)/(?P<idClient>\d+)$', views.AchatConfirme, name='AchatConfirme'),
     url(r'^reapprovisionnement$', views.reapprovisionnement, name='reapprovisionnement'),
+    url(r'^demandeArgent$', views.demandeArgent, name='demandeArgent'),
+    url(r'^historique$', views.historique, name='historique'),
 
     url(r'^discover$', views.discover, name='discover'),
     url(r'^dashboard$', views.dashboard, name='dashboard'),

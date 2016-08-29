@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'congelateur',
     'client',
     'transaction',
+    'twitter_bootstrap',
 ]
 
 MIDDLEWARE_CLASSES = [

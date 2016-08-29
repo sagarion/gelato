@@ -1,0 +1,59 @@
+{% extends "congelateur/connect.html" %}
+{% load staticfiles %}
+{% block title %}Historiques{% endblock %}
+{% block stylesheets %}
+    {{ block.super }}
+{% endblock stylesheets %}
+{% block content %}
+    {{ block.super }}
+{% for message in messages %}
+    <b {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</b>
+    {% endfor %}
+    <div class="container">
+        <section class="row">
+            <div class="col-lg-2">
+                <ul class="nav nav-pills nav-stacked">
+                    <li><a href="#">Information</a></li>
+                    <li class="active"><a href="#">Mes historiques</a></li>
+                    <li><a href="{% url 'demandeArgent' %}">Demandes d'argent</a></li>
+                    <li><a href="#">Modifier mes informations</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-10">
+<div class="accordion" id="accordion2">
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+        Collapsible Group Item #1
+      </a>
+    </div>
+    <div id="collapseOne" class="accordion-body collapse in">
+      <div class="accordion-inner">
+        Anim pariatur cliche...
+      </div>
+    </div>
+  </div>
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
+        Collapsible Group Item #2
+      </a>
+    </div>
+    <div id="collapseTwo" class="accordion-body collapse">
+      <div class="accordion-inner">
+        Anim pariatur cliche...
+      </div>
+    </div>
+  </div>
+</div>
+        </div>
+
+
+
+
+
+        </section>
+    </div>
+{% endblock %}
+
+

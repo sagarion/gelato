@@ -1,6 +1,6 @@
 {% extends "congelateur/connect.html" %}
 {% load staticfiles %}
-{% block title %}NouvelAchat{% endblock %}
+{% block title %}DemandeArgent{% endblock %}
 {% block stylesheets %}
     {{ block.super }}
 {% endblock stylesheets %}
@@ -13,14 +13,20 @@
         <section class="row">
             <div class="col-lg-2">
                 <ul class="nav nav-pills nav-stacked">
-  <li class="active"><a href="#">Information</a></li>
+  <li><a href="{% url 'monCompte' %}">Information</a></li>
   <li><a href="{% url 'historique' %}">Mes historiques</a></li>
-  <li><a href="{% url 'demandeArgent' %}">Demandes d'argent</a></li>
+  <li class="active"><a href="{% url 'demandeArgent' %}">Demandes d'argent</a></li>
   <li><a href="#">Modifier mes informations</a></li>
 </ul>
             </div>
             <div class="col-lg-10">
-                contenu
+                <h1>Créer une demande d'argent</h1>
+              <form action="{% url 'demande' %}" method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                   <button type="submit" class="btn btn-primary">Effectuer la demande</button>
+              </form>
+
             </div>
 
 

@@ -1,4 +1,5 @@
 {% load staticfiles %}
+<script type="text/javascript" src="{% static 'twitter_bootstrap/js/transition.js' %}"></script>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -35,8 +36,9 @@
         <div class="container-fluid">
           <ul class="nav navbar-nav">
             <li> <a href="{% url 'accueilConnect' %}">Accueil</a> </li>
-            <li> <a href="#">Se déconnecter</a> </li>
           </ul>
+          <ul class="nav navbar-nav navbar-right">
+      </ul>
         </div>
       </nav>
 
