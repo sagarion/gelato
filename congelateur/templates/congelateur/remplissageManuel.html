@@ -1,4 +1,4 @@
-{% extends "congelateur/base.html" %}
+{% extends "congelateur/connect.html" %}
 {% load staticfiles %}
 {% block title %}Dashboard{% endblock %}
 {% block stylesheets %}
@@ -43,7 +43,7 @@ Nous n'avons trouvé aucun bac automatiquement, le congélateur est déverrouil�
                          <h4>Montant du remplissage</h4> <input type="number" step="any" name="montant" class="form-control"><br>
 
 
-                <button type="submit" class="btn btn-secondary">Effectuer le réapprovisionnement</button>
+                <button type="submit" class="btn btn-primary">Effectuer le réapprovisionnement</button>
             </form>
 
         </div>

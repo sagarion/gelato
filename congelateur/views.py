@@ -25,13 +25,16 @@ def accueil(request):
 def about(request):
     return render(request, 'congelateur/about.html')
 
+#Accueil lors de la connexion
 def accueilConnect(request):
     return render(request, 'congelateur/accueilConnect.html')
 
+#Affichage de toutes les catégories principales
 def listeCategorie(request):
     cats = Categorie.objects.filter(sousCategorie__isnull = True)
     return render(request, 'congelateur/NouvelAchat.html', {'cats':cats})
 
+#Affichage des sous-catégories par rapport à l'id d'une catégorie principale
 def listeSousCat(request, idCate):
     sousCats = Categorie.objects.filter(sousCategorie = idCate)
     produits = []
@@ -75,6 +78,7 @@ def listeSousCat(request, idCate):
         messages.info(request, 'Aucune sous-catégorie trouvée pour cette catégorie !')
     return render(request, 'congelateur/listeSousCategorie.html', {'sousCats':sousCats, 'produits':produits})
 
+#Affichage des informations personnels
 def monCompte(request):
     userConnected = request.user
     compte = get_object_or_404(Compte, user=userConnected)
@@ -114,6 +118,7 @@ def monCompte(request):
 
     return render(request, 'congelateur/monCompte.html', {'sousCats':sousCats})
 
+#Liste de tous les produits selon l'id d'une catégorie
 def listeProduits(request, idSousCate):
     produits = []
     cursor = connection.cursor()
@@ -154,6 +159,7 @@ def listeProduits(request, idSousCate):
     return render(request, 'congelateur/listeProduits.html', {'produits':produits})
 
 
+#Méthode d'achat avec l'id du produit et l'id du client
 def effectuerAchat(request, idGlace, idClient):
     cli = get_object_or_404(User, id=idClient)
     compte = get_object_or_404(Compte, user=idClient)
@@ -168,7 +174,7 @@ def effectuerAchat(request, idGlace, idClient):
         return render(request, 'congelateur/EffectuerAchat.html', {'gl': glace, 'soldeSiAchat':soldeApresAchat})
 
 
-
+#Méthode pour effectuer la transaction d'achat après validation du client
 def AchatConfirme(request, idGlace, idClient):
     cli = get_object_or_404(User, id=idClient)
     glace = get_object_or_404(Produit, id=idGlace)
@@ -237,10 +243,6 @@ def AchatConfirme(request, idGlace, idClient):
     t.save()
 
     return render(request, 'congelateur/BacAchat.html', {'bac': bac, 'tiroir':tiroir, 'congo':congo, 'solde':compte.solde})
-
-
-
-
 
 
 def discover(request):
@@ -550,6 +552,7 @@ def retourBac():
 #Méthode de réapprovisionnement
 def creerReap(request):
     idCongo=1
+    tiroir = Tiroir()
     bacs = Bac.objects.raw('SELECT congelateur_bac.id, congelateur_bac.code, congelateur_bac.libelle, congelateur_bac.tiroir_id, congelateur_bac."capaciteMax", congelateur_bac."nbProduit" '
                            'FROM public.congelateur_bac, public.congelateur_tiroir, public.congelateur_congelateur '
                            'WHERE congelateur_bac.tiroir_id = congelateur_tiroir.id AND congelateur_tiroir.congelateur_id = congelateur_congelateur.id AND congelateur_congelateur.id = %s '
@@ -566,6 +569,7 @@ def creerReap(request):
         if qte <= (b.capaciteMax - b.nbProduit):
             produit.bac.add(b)
             b.nbProduit = b.nbProduit + qte
+            tiroir = b.tiroir
             break
         else:
             bacs = Bac.objects.all()
@@ -616,7 +620,7 @@ def creerReap(request):
     b.save()
     compte.save()
 
-    return render(request, 'congelateur/confirmationEntree.html', {'bac':b, 'compte':compte})
+    return render(request, 'congelateur/reapprovisionnementAutomatique.html', {'bac':b, 'compte':compte, 'tiroir':tiroir})
 
 
 def remplissageAdmin(request):
@@ -736,6 +740,7 @@ def remplissageManuel(request):
     compte.save()
     p.save()
     b.save()
+    messages.info(request, 'Remplissage effectué avec succès, vous pouvez en créer un autre ou revenir à l\'accueil')
 
     return render(request, 'congelateur/remplissageManuel.html')
 

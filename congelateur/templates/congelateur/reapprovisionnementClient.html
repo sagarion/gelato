@@ -1,0 +1,53 @@
+{% extends "congelateur/connect.html" %}
+{% load staticfiles %}
+{% block title %}NouvelAchat{% endblock %}
+{% block stylesheets %}
+    {{ block.super }}
+{% endblock stylesheets %}
+{% block content %}
+    {{ block.super }}
+    <div class="container">
+        <section class="row">
+            {% if messages %}
+                <ul class="messages">
+                    {% for message in messages %}
+                        <b {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</b>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+
+            <div class="col-lg-4"></div>
+
+                <div class="col-lg-4">
+                    <form action="{% url 'creerReap' %}" method="post">
+                            {% csrf_token %}
+                            <label for="prod">Veuillez sélectionner le produit entrer</label>
+                            <select class="form-control" name="produits" id="prod">
+                                {% for p in prod %}
+                                <option>{{p.libelle}}</option>
+                                {% endfor %}
+                            </select>
+                            <br>
+
+                            <label for="qte">Quantité</label>
+                            <input type="number" class="form-control" name="qte" id="qte">
+
+                            <br>
+
+                            <div class="input-group input-group-lg">
+                                <span class="input-group-addon">CHF</span>
+                                <input type="number" step="any" name="montant" class="form-control" placeholder="Montant total">
+                            </div><br>
+
+                            <button type="submit" class="btn btn-primary">Effectuer le réapprovisionnement</button>
+                    </form>
+
+                </div>
+
+
+
+
+
+        </section>
+    </div>
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends "congelateur/connect.html" %}
+{% load staticfiles %}
+{% block title %}Réapprovisionnement automatique{% endblock %}
+{% block stylesheets %}
+    {{ block.super }}
+{% endblock stylesheets %}
+{% block content %}
+    {{ block.super }}
+    <div class="container">
+        <section class="row">
+            {% if messages %}
+                <ul class="messages">
+                    {% for message in messages %}
+                        <b {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</b>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+
+            <div class="col-lg-12">
+
+            <div class="col-lg-4"><button class="btn btn-default">Tiroir : {{tiroir.code}} <br>Bac : {{bac.libelle}}</button>
+
+            </div>
+
+            <div class="col-lg-4">
+                <div id="texteReap">
+
+                    Votre nouveau solde : {{compte.solde}}<br>
+                    Votre niveau actuel : {{compte.niveau}}<br>
+                </div>
+                <a href="{% url 'accueilConnect' %}"><button type="submit" class="btn btn-primary">Accueil</button></a>
+            </div>
+
+
+
+    </div>
+
+
+
+
+
+        </section>
+    </div>
+{% endblock %}
