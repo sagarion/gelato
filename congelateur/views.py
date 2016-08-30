@@ -27,7 +27,10 @@ def about(request):
 
 #Accueil lors de la connexion
 def accueilConnect(request):
-    return render(request, 'congelateur/accueilConnect.html')
+    userConnected = request.user
+    compte = get_object_or_404(Compte, user=userConnected)
+    nbDemande = calculDemandeATraiter(compte.id)
+    return render(request, 'congelateur/accueilConnect.html', {'nbDemande':nbDemande})
 
 #Affichage de toutes les catégories principales
 def listeCategorie(request):
@@ -105,18 +108,36 @@ def monCompte(request):
         # If page is out of range (e.g. 9999), deliver last page of results.
         transactions = paginator.page(paginator.num_pages)
 
+    nbDemande = calculDemandeATraiter(compte.id)
+
 
 
 
     return render(request, 'congelateur/monCompte.html', {'user':compte, 'listUsers':listeUtilisateurs, 'transactions':transactions,
-                                                          'mode':modes, 'form': form, 'demandesFaites':demandesFaites, 'demandesRecues':demandesRecues, 'demandeATraiter':demandesATraiter})
+                                                          'mode':modes, 'form': form, 'demandesFaites':demandesFaites, 'demandesRecues':demandesRecues,
+                                                          'demandeATraiter':demandesATraiter, 'nbDemande':nbDemande})
+
+
+def calculDemandeATraiter(idClient):
+
+    cursor = connection.cursor()
+
+    cursor.execute(''' SELECT COUNT(*)
+                        FROM
+                          public.client_demande
+                        WHERE
+                          client_demande.etat = 'En attente' AND
+                          client_demande."clientReceveur_id" = %s;''', [idClient])
+
+
+    rows = cursor.fetchone()
+
+    i = int(rows[0])
+
+    return i
 
 
 
-
-
-
-    return render(request, 'congelateur/monCompte.html', {'sousCats':sousCats})
 
 #Liste de tous les produits selon l'id d'une catégorie
 def listeProduits(request, idSousCate):
@@ -246,8 +267,12 @@ def AchatConfirme(request, idGlace, idClient):
 
 
 def demandeArgent(request):
+    userConnected = request.user
+    compte = get_object_or_404(Compte, user=userConnected)
     form = DemandeForm()
-    return render(request, 'congelateur/demandeArgent.html', {'form': form})
+    nbDemande = calculDemandeATraiter(compte.id)
+    demandesATraiter = Demande.objects.filter(Q(clientReceveur=compte) & Q(etat='En attente'))
+    return render(request, 'congelateur/demandeArgent.html', {'form': form, 'nbDemande':nbDemande, 'demandeATraiter':demandesATraiter})
 
 def historique(request):
     userConnected = request.user
@@ -274,10 +299,11 @@ def historique(request):
         # If page is out of range (e.g. 9999), deliver last page of results.
         transactions = paginator.page(paginator.num_pages)
 
+    nbDemande = calculDemandeATraiter(compte.id)
 
 
     return render(request, 'congelateur/historiques.html', {'user':compte, 'listUsers':listeUtilisateurs, 'transactions':transactions,
-                                                          'mode':modes, 'demandesFaites':demandesFaites, 'demandesRecues':demandesRecues, 'demandeATraiter':demandesATraiter})
+                                                          'mode':modes, 'demandesFaites':demandesFaites, 'demandesRecues':demandesRecues, 'demandeATraiter':demandesATraiter, 'nbDemande':nbDemande})
 
 
 
@@ -553,9 +579,13 @@ def transactionAchat(request, idGlace, idClient):
 
 
 def traiterDemander(request, idDemande):
+    userConnected = request.user
+    compte = get_object_or_404(Compte, user=userConnected)
     demande = get_object_or_404(Demande, id = idDemande)
     soldeSiAcceptation = demande.clientReceveur.solde - demande.montant
-    return render(request, 'congelateur/traiterDemande.html',{'demande':demande, 'solde':soldeSiAcceptation})
+    nbDemande = calculDemandeATraiter(compte.id)
+
+    return render(request, 'congelateur/traiterDemande.html',{'demande':demande, 'solde':soldeSiAcceptation, 'nbDemande':nbDemande})
 
 
 def reponseDemande(request, demandeID):
@@ -581,7 +611,7 @@ def reponseDemande(request, demandeID):
     clientDemandeur.save()
     clientReceveur.save()
 
-    return dashboard(request)
+    return monCompte(request)
 
 
 def reap(request):
