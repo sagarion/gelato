@@ -91,3 +91,8 @@ a:hover, a:focus {
 div#texteReap {
 	font-size: 20px;
 	}
+
+
+.glyphicon.glyphicon-arrow-left {
+    font-size: 55px;
+}
