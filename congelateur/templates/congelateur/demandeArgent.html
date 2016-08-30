@@ -15,12 +15,12 @@
                 <ul class="nav nav-pills nav-stacked">
   <li><a href="{% url 'monCompte' %}">Information</a></li>
   <li><a href="{% url 'historique' %}">Mes historiques</a></li>
-  <li class="active"><a href="{% url 'demandeArgent' %}">Demandes d'argent</a></li>
+  <li class="active"><a href="{% url 'demandeArgent' %}">Demandes d'argent <span class="badge">{{nbDemande}}</span></a></li>
   <li><a href="#">Modifier mes informations</a></li>
 </ul>
             </div>
             <div class="col-lg-10">
-                <h1>Créer une demande d'argent</h1>
+                <h3>Créer une demande d'argent</h3>
               <form action="{% url 'demande' %}" method="post">
                 {% csrf_token %}
                 {{ form.as_p }}
@@ -32,6 +32,37 @@
 
         </section>
     </div>
+
+
+<div class="container">
+        <section class="row">
+            <div class="col-lg-2"></div>
+
+<div class="col-lg-10">
+<div class="table-responsive">
+                  <h3>Demandes à traiter</h3>
+                  <table class="table">
+                      <tr>
+                          <th>Date de la demande</th>
+                          <th>Demandeur</th>
+                          <th>Montant</th>
+                          <th>Souhait de remboursement</th>
+                      </tr>
+                      {% for dat in demandeATraiter %}
+                     <tr>
+                         <td><a href="{% url 'traiterDemande' idDemande=dat.id%}">{{dat.dateDemande}}</a></td>
+                         <td>{{dat.clientDemandeur}}</td>
+                         <td>{{dat.montant}}</td>
+                         <td>{{dat.mode}}</td>
+                     </tr>
+                  {% endfor %}
+                  </table>
+              </div>
+</div>
+</section>
+    </div>
+
+
 {% endblock %}
 
 

@@ -7,7 +7,7 @@
 {% block content %}
     {{ block.super }}
 {% for message in messages %}
-    <b {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</b>
+    <p style="text-align:center"><b {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</b></p>
     {% endfor %}
     <div class="container">
         <section class="row">
@@ -15,12 +15,41 @@
                 <ul class="nav nav-pills nav-stacked">
   <li class="active"><a href="#">Information</a></li>
   <li><a href="{% url 'historique' %}">Mes historiques</a></li>
-  <li><a href="{% url 'demandeArgent' %}">Demandes d'argent</a></li>
+  <li><a href="{% url 'demandeArgent' %}">Demandes d'argent <span class="badge">{{nbDemande}}</span></a></li>
   <li><a href="#">Modifier mes informations</a></li>
 </ul>
             </div>
             <div class="col-lg-10">
-                contenu
+                <table class="table">
+                    <tr>
+                          <th>Niveau</th>
+                          <th>{{user.niveau}}</th>
+                      </tr>
+                      <tr>
+                          <th>Solde</th>
+                          <th>{{user.solde}}</th>
+                      </tr>
+                      <tr>
+                          <td>Prénom</td>
+                          <td>{{user.prenom}}</td>
+                      </tr>
+                      <tr>
+                        <td>Nom</td>
+                        <td>{{user.nom}}</td>
+                      </tr>
+                      <tr>
+                          <td>Date de naissance</td>
+                          <td>{{user.naissance}}</td>
+                      </tr>
+                      <tr>
+                          <td>Mail</td>
+                          <td>{{user.mail}}</td>
+                      </tr>
+                      <tr>
+                          <td>Moyen de remboursement préféré</td>
+                          <td>{{user.modePrefere}}</td>
+                      </tr>
+                  </table>
             </div>
 
 

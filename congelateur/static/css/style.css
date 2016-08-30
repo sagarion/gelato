@@ -96,3 +96,28 @@ div#texteReap {
 .glyphicon.glyphicon-arrow-left {
     font-size: 55px;
 }
+
+a.list-group-item.active>.badge, .nav-pills>.active>a>.badge {
+    color: #000000;
+    background-color: #fff;
+    font-weight:bold;
+}
+
+
+.btn-circle {
+        width: 30px;
+        height: 30px;
+        text-align: center;
+        padding: 6px 0;
+        font-size: 12px;
+        line-height: 1.428571429;
+        border-radius: 15px;
+      }
+      .btn-circle.btn-lg {
+        width: 50px;
+        height: 50px;
+        padding: 13px 13px;
+        font-size: 18px;
+        line-height: 1.33;
+        border-radius: 25px;
+      }

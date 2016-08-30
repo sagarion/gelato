@@ -6,54 +6,138 @@
 {% endblock stylesheets %}
 {% block content %}
     {{ block.super }}
-{% for message in messages %}
-    <b {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</b>
+    {% for message in messages %}
+        <b {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</b>
     {% endfor %}
+
     <div class="container">
         <section class="row">
             <div class="col-lg-2">
                 <ul class="nav nav-pills nav-stacked">
-                    <li><a href="#">Information</a></li>
+                    <li><a href="{% url 'monCompte' %}">Information</a></li>
                     <li class="active"><a href="#">Mes historiques</a></li>
-                    <li><a href="{% url 'demandeArgent' %}">Demandes d'argent</a></li>
+                    <li><a href="{% url 'demandeArgent' %}">Demandes d'argent <span class="badge">{{nbDemande}}</span></a></li>
                     <li><a href="#">Modifier mes informations</a></li>
                 </ul>
             </div>
-            <div class="col-lg-10">
-<div class="accordion" id="accordion2">
-  <div class="accordion-group">
-    <div class="accordion-heading">
-      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
-        Collapsible Group Item #1
-      </a>
-    </div>
-    <div id="collapseOne" class="accordion-body collapse in">
-      <div class="accordion-inner">
-        Anim pariatur cliche...
-      </div>
-    </div>
-  </div>
-  <div class="accordion-group">
-    <div class="accordion-heading">
-      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
-        Collapsible Group Item #2
-      </a>
-    </div>
-    <div id="collapseTwo" class="accordion-body collapse">
-      <div class="accordion-inner">
-        Anim pariatur cliche...
-      </div>
-    </div>
-  </div>
-</div>
-        </div>
+
+            <div class="col-lg-9">
+                <div class="accordion" id="accordion2">
+
+                    <div class="accordion-group">
+                        <div class="accordion-heading">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree">
+                                <h3>Mes transactions</h3>
+                            </a>
+                        </div>
+                        <div id="collapseThree" class="accordion-body collapse in">
+                            <div class="accordion-inner">
+                            <table class="table">
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Type</th>
+                                    <th>Total</th>
+                                </tr>
+                                {% for t in transactions %}
+                                <tr>
+                                    <td>{{t.date}}</td>
+                                    <td>{{t.type}}</td>
+                                    <td>{{t.total}}</td>
+                                </tr>
+                                {% endfor %}
+                            </table>
+                            <div class="pagination">
+                                <span class="step-links">
+                                    {% if transactions.has_previous %}
+                                        <b><a href="?page={{ transactions.previous_page_number }}">Précédent</a></b>
+                                    {% endif %}
+
+                                    <span class="current">
+                                        Page {{ transactions.number }} sur {{ transactions.paginator.num_pages }}.
+                                    </span>
+
+                                    {% if transactions.has_next %}
+                                        <b><a href="?page={{ transactions.next_page_number }}">Suivant</a></b>
+                                    {% endif %}
+                                </span>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-group">
+                        <div class="accordion-heading">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+                                <h3>Demandes faites</h3>
+                            </a>
+                        </div>
+                        <div id="collapseOne" class="accordion-body collapse">
+                            <div class="accordion-inner">
+
+                                <table class="table">
+                                    <tr>
+                                        <th>Date de la demande</th>
+                                        <th>Montant</th>
+                                        <th>Demandé à</th>
+                                        <th>Mode</th>
+                                        <th>Etat</th>
+                                        <th>Commentaire</th>
+                                    </tr>
+
+                                    {% for df in demandesFaites %}
+                                    <tr>
+                                        <td>{{df.dateDemande}}</td>
+                                        <td>{{df.montant}}</td>
+                                        <td>{{df.clientReceveur}}</td>
+                                        <td>{{df.mode}}</td>
+                                        <td>{{df.etat}}</td>
+                                        <td>{{df.commentaire}}</td>
+                                    </tr>
+                                    {% endfor %}
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-group">
+                        <div class="accordion-heading">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
+                                <h3>Demandes recues</h3>
+                            </a>
+                        </div>
+                        <div id="collapseTwo" class="accordion-body collapse">
+                            <div class="accordion-inner">
+                                <table class="table">
+                                    <tr>
+                                        <th>Date de la demande</th>
+                                        <th>Montant</th>
+                                        <th>Demandé par</th>
+                                        <th>Mode</th>
+                                        <th>Etat</th>
+                                    </tr>
+
+                                    {% for dr in demandesRecues %}
+                                    <tr>
+                                        <td>{{dr.dateDemande}}</td>
+                                        <td>{{dr.montant}}</td>
+                                        <td>{{dr.clientDemandeur}}</td>
+                                        <td>{{dr.mode}}</td>
+                                        <td>{{dr.etat}}</td>
+                                    </tr>
+                                    {% endfor %}
+                                </table>
+                            </div>
+                        </div>
+                    </div>
 
 
 
-
-
+                </div>
+            </div>
         </section>
     </div>
+
+
 {% endblock %}
 
 
