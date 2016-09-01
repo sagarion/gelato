@@ -43,6 +43,7 @@
                   <h3>Demandes à traiter</h3>
                   <table class="table">
                       <tr>
+                          <th></th>
                           <th>Date de la demande</th>
                           <th>Demandeur</th>
                           <th>Montant</th>
@@ -50,7 +51,8 @@
                       </tr>
                       {% for dat in demandeATraiter %}
                      <tr>
-                         <td><a href="{% url 'traiterDemande' idDemande=dat.id%}">{{dat.dateDemande}}</a></td>
+                         <th><a href="{% url 'traiterDemande' idDemande=dat.id%}"><span class="glyphicon glyphicon-pencil"></span></a></th>
+                         <td>{{dat.dateDemande}}</td>
                          <td>{{dat.clientDemandeur}}</td>
                          <td>{{dat.montant}}</td>
                          <td>{{dat.mode}}</td>
@@ -64,5 +66,3 @@
 
 
 {% endblock %}
-
-
