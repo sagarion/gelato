@@ -1,4 +1,3 @@
-from dal import autocomplete
 from django import forms
 from client.models import *
 from congelateur.models import Produit

@@ -1,6 +1,6 @@
 from django.conf.urls import patterns, url, include
 from . import views
-from congelateur.views import CongelateurListView, GlaceView, CongelateurDetailView, ClientAutocomplete
+from congelateur.views import CongelateurListView, GlaceView, CongelateurDetailView
 
 urlpatterns = [
     url(r'^accueil$', views.accueil, name='accueil'),
@@ -28,7 +28,7 @@ urlpatterns = [
     url(r'^categorie/(?P<p_id>\d+)$', views.lire, name='listeCat'),
     url(r'^validationAchat/(?P<idGlace>\d+)/(?P<idClient>\d+)$', views.transactionAchat, name='validationAchat'),
     url(r'^client/', include('client.urls')),
-    url(r'^client-autocomplete/$', ClientAutocomplete.as_view(), name='client-autocomplete',),
+    #url(r'^client-autocomplete/$', ClientAutocomplete.as_view(), name='client-autocomplete',),
     url(r'^demande/$', views.demande, name='demande'),
     url(r'^traiterDemande/(?P<idDemande>\d+)$', views.traiterDemander, name='traiterDemande'),
     url(r'^reponseDemande/(?P<demandeID>\d+)$', views.reponseDemande, name='reponseDemande'),

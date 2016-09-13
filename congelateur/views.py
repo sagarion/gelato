@@ -1,19 +1,15 @@
 import datetime
 from django.contrib.auth.decorators import login_required
 from django.db import connection
-from django.http import HttpResponseRedirect
-from django.shortcuts import render, render_to_response, get_object_or_404, redirect
+from django.shortcuts import render, get_object_or_404, redirect
 from congelateur.models import *
 from transaction.models import Transaction, LigneTransaction
-from client.models import *
 from django.views.generic import TemplateView, ListView, DetailView
 from django.utils import timezone
 from django.contrib import messages
-from dal import autocomplete
 from .forms import *
 from django.db.models import Q
 from decimal import *
-from django.core.mail import send_mail
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 # Create your views here.
@@ -323,9 +319,8 @@ def discover(request):
     return render(request, 'congelateur/discover.html', locals())
 
 
-class ClientAutocomplete(autocomplete.Select2QuerySetView):
+"""class ClientAutocomplete(autocomplete.Select2QuerySetView):
     def get_queryset(self):
-        # Don't forget to filter out results depending on the visitor !
         if not self.request.user.is_authenticated():
             return Compte.objects.none()
 
@@ -335,7 +330,7 @@ class ClientAutocomplete(autocomplete.Select2QuerySetView):
             qs = qs.filter(nom__startswith=self.q)
 
         return qs
-
+"""
 
 @login_required
 def dashboard(request):
