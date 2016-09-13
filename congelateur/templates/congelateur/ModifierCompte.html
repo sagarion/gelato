@@ -1,0 +1,37 @@
+{% extends "congelateur/connect.html" %}
+{% load staticfiles %}
+{% block title %}DemandeArgent{% endblock %}
+{% block stylesheets %}
+    {{ block.super }}
+{% endblock stylesheets %}
+{% block content %}
+    {{ block.super }}
+{% for message in messages %}
+    <b {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</b>
+    {% endfor %}
+    <div class="container">
+        <section class="row">
+            <div class="col-lg-2">
+                <ul class="nav nav-pills nav-stacked">
+  <li><a href="{% url 'monCompte' %}">Information</a></li>
+  <li><a href="{% url 'historique' %}">Mes historiques</a></li>
+  <li><a href="{% url 'demandeArgent' %}">Demandes d'argent <span class="badge">{{nbDemande}}</span></a></li>
+  <li class="active"><a href="{% url 'modifCompte' %}">Modifier mes informations</a></li>
+</ul>
+            </div>
+            <div class="col-lg-10">
+                <h3>Modifier compte</h3>
+              <form action="{% url 'demande' %}" method="post">
+              Revenez plus tard
+                   <!--<button type="submit" class="btn btn-primary">Effectuer les modifications</button>-->
+              </form>
+
+            </div>
+
+
+        </section>
+    </div>
+
+
+
+{% endblock %}

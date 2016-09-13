@@ -19,6 +19,7 @@ urlpatterns = [
     url(r'^reapprovisionnement$', views.reapprovisionnement, name='reapprovisionnement'),
     url(r'^demandeArgent$', views.demandeArgent, name='demandeArgent'),
     url(r'^historique$', views.historique, name='historique'),
+    url(r'^modifCompte', views.modifCompte, name='modifCompte'),
 
     url(r'^discover$', views.discover, name='discover'),
     url(r'^dashboard$', views.dashboard, name='dashboard'),

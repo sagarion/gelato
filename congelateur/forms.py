@@ -21,6 +21,12 @@ class DemandeForm(forms.ModelForm):
         }"""
 
 
+class CompteForm(forms.ModelForm):
+    class Meta:
+        model = Compte
+        fields = ("prenom", "nom", "naissance", "mail", "telephone", "modePrefere")
+
+
 
 
 

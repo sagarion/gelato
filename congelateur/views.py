@@ -37,6 +37,10 @@ def listeCategorie(request):
     cats = Categorie.objects.filter(sousCategorie__isnull = True)
     return render(request, 'congelateur/NouvelAchat.html', {'cats':cats})
 
+def modifCompte(request):
+    form = CompteForm()
+    return render(request, 'congelateur/ModifierCompte.html', {'form': form})
+
 #Affichage des sous-catégories par rapport à l'id d'une catégorie principale
 def listeSousCat(request, idCate):
     sousCats = Categorie.objects.filter(sousCategorie = idCate)
@@ -602,6 +606,9 @@ def reponseDemande(request, demandeID):
         demande.etat = 'Acceptée'
         clientDemandeur.solde = clientDemandeur.solde + demande.montant
         clientReceveur.solde = clientReceveur.solde - demande.montant
+        if clientReceveur.solde<0:
+            messages.info(request, 'Solde insuffisant pour accepter la demande, refusée la ou gardez la en attente !')
+            return monCompte(request)
         messages.info(request, 'Demande acceptée !')
     else:
         demande.etat = 'Refusée'
