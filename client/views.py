@@ -34,4 +34,4 @@ def connexion(request):
 
 def deconnexion(request):
     logout(request)
-    return render(request, 'congelateur/dashboard.html', locals())
+    return render(request, 'congelateur/home.html', locals())
