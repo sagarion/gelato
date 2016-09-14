@@ -9,6 +9,10 @@ from client.forms import ConnexionForm
 
 
 def connexion(request):
+
+    #Ajouter une méthode qui reprend l'id du congélateur !!
+    # Si l'id est vide, caché le menu "Acheter", cela veut dire que le client se connecte depuis un autre endroit qu'un congélateur
+
     error = False
 
     if request.method == "POST":
