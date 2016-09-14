@@ -64,6 +64,14 @@ MLE : MarieLeca
 
 Admin :
 Admin : TB_Gelato
+
+
+-------------------- Mise en production --------------------
+Pour la mise en production, ne pas oublier de changer la variable DEBUG dans settings.py :
+DEBUG = False
+
+Changer la clé secrête également avec l'outil à la page : http://www.miniwebtool.com/django-secret-key-generator/
+SECRET_KEY =
 	
 
 
