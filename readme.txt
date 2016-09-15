@@ -60,7 +60,7 @@ Vous trouvez en annexes les différentes requêtes créées pour les tableaux de
 Ne pas oublier de créer une source ODBC vers la base de données choisies.
 	
 
-Pour tester, vous pouvez utiliser Postgresql et le backup fournit avec des données tests.
+Pour tester, vous pouvez utiliser Postgresql et le backup (TB_Gelato.backup) fournit avec des données tests.
 Les informations des utilisateurs sont les suivants :
 JD : JeanDupont
 AT : AlainTerieur
