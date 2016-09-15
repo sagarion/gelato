@@ -332,6 +332,7 @@ def discover(request):
         return qs
 """
 
+#Ancien Dashboard !!
 @login_required
 def dashboard(request):
     userConnected = request.user
