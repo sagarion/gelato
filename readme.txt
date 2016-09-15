@@ -3,6 +3,9 @@
 - Django installé (1.9)
 - Bootstrap installé (3.3.0)
 
+-------------------- Dézipper le projet --------------------
+- Dézipper le projet dev_v2 à l'endroit souhaité.
+
 -------------------- Configurer la base de données --------------------
 - Editer le fichier settings.py (..\gelato-dev_v2\TB_Gelato\settings.py)
 - Edite la configuration selon votre base de données (lignes 84-93) :
