@@ -20,7 +20,7 @@
 # You should have received a copy of the GNU General Public License
 # along with Gelato. If not, see <http://www.gnu.org/licenses/>.
 
-from django.conf.urls import patterns, include, url
+from django.conf.urls import include, url
 from django.conf import settings
 from django.conf.urls.static import static
 from django.views.generic import TemplateView, RedirectView
@@ -31,8 +31,8 @@ admin.autodiscover()
 
 from products.views import home
 from wallets.views import cron_clean_user_pins
-
-urlpatterns = patterns('',
+from django.contrib.auth.views import login, logout
+urlpatterns = (
     # Examples:
     url(r'^p/', include('products.urls')),
     url(r'^w/', include('wallets.urls')),
@@ -44,19 +44,19 @@ urlpatterns = patterns('',
 
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^ipn/paypal/', include('paypal.standard.ipn.urls')),
+    #url(r'^ipn/paypal/', include('paypal.standard.ipn.urls')),
     url(r'^home/', home, name='home'),
     url(r'^about/', TemplateView.as_view(template_name="about.html"), name="about"),
     url(r'^discover/', TemplateView.as_view(template_name="discover.html"), name="discover"),
     url(r'^staff/', TemplateView.as_view(template_name="discover.html"), name="admin"),
     url(r'^cron/clean_user_pins/', cron_clean_user_pins),
-    url(r'^accounts/login/$', 'django.contrib.auth.views.login'),
-    url(r'^accounts/logout/$', 'django.contrib.auth.views.logout'),
+    url(r'^accounts/login/$', login, name='login'),
+    url(r'^accounts/logout/$', logout, name='logout'),
     url(r'^$', RedirectView.as_view(pattern_name='home')),
 )
 
-urlpatterns += patterns('',
+urlpatterns += (
     url(r'^shib/', include('shibboleth.urls', namespace='shibboleth')),
 )
 
-urlpatterns = urlpatterns + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+urlpatterns = urlpatterns + tuple(static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT))

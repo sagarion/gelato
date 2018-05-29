@@ -1,5 +1,4 @@
-from django.conf.urls import patterns, url
-
-urlpatterns = patterns('paypal.standard.ipn.views',
-                       url(r'^$', 'ipn', name="paypal-ipn"),
+from django.conf.urls import url
+from . import views
+urlpatterns = ( url(r'^$', views.ipn, name="paypal-ipn"),
 )

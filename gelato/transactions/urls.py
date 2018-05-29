@@ -23,13 +23,13 @@
 # Stdlib imports
 
 # Core Django imports
-from django.conf.urls import patterns, url
+from django.conf.urls import url
 
 # Third-party app imports
 
 # Gelato imports
 from . import views
 
-urlpatterns = patterns('',
+urlpatterns = (
     #url(r'^summary/(?P<user_id>\d+)/$', views.summary, name='booth-summary'),
 )

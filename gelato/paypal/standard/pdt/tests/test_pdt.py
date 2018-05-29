@@ -4,7 +4,7 @@ see http://www.djangoproject.com/documentation/testing/ for details
 """
 import os
 from django.conf import settings
-from django.shortcuts import render_to_response
+from django.shortcuts import render
 from django.test import TestCase
 from paypal.standard.pdt.models import PayPalPDT
 from paypal.standard.pdt.signals import pdt_successful, pdt_failed
@@ -30,7 +30,7 @@ class DummyPayPalPDT(object):
     def _postback(self, test=True):
         """Perform a Fake PayPal PDT Postback request."""
         # @@@ would be cool if this could live in the test templates dir...
-        return render_to_response("pdt/test_pdt_response.html", self.context_dict).content
+        return render(request,"pdt/test_pdt_response.html", self.context_dict).content
 
 
 class PDTTest(TestCase):

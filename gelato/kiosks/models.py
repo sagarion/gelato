@@ -61,7 +61,7 @@ class KioskStorage(models.Model):
     """
     A storage location in a kiosk
     """
-    tier = models.IntegerField(verbose_name=_("tier"), max_length=1, default=0, help_text=_("Tier of a kiosk"))
+    tier = models.IntegerField(verbose_name=_("tier"), default=0, help_text=_("Tier of a kiosk"))
     tub = models.CharField(verbose_name=_("tub"), max_length=1, blank=True, default="", help_text=_("A kiosk tub on a tier"))
     kiosk = models.ForeignKey('Kiosk', verbose_name=_('kiosk'), related_name=_('storages'), help_text=_("Kiosk the storage belongs to"))
     created = models.DateTimeField(verbose_name=_("created"), auto_now_add=True, help_text=_("Creation date of the kiosk storage in the database"))

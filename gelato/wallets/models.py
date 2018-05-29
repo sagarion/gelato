@@ -66,7 +66,7 @@ class User(AbstractUser):
 
 class UserPin(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_('user'), related_name=_("user_pin"), help_text=_("User"))
-    pin = models.IntegerField(verbose_name=_("pin code"), max_length=4, unique=True, help_text=_("One time PIN code to register user"))
+    pin = models.IntegerField(verbose_name=_("pin code"), unique=True, help_text=_("One time PIN code to register user"))
     pin_creation = models.DateTimeField(verbose_name=_("created"), auto_now_add=True, help_text=_("Creation date of the PIN"))
 
 

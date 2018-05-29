@@ -25,7 +25,7 @@ import json
 import logging
 
 # Core Django imports
-from django.shortcuts import render_to_response, get_object_or_404
+from django.shortcuts import render, get_object_or_404
 from django.template.context import RequestContext
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt
@@ -86,9 +86,9 @@ def dashboard(request):
 
     financial_transactions = FinancialTransaction.objects.all().filter(user=user).select_related('product')
     product_transactions = ProductTransaction.objects.all().filter(user=user).select_related('product')
-    return render_to_response('wallets/dashboard.html', {"financial_transactions": financial_transactions,
+    return render(request, 'wallets/dashboard.html', {"financial_transactions": financial_transactions,
                                                          "product_transactions": product_transactions,
-                                                         "user": user, }, context_instance=RequestContext(request))
+                                                         "user": user, })
 
 
 @login_required()
@@ -99,7 +99,7 @@ def create_account(request):
 
     pin = get_user_pin(user)
 
-    return render_to_response('wallets/create_account.html', {"user": user, "pin": pin}, context_instance=RequestContext(request))
+    return render(request,'wallets/create_account.html', {"user": user, "pin": pin})
 
 
 @login_required()
@@ -226,7 +226,7 @@ def wallet_add_money_paypal(request):
     # Create the instance.
     form = PayPalPaymentsForm(initial=paypal_dict)
     context = {"form": form, "user": user}
-    return render_to_response("wallets/paypal_submit.html", context)
+    return render(request, "wallets/paypal_submit.html", context)
 
 
 @login_required()

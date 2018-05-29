@@ -23,14 +23,14 @@
 # Stdlib imports
 
 # Core Django imports
-from django.conf.urls import patterns, url, include
+from django.conf.urls import url, include
 
 # Third-party app imports
 
 # Gelato imports
 from .views import UserListView, UserDetail, UserHomeDetail, dashboard, create_account, activation_form, activate_account, wallet_add_money_paypal, wallet_add_money_cash, rfid_scan
 
-urlpatterns = patterns('',
+urlpatterns = (
     url(r'^user/(?P<pk>\d+)/$', UserDetail.as_view(), name='user_detail'),
     url(r'^rfid/(?P<kiosk_id>\d+)/(?P<rfid>\d+)/$', rfid_scan, name='rfid_scan'),
     url(r'^rfid/(?P<kiosk_id>\d+)/ESC/$', rfid_scan, {'rfid': 'ESC'}, name='rfid_scan'),

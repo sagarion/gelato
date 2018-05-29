@@ -35,4 +35,4 @@ logger = logging.getLogger(__name__)
 
 
 #class XXX(models.Model):
-#    code = models.IntegerField(max_length=2)
+#    code = models.IntegerField()

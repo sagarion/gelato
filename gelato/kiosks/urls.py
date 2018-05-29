@@ -23,14 +23,14 @@
 # Stdlib imports
 
 # Core Django imports
-from django.conf.urls import patterns, url
+from django.conf.urls import url
 
 # Third-party app imports
 
 # Gelato imports
 from .views import kiosk_home, kiosk_unknown_rfid, kiosk_associate_rfid, kiosk_error, kiosk_showcase, kiosk_select, kiosk_exit, kiosk_sell, kiosk_check_transaction, kiosk_admin, kiosk_check_admin
 
-urlpatterns = patterns('',
+urlpatterns = (
     #url(r'^rfid/(?P<rfid>\d+)/$', rfid_scan, name='rfid_scan'),
     #url(r'^summary/(?P<user_id>\d+)/$', views.summary, name='booth-summary'),
     url(r'select/(?P<product_id>\d+)/$', kiosk_select, name='kiosk_select'),

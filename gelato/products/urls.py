@@ -23,14 +23,14 @@
 # Stdlib imports
 
 # Core Django imports
-from django.conf.urls import patterns, url
+from django.conf.urls import url
 
 # Third-party app imports
 
 # Gelato imports
 from .views import ProductListView, ProductTransactionsDetail, ProductListViewByCategory, ProductListViewByBrand
 
-urlpatterns = patterns('',
+urlpatterns = (
     url(r'^product/(?P<pk>\d+)/$', ProductTransactionsDetail.as_view(), name='product_detail'),
     url(r'^category/([\w-]+)/$', ProductListViewByCategory.as_view(), name='products_by_category'),
     url(r'^brand/([\w-]+)/$', ProductListViewByBrand.as_view(), name='products_by_brand'),

@@ -1,4 +1,4 @@
-Django
-django-extensions
-Pillow
-pytz
+Django==1.11.13
+django-extensions==2.0.7
+Pillow==5.1.0
+pytz==2018.4
