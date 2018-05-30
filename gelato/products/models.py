@@ -46,14 +46,14 @@ class ProductSupplier(models.Model):
     order_email = models.EmailField(verbose_name=_("order email"), max_length=80, blank=True, default="", help_text=_("Email address used to send orders (can be the same as contact email)"))
     created = models.DateTimeField(verbose_name=_("created"), auto_now_add=True, help_text=_("Creation date of the category in the database"))
     edited = models.DateTimeField(verbose_name=_("edited"), auto_now=True, help_text=_("Last edition of the category in the database"))
-    editor = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_('editor'), related_name=_('suppliers'), help_text=_("Last editor of the category in the database"))
+    editor = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_('editor'), related_name=_('suppliers'), null=True, on_delete=models.SET_NULL, help_text=_("Last editor of the category in the database"))
 
     class Meta:
         verbose_name = _('supplier')
         verbose_name_plural = _('suppliers')
         ordering = ['name']
 
-    def __unicode__(self):
+    def __str__(self):
         if self.contact != "":
             return "%s (%s)" % (self.name, self.contact)
         else:
@@ -65,14 +65,14 @@ class ProductBrand(models.Model):
     logo = models.ImageField(verbose_name=_("logo"), upload_to="brands", help_text=_("Logo of the brand"))
     created = models.DateTimeField(verbose_name=_("created"), auto_now_add=True, help_text=_("Creation date of the category in the database"))
     edited = models.DateTimeField(verbose_name=_("edited"), auto_now=True, help_text=_("Last edition of the category in the database"))
-    editor = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_('editor'), related_name=_('brands'), help_text=_("Last editor of the category in the database"))
+    editor = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_('editor'), related_name=_('brands'), null=True, on_delete=models.SET_NULL, help_text=_("Last editor of the category in the database"))
 
     class Meta:
         verbose_name = _('product brand')
         verbose_name_plural = _('product brands')
         ordering = ['name']
 
-    def __unicode__(self):
+    def __str__(self):
         return self.name
 
 
@@ -85,14 +85,14 @@ class ProductCategory(models.Model):
     picture = models.ImageField(verbose_name=_("picture"), upload_to="categories", help_text=_("Picture of the category"))
     created = models.DateTimeField(verbose_name=_("created"), auto_now_add=True, help_text=_("Creation date of the category in the database"))
     edited = models.DateTimeField(verbose_name=_("edited"), auto_now=True, help_text=_("Last edition of the category in the database"))
-    editor = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_('editor'), related_name=_('categories'), help_text=_("Last editor of the category in the database"))
+    editor = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_('editor'), related_name=_('categories'), null=True, on_delete=models.SET_NULL, help_text=_("Last editor of the category in the database"))
 
     class Meta:
         verbose_name = _('product category')
         verbose_name_plural = _('product categories')
         ordering = ['name']
 
-    def __unicode__(self):
+    def __str__(self):
         return self.name
 
 
@@ -111,12 +111,12 @@ class Product(models.Model):
     k_picture = models.ImageField(verbose_name=_("kiosk picture"), upload_to="products/kiosk", help_text=_("Product's picture displayed on the kiosk client"))
     weight = models.IntegerField(verbose_name=_("weight"), default=0, help_text=_("Weight of the product in grams"))
     calorie = models.IntegerField(verbose_name=_("calorie"), default=0, help_text=_("Number of calories in a portion of the product"))
-    category = models.ForeignKey('ProductCategory', verbose_name=_('category'), related_name=_('products'), help_text=_("Category the product belongs to"))
-    brand = models.ForeignKey('ProductBrand', verbose_name=_('brand'), related_name=_('products'), help_text=_("Brand of the product"))
-    supplier = models.ForeignKey('ProductSupplier', verbose_name=_('supplier'), related_name=_('products'), help_text=_("Supplier of the product"))
+    category = models.ForeignKey('ProductCategory', verbose_name=_('category'), related_name=_('products'), null=True, on_delete=models.SET_NULL, help_text=_("Category the product belongs to"))
+    brand = models.ForeignKey('ProductBrand', verbose_name=_('brand'), related_name=_('products'), null=True, on_delete=models.SET_NULL, help_text=_("Brand of the product"))
+    supplier = models.ForeignKey('ProductSupplier', verbose_name=_('supplier'), related_name=_('products'), null=True, on_delete=models.SET_NULL, help_text=_("Supplier of the product"))
     created = models.DateTimeField(verbose_name=_("created"), auto_now_add=True, help_text=_("Creation date of the product in the database"))
     edited = models.DateTimeField(verbose_name=_("edited"), auto_now=True, help_text=_("Last edition of the product in the database"))
-    editor = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_('editor'), related_name=_('products'), help_text=_("Last editor of the product in the database"))
+    editor = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_('editor'), related_name=_('products'), null=True, on_delete=models.SET_NULL, help_text=_("Last editor of the product in the database"))
 
     def stock(self):
         # TODO: Debug stock computation
@@ -128,5 +128,5 @@ class Product(models.Model):
         verbose_name_plural = _('products')
         ordering = ['name']
 
-    def __unicode__(self):
+    def __str__(self):
         return u'%s' % self.name

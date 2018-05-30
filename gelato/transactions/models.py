@@ -52,16 +52,16 @@ class ProductTransaction(models.Model):
         (INVENTORY, _('Inventory')),
     )
 
-    product = models.ForeignKey(Product, verbose_name=_("product"), related_name=_("transactions"), help_text=_("Product sold or replenished"))
+    product = models.ForeignKey(Product, verbose_name=_("product"), related_name=_("transactions"), null=True, on_delete=models.SET_NULL, help_text=_("Product sold or replenished"))
     quantity = models.IntegerField(verbose_name=_("quantity"), default=0, help_text=_("Quantity sold or replenished"))
-    storage = models.ForeignKey(KioskStorage, verbose_name=_('kiosk storage'), related_name=_('products'), help_text=_("Storage location of a product in a kiosk"))
+    storage = models.ForeignKey(KioskStorage, verbose_name=_('kiosk storage'), related_name=_('products'), null=True, on_delete=models.SET_NULL, help_text=_("Storage location of a product in a kiosk"))
     transaction_price = models.DecimalField(verbose_name=_("total price"), max_digits=6, decimal_places=2, default=0, help_text=_("Total amount in CHF"))
     product_transaction_type = models.CharField(verbose_name=_("type of transaction"), max_length=1, choices=PRODUCT_TRANSACTION_CHOICES, default=SALE)
     kcal = models.IntegerField(verbose_name=_("kcal"), default=0, help_text=_("Automatically updated when the transaction is saved"))
     lock_open = models.BooleanField(verbose_name=_("lock opened"), default=False, help_text=_("Lock was opened"))
     door_open = models.BooleanField(verbose_name=_("door opened"), default=False, help_text=_("Door was opened"))
     created = models.DateTimeField(verbose_name=_("created"), auto_now=True, help_text=_("Date of the transaction"))
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_('user'), related_name=_('product_transactions'), help_text=_("User who performs the transaction"))
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_('user'), related_name=_('product_transactions'), null=True, on_delete=models.SET_NULL, help_text=_("User who performs the transaction"))
 
     def abs_quantity(self):
         return abs(self.quantity)
@@ -75,7 +75,7 @@ class ProductTransaction(models.Model):
         self.kcal = self.product.calorie * self.quantity
         super(ProductTransaction, self).save(*args, **kwargs)
 
-    def __unicode__(self):
+    def __str__(self):
         return "%s (%sx)" % (self.product, abs(self.quantity))
 
 
@@ -98,20 +98,20 @@ class FinancialTransaction(models.Model):
         (CORRECTION, _('Correction')),
     )
 
-    product_transaction = models.ForeignKey('ProductTransaction', verbose_name=_('product transaction'), related_name=_('financial_transaction'), blank=True, null=True, help_text=_("Product transaction"))
+    product_transaction = models.ForeignKey('ProductTransaction', verbose_name=_('product transaction'), related_name=_('financial_transaction'), blank=True, null=True, on_delete=models.SET_NULL, help_text=_("Product transaction"))
     amount = models.DecimalField(verbose_name=_("amount"), max_digits=6, decimal_places=2, default=0, help_text=_("Amount in CHF"))
     financial_transaction_type = models.CharField(verbose_name=_("type of transaction"), max_length=2, choices=FINANCIAL_TRANSACTION_CHOICES, default=PRODUCT)
     ipn_transaction = models.CharField(verbose_name=_("IPN transaction ID"), max_length=20, default="", help_text=_("PayPal's IPN transaction ID"))
     created = models.DateTimeField(verbose_name=_("created"), auto_now=True, help_text=_("Date of the transaction"))
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_('user'), related_name=_('financial_transactions'), help_text=_("User who is credited or debited"))
-    banker = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_('banker'), related_name=_('banker_transactions'), blank=True, null=True, help_text=_("Banker who performs the transaction"))
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_('user'), related_name=_('financial_transactions'), null=True, on_delete=models.SET_NULL, help_text=_("User who is credited or debited"))
+    banker = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_('banker'), related_name=_('banker_transactions'), blank=True, null=True, on_delete=models.SET_NULL, help_text=_("Banker who performs the transaction"))
 
     class Meta:
         verbose_name = _('financial transaction')
         verbose_name_plural = _('financial transactions')
         ordering = ['-created']
 
-    def __unicode__(self):
+    def __str__(self):
         return "%s [%s] %s (%s)" % (self.created.strftime("%Y-%m-%d %H:%M:%S"), self.financial_transaction_type, self.user, self.amount)
 
 

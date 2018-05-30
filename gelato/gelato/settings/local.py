@@ -4,7 +4,7 @@
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 
-from base import *
+from gelato.settings.base import *
 
 
 ########## DEBUG CONFIGURATION
@@ -61,7 +61,7 @@ INSTALLED_APPS += (
 INTERNAL_IPS = ('127.0.0.1',)
 
 # See: https://github.com/django-debug-toolbar/django-debug-toolbar#installation
-MIDDLEWARE_CLASSES += (
+MIDDLEWARE += (
  #   'debug_toolbar.middleware.DebugToolbarMiddleware',
 )
 ########## END TOOLBAR CONFIGURATION

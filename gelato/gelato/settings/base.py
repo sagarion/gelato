@@ -51,6 +51,7 @@ ADMINS = (
 MANAGERS = ADMINS
 ########## END MANAGER CONFIGURATION
 
+ADMIN_URL = 'admin/'
 
 ########## DATABASE CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#databases
@@ -194,8 +195,8 @@ TEMPLATES = [
                 'django.template.context_processors.tz',
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.request',
-                'shibboleth.context_processors.login_link',
-                'shibboleth.context_processors.logout_link',
+                #'shibboleth.context_processors.login_link',
+                #'shibboleth.context_processors.logout_link',
             ],
         'debug':DEBUG
         },
@@ -207,16 +208,16 @@ TEMPLATES = [
 
 ########## MIDDLEWARE CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#middleware-classes
-MIDDLEWARE_CLASSES = (
+MIDDLEWARE = (
     # Default Django middleware.
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'shibboleth.middleware.ShibbolethRemoteUserMiddleware',
+    #'shibboleth.middleware.ShibbolethRemoteUserMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'gelato.middleware.CurrentPageMiddleware',
+    #'gelato.middleware.CurrentPageMiddleware',
 )
 
 # CurrentPageMiddleware configuration
@@ -255,7 +256,7 @@ MODELTRANSLATION_TRANSLATION_FILES = (
 
 THIRD_PARTY_APPS = (
     # Database migration helpers:
-    'shibboleth',
+    #'shibboleth',
     #'paypal.standard.ipn',
     #'wkhtmltopdf',
     #'modeltranslation',

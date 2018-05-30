@@ -60,7 +60,7 @@ class PayPalIPNAdmin(admin.ModelAdmin):
         }),
     )
     list_display = [
-        "__unicode__", "flag", "flag_info", "invoice", "custom",
+        "__str__", "flag", "flag_info", "invoice", "custom",
         "payment_status", "created_at"
     ]
     search_fields = ["txn_id", "recurring_payment_id"]

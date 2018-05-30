@@ -202,7 +202,7 @@ class PayPalStandardBase(Model):
     class Meta:
         abstract = True
 
-    def __unicode__(self):
+    def __str__(self):
         if self.is_transaction():
             return self.format % ("Transaction", self.txn_id)
         else:

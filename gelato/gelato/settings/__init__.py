@@ -19,4 +19,4 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with Gelato. If not, see <http://www.gnu.org/licenses/>.
-from local import *
+from gelato.settings.local import *

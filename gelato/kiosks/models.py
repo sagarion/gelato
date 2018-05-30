@@ -43,17 +43,17 @@ class Kiosk(models.Model):
     """
     name = models.CharField(verbose_name=_("name"), max_length=20, help_text=_("Name of the kiosk"))
     location = models.CharField(verbose_name=_("location"), max_length=100, help_text=_("Location of the kiosk"))
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_('user'), related_name=_('kiosk_users'), help_text=_("User account of the kiosk"))
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_('user'), related_name=_('kiosk_users'), on_delete=models.CASCADE, help_text=_("User account of the kiosk"))
     created = models.DateTimeField(verbose_name=_("created"), auto_now_add=True, help_text=_("Creation date of the kiosk in the database"))
     edited = models.DateTimeField(verbose_name=_("edited"), auto_now=True, help_text=_("Last edition of the kiosk in the database"))
-    editor = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_('editor'), related_name=_('kiosks'), help_text=_("Last editor of the kiosk in the database"))
+    editor = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_('editor'), related_name=_('kiosks'), null=True, on_delete=models.SET_NULL, help_text=_("Last editor of the kiosk in the database"))
 
     class Meta:
         verbose_name = _('kiosk')
         verbose_name_plural = _('kiosks')
         ordering = ['name']
 
-    def __unicode__(self):
+    def __str__(self):
         return self.name
 
 
@@ -63,17 +63,17 @@ class KioskStorage(models.Model):
     """
     tier = models.IntegerField(verbose_name=_("tier"), default=0, help_text=_("Tier of a kiosk"))
     tub = models.CharField(verbose_name=_("tub"), max_length=1, blank=True, default="", help_text=_("A kiosk tub on a tier"))
-    kiosk = models.ForeignKey('Kiosk', verbose_name=_('kiosk'), related_name=_('storages'), help_text=_("Kiosk the storage belongs to"))
+    kiosk = models.ForeignKey('Kiosk', verbose_name=_('kiosk'), related_name=_('storages'), on_delete=models.CASCADE, help_text=_("Kiosk the storage belongs to"))
     created = models.DateTimeField(verbose_name=_("created"), auto_now_add=True, help_text=_("Creation date of the kiosk storage in the database"))
     edited = models.DateTimeField(verbose_name=_("edited"), auto_now=True, help_text=_("Last edition of the kiosk storage in the database"))
-    editor = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_('editor'), related_name=_('kiosk_storages'), help_text=_("Last editor of the kiosk storage in the database"))
+    editor = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_('editor'), related_name=_('kiosk_storages'), null=True, on_delete=models.SET_NULL, help_text=_("Last editor of the kiosk storage in the database"))
 
     class Meta:
         verbose_name = _('kiosk storage')
         verbose_name_plural = _('kiosk storage')
         ordering = ['tier', 'tub']
 
-    def __unicode__(self):
+    def __str__(self):
         return "%s%s" % (self.tier, self.tub)
 
 

@@ -1,4 +1,7 @@
-Django==1.11.13
+Django==2.1a1
 django-extensions==2.0.7
 Pillow==5.1.0
 pytz==2018.4
+reportlab==3.4.0
+
+psycopg2==2.7.4

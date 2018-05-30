@@ -36,7 +36,7 @@ class KioskAdmin(admin.ModelAdmin):
 
 
 class KioskStorageAdmin(admin.ModelAdmin):
-    list_display = ('__unicode__', 'kiosk')
+    list_display = ('__str__', 'kiosk')
 
 admin.site.register(Kiosk, KioskAdmin)
 admin.site.register(KioskStorage, KioskStorageAdmin)
