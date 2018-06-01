@@ -1,4 +1,4 @@
 python-daemon
 evdev
 requests
-web.py
+web.py==0.39
