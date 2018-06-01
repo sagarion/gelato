@@ -2,6 +2,6 @@
 -r base.txt
 Sphinx
 django-debug-toolbar
-docutils
+docutils==0.14
 pygraphviz
 
