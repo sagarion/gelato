@@ -1,4 +1,4 @@
 python-daemon
 evdev
-requests
+requests==2.18.4
 web.py
