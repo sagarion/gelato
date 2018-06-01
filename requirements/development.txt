@@ -3,5 +3,5 @@
 Sphinx
 django-debug-toolbar
 docutils
-pygraphviz
+pygraphviz==1.3.1
 
