@@ -1,7 +1,7 @@
 # Local development dependencies go here
 -r base.txt
 Sphinx
-django-debug-toolbar
+django-debug-toolbar==1.9.1
 docutils
 pygraphviz
 
