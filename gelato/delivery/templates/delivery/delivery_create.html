@@ -1,0 +1,11 @@
+
+{%  block content %}
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <h1> test this is delivery_new</h1>
+    <button type="submit">Save</button>
+</form>
+
+{%  endblock %}

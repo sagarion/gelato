@@ -1,0 +1,18 @@
+{% block body %}
+<br />
+
+ <h1> détail livraison {{ delivery.id }} </h1>
+    <h2> date : {{ delivery.date|date:'Y-m-d' }}</h2>
+    <h2> livreur : {{ delivery.user.name }}</h2>
+    {% if delivery.deliveryLines.count == 0 %}
+    <ul>
+    {% for item in delivery.deliveryLines.all %}
+    <li> glace : {{ item.iceCream }} de quantite {{ item.quantity }} </li>
+    {% endfor %}
+    </ul>
+    {% else  %}
+        <h2> il n'y pas de glace dans cette inventaire</h2>
+    {% endif  %}
+
+    <a href="/delivery/delivery/{{ delivery.id }}/inventory/"><button>inventaire de livraison</button></a>
+{% endblock %}

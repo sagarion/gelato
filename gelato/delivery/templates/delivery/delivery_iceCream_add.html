@@ -1,0 +1,20 @@
+{% block body %}
+    <h1>ajoute iceCream</h1>
+    <h2> Livraison {{ delivery.id }}</h2>
+    <h3>Glace</h3>
+    <h4>nom : {{ iceCream.name }}</h4>
+    <h4>code barre : {{ iceCream.barcode }}</h4>
+
+
+    <form method="post">
+         {% csrf_token %}
+                {{ form.non_field_errors }}
+        <div class="fieldWrapper">
+            {{ form.quantity.errors }}
+            <label for="{{ form.quantity.id_for_label }}">quantitée :</label>
+            {{ form.quantity }}
+            <input type="submit" value="ajouter">
+        </div>
+</form>
+
+{% endblock %}

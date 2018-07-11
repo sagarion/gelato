@@ -1,0 +1,10 @@
+{% block body %}
+<br />
+<h1>liste utilisateur </h1>
+
+    {% for user in users %}
+        <h3>{{user.name}}</h3>
+        <p><a href="/delivery/user/{{user.id}}">/delivery/user/{{user.id}}</a></p>
+    {% endfor %}
+
+{% endblock %}

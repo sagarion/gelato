@@ -1,0 +1,183 @@
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<style>
+    #snackbar {
+    visibility: hidden;
+    min-width: 250px;
+    margin-left: -125px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 2px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    bottom: 30px;
+    font-size: 17px;
+}
+
+#snackbar.show {
+    visibility: visible;
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+@-webkit-keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 30px; opacity: 1;}
+}
+
+@keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 30px; opacity: 1;}
+}
+
+@-webkit-keyframes fadeout {
+    from {bottom: 30px; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
+}
+
+@keyframes fadeout {
+    from {bottom: 30px; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
+}
+</style>
+</head>
+
+{% block body %}
+<br />
+
+ <h1> détail livraison {{ delivery.id }} </h1>
+    <h2> date : {{ delivery.creation|date:'Y-m-d' }}</h2>
+    <h2> livreur : {{ delivery.user.name }}</h2>
+    {% if delivery.deliveryLines.count != 0  %}
+        <table>
+    {% for item in inventory.all %}
+        <tr>
+            <td id="{{ item.id }}">{{ item.iceCream.barcode}} : {{ item.iceCream.name}} de quantitée {{ item.quantity }}</td>
+            {% if delivery.justification == None %}
+            <td>
+                <button onclick="toast('ajout 1 {{ item.iceCream.name}}'),
+                        addone({{ item.delivery.id }}, {{ item.iceCream.id }})">ajout 1</button> </td>
+            <td>
+                <button onclick="subone({{ item.delivery.id }}, {{ item.iceCream.id }})">soustrait 1</button></td>
+            <td><a href="../{{ delivery.id }}/line/{{ item.id }}/delete/">
+                <button onclick="toast('la totalité des {{ item.iceCream.name}}')">supprimer</button ></a></td>
+            {% endif %}
+    </tr>
+    {% endfor %}
+        </table>
+    {% else  %}
+        <h2> il n'y pas de glace dans cette inventaire</h2>
+    {% endif  %}
+    <br>
+    {% if delivery.justification == None %}
+    <div class="container">
+    <form action="" method="post">
+         {% csrf_token %}
+                {{ form.non_field_errors }}
+        <div class="fieldWrapper">
+            <div style="display:inline-block">
+            {{ form.barcode.errors }}
+            <p>veuiller scanner le code barre de votre produit :</p>
+            <label for="{{ form.barcode.id_for_label }}">code barre :</label>
+            {{ form.barcode }}
+            </div>
+            <div style="display:inline-block">
+            <img src="https://www.univers-discount.fr/sf/contents/media/XL3100a.JPG" height="70" width="70">
+            </div>
+        </div>
+</form>
+
+  <br>
+{% endif %}
+</div>
+    {% if delivery.justification == None %}
+        <a href="/../../photo/justification/new/{{delivery.id}}" style="padding-right:50"><button>validation</button></a>
+        <a href="/delivery/delete/{{delivery.id}}/user/{{delivery.user.id}}"><button>supprimer</button></a>
+    {% else %}
+        <h2>montant : {{ delivery.justification.montant }} CHF</h2>
+        <img src="{{ delivery.justification.photo.url }}" height="200" width="200"/>
+    {%endif%}
+    <br>
+    <br>
+    <a href="/delivery/user/{{delivery.user.id}}"><button>retour au profil de l'utilisateur</button></a>
+   <div id="snackbar">message to toast</div>
+
+
+<script>
+function addone(delivery_id, product_id) {
+    $.ajax({
+      method: "POST",
+      url: "../"+ delivery_id +"/iceCream/"+ product_id +"/addOne/",
+      data: {},
+      success: function(data) {
+        console.log(data) // check out how data is structured
+
+        // Update the coin amount
+        document.getElementById(data.id).innerHTML = data.barcode +" : " + data.product + " de quantitée " + data.quantity
+          toast("Ajout d'une unité de " + data.product )
+      }
+    })
+  };
+
+function subone(delivery_id, product_id) {
+    $.ajax({
+      method: "POST",
+      url: "../"+ delivery_id +"/iceCream/"+ product_id +"/substractOne/",
+      data: {},
+      success: function(data) {
+        console.log(data) // check out how data is structured
+
+        // update la ligne d'inventaire modifié
+        document.getElementById(data.id).innerHTML = data.barcode +" : " + data.product + " de quantitée " + data.quantity
+          toast("Prélèvement d'une unité de " + data.product )
+      }
+    })
+  };
+
+// toast a message to inform user his action is down
+    function toast(message) {
+    var x = document.getElementById("snackbar");
+    x.className = "show";
+    x.innerHTML = message;
+    setTimeout(function(){ x.className = x.className.replace("show", ""); },5000);
+}
+</script>
+
+<script>
+// update the content of table of iceCream
+$(document).ready(function(){
+  $("#{{ form.barcode.id_for_label }}").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myTable tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+
+function myFunction() {
+  // Declare variables
+  var input, filter, table, tr, td, i;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+
+  // Loop through all table rows, and hide those who don't match the search query
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
+}
+</script>
+{% endblock %}

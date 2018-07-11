@@ -1,0 +1,24 @@
+{% block body %}
+<br />
+
+ <h1> liste livraison de {{ user.name }}</h1>
+    {% if  deliveries %}
+        {% for delivery in deliveries %}
+            {% if delivery.justification != None %}
+                <li> <a href="/delivery/delivery/{{ delivery.id}}">livraison {{ delivery.id }} du
+                {{ delivery.date|date:'Y-m-d' }}, validée </a> </li>
+            {% else %}
+                <li> <a href="/delivery/delivery/{{ delivery.id}}">livraison {{ delivery.id }} du
+                {{ delivery.date|date:'Y-m-d' }}, en attente de validation </a> </li>
+            {% endif %}
+
+        {%  endfor %}
+    {% else %}
+        <h2> pas d'inventaire disponible</h2>
+    {% endif %}
+    <br>
+    <a href="/delivery/delivery/new/{{ user.id }}"><button>nouvelle livraison</button></a>
+    <br>
+    <br>
+    <a href="/delivery/"><button>retour</button></a>
+{% endblock %}
